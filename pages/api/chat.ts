@@ -49,9 +49,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     
     let reply = 'No response received';
     if (replyMsg && Array.isArray(replyMsg.content)) {
-      const textContent = replyMsg.content.find((content: any) => content.type === 'text');
-      if (textContent && textContent.text) {
-        reply = textContent.text.value || '';
+      const textContent = replyMsg.content.find((content: any) => content.type === 'text') as any;
+      if (textContent && textContent.text && textContent.text.value) {
+        reply = textContent.text.value;
       }
     } else if (replyMsg && typeof replyMsg.content === 'string') {
       reply = replyMsg.content;
