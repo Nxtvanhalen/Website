@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+
+@tailwind base;
+@layer base {
+  body {
+    @apply font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+  input, textarea, button, select, a {
+    @apply font-body;
+  }
+}
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --color-bg: var(--charcoal);
+  --color-text: var(--text-light);
+  --color-accent: var(--deep-orange);
+  --black: #000000;
+  --charcoal: #1E1E1E;
+  --moonlight: #C0C0C0;
+  --mauve: #9370DB;
+  --deep-orange: #FF6F00;
+  --text-light: #ffffff;
+  --text-dark: #333333;
+}
+/* Header and Navigation */
+.header {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+.header.scrolled {
+  padding: 15px 5%;
+  background: rgba(0,0,0,0.95);
+}
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.logo span {
+  color: var(--mauve);
+  margin-right: 0.25rem;
+}
+.nav {
+  display: flex;
+  align-items: center;
+}
+.nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 1rem;
+  font-weight: 400;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav a:hover {
+  color: var(--mauve);
+}
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--mauve);
+  transition: width 0.3s ease;
+}
+.nav a:hover::after {
+  width: 100%;
+}
+/* Footer */
+.footer {
+  background-color: var(--charcoal);
+  padding: 80px 5% 40px;
+  position: relative;
+  overflow: hidden;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mauve), var(--deep-orange), var(--mauve));
+  background-size: 200% 100%;
+  animation: gradientAnimation 5s ease infinite;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.footer-logo span {
+  color: var(--mauve);
+}
+.footer-nav {
+  margin: 30px 0;
+}
+.footer-nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+.footer-nav a:hover {
+  color: var(--mauve);
+}
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.footer-bottom p {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.7);
+}
+
+html {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-y: scroll;
+  scrollbar-gutter: stable both-edges;
+}
+
+body {
+  @apply font-body;
+}
+
+h1, h2, h3 {
+  @apply font-heading;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Enhanced glow effect for EVE AI */
+@keyframes glow {
+  0%, 100% { 
+    text-shadow: 
+      0 0 5px #529B12, 
+      0 0 10px #529B12, 
+      0 0 15px #529B12,
+      0 0 20px #529B12; 
+  }
+  50% { 
+    text-shadow: 
+      0 0 10px #529B12, 
+      0 0 20px #529B12, 
+      0 0 30px #529B12,
+      0 0 40px #529B12,
+      0 0 50px #529B12; 
+  }
+}
+
+.glow {
+  animation: glow 2s ease-in-out infinite alternate;
+  color: #529B12;
+}
