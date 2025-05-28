@@ -46,11 +46,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // 5. Retrieve messages from the thread
     const messages = await openai.beta.threads.messages.list(thread.id);
     const replyMsg = messages.data.find((m) => m.role === 'assistant');
-    const reply = replyMsg 
-      ? (Array.isArray(replyMsg.content)
-          ? (replyMsg.content[0]?.text?.value || '')
-          : (typeof replyMsg.content === 'string' ? replyMsg.content : ''))
-      : 'No response received';
+    
+    let reply = 'No response received';
+    if (replyMsg && Array.isArray(replyMsg.content)) {
+      const textContent = replyMsg.content.find((content: any) => content.type === 'text');
+      if (textContent && textContent.text) {
+        reply = textContent.text.value || '';
+      }
+    } else if (replyMsg && typeof replyMsg.content === 'string') {
+      reply = replyMsg.content;
+    }
 
     // 6. Return response with threadId for future messages
     return res.status(200).json({ reply, threadId: thread.id });
