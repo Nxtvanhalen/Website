@@ -9,6 +9,19 @@ export default function Home() {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
     }
+
+    // Parallax scroll effect
+    const handleScroll = () => {
+      const scrolled = window.pageYOffset;
+      const parallaxBg = document.querySelector('.parallax-bg') as HTMLElement;
+      if (parallaxBg) {
+        const speed = 0.5;
+        parallaxBg.style.transform = `translateY(${scrolled * speed}px)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -21,7 +34,12 @@ export default function Home() {
         <meta name="theme-color" content="#000000" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
       </Head>
-      <main className="min-h-screen bg-black text-white">
+      {/* Parallax Background */}
+      <div className="parallax-container">
+        <div className="parallax-bg"></div>
+      </div>
+      
+      <main className="min-h-screen bg-black/80 text-white relative z-10">
         <Marquee />
         <section className="pt-16 pb-8 px-6 text-center">
           <h2 className="text-4xl font-heading mb-4 bg-gradient-to-r from-white via-molten to-white bg-clip-text text-transparent">

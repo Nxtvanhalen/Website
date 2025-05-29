@@ -171,22 +171,75 @@ h1, h2, h3 {
 @keyframes glow {
   0%, 100% { 
     text-shadow: 
-      0 0 5px #529B12, 
-      0 0 10px #529B12, 
-      0 0 15px #529B12,
-      0 0 20px #529B12; 
+      0 0 5px #F5F5DC, 
+      0 0 10px #F5F5DC, 
+      0 0 15px #F5F5DC,
+      0 0 20px #F5F5DC; 
   }
   50% { 
     text-shadow: 
-      0 0 10px #529B12, 
-      0 0 20px #529B12, 
-      0 0 30px #529B12,
-      0 0 40px #529B12,
-      0 0 50px #529B12; 
+      0 0 10px #F5F5DC, 
+      0 0 20px #F5F5DC, 
+      0 0 30px #F5F5DC,
+      0 0 40px #F5F5DC,
+      0 0 50px #F5F5DC; 
   }
 }
 
 .glow {
   animation: glow 2s ease-in-out infinite alternate;
-  color: #529B12;
+  color: #F5F5DC;
+}
+
+/* Custom animations to replace framer-motion */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-width {
+  0%, 100% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+.animate-pulse-width {
+  animation: pulse-width 4s ease-in-out infinite;
+}
+
+/* Parallax Background */
+.parallax-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background-image: url('/images/parallax-bg1.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+  filter: brightness(0.3) saturate(1.2);
 }
