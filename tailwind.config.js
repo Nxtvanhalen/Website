@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        molten: '#529B12', // Homebrew green accent
+        molten: '#F8F6F0', // Soft off-white accent
         mauve: '#9370DB',
         deepOrange: '#FF6F00',
         charcoal: '#1E1E1E',
