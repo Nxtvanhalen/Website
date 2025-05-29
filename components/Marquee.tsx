@@ -29,7 +29,7 @@ export default function Marquee() {
         </p>
         <div className="relative mb-16">
           <p className="text-2xl font-body opacity-90 inline-block">
-            consulting, educating, preserving
+            Consulting, Educating, Preserving
           </p>
           <span className="absolute bottom-0 left-0 h-0.5 bg-molten block animate-pulse-width" />
         </div>

@@ -1,25 +1,67 @@
 export default function Ethos() {
   return (
-    <section id="ethos" className="py-12 px-6 max-w-3xl mx-auto text-center">
-      <h2 className="text-4xl mb-4">CLB Ethos | Consulting with Vision and Velocity</h2>
-      <ul className="list-disc list-inside space-y-3 text-lg leading-relaxed">
-        <li>
-          <span className="font-bold">Civic-Minded Precision:</span> Reframes challenges to connect technical infrastructure with cultural and civic value.
-        </li>
-        <li>
-          <span className="font-bold">Operational Elegance:</span> Brings clarity to chaos by guiding teams and systems through uncertainty with structure, empathy, and effectiveness.
-        </li>
-        <li>
-          <span className="font-bold">Entertainment as Engine:</span> Positions live performance as vital civic infrastructure for economic recovery, social cohesion, and communal identity.
-        </li>
-        <li>
-          <span className="font-bold">Ethical Systems Thinking:</span> Prioritizes regenerative models over extractive ones, ensuring every engagement supports long-term cultural, economic, and environmental sustainability.
-        </li>
-        <li>
-          <span className="font-bold">Narrative-Driven Strategy:</span> Crafts strategic narratives that transform plans into movements, delivering direction imbued with purpose and soul.
-        </li>
-      </ul>
-      <div className="mt-6 text-4xl leading-none">⸻</div>
+    <section id="ethos" className="py-12 px-6 max-w-4xl mx-auto text-left">
+      <div className="space-y-8">
+        <p className="text-lg leading-relaxed">
+          Chris Lee Bergstrom is not another consultant. He is the sum of systems endured, truths spoken, and stages held when others went quiet. CLB Consulting is the articulation of that history: an AI-powered studio for transformation, disruption, and cultural recalibration.
+        </p>
+        
+        <div className="text-center text-4xl leading-none">⸻</div>
+        
+        <div className="text-center">
+          <h3 className="text-3xl font-heading mb-6">The Ethos</h3>
+          <div className="space-y-2 text-lg">
+            <p>We don't just optimize—we intervene.</p>
+            <p>We don't just consult—we confront.</p>
+            <p>We don't just strategize—we storytell the future into being.</p>
+          </div>
+        </div>
+        
+        <div className="text-center text-4xl leading-none">⸻</div>
+        
+        <div>
+          <h3 className="text-3xl font-heading mb-6 text-center">CLB is Built On:</h3>
+          <ul className="space-y-4 text-lg leading-relaxed">
+            <li>
+              <span className="font-bold text-molten">• Civic-Minded Precision</span><br />
+              Infrastructure is culture. Every line of code, every live event, every system audit is a form of civic repair.
+            </li>
+            <li>
+              <span className="font-bold text-molten">• Operational Elegance</span><br />
+              We bring shape to entropy. Not with rigidity—but with frameworks built on empathy, clarity, and velocity.
+            </li>
+            <li>
+              <span className="font-bold text-molten">• Entertainment as Engine</span><br />
+              Live performance is not a luxury. It is infrastructure. It is survival. It is the heartbeat of shared public imagination.
+            </li>
+            <li>
+              <span className="font-bold text-molten">• Ethical Systems Thinking</span><br />
+              No extractive shortcuts. Only regenerative, legacy-conscious design. We leave systems better than we found them.
+            </li>
+            <li>
+              <span className="font-bold text-molten">• Narrative-Driven Strategy</span><br />
+              Movements need myth. We architect futures that are as emotionally resonant as they are tactically sound.
+            </li>
+          </ul>
+        </div>
+        
+        <div className="text-center text-4xl leading-none">⸻</div>
+        
+        <div className="text-center">
+          <h3 className="text-3xl font-heading mb-4">Ask EVE.</h3>
+          <p className="text-lg leading-relaxed">
+            EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. AI should never replace the artist. It should empower the visionary.
+          </p>
+        </div>
+        
+        <div className="text-center text-4xl leading-none">⸻</div>
+        
+        <div className="text-center">
+          <p className="text-lg leading-relaxed italic">
+            This isn't just consultancy. It's reclamation. It's theater meets system logic. AI meets ancestral memory. Vision meets executable reality.
+          </p>
+        </div>
+      </div>
     </section>
   );
 }

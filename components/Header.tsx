@@ -14,9 +14,6 @@ export default function Header() {
         <Link href="/" className="logo">
           <span>CLB</span>Consultancy
         </Link>
-        <div className="hidden md:block text-sm italic text-molten/80 font-light">
-          "The advancement of the arts is directly related to the advancement of society"
-        </div>
       </div>
     </header>
   );
