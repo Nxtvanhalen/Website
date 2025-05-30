@@ -11,47 +11,38 @@ export default function Ethos() {
         <div className="text-center">
           <h3 className="text-3xl font-heading mb-6">The Ethos</h3>
           <div className="space-y-2 text-lg">
-            <p>We don't just optimize—we intervene.</p>
-            <p>We don't just consult—we confront.</p>
-            <p>We don't just strategize—we storytell the future into being.</p>
+            <p>Don't just optimize — Intervene.</p>
+            <p>Don't just consult — Confront.</p>
+            <p>Don't just strategize — Storytell the future into being.</p>
           </div>
         </div>
         
         <div className="text-center text-4xl leading-none">⸻</div>
         
-        <div>
-          <h3 className="text-3xl font-heading mb-6 text-center">CLB is Built On:</h3>
-          <ul className="space-y-4 text-lg leading-relaxed">
+        <div className="text-center">
+          <h3 className="text-3xl font-heading mb-6">CLB is Built On:</h3>
+          <ul className="space-y-4 text-lg leading-relaxed text-center max-w-3xl mx-auto">
             <li>
-              <span className="font-bold text-molten">• Civic-Minded Precision</span><br />
+              <span className="font-bold text-molten">Civic-Minded Precision</span><br />
               Infrastructure is culture. Every line of code, every live event, every system audit is a form of civic repair.
             </li>
             <li>
-              <span className="font-bold text-molten">• Operational Elegance</span><br />
+              <span className="font-bold text-molten">Operational Elegance</span><br />
               We bring shape to entropy. Not with rigidity—but with frameworks built on empathy, clarity, and velocity.
             </li>
             <li>
-              <span className="font-bold text-molten">• Entertainment as Engine</span><br />
+              <span className="font-bold text-molten">Entertainment as Engine</span><br />
               Live performance is not a luxury. It is infrastructure. It is survival. It is the heartbeat of shared public imagination.
             </li>
             <li>
-              <span className="font-bold text-molten">• Ethical Systems Thinking</span><br />
+              <span className="font-bold text-molten">Ethical Systems Thinking</span><br />
               No extractive shortcuts. Only regenerative, legacy-conscious design. We leave systems better than we found them.
             </li>
             <li>
-              <span className="font-bold text-molten">• Narrative-Driven Strategy</span><br />
+              <span className="font-bold text-molten">Narrative-Driven Strategy</span><br />
               Movements need myth. We architect futures that are as emotionally resonant as they are tactically sound.
             </li>
           </ul>
-        </div>
-        
-        <div className="text-center text-4xl leading-none">⸻</div>
-        
-        <div className="text-center">
-          <h3 className="text-3xl font-heading mb-4">Ask EVE.</h3>
-          <p className="text-lg leading-relaxed">
-            EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. AI should never replace the artist. It should empower the visionary.
-          </p>
         </div>
         
         <div className="text-center text-4xl leading-none">⸻</div>

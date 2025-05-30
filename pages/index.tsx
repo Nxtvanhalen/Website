@@ -6,6 +6,16 @@ import Contact from '../components/Contact';
 
 export default function Home() {
   useEffect(() => {
+    // Force page to top immediately
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
+    
+    // Also prevent browser from restoring scroll position
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
     }
@@ -40,8 +50,45 @@ export default function Home() {
       }
     };
 
+    // Video scroll trigger with Intersection Observer
+    const setupVideoScrollTrigger = () => {
+      const video = document.getElementById('scroll-video') as HTMLVideoElement;
+      if (!video) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              video.play().catch(console.log);
+            } else {
+              video.pause();
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(video);
+    };
+
+
+    // Simple scroll fade - disabled temporarily
+    const setupSimpleScrollFade = () => {
+      return () => {}; // No-op cleanup function
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    setupVideoScrollTrigger();
+    const fadeCleanup = setupSimpleScrollFade();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      fadeCleanup();
+    };
+  }, []);
+
+  // Force scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -78,14 +125,34 @@ export default function Home() {
       
       <main className="min-h-screen bg-black/80 text-white relative z-10">
         <Marquee />
-        <section className="pt-16 pb-8 px-6 text-center">
-          <h2 className="text-4xl font-heading mb-4 bg-gradient-to-r from-white via-molten to-white bg-clip-text text-transparent">
-            CLB Consulting
+        <section className="pt-32 pb-8 px-6 text-center">
+          <h2 className="text-4xl font-heading mb-4 bg-gradient-to-r from-white via-molten to-white bg-clip-text text-transparent glow-subtle">
+            CLB Consultancy
           </h2>
           <p className="text-xl mb-6 max-w-3xl mx-auto leading-relaxed">
             <span className="text-molten font-bold">Strategy Born from the Wreckage, Intelligence Forged in the Fire</span>
           </p>
         </section>
+        
+        
+        {/* Scroll-triggered video section */}
+        <section className="py-12 px-6">
+          <div className="max-w-4xl mx-auto">
+            <video 
+              id="scroll-video"
+              className="w-full h-auto border-none rounded-none bg-transparent"
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            >
+              <source src="/videos/IMG_0279.mov" type="video/quicktime" />
+              <source src="/videos/IMG_0279.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </section>
+        
         <Ethos />
         <Contact />
       </main>

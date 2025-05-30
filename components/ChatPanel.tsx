@@ -14,10 +14,10 @@ export default function ChatPanel() {
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto-focus input on mount
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+  // Auto-focus input on mount - DISABLED to prevent auto-scroll
+  // useEffect(() => {
+  //   inputRef.current?.focus();
+  // }, []);
 
   // Scroll to bottom on new messages
   useEffect(() => {

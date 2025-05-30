@@ -171,23 +171,47 @@ h1, h2, h3 {
 @keyframes glow {
   0%, 100% { 
     text-shadow: 
+      0 0 2.5px #F5F5DC, 
       0 0 5px #F5F5DC, 
-      0 0 10px #F5F5DC, 
-      0 0 15px #F5F5DC,
-      0 0 20px #F5F5DC; 
+      0 0 7.5px #F5F5DC,
+      0 0 10px #F5F5DC; 
   }
   50% { 
     text-shadow: 
+      0 0 5px #F5F5DC, 
       0 0 10px #F5F5DC, 
-      0 0 20px #F5F5DC, 
-      0 0 30px #F5F5DC,
-      0 0 40px #F5F5DC,
-      0 0 50px #F5F5DC; 
+      0 0 15px #F5F5DC,
+      0 0 20px #F5F5DC,
+      0 0 25px #F5F5DC; 
   }
 }
 
 .glow {
-  animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 6s ease-in-out infinite alternate;
+  color: #F5F5DC;
+}
+
+/* Subtle glow for main heading */
+@keyframes glow-subtle {
+  0%, 100% { 
+    text-shadow: 
+      0 0 0.5px #F5F5DC, 
+      0 0 1px #F5F5DC, 
+      0 0 1.5px #F5F5DC,
+      0 0 2px #F5F5DC; 
+  }
+  50% { 
+    text-shadow: 
+      0 0 1px #F5F5DC, 
+      0 0 2px #F5F5DC, 
+      0 0 3px #F5F5DC,
+      0 0 4px #F5F5DC,
+      0 0 5px #F5F5DC; 
+  }
+}
+
+.glow-subtle {
+  animation: glow-subtle 6s ease-in-out infinite alternate;
   color: #F5F5DC;
 }
 
@@ -206,7 +230,7 @@ h1, h2, h3 {
     width: 0%;
   }
   50% {
-    width: 100%;
+    width: 37%;
   }
 }
 
@@ -215,7 +239,85 @@ h1, h2, h3 {
 }
 
 .animate-pulse-width {
-  animation: pulse-width 4s ease-in-out infinite;
+  animation: pulse-width 7s ease-in-out infinite;
+}
+
+/* Testimonial Banner */
+.testimonial-scroll {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-track {
+  display: inline-block;
+  animation: scroll-left 60s linear infinite;
+}
+
+.testimonial-item {
+  display: inline-block;
+  padding: 0 3rem;
+  font-size: 1.1rem;
+  color: #F5F5DC;
+  opacity: 0.9;
+  font-style: italic;
+  transition: opacity 0.3s ease;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
+.testimonial-item:hover {
+  opacity: 1;
+  color: white;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Scroll fade effect - CSS based */
+.scroll-fade {
+  transition: opacity 0.4s ease-out, filter 0.4s ease-out;
+}
+
+/* Video with soft edges */
+#scroll-video {
+  mask: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  ),
+  linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-composite: intersect;
+  -webkit-mask: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  ),
+  linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-composite: source-in;
 }
 
 /* Parallax Background */

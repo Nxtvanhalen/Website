@@ -12,7 +12,7 @@ export default function Header() {
     <header className={scrolled ? 'header scrolled' : 'header'}>
       <div className="flex items-center space-x-4">
         <Link href="/" className="logo">
-          <span>CLB</span>Consultancy
+          <span>CLB</span>Consulting
         </Link>
       </div>
     </header>
