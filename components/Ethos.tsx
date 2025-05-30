@@ -2,7 +2,7 @@ export default function Ethos() {
   return (
     <section id="ethos" className="py-12 px-6 max-w-4xl mx-auto text-left">
       <div className="space-y-8">
-        <p className="text-lg leading-relaxed">
+        <p className="text-lg leading-relaxed text-center">
           Chris Lee Bergstrom is not another consultant. He is the sum of systems endured, truths spoken, and stages held when others went quiet. CLB Consulting is the articulation of that history: an AI-powered studio for transformation, disruption, and cultural recalibration.
         </p>
         

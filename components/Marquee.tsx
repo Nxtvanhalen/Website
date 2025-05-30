@@ -29,10 +29,10 @@ export default function Marquee() {
           "The advancement of the arts is directly related to the advancement of society"
         </p>
         
-        {/* Experience paragraph with pulsing line */}
-        <div className="relative mb-16 mx-auto" style={{ width: '48rem' }}>
-          <p className="text-base font-body opacity-90 text-center leading-relaxed" style={{ width: '100%' }}>
-            With two decades of global live entertainment experience—from arenas to civic halls—Chris brings strategy grounded in lived reality, not theory.<br />From backstage operations to AI strategy, he translates hard-earned wisdom into<br />solutions that work under pressure.
+        {/* Experience paragraph with pulsing line - Mobile responsive */}
+        <div className="relative mb-16 mx-auto max-w-4xl px-4">
+          <p className="text-base font-body opacity-90 text-center leading-relaxed">
+            With two decades of global live entertainment experience—from arenas to civic halls—Chris brings strategy grounded in lived reality, not theory. From backstage operations to AI strategy, he translates hard-earned wisdom into solutions that work under pressure.
           </p>
           <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-molten block animate-pulse-width w-32" />
         </div>
