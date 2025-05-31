@@ -147,4 +147,4 @@ curl -s http://127.0.0.1:3000 | head -5
 ### Content Hierarchy
 - Maintain the revolutionary edge in all copy
 - AI as empowerment tool, not replacement narrative
-- Focus on intervention and transformation over optimization
+- Focus on intervention and transformation over optimization# Force cache clear Sat May 31 01:15:09 PDT 2025
