@@ -36,15 +36,12 @@ export default function Header() {
         </div>
         
         {/* Bottom row: Navigation Links */}
-        <div className="flex items-center justify-between max-w-4xl mx-auto w-full px-8 py-0.5 border-t border-molten/20">
+        <div className="flex items-center justify-between max-w-4xl mx-auto w-full px-4 py-0.5 border-t border-molten/20 md:px-8">
           <a href="/about" className="nav-link">
             About Chris
           </a>
           <a href="/projects" className="nav-link">
             Projects
-          </a>
-          <a href="/help" className="nav-link">
-            How I Can Help
           </a>
           <a href="/news" className="nav-link">
             News/Press

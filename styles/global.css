@@ -114,17 +114,26 @@
 
 .nav-link {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 500;
   color: var(--mauve);
   text-decoration: none;
-  padding: 16px 12px 1px 12px;
+  padding: 16px 20px 1px 20px;
   border-radius: 3px;
   transition: all 0.3s ease;
   position: relative;
   letter-spacing: 0.5px;
   line-height: 1;
   display: inline-block;
+}
+
+/* Mobile responsive nav links */
+@media (max-width: 768px) {
+  .nav-link {
+    font-size: 1.1rem;
+    padding: 12px 12px 1px 12px;
+    letter-spacing: 0.25px;
+  }
 }
 
 .nav-link:hover {

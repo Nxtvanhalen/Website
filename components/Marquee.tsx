@@ -92,7 +92,7 @@ export default function Marquee() {
         <p className="text-4xl font-heading mb-2 glow">
           EVE AI
         </p>
-        <div className="w-full max-w-4xl mt-2 mb-8 bg-black/40 rounded-lg shadow-xl overflow-hidden border border-white" style={{ height: '50vh', minHeight: '350px' }}>
+        <div className="w-full max-w-4xl mt-2 mb-2 bg-black/40 rounded-lg shadow-xl overflow-hidden border border-white" style={{ height: '50vh', minHeight: '350px' }}>
           <ChatPanel />
         </div>
         

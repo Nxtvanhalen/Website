@@ -125,7 +125,7 @@ export default function Home() {
       
       <main className="min-h-screen bg-black/80 text-white relative z-10">
         <Marquee />
-        <section className="pt-32 pb-8 px-6 text-center">
+        <section className="pt-8 pb-8 px-6 text-center">
           <h2 className="text-4xl font-heading mb-4 bg-gradient-to-r from-white via-molten to-white bg-clip-text text-transparent glow-subtle">
             CLB Consultancy
           </h2>
