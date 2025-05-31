@@ -32,7 +32,8 @@ export default function About() {
                   className="w-full h-full object-cover object-top"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
-                    e.currentTarget.nextElementSibling.style.display = 'flex';
+                    const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                    if (fallback) fallback.style.display = 'flex';
                   }}
                 />
                 <div className="w-full h-full flex items-center justify-center" style={{display: 'none'}}>
