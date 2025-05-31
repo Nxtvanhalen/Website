@@ -21,7 +21,7 @@ export default function Marquee() {
           CLB
         </text>
       </svg>
-      <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-32 pb-16 text-center text-white">
+      <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-40 pb-16 text-center text-white">
         <h1 className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 glow-subtle">
           Chris Lee Bergstrom
         </h1>
@@ -36,9 +36,56 @@ export default function Marquee() {
           </p>
           <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-molten block animate-pulse-width w-32" />
         </div>
-        <div className="mb-8 max-w-4xl mx-auto">
-          <p className="text-base font-body opacity-90 text-center leading-relaxed">
-            AI and entertainment are already intertwined. I will help you navigate and harness this powerful tool. Try EVE below to see what the possibilities are.
+
+        {/* Horizontal scrolling gallery - ticker style */}
+        <div className="mb-16 w-full max-w-6xl mx-auto px-4">
+          <div className="gallery-container overflow-hidden">
+            <div className="gallery-track-ticker flex gap-6">
+              {/* First set of items */}
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project1.webp" alt="Project 1" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project2.webp" alt="Project 2" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project3.webp" alt="Project 3" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project4.webp" alt="Project 4" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project5.webp" alt="Project 5" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project6.webp" alt="Project 6" className="w-full h-full object-cover" />
+              </div>
+              {/* Duplicate set for seamless loop */}
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project1.webp" alt="Project 1" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project2.webp" alt="Project 2" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project3.webp" alt="Project 3" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project4.webp" alt="Project 4" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project5.webp" alt="Project 5" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project6.webp" alt="Project 6" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mb-8 max-w-3xl mx-auto text-center">
+          <h3 className="text-3xl font-heading mb-4">Ask EVE.</h3>
+          <p className="text-lg leading-relaxed opacity-90">
+            EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. AI should never replace the artist. It should empower the visionary.
           </p>
         </div>
         
@@ -49,13 +96,6 @@ export default function Marquee() {
           <ChatPanel />
         </div>
         
-        {/* Ask EVE section - moved from Ethos */}
-        <div className="text-center mt-8 mb-16 max-w-3xl mx-auto">
-          <h3 className="text-3xl font-heading mb-4">Ask EVE.</h3>
-          <p className="text-lg leading-relaxed opacity-90">
-            EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. AI should never replace the artist. It should empower the visionary.
-          </p>
-        </div>
       </div>
     </div>
   );

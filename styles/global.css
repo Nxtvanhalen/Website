@@ -89,6 +89,60 @@
 .nav a:hover::after {
   width: 100%;
 }
+
+/* Social Media Icons */
+.social-icon {
+  color: var(--text-light);
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.social-icon:hover {
+  color: var(--mauve);
+  transform: translateY(-2px);
+}
+
+/* Navigation Bar */
+.navigation-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-link {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--mauve);
+  text-decoration: none;
+  padding: 16px 12px 1px 12px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  color: white;
+  background-color: rgba(147, 112, 219, 0.1);
+  transform: translateY(-2px);
+  text-shadow: 
+    0 0 12px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.4);
+  animation: nav-glitch 0.3s ease-in-out;
+}
+
+@keyframes nav-glitch {
+  0%, 100% { transform: translateY(-2px); }
+  25% { transform: translateY(-2px) translateX(1px); }
+  50% { transform: translateY(-2px) translateX(-1px); }
+  75% { transform: translateY(-2px) translateX(1px); }
+}
 /* Footer */
 .footer {
   background-color: var(--charcoal);
@@ -318,6 +372,58 @@ h1, h2, h3 {
     transparent 100%
   );
   -webkit-mask-composite: source-in;
+}
+
+/* Gallery with soft edges - same effect as video */
+.gallery-container {
+  mask: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gallery-container::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-track {
+  scroll-behavior: smooth;
+}
+
+.gallery-track-ticker {
+  display: flex;
+  animation: gallery-scroll 45s linear infinite;
+  will-change: transform;
+}
+
+.gallery-item {
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px) !important;
+  border-color: #F8F6F0;
+}
+
+@keyframes gallery-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-320px * 6 - 1.5rem * 5));
+  }
 }
 
 /* Parallax Background */
