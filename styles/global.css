@@ -291,6 +291,17 @@ h1, h2, h3 {
   }
 }
 
+@keyframes crossfade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes pulse-width {
   0%, 100% {
     width: 0%;
@@ -302,6 +313,10 @@ h1, h2, h3 {
 
 .animate-fade-in {
   animation: fade-in 1s ease-out;
+}
+
+.animate-crossfade {
+  animation: crossfade-in 1.5s ease-out;
 }
 
 .animate-pulse-width {

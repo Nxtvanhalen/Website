@@ -1,6 +1,35 @@
 import ChatPanel from './ChatPanel';
+import { useState, useEffect } from 'react';
 
 export default function Marquee() {
+  const [currentBox, setCurrentBox] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBox(prev => (prev + 1) % 3);
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const boxes = [
+    {
+      title: "AI Integrations",
+      description: "Ask me about AI integrations that are multi-modal and multi-lingual for accessibility and efficiencies!",
+      subject: "AI Project Inquiry - Multi-Modal Integration"
+    },
+    {
+      title: "Cost Efficiency", 
+      description: "Ask me about how I can save or generate your company 20-30 percent and set you up for the future of entertainment!",
+      subject: "AI Project Inquiry - Cost Savings & Entertainment Future"
+    },
+    {
+      title: "Team Building & Morale",
+      description: "Morale is worth 30 percent and team cohesion is not only good for business, it's ethical and sustainable practices!",
+      subject: "AI Project Inquiry - Team Building & Morale Solutions"
+    }
+  ];
+
   return (
     <div className="relative w-full min-h-screen overflow-visible animate-fade-in mb-16">
       <div
@@ -41,9 +70,33 @@ export default function Marquee() {
           </div>
         </div>
         
-        <h1 className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 glow-subtle">
-          Chris Lee Bergstrom
-        </h1>
+        {/* Chris Lee Bergstrom heading with CTA box */}
+        <div className="w-full mb-6">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center lg:gap-8">
+            <h1 className="text-6xl font-heading mb-4 lg:mb-0 transition-transform duration-200 ease-out hover:-translate-y-0.5 glow-subtle text-center lg:text-left">
+              Chris Lee Bergstrom
+            </h1>
+            
+            {/* Call-to-action box - simple crossfade with CSS transitions */}
+            <div className="flex justify-center">
+              <div className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] backdrop-blur-sm shadow-lg">
+                <div 
+                  key={currentBox}
+                  className="animate-crossfade"
+                >
+                  <div className="text-sm text-molten font-bold mb-2">{boxes[currentBox].title}</div>
+                  <div className="text-xs text-white/90 mb-3">{boxes[currentBox].description}</div>
+                  <a 
+                    href={`mailto:chrisleebergstrom@gmail.com?subject=${boxes[currentBox].subject}`}
+                    className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center"
+                  >
+                    Let's Talk Strategy
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <p className="text-xl font-body italic text-center mb-8 max-w-2xl opacity-90">
           "The advancement of the arts is directly related to the advancement of society"
         </p>

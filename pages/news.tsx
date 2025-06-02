@@ -292,6 +292,29 @@ export default function News() {
           <div className="text-center py-12">
             <p className="text-lg opacity-70">More press coverage coming soon...</p>
           </div>
+
+          {/* Contact Section */}
+          <section className="py-12 px-6 text-center">
+            <h2 className="text-3xl font-heading mb-6">Let's start discussing how I can set you up for success.</h2>
+            <div className="max-w-lg mx-auto space-y-6">
+              <div className="space-y-4">
+                <a 
+                  href="mailto:chrisleebergstrom@gmail.com?subject=AI Project Inquiry - Let's Build Something Amazing"
+                  className="group block relative overflow-hidden py-4 px-8 bg-transparent text-white font-bold rounded-lg border border-molten hover:border-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 active:scale-95"
+                >
+                  <div className="relative flex flex-col items-center justify-center text-center">
+                    <div className="text-lg font-bold">Ready to go?</div>
+                    <div className="text-sm opacity-80">chrisleebergstrom@gmail.com</div>
+                  </div>
+                </a>
+                <p className="text-sm text-molten/70 flex items-center justify-center space-x-2">
+                  <span>⚡</span>
+                  <span>Let's discuss your project needs</span>
+                  <span>⚡</span>
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
       </main>
     </>
