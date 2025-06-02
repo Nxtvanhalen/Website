@@ -82,11 +82,20 @@ export default function Marquee() {
             </div>
           </div>
         </div>
-        <div className="mb-8 max-w-3xl mx-auto text-center">
+        <div className="mb-8 max-w-3xl mx-auto text-center" id="eve-chat">
           <h3 className="text-3xl font-heading mb-4">Ask EVE.</h3>
-          <p className="text-lg leading-relaxed opacity-90">
+          <p className="text-lg leading-relaxed opacity-90 mb-6">
             EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. AI should never replace the artist. It should empower the visionary.
           </p>
+          <div className="flex justify-center">
+            <div className="w-24 h-24 rounded-lg border border-molten/40 overflow-hidden">
+              <img 
+                src="/images/projects/EVE.png" 
+                alt="EVE - Conversational AI" 
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+          </div>
         </div>
         
         <p className="text-4xl font-heading mb-2 glow">

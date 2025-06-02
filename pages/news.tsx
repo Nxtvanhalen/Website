@@ -1,7 +1,24 @@
 import Head from 'next/head';
+import { useEffect } from 'react';
 import Header from '../components/Header';
 
 export default function News() {
+  useEffect(() => {
+    // Parallax scroll effect for News/Press page
+    const handleScroll = () => {
+      const scrolled = window.pageYOffset;
+      const parallaxBg = document.querySelector('.news-parallax-bg') as HTMLElement;
+      
+      if (parallaxBg) {
+        const speed = 0.5;
+        parallaxBg.style.transform = `translateY(${scrolled * speed}px)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <Head>
@@ -14,8 +31,20 @@ export default function News() {
       </Head>
       
       <Header />
+
+      {/* Parallax Background */}
+      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
+        <div 
+          className="news-parallax-bg absolute inset-0 bg-center bg-cover bg-fixed"
+          style={{
+            backgroundImage: "url('/images/AI4.webp')",
+            minHeight: '120vh'
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/65 to-black/75" />
+      </div>
       
-      <main className="min-h-screen bg-black text-white pt-40 px-6">
+      <main className="min-h-screen bg-transparent text-white pt-40 px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-heading mb-12 text-center">News/Press</h1>
           

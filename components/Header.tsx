@@ -11,11 +11,31 @@ export default function Header() {
   return (
     <header className={scrolled ? 'header scrolled' : 'header'}>
       <div className="flex flex-col w-full">
-        {/* Top row: Logo and Social Icons */}
+        {/* Top row: Logo, Profile Picture, and Social Icons */}
         <div className="flex items-center justify-between w-full pb-3">
           <Link href="/" className="logo">
             <span>CLB</span>Consulting
           </Link>
+          
+          {/* Profile Picture - Centered */}
+          <div className="absolute left-1/2 transform -translate-x-1/2">
+            <div className="w-14 h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50">
+              <img 
+                src="/images/profile/chris-profile.jpg" 
+                alt="Chris Lee Bergstrom" 
+                className="w-full h-full object-cover object-top"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+              />
+              <div className="w-full h-full flex items-center justify-center" style={{display: 'none'}}>
+                <span className="text-molten text-xs font-bold">CB</span>
+              </div>
+            </div>
+          </div>
+          
           <div className="flex items-center space-x-4">
             <a href="https://www.instagram.com/chrisleebergstrom" target="_blank" rel="noopener noreferrer" className="social-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">

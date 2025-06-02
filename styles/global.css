@@ -234,24 +234,27 @@ h1, h2, h3 {
 @keyframes glow {
   0%, 100% { 
     text-shadow: 
-      0 0 2.5px #F5F5DC, 
-      0 0 5px #F5F5DC, 
-      0 0 7.5px #F5F5DC,
-      0 0 10px #F5F5DC; 
+      0 0 0px #F5F5DC,
+      0 0 0.625px #F5F5DC, 
+      0 0 1.25px #F5F5DC, 
+      0 0 1.875px #F5F5DC,
+      0 0 2.5px #F5F5DC; 
   }
   50% { 
     text-shadow: 
-      0 0 5px #F5F5DC, 
-      0 0 10px #F5F5DC, 
-      0 0 15px #F5F5DC,
-      0 0 20px #F5F5DC,
-      0 0 25px #F5F5DC; 
+      0 0 0px #F5F5DC,
+      0 0 1.25px #F5F5DC, 
+      0 0 2.5px #F5F5DC, 
+      0 0 3.75px #F5F5DC,
+      0 0 5px #F5F5DC,
+      0 0 6.25px #F5F5DC; 
   }
 }
 
 .glow {
   animation: glow 6s ease-in-out infinite alternate;
   color: #F5F5DC;
+  font-weight: 600;
 }
 
 /* Subtle glow for main heading */

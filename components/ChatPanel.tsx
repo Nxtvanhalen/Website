@@ -115,7 +115,16 @@ export default function ChatPanel() {
               }`}
             >
               {msg.role === 'assistant' && (
-                <div className="text-xs font-bold mb-1 opacity-70">EVE</div>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-6 h-6 rounded-full border border-molten/40 overflow-hidden flex-shrink-0">
+                    <img 
+                      src="/images/projects/EVE.png" 
+                      alt="EVE" 
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <div className="text-xs font-bold opacity-70">EVE</div>
+                </div>
               )}
               <div className="leading-relaxed">{msg.content}</div>
             </div>
