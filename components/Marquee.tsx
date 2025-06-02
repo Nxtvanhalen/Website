@@ -72,27 +72,25 @@ export default function Marquee() {
         
         {/* Chris Lee Bergstrom heading with CTA box */}
         <div className="w-full mb-6">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center lg:gap-8">
-            <h1 className="text-6xl font-heading mb-4 lg:mb-0 transition-transform duration-200 ease-out hover:-translate-y-0.5 glow-subtle text-center lg:text-left">
-              Chris Lee Bergstrom
-            </h1>
-            
-            {/* Call-to-action box - simple crossfade with CSS transitions */}
-            <div className="flex justify-center">
-              <div className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] backdrop-blur-sm shadow-lg">
-                <div 
-                  key={currentBox}
-                  className="animate-crossfade"
+          <h1 className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 glow-subtle text-center">
+            Chris Lee Bergstrom
+          </h1>
+          
+          {/* Call-to-action box - always centered */}
+          <div className="flex justify-center">
+            <div className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] backdrop-blur-sm shadow-lg">
+              <div 
+                key={currentBox}
+                className="animate-crossfade"
+              >
+                <div className="text-sm text-molten font-bold mb-2">{boxes[currentBox].title}</div>
+                <div className="text-xs text-white/90 mb-3">{boxes[currentBox].description}</div>
+                <a 
+                  href={`mailto:chrisleebergstrom@gmail.com?subject=${boxes[currentBox].subject}`}
+                  className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center"
                 >
-                  <div className="text-sm text-molten font-bold mb-2">{boxes[currentBox].title}</div>
-                  <div className="text-xs text-white/90 mb-3">{boxes[currentBox].description}</div>
-                  <a 
-                    href={`mailto:chrisleebergstrom@gmail.com?subject=${boxes[currentBox].subject}`}
-                    className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center"
-                  >
-                    Let's Talk Strategy
-                  </a>
-                </div>
+                  Let's Talk Strategy
+                </a>
               </div>
             </div>
           </div>

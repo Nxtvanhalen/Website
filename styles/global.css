@@ -97,7 +97,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 6px;
+}
+
+@media (min-width: 768px) {
+  .social-icon {
+    padding: 8px;
+  }
 }
 
 .social-icon:hover {
