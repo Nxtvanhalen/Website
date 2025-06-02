@@ -235,19 +235,19 @@ h1, h2, h3 {
   0%, 100% { 
     text-shadow: 
       0 0 0px #F5F5DC,
+      0 0 0.3125px #F5F5DC, 
       0 0 0.625px #F5F5DC, 
-      0 0 1.25px #F5F5DC, 
-      0 0 1.875px #F5F5DC,
-      0 0 2.5px #F5F5DC; 
+      0 0 0.9375px #F5F5DC,
+      0 0 1.25px #F5F5DC; 
   }
   50% { 
     text-shadow: 
       0 0 0px #F5F5DC,
+      0 0 0.625px #F5F5DC, 
       0 0 1.25px #F5F5DC, 
-      0 0 2.5px #F5F5DC, 
-      0 0 3.75px #F5F5DC,
-      0 0 5px #F5F5DC,
-      0 0 6.25px #F5F5DC; 
+      0 0 1.875px #F5F5DC,
+      0 0 2.5px #F5F5DC,
+      0 0 3.125px #F5F5DC; 
   }
 }
 
