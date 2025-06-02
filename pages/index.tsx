@@ -100,6 +100,104 @@ export default function Home() {
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
+        
+        {/* Open Graph tags for social sharing */}
+        <meta property="og:title" content="CLB Consultancy - AI Strategy & Entertainment Technology" />
+        <meta property="og:description" content="Strategy Born from the Wreckage, Intelligence Forged in the Fire. AI consulting for entertainment, hospitality, and live events." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://chrisleebergstrom.com" />
+        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile.jpg" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://chrisleebergstrom.com" />
+        
+        {/* JSON-LD Structured Data for AI understanding */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://chrisleebergstrom.com/#organization",
+                  "name": "CLB Consultancy",
+                  "url": "https://chrisleebergstrom.com",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg"
+                  },
+                  "description": "AI-focused consultancy providing intelligent solutions for entertainment, hospitality, and live events industry",
+                  "slogan": "Strategy Born from the Wreckage, Intelligence Forged in the Fire",
+                  "founder": {
+                    "@type": "Person",
+                    "@id": "https://chrisleebergstrom.com/about#person",
+                    "name": "Chris Lee Bergstrom"
+                  },
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "email": "chrisleebergstrom@gmail.com",
+                    "contactType": "Business Inquiries"
+                  },
+                  "sameAs": [
+                    "https://www.linkedin.com/in/chris-bergstrom",
+                    "https://www.instagram.com/chrisleebergstrom",
+                    "https://www.youtube.com/@chrisleebergstrom",
+                    "https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr"
+                  ],
+                  "knowsAbout": [
+                    "Artificial Intelligence",
+                    "AI Strategy",
+                    "Entertainment Technology",
+                    "Live Events Management",
+                    "Audio Engineering",
+                    "Multi-Agent Systems",
+                    "Team Building",
+                    "Operational Efficiency"
+                  ]
+                },
+                {
+                  "@type": "Person",
+                  "@id": "https://chrisleebergstrom.com/about#person",
+                  "name": "Chris Lee Bergstrom",
+                  "jobTitle": "AI Strategy Consultant & Founder",
+                  "description": "Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events",
+                  "url": "https://chrisleebergstrom.com/about",
+                  "image": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
+                  "worksFor": {
+                    "@id": "https://chrisleebergstrom.com/#organization"
+                  },
+                  "hasCredential": "Grammy-nominated Audio Engineer",
+                  "knowsAbout": [
+                    "AI Implementation",
+                    "Entertainment Industry",
+                    "Audio Engineering",
+                    "Live Sound Production",
+                    "Tour Management",
+                    "Multi-Modal AI Systems",
+                    "Team Cohesion Strategies"
+                  ],
+                  "sameAs": [
+                    "https://www.linkedin.com/in/chris-bergstrom",
+                    "https://www.instagram.com/chrisleebergstrom",
+                    "https://www.youtube.com/@chrisleebergstrom"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://chrisleebergstrom.com/#website",
+                  "url": "https://chrisleebergstrom.com",
+                  "name": "CLB Consultancy",
+                  "description": "AI consulting for entertainment, hospitality, and live events",
+                  "publisher": {
+                    "@id": "https://chrisleebergstrom.com/#organization"
+                  },
+                  "inLanguage": "en-US"
+                }
+              ]
+            })
+          }}
+        />
       </Head>
       {/* Parallax Background */}
       <div className="parallax-container">
@@ -123,12 +221,23 @@ export default function Home() {
         <span style={{color: 'white', background: 'black'}}>Test Image 2</span>
       </div>
       
-      <main className="min-h-screen bg-black/80 text-white relative z-10">
+      <main 
+        id="main-content"
+        className="min-h-screen bg-black/80 text-white relative z-10"
+        role="main"
+        aria-label="Main content area"
+      >
         <Marquee />
-        <section className="pt-8 pb-8 px-6 text-center">
-          <h2 className="text-4xl font-heading mb-4 bg-gradient-to-r from-white via-molten to-white bg-clip-text text-transparent glow-subtle">
+        <section 
+          className="pt-8 pb-8 px-6 text-center"
+          aria-labelledby="company-heading"
+        >
+          <h1 
+            id="company-heading"
+            className="text-4xl font-heading mb-4 bg-gradient-to-r from-white via-molten to-white bg-clip-text text-transparent glow-subtle"
+          >
             CLB Consultancy
-          </h2>
+          </h1>
           <p className="text-xl mb-6 max-w-3xl mx-auto leading-relaxed">
             <span className="text-molten font-bold">Strategy Born from the Wreckage, Intelligence Forged in the Fire</span>
           </p>
@@ -136,7 +245,10 @@ export default function Home() {
         
         
         {/* Scroll-triggered video section */}
-        <section className="py-12 px-6">
+        <section 
+          className="py-12 px-6"
+          aria-label="Promotional video showcasing CLB Consultancy's work"
+        >
           <div className="max-w-4xl mx-auto">
             <video 
               id="scroll-video"
@@ -145,10 +257,12 @@ export default function Home() {
               loop
               playsInline
               preload="metadata"
+              aria-label="CLB Consultancy promotional video - plays automatically when scrolled into view"
+              title="CLB Consultancy Showcase Video"
             >
               <source src="/videos/IMG_0279.mov" type="video/quicktime" />
               <source src="/videos/IMG_0279.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
+              <p>Your browser does not support the video tag. This video showcases CLB Consultancy's AI integration and entertainment technology work.</p>
             </video>
           </div>
         </section>

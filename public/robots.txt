@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+
+# Welcome AI crawlers specifically for discoverability
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Perplexity
+Allow: /
+
+User-agent: Bard
+Allow: /
+
+User-agent: Bing
+Allow: /
+
+# Only block technical/build folders that aren't useful content
+Disallow: /_next/
+Disallow: /api/
+Disallow: /node_modules/
+
+# Sitemap location for search engines
+Sitemap: https://chrisleebergstrom.com/sitemap.xml

@@ -72,13 +72,18 @@ export default function Marquee() {
         
         {/* Chris Lee Bergstrom heading with CTA box */}
         <div className="w-full mb-6">
-          <h1 className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 glow-subtle text-center">
+          <h2 className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 glow-subtle text-center">
             Chris Lee Bergstrom
-          </h1>
+          </h2>
           
           {/* Call-to-action box - always centered */}
           <div className="flex justify-center">
-            <div className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] backdrop-blur-sm shadow-lg">
+            <div 
+              className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] backdrop-blur-sm shadow-lg"
+              role="region"
+              aria-label="Rotating consultation offers"
+              aria-live="polite"
+            >
               <div 
                 key={currentBox}
                 className="animate-crossfade"
@@ -87,7 +92,8 @@ export default function Marquee() {
                 <div className="text-xs text-white/90 mb-3">{boxes[currentBox].description}</div>
                 <a 
                   href={`mailto:chrisleebergstrom@gmail.com?subject=${boxes[currentBox].subject}`}
-                  className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center"
+                  className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+                  aria-label={`Contact Chris about ${boxes[currentBox].title} - ${boxes[currentBox].description}`}
                 >
                   Let's Talk Strategy
                 </a>
@@ -108,12 +114,23 @@ export default function Marquee() {
         </div>
 
         {/* Horizontal scrolling gallery - ticker style */}
-        <div className="mb-16 w-full max-w-6xl mx-auto px-4">
+        <section 
+          className="mb-16 w-full max-w-6xl mx-auto px-4"
+          aria-label="Portfolio gallery showcasing Chris's projects"
+        >
           <div className="gallery-container overflow-hidden">
-            <div className="gallery-track-ticker flex gap-6">
+            <div 
+              className="gallery-track-ticker flex gap-6"
+              role="img"
+              aria-label="Scrolling gallery of project screenshots and portfolio images"
+            >
               {/* First set of items */}
               <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
-                <img src="/images/gallery/Project1.webp" alt="Project 1" className="w-full h-full object-cover" />
+                <img 
+                  src="/images/gallery/Project1.webp" 
+                  alt="Project 1 - CLB Consultancy portfolio showcase" 
+                  className="w-full h-full object-cover" 
+                />
               </div>
               <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
                 <img src="/images/gallery/Project2.webp" alt="Project 2" className="w-full h-full object-cover" />
@@ -151,9 +168,13 @@ export default function Marquee() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="mb-8 max-w-3xl mx-auto text-center" id="eve-chat">
-          <h3 className="text-3xl font-heading mb-4">Ask EVE.</h3>
+        </section>
+        <section 
+          className="mb-8 max-w-3xl mx-auto text-center" 
+          id="eve-chat"
+          aria-labelledby="eve-heading"
+        >
+          <h3 id="eve-heading" className="text-3xl font-heading mb-4">Ask EVE.</h3>
           <p className="text-lg leading-relaxed opacity-90 mb-6">
             EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. AI should never replace the artist. It should empower the visionary.
           </p>
@@ -161,17 +182,22 @@ export default function Marquee() {
             <div className="w-24 h-24 rounded-lg border border-molten/40 overflow-hidden">
               <img 
                 src="/images/projects/EVE.png" 
-                alt="EVE - Conversational AI" 
+                alt="EVE AI avatar - A sophisticated conversational AI assistant for strategic consulting" 
                 className="w-full h-full object-cover object-top"
               />
             </div>
           </div>
-        </div>
+        </section>
         
-        <p className="text-4xl font-heading mb-2 glow">
+        <h4 className="text-4xl font-heading mb-2 glow">
           EVE AI
-        </p>
-        <div className="w-full max-w-4xl mt-2 mb-2 bg-black/40 rounded-lg shadow-xl overflow-hidden border border-white" style={{ height: '50vh', minHeight: '350px' }}>
+        </h4>
+        <div 
+          className="w-full max-w-4xl mt-2 mb-2 bg-black/40 rounded-lg shadow-xl overflow-hidden border border-white" 
+          style={{ height: '50vh', minHeight: '350px' }}
+          role="application"
+          aria-label="EVE AI Chat Interface - Interactive conversational AI for consulting inquiries"
+        >
           <ChatPanel />
         </div>
         
