@@ -22,6 +22,25 @@ export default function Marquee() {
         </text>
       </svg>
       <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-40 pb-16 text-center text-white">
+        {/* Mobile Profile Picture - Above heading */}
+        <div className="md:hidden mb-6 flex justify-center">
+          <div className="w-20 h-20 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50">
+            <img 
+              src="/images/profile/chris-profile.jpg" 
+              alt="Chris Lee Bergstrom" 
+              className="w-full h-full object-cover object-top"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                if (fallback) fallback.style.display = 'flex';
+              }}
+            />
+            <div className="w-full h-full flex items-center justify-center" style={{display: 'none'}}>
+              <span className="text-molten text-sm font-bold">CB</span>
+            </div>
+          </div>
+        </div>
+        
         <h1 className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 glow-subtle">
           Chris Lee Bergstrom
         </h1>

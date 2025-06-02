@@ -17,8 +17,8 @@ export default function Header() {
             <span>CLB</span>Consulting
           </Link>
           
-          {/* Profile Picture - Centered */}
-          <div className="absolute left-1/2 transform -translate-x-1/2">
+          {/* Profile Picture - Desktop Only */}
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
             <div className="w-14 h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50">
               <img 
                 src="/images/profile/chris-profile.jpg" 
