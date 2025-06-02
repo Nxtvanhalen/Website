@@ -58,6 +58,37 @@ export default function Projects() {
                 <div className="flex items-start gap-4 flex-1">
                   <span className="text-molten text-2xl font-bold">1.</span>
                   <div className="flex-1">
+                    <h2 className="text-2xl font-heading glow mb-3">Master Tour</h2>
+                    <p className="text-base leading-relaxed opacity-90 mb-3">
+                      Mastertour Venue is the next step from Eventric for accurate tech pack data for venues and touring artists. We have been beta testing and consulting on the roll out.
+                    </p>
+                    <a 
+                      href="https://www.eventric.com/master-tour-venue/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-molten font-bold hover:text-white transition-colors duration-200 glow text-sm"
+                    >
+                      Visit Master Tour Venue →
+                    </a>
+                  </div>
+                </div>
+                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden">
+                  <img 
+                    src="/images/projects/Mastertour.jpg" 
+                    alt="Master Tour" 
+                    className="w-full h-full object-cover"
+                    style={{objectPosition: '50% 30%'}}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Project 2 */}
+            <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
+              <div className="flex items-start gap-6 mb-4">
+                <div className="flex items-start gap-4 flex-1">
+                  <span className="text-molten text-2xl font-bold">2.</span>
+                  <div className="flex-1">
                     <h2 className="text-2xl font-heading glow mb-3">AI Powered Remote SPL</h2>
                     <p className="text-base leading-relaxed opacity-90">
                       AI-powered cloud-based SPL remote monitoring with analytics and reports for construction and live events. Real-time sound pressure level tracking that combines compliance monitoring with predictive insights—ensuring safety while optimizing acoustic performance.
