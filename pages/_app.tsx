@@ -77,17 +77,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link 
-          rel="preload" 
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" 
-          as="style" 
-          onLoad={(e) => {
-            const link = e.target as HTMLLinkElement;
-            link.onload = null;
-            link.rel = 'stylesheet';
-          }}
-        />
-        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" /></noscript>
         
         {/* Favicon and App Icons */}
         <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
