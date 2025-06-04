@@ -77,7 +77,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" as="style" />
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" as="style" onLoad="this.onload=null;this.rel='stylesheet'" />
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" /></noscript>
         
         {/* Favicon and App Icons */}
         <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
@@ -93,16 +94,17 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_TRACKING_ID}', {
               page_title: document.title,
-              page_location: window.location.href
+              page_location: window.location.href,
+              anonymize_ip: true
             });
           `}
         </Script>
