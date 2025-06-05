@@ -40,21 +40,44 @@ export default function ChatPanel() {
 
   // Handle mobile keyboard show/hide - recenter chat when keyboard disappears
   useEffect(() => {
+    let initialHeight = 0;
+    let isKeyboardVisible = false;
+    
     const handleViewportChange = () => {
-      // When keyboard hides, scroll chat back to center
-      setTimeout(() => {
-        const chatSection = document.getElementById('eve-chat');
-        if (chatSection) {
-          chatSection.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
-          });
-        }
-      }, 100); // Small delay to ensure keyboard is fully hidden
+      if (typeof window === 'undefined' || !window.visualViewport) return;
+      
+      const currentHeight = window.visualViewport.height;
+      
+      // Initialize on first run
+      if (initialHeight === 0) {
+        initialHeight = currentHeight;
+        return;
+      }
+      
+      const heightDiff = initialHeight - currentHeight;
+      const wasKeyboardVisible = isKeyboardVisible;
+      
+      // Keyboard is considered visible if viewport height reduced by more than 150px
+      isKeyboardVisible = heightDiff > 150;
+      
+      // Only recenter when keyboard was visible and now disappears
+      if (wasKeyboardVisible && !isKeyboardVisible) {
+        setTimeout(() => {
+          const chatSection = document.getElementById('eve-chat');
+          if (chatSection) {
+            chatSection.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'center' 
+            });
+          }
+        }, 200); // Delay for keyboard animation
+      }
     };
     
     if (typeof window !== 'undefined' && window.visualViewport) {
       const viewport = window.visualViewport;
+      // Set initial height
+      initialHeight = viewport.height;
       viewport.addEventListener('resize', handleViewportChange);
       return () => viewport.removeEventListener('resize', handleViewportChange);
     }
