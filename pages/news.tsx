@@ -35,7 +35,7 @@ export default function News() {
       {/* Parallax Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
         <div 
-          className="news-parallax-bg absolute inset-0 bg-center bg-cover bg-fixed"
+          className="news-parallax-bg absolute inset-0 bg-center bg-cover md:bg-fixed"
           style={{
             backgroundImage: "url('/images/AI4.webp')",
             minHeight: '120vh'

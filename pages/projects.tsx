@@ -35,7 +35,7 @@ export default function Projects() {
       {/* Parallax Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
         <div 
-          className="projects-parallax-bg absolute inset-0 bg-center bg-cover bg-fixed"
+          className="projects-parallax-bg absolute inset-0 bg-center bg-cover md:bg-fixed"
           style={{
             backgroundImage: "url('/images/AI3.jpg')",
             minHeight: '120vh'

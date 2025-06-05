@@ -35,7 +35,7 @@ export default function About() {
       {/* Parallax Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
         <div 
-          className="about-parallax-bg absolute inset-0 bg-center bg-cover bg-fixed"
+          className="about-parallax-bg absolute inset-0 bg-center bg-cover md:bg-fixed"
           style={{
             backgroundImage: "url('/images/Hopper.jpg')",
             minHeight: '120vh'

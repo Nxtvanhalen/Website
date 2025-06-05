@@ -498,9 +498,45 @@ h1, h2, h3 {
   background-repeat: no-repeat;
   will-change: transform;
   transition: transform 0.1s ease-out, opacity 0.3s ease-out;
-  filter: brightness(0.8) saturate(1.2);
-  opacity: 1 !important;
+  filter: brightness(0.5) saturate(1.3);
   z-index: -1;
+}
+
+/* Mobile Background Fixes - Remove fixed attachment on mobile devices */
+@media (max-width: 768px) {
+  /* Remove bg-fixed behavior on mobile for better performance and display */
+  .bg-fixed {
+    background-attachment: scroll !important;
+  }
+  
+  /* Mobile-optimized parallax backgrounds */
+  .parallax-bg,
+  .parallax-bg-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    transform: none !important;
+  }
+  
+  /* Mobile-specific background positioning for better display */
+  .about-parallax-bg,
+  .projects-parallax-bg,
+  .news-parallax-bg {
+    background-attachment: scroll !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    transform: none !important;
+  }
+  
+  /* Ensure backgrounds don't zoom on mobile */
+  [style*="background-image"] {
+    background-attachment: scroll !important;
+  }
 }
 
 /* Accessibility - Focus styles */
