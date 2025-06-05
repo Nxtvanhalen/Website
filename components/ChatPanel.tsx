@@ -54,8 +54,9 @@ export default function ChatPanel() {
     };
     
     if (typeof window !== 'undefined' && window.visualViewport) {
-      window.visualViewport.addEventListener('resize', handleViewportChange);
-      return () => window.visualViewport.removeEventListener('resize', handleViewportChange);
+      const viewport = window.visualViewport;
+      viewport.addEventListener('resize', handleViewportChange);
+      return () => viewport.removeEventListener('resize', handleViewportChange);
     }
   }, []);
 
