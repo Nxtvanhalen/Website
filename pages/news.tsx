@@ -28,6 +28,23 @@ export default function News() {
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
+        
+        {/* Open Graph tags for social sharing */}
+        <meta property="og:title" content="News/Press - CLB Consultancy" />
+        <meta property="og:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consultancy" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://chrisleebergstrom.com/news" />
+        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="1200" />
+        <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="News/Press - CLB Consultancy" />
+        <meta name="twitter:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consultancy" />
+        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
       </Head>
       
       <Header />
