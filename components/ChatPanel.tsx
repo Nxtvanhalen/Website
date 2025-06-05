@@ -68,9 +68,14 @@ export default function ChatPanel() {
         setTimeout(() => {
           const eveHeading = document.getElementById('eve-ai-heading');
           if (eveHeading) {
-            eveHeading.scrollIntoView({ 
-              behavior: 'smooth', 
-              block: 'center' 
+            // Get the element's position and scroll with offset to show input area
+            const rect = eveHeading.getBoundingClientRect();
+            const offsetTop = window.pageYOffset + rect.top;
+            
+            // Scroll 80px higher than center to ensure input area is visible
+            window.scrollTo({
+              top: offsetTop - 80,
+              behavior: 'smooth'
             });
           }
           // Reset interaction flag after recentering
