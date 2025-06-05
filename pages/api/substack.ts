@@ -2,6 +2,21 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
+    // Check if rss-parser is available
+    let Parser;
+    try {
+      Parser = require('rss-parser');
+    } catch (importError) {
+      console.warn('rss-parser not available, falling back to basic XML parsing');
+      // Return a graceful fallback response
+      return res.status(200).json({
+        success: false,
+        error: 'RSS parser temporarily unavailable. Please visit our Substack directly.',
+        posts: [],
+        fallback: true
+      });
+    }
+    
     // Substack RSS feed URL
     const substackFeedUrl = 'https://chrisleebergstrom.substack.com/feed';
     
@@ -15,7 +30,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const feedData = await response.text();
     
     // Parse XML to extract posts
-    const Parser = require('rss-parser');
     const parser = new Parser({
       customFields: {
         item: [
@@ -46,10 +60,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     
   } catch (error) {
     console.error('Error fetching Substack feed:', error);
-    res.status(500).json({
+    res.status(200).json({
       success: false,
-      error: 'Failed to fetch Substack feed',
-      posts: []
+      error: 'Unable to load posts. Please visit our Substack directly.',
+      posts: [],
+      fallback: true
     });
   }
 }

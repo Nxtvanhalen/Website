@@ -7,7 +7,7 @@
     "build": "npm run postinstall && npx next build",
     "export": "npx next export",
     "start": "npx next start",
-    "postinstall": "npm list typescript @types/react @types/node || npm install typescript @types/react @types/node @types/react-dom"
+    "postinstall": "npm list typescript @types/react @types/node rss-parser || npm install typescript @types/react @types/node @types/react-dom rss-parser"
   },
   "dependencies": {
     "@types/node": "^20.0.0",

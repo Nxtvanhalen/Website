@@ -202,7 +202,8 @@ export default function Home() {
             backgroundRepeat: 'no-repeat',
             filter: 'brightness(0.7) saturate(1.2)',
             opacity: 1,
-            zIndex: 1
+            zIndex: 1,
+            minHeight: '120vh'
           }}
         ></div>
       </div>
