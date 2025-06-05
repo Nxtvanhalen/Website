@@ -20,29 +20,9 @@ export default function Home() {
       navigator.serviceWorker.register('/sw.js');
     }
 
-    // Parallax scroll effect with image transition
+    // Static background - no parallax scrolling
     const handleScroll = () => {
-      const scrolled = window.pageYOffset;
-      const windowHeight = window.innerHeight;
-      const parallaxBg1 = document.querySelector('.parallax-bg') as HTMLElement;
-      const parallaxBg2 = document.querySelector('.parallax-bg-2') as HTMLElement;
-      
-      // Calculate scroll progress (0 to 1) - starts transition after 300px
-      const scrollProgress = Math.min(Math.max((scrolled - 300) / (windowHeight * 0.8), 0), 1);
-      
-      if (parallaxBg1) {
-        const speed1 = 0.5;
-        parallaxBg1.style.transform = `translateY(${scrolled * speed1}px)`;
-        // Fade out first image as second appears
-        parallaxBg1.style.opacity = (1 - scrollProgress * 0.7).toString();
-      }
-      
-      if (parallaxBg2) {
-        const speed2 = 0.5;
-        parallaxBg2.style.transform = `translateY(${scrolled * speed2}px)`;
-        // Fade in second image as you scroll
-        parallaxBg2.style.opacity = scrollProgress.toString();
-      }
+      // No parallax effect - background stays fixed
     };
 
     // Video scroll trigger with Intersection Observer
@@ -208,8 +188,23 @@ export default function Home() {
       </Head>
       {/* Parallax Background */}
       <div className="parallax-container">
-        <div className="parallax-bg"></div>
-        <div className="parallax-bg-2"></div>
+        <div 
+          className="parallax-bg-2"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100vh',
+            backgroundImage: 'url(/images/parallax-bg2.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            filter: 'brightness(0.7) saturate(1.2)',
+            opacity: 1,
+            zIndex: 1
+          }}
+        ></div>
       </div>
       
       {/* Debug: Keep this div but make it invisible */}
@@ -230,9 +225,10 @@ export default function Home() {
       
       <main 
         id="main-content"
-        className="min-h-screen bg-black/80 text-white relative z-10"
+        className="min-h-screen text-white relative"
         role="main"
         aria-label="Main content area"
+        style={{position: 'relative', zIndex: 10}}
       >
         <Marquee />
         <section 

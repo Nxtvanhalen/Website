@@ -32,14 +32,6 @@ export default function Marquee() {
 
   return (
     <div className="relative w-full min-h-screen overflow-visible animate-fade-in mb-16">
-      <div
-        className="absolute inset-0 bg-center bg-cover md:bg-fixed"
-        style={{
-          backgroundImage: "url('/images/parallax-bg1.jpeg')",
-          minHeight: '100vh'
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" style={{ minHeight: '100vh' }} />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 200 200"
