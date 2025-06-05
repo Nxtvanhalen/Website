@@ -38,15 +38,10 @@ export default function Home() {
       }
       
       if (parallaxBg2) {
-        const speed2 = 0.3;
+        const speed2 = 0.5;
         parallaxBg2.style.transform = `translateY(${scrolled * speed2}px)`;
         // Fade in second image as you scroll
         parallaxBg2.style.opacity = scrollProgress.toString();
-      }
-      
-      // Debug log
-      if (scrolled > 0 && scrolled < 100) {
-        console.log(`Scroll: ${scrolled}, Progress: ${scrollProgress}, BG2 Opacity: ${scrollProgress}`);
       }
     };
 

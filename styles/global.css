@@ -520,7 +520,6 @@ h1, h2, h3 {
     background-attachment: scroll;
     background-size: cover;
     background-position: center;
-    transform: none !important;
   }
   
   /* Mobile-specific background positioning for better display */
