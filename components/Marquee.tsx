@@ -97,6 +97,7 @@ export default function Marquee() {
                 >
                   Let's Talk Strategy
                 </a>
+                <div className="text-xs text-white/60 mt-1">chrisleebergstrom@gmail.com</div>
               </div>
             </div>
           </div>
