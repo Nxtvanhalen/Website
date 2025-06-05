@@ -58,11 +58,11 @@ export default function Projects() {
             minHeight: '120vh'
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/50" />
       </div>
       
-      <main className="min-h-screen bg-transparent text-white pt-40 px-6 relative z-10">
-        <div className="max-w-6xl mx-auto">
+      <main className="min-h-screen bg-transparent text-white pt-40 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-5xl font-heading mb-4 glow-subtle">Current Projects</h1>
             <p className="text-xl text-molten font-bold">CLB Consulting</p>
@@ -106,7 +106,8 @@ export default function Projects() {
                 <div className="flex items-start gap-4 flex-1">
                   <span className="text-molten text-2xl font-bold">2.</span>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading glow mb-3">AI Powered Remote SPL</h2>
+                    <h2 className="text-2xl font-heading glow mb-1">AI Powered Remote SPL</h2>
+                    <div className="text-sm text-white/60 font-normal mb-3">(Sound Pressure Level)</div>
                     <p className="text-base leading-relaxed opacity-90">
                       AI-powered cloud-based SPL remote monitoring with analytics and reports for construction and live events. Real-time sound pressure level tracking that combines compliance monitoring with predictive insights—ensuring safety while optimizing acoustic performance.
                     </p>
