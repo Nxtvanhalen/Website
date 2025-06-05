@@ -38,10 +38,11 @@ export default function ChatPanel() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Handle mobile keyboard show/hide - recenter chat when keyboard disappears
+  // Handle mobile keyboard show/hide - only when user is actively using chat input
   useEffect(() => {
     let initialHeight = 0;
     let isKeyboardVisible = false;
+    let isUserInteractingWithChat = false;
     
     const handleViewportChange = () => {
       if (typeof window === 'undefined' || !window.visualViewport) return;
@@ -60,8 +61,10 @@ export default function ChatPanel() {
       // Keyboard is considered visible if viewport height reduced by more than 150px
       isKeyboardVisible = heightDiff > 150;
       
-      // Only recenter when keyboard was visible and now disappears
-      if (wasKeyboardVisible && !isKeyboardVisible) {
+      // Only recenter when:
+      // 1. User was interacting with chat input
+      // 2. Keyboard was visible and now disappears
+      if (isUserInteractingWithChat && wasKeyboardVisible && !isKeyboardVisible) {
         setTimeout(() => {
           const chatSection = document.getElementById('eve-chat');
           if (chatSection) {
@@ -70,16 +73,44 @@ export default function ChatPanel() {
               block: 'center' 
             });
           }
-        }, 200); // Delay for keyboard animation
+          // Reset interaction flag after recentering
+          isUserInteractingWithChat = false;
+        }, 200);
       }
+    };
+    
+    const handleInputFocus = () => {
+      isUserInteractingWithChat = true;
+    };
+    
+    const handleInputBlur = () => {
+      // Don't immediately reset - let the viewport handler decide
+      setTimeout(() => {
+        if (!isKeyboardVisible) {
+          isUserInteractingWithChat = false;
+        }
+      }, 500);
     };
     
     if (typeof window !== 'undefined' && window.visualViewport) {
       const viewport = window.visualViewport;
-      // Set initial height
+      const input = inputRef.current;
+      
       initialHeight = viewport.height;
       viewport.addEventListener('resize', handleViewportChange);
-      return () => viewport.removeEventListener('resize', handleViewportChange);
+      
+      if (input) {
+        input.addEventListener('focus', handleInputFocus);
+        input.addEventListener('blur', handleInputBlur);
+      }
+      
+      return () => {
+        viewport.removeEventListener('resize', handleViewportChange);
+        if (input) {
+          input.removeEventListener('focus', handleInputFocus);
+          input.removeEventListener('blur', handleInputBlur);
+        }
+      };
     }
   }, []);
 
