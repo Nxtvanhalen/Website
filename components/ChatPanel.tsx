@@ -38,6 +38,27 @@ export default function ChatPanel() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Handle mobile keyboard show/hide - recenter chat when keyboard disappears
+  useEffect(() => {
+    const handleViewportChange = () => {
+      // When keyboard hides, scroll chat back to center
+      setTimeout(() => {
+        const chatSection = document.getElementById('eve-chat');
+        if (chatSection) {
+          chatSection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+        }
+      }, 100); // Small delay to ensure keyboard is fully hidden
+    };
+    
+    if (typeof window !== 'undefined' && window.visualViewport) {
+      window.visualViewport.addEventListener('resize', handleViewportChange);
+      return () => window.visualViewport.removeEventListener('resize', handleViewportChange);
+    }
+  }, []);
+
   const sendMessage = async (e: FormEvent) => {
     e.preventDefault();
     const content = input.trim();
