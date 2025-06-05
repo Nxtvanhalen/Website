@@ -607,3 +607,38 @@ select:focus,
 .skip-link:focus {
   top: 6px;
 }
+
+/* Remove any purple/default browser styling */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(147, 112, 219, 0.5);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(147, 112, 219, 0.7);
+}
+
+/* Remove any purple focus outlines */
+*:focus {
+  outline: none;
+}
+
+/* Custom focus styles that override purple defaults */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+[tabindex]:focus {
+  outline: 2px solid var(--deep-orange) !important;
+  outline-offset: 2px;
+  border-radius: 4px;
+}

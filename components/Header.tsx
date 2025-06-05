@@ -113,7 +113,7 @@ export default function Header() {
           </nav>
         </div>
         
-        {/* Bottom row: Navigation Links */}
+        {/* Primary Navigation Links */}
         <nav 
           id="navigation"
           className="flex items-center justify-between max-w-4xl mx-auto w-full px-4 py-0.5 border-t border-molten/20 md:px-8"
@@ -140,6 +140,28 @@ export default function Header() {
             aria-label="Read latest news and press coverage"
           >
             News/Press
+          </a>
+        </nav>
+        
+        {/* Secondary Navigation Links */}
+        <nav 
+          className="flex items-center justify-between max-w-2xl mx-auto w-full px-4 py-2 md:px-8"
+          role="navigation"
+          aria-label="Secondary navigation"
+        >
+          <a 
+            href="/faq" 
+            className="nav-link"
+            aria-label="Frequently asked questions about AI consulting services"
+          >
+            FAQ
+          </a>
+          <a 
+            href="/blog" 
+            className="nav-link"
+            aria-label="Read strategic musings and insights about AI and consulting"
+          >
+            Musings
           </a>
         </nav>
       </div>

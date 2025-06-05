@@ -61,7 +61,7 @@ export default function About() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40" />
       </div>
       
-      <main className="min-h-screen bg-transparent text-white pt-40 px-6 relative z-10">
+      <main className="min-h-screen bg-transparent text-white pt-52 px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-16">
             <div className="text-center flex-1 mb-8 md:mb-0">
