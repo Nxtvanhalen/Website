@@ -2,8 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    // Dynamic import of rss-parser to avoid build issues
-    const Parser = (await import('rss-parser')).default;
+    // Dynamic import with type assertion to avoid TypeScript issues
+    const Parser = (await import('rss-parser' as any)).default;
     
     // Substack RSS feed URL
     const substackFeedUrl = 'https://chrisleebergstrom.substack.com/feed';
