@@ -182,7 +182,7 @@ export default function Marquee() {
           </div>
         </section>
         
-        <h4 className="text-4xl font-heading mb-2 glow">
+        <h4 id="eve-ai-heading" className="text-4xl font-heading mb-2 glow">
           EVE AI
         </h4>
         <div 

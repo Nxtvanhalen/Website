@@ -66,9 +66,9 @@ export default function ChatPanel() {
       // 2. Keyboard was visible and now disappears
       if (isUserInteractingWithChat && wasKeyboardVisible && !isKeyboardVisible) {
         setTimeout(() => {
-          const chatSection = document.getElementById('eve-chat');
-          if (chatSection) {
-            chatSection.scrollIntoView({ 
+          const eveHeading = document.getElementById('eve-ai-heading');
+          if (eveHeading) {
+            eveHeading.scrollIntoView({ 
               behavior: 'smooth', 
               block: 'center' 
             });
