@@ -30,7 +30,7 @@
 }
 /* Header and Navigation */
 .header {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(8px);
   padding: 20px 5%;
   display: flex;
@@ -44,7 +44,7 @@
 }
 .header.scrolled {
   padding: 15px 5%;
-  background: rgba(0,0,0,0.95);
+  background: rgba(0,0,0,0.5);
 }
 .logo {
   font-family: 'Space Grotesk', sans-serif;
@@ -218,7 +218,8 @@ html {
   background-color: var(--color-bg);
   color: var(--color-text);
   overflow-y: scroll;
-  scrollbar-gutter: stable both-edges;
+  scrollbar-gutter: stable;
+  scrollbar-color: rgba(147, 112, 219, 0.5) #000000;
 }
 
 body {
@@ -241,19 +242,19 @@ h1, h2, h3 {
   0%, 100% { 
     text-shadow: 
       0 0 0px #F5F5DC,
+      0 0 0.15625px #F5F5DC, 
       0 0 0.3125px #F5F5DC, 
-      0 0 0.625px #F5F5DC, 
-      0 0 0.9375px #F5F5DC,
-      0 0 1.25px #F5F5DC; 
+      0 0 0.46875px #F5F5DC,
+      0 0 0.625px #F5F5DC; 
   }
   50% { 
     text-shadow: 
       0 0 0px #F5F5DC,
+      0 0 0.3125px #F5F5DC, 
       0 0 0.625px #F5F5DC, 
-      0 0 1.25px #F5F5DC, 
-      0 0 1.875px #F5F5DC,
-      0 0 2.5px #F5F5DC,
-      0 0 3.125px #F5F5DC; 
+      0 0 0.9375px #F5F5DC,
+      0 0 1.25px #F5F5DC,
+      0 0 1.5625px #F5F5DC; 
   }
 }
 
@@ -614,7 +615,7 @@ select:focus,
 }
 
 *::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
+  background: #000000;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -642,3 +643,5 @@ select:focus,
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* Fix purple scrollbar gutter on FAQ and Musings pages */

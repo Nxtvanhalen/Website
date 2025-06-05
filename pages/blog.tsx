@@ -1,7 +1,60 @@
 import Head from 'next/head';
+import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 
+interface SubstackPost {
+  title: string;
+  link: string;
+  pubDate: string;
+  contentSnippet: string;
+  content: string;
+  author: string;
+}
+
+interface SubstackFeed {
+  success: boolean;
+  posts: SubstackPost[];
+  feedTitle?: string;
+  feedDescription?: string;
+  error?: string;
+}
+
 export default function Blog() {
+  const [substackPosts, setSubstackPosts] = useState<SubstackPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchSubstackPosts = async () => {
+      try {
+        const response = await fetch('/api/substack');
+        const data: SubstackFeed = await response.json();
+        
+        if (data.success) {
+          setSubstackPosts(data.posts);
+        } else {
+          setError(data.error || 'Failed to load posts');
+        }
+      } catch (err) {
+        setError('Failed to fetch posts');
+        console.error('Error fetching Substack posts:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSubstackPosts();
+  }, []);
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
   return (
     <>
       <Head>
@@ -25,9 +78,10 @@ export default function Blog() {
       {/* Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
         <div 
-          className="absolute inset-0 bg-center bg-cover md:bg-fixed"
+          className="absolute inset-0 bg-cover md:bg-fixed"
           style={{
-            backgroundImage: "url('/images/parallax-bg2.webp')",
+            backgroundImage: "url('/images/musing.png')",
+            backgroundPosition: 'center 0%',
             minHeight: '120vh'
           }}
         />
@@ -41,94 +95,149 @@ export default function Blog() {
             <h1 className="text-5xl md:text-6xl font-heading mb-6 glow-subtle">
               Strategic Musings
             </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-              <span className="text-molten font-bold">Insights forged in the fire of real-world experience.</span> 
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-8" style={{color: '#F5F5DC', opacity: 0.9}}>
+              <span className="font-bold" style={{color: '#F5F5DC'}}>Insights forged in the fire of real-world experience.</span>{' '}
               Deep dives into AI strategy, entertainment technology, systems thinking, and the art of transformation.
             </p>
             <div className="h-0.5 bg-molten mx-auto w-32 animate-pulse-width"></div>
           </div>
 
+          {/* Latest Substack Posts */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-heading mb-8 text-center" style={{color: '#F5F5DC'}}>
+              Latest Strategic Musings
+            </h2>
+            
+            {loading && (
+              <div className="text-center py-12">
+                <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-molten"></div>
+                <p className="mt-4" style={{color: '#F5F5DC', opacity: 0.6}}>Loading latest posts...</p>
+              </div>
+            )}
+
+            {error && (
+              <div className="bg-red-900/40 border border-red-500/30 rounded-lg p-6 text-center mb-8">
+                <p className="text-red-300 mb-4">{error}</p>
+                <a 
+                  href="https://chrisleebergstrom.substack.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block py-2 px-6 bg-molten/20 border border-molten font-bold rounded hover:bg-molten/30 transition-all duration-300"
+                  style={{color: '#F5F5DC'}}
+                >
+                  Visit Substack Directly
+                </a>
+              </div>
+            )}
+            
+            {!loading && !error && substackPosts.length > 0 && (
+              <>
+                <div className="space-y-6 mb-12">
+                  {substackPosts.map((post, index) => (
+                    <article key={index} className="bg-black/40 border border-molten/30 rounded-lg p-6 backdrop-blur-sm hover:border-molten/50 transition-all duration-300">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <h3 className="text-xl font-semibold mb-2 md:mb-0 md:pr-4 leading-tight" style={{color: '#F5F5DC'}}>
+                          {post.title}
+                        </h3>
+                        <time className="text-sm whitespace-nowrap" style={{color: '#F5F5DC', opacity: 0.6}}>
+                          {formatDate(post.pubDate)}
+                        </time>
+                      </div>
+                      
+                      {post.contentSnippet && (
+                        <p className="leading-relaxed mb-4" style={{color: '#F5F5DC', opacity: 0.9}}>
+                          {post.contentSnippet}
+                        </p>
+                      )}
+                      
+                      <div className="flex items-center justify-between">
+                        <a 
+                          href={post.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center hover:text-white transition-colors duration-300 font-semibold"
+                          style={{color: '#F5F5DC'}}
+                        >
+                          Read Full Post →
+                        </a>
+                        <span className="text-xs" style={{color: '#F5F5DC', opacity: 0.4}}>
+                          by {post.author}
+                        </span>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                <div className="text-center">
+                  <a 
+                    href="https://chrisleebergstrom.substack.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block py-3 px-8 bg-molten/20 border border-molten font-bold rounded hover:bg-molten/30 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
+                  style={{color: '#F5F5DC'}}
+                  >
+                    View All Posts on Substack
+                  </a>
+                </div>
+              </>
+            )}
+
+            {!loading && !error && substackPosts.length === 0 && (
+              <div className="text-center py-12">
+                <p className="mb-6" style={{color: '#F5F5DC', opacity: 0.6}}>New posts coming soon!</p>
+                <a 
+                  href="https://chrisleebergstrom.substack.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block py-3 px-8 bg-molten/20 border border-molten font-bold rounded hover:bg-molten/30 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
+                  style={{color: '#F5F5DC'}}
+                >
+                  Subscribe on Substack
+                </a>
+              </div>
+            )}
+          </div>
+
           {/* Substack Integration Section */}
-          <div className="bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm mb-12">
+          <div className="bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm mb-16">
             <div className="text-center">
-              <h2 className="text-3xl font-heading mb-6 text-molten">
+              <h2 className="text-3xl font-heading mb-6" style={{color: '#F5F5DC'}}>
                 Subscribe to Strategic Musings
               </h2>
-              <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg mb-8 max-w-2xl mx-auto leading-relaxed" style={{color: '#F5F5DC', opacity: 0.9}}>
                 Get exclusive insights on AI strategy, entertainment technology, and systems thinking delivered directly to your inbox. 
                 No corporate fluff—just raw intelligence from the trenches.
               </p>
               
               {/* Substack Embed/Link */}
               <div className="bg-black/60 border border-molten/20 rounded-lg p-6 mb-6">
-                <h3 className="text-xl font-semibold mb-4 text-white">Ready for Strategy Born from the Wreckage?</h3>
-                <p className="text-white/80 mb-6">
+                <h3 className="text-xl font-semibold mb-4" style={{color: '#F5F5DC'}}>Ready for Strategy Born from the Wreckage?</h3>
+                <p className="mb-6" style={{color: '#F5F5DC', opacity: 0.8}}>
                   Join the conversation where theatrical meets tactical, where entertainment industry wisdom 
                   collides with cutting-edge AI strategy.
                 </p>
                 
-                {/* Replace with your actual Substack URL */}
                 <a 
-                  href="https://your-substack-url.substack.com" 
+                  href="https://chrisleebergstrom.substack.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-block py-4 px-8 bg-molten/20 border-2 border-molten text-white font-bold rounded-lg hover:bg-molten/30 hover:border-white transition-all duration-300 hover:scale-105 text-lg focus:outline-none focus:ring-2 focus:ring-molten/50"
+                  className="inline-block py-4 px-8 bg-molten/20 border-2 border-molten font-bold rounded-lg hover:bg-molten/30 hover:border-white transition-all duration-300 hover:scale-105 text-lg focus:outline-none focus:ring-2 focus:ring-molten/50"
+                  style={{color: '#F5F5DC'}}
                 >
                   Subscribe on Substack →
                 </a>
               </div>
               
-              <p className="text-sm text-white/60">
+              <p className="text-sm" style={{color: '#F5F5DC', opacity: 0.6}}>
                 Free insights, premium analysis, zero corporate speak.
               </p>
             </div>
           </div>
 
-          {/* Recent Topics Preview */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-heading mb-8 text-center text-white">
-              What You'll Find in Strategic Musings
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-black/40 border border-molten/30 rounded-lg p-6 backdrop-blur-sm hover:border-molten/50 transition-all duration-300">
-                <h3 className="text-xl font-semibold mb-3 text-molten">AI Strategy Deep Dives</h3>
-                <p className="text-white/90 leading-relaxed">
-                  Multi-modal AI implementations, accessibility-first design, and why most AI consultants 
-                  are solving the wrong problems entirely.
-                </p>
-              </div>
-              
-              <div className="bg-black/40 border border-molten/30 rounded-lg p-6 backdrop-blur-sm hover:border-molten/50 transition-all duration-300">
-                <h3 className="text-xl font-semibold mb-3 text-molten">Entertainment Industry Evolution</h3>
-                <p className="text-white/90 leading-relaxed">
-                  Live events, audio engineering insights, and how two decades in entertainment 
-                  shapes better technology solutions.
-                </p>
-              </div>
-              
-              <div className="bg-black/40 border border-molten/30 rounded-lg p-6 backdrop-blur-sm hover:border-molten/50 transition-all duration-300">
-                <h3 className="text-xl font-semibold mb-3 text-molten">Systems Thinking</h3>
-                <p className="text-white/90 leading-relaxed">
-                  Infrastructure as culture, operational elegance, and why team cohesion 
-                  is worth 30% of your bottom line.
-                </p>
-              </div>
-              
-              <div className="bg-black/40 border border-molten/30 rounded-lg p-6 backdrop-blur-sm hover:border-molten/50 transition-all duration-300">
-                <h3 className="text-xl font-semibold mb-3 text-molten">Tactical Intelligence</h3>
-                <p className="text-white/90 leading-relaxed">
-                  Real-world case studies, failure analysis, and strategies that actually work 
-                  under pressure—not just in theory.
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* Contact Section */}
           <div className="text-center bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm">
-            <h2 className="text-3xl font-heading mb-4 text-molten">Want to Discuss These Ideas?</h2>
-            <p className="text-lg text-white/90 mb-6 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-heading mb-4" style={{color: '#F5F5DC'}}>Want to Discuss These Ideas?</h2>
+            <p className="text-lg mb-6 max-w-2xl mx-auto" style={{color: '#F5F5DC', opacity: 0.9}}>
               Have thoughts on a piece? Questions about implementation? 
               Let's start a conversation that goes beyond surface-level consulting.
             </p>
@@ -139,7 +248,7 @@ export default function Blog() {
               >
                 Start the Conversation
               </a>
-              <span className="text-white/60">or</span>
+              <span style={{color: '#F5F5DC', opacity: 0.6}}>or</span>
               <a 
                 href="/#eve-chat"
                 className="inline-block py-3 px-8 bg-molten/20 border border-molten text-white font-bold rounded hover:bg-molten/30 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"

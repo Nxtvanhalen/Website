@@ -57,7 +57,7 @@ export default function Marquee() {
               }}
             />
             <div className="w-full h-full flex items-center justify-center" style={{display: 'none'}}>
-              <span className="text-molten text-sm font-bold">CB</span>
+              <span className="text-sm font-bold" style={{color: '#F5F5DC'}}>CB</span>
             </div>
           </div>
         </div>
@@ -80,8 +80,8 @@ export default function Marquee() {
                 key={currentBox}
                 className="animate-crossfade"
               >
-                <div className="text-sm text-molten font-bold mb-2">{boxes[currentBox].title}</div>
-                <div className="text-xs text-white/90 mb-3">{boxes[currentBox].description}</div>
+                <div className="text-sm font-bold mb-2" style={{color: '#F5F5DC'}}>{boxes[currentBox].title}</div>
+                <div className="text-xs mb-3" style={{color: '#F5F5DC', opacity: 0.9}}>{boxes[currentBox].description}</div>
                 <a 
                   href={`mailto:chrisleebergstrom@gmail.com?subject=${boxes[currentBox].subject}`}
                   className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
@@ -89,18 +89,18 @@ export default function Marquee() {
                 >
                   Let's Talk Strategy
                 </a>
-                <div className="text-xs text-white/60 mt-1">chrisleebergstrom@gmail.com</div>
+                <div className="text-xs mt-1" style={{color: '#F5F5DC', opacity: 0.6}}>chrisleebergstrom@gmail.com</div>
               </div>
             </div>
           </div>
         </div>
-        <p className="text-xl font-body italic text-center mb-8 max-w-2xl opacity-90">
+        <p className="text-xl font-body italic text-center mb-8 max-w-2xl opacity-90" style={{color: '#F5F5DC'}}>
           "The advancement of the arts is directly related to the advancement of society"
         </p>
         
         {/* Experience paragraph with pulsing line - Mobile responsive */}
         <div className="relative mb-16 mx-auto max-w-4xl px-4">
-          <p className="text-base font-body opacity-90 text-center leading-relaxed">
+          <p className="text-base font-body opacity-90 text-center leading-relaxed" style={{color: '#F5F5DC'}}>
             With two decades of global live entertainment experience—from arenas to civic halls—Chris brings strategy grounded in lived reality, not theory. From backstage operations to AI strategy, he translates hard-earned wisdom into solutions that work under pressure.
           </p>
           <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-molten block animate-pulse-width w-32" />
@@ -167,8 +167,8 @@ export default function Marquee() {
           id="eve-chat"
           aria-labelledby="eve-heading"
         >
-          <h3 id="eve-heading" className="text-3xl font-heading mb-4">Ask EVE.</h3>
-          <p className="text-lg leading-relaxed opacity-90 mb-6">
+          <h3 id="eve-heading" className="text-3xl font-heading mb-4" style={{color: '#F5F5DC'}}>Ask EVE.</h3>
+          <p className="text-lg leading-relaxed opacity-90 mb-6" style={{color: '#F5F5DC'}}>
             EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. AI should never replace the artist. It should empower the visionary.
           </p>
           <div className="flex justify-center">
@@ -182,7 +182,7 @@ export default function Marquee() {
           </div>
         </section>
         
-        <h4 id="eve-ai-heading" className="text-4xl font-heading mb-2 glow">
+        <h4 id="eve-ai-heading" className="text-4xl font-heading mb-2" style={{color: '#F5F5DC'}}>
           EVE AI
         </h4>
         <div 

@@ -241,8 +241,8 @@ export default function Home() {
           >
             CLB Consultancy
           </h1>
-          <p className="text-xl mb-6 max-w-3xl mx-auto leading-relaxed">
-            <span className="text-molten font-bold">Strategy Born from the Wreckage, Intelligence Forged in the Fire</span>
+          <p className="text-xl mb-6 max-w-3xl mx-auto leading-relaxed" style={{color: '#F5F5DC'}}>
+            <span className="font-bold" style={{color: '#F5F5DC'}}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</span>
           </p>
         </section>
         

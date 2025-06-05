@@ -65,7 +65,7 @@ export default function Projects() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-5xl font-heading mb-4 glow-subtle">Current Projects</h1>
-            <p className="text-xl text-molten font-bold">CLB Consulting</p>
+            <p className="text-xl font-bold" style={{color: '#F5F5DC'}}>CLB Consulting</p>
           </div>
           
           <div className="grid gap-8 md:gap-12">
@@ -75,15 +75,15 @@ export default function Projects() {
                 <div className="flex items-start gap-4 flex-1">
                   <span className="text-molten text-2xl font-bold">1.</span>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading glow mb-3">Master Tour</h2>
-                    <p className="text-base leading-relaxed opacity-90 mb-3">
+                    <h2 className="text-2xl font-heading mb-3" style={{color: '#F5F5DC'}}>Master Tour</h2>
+                    <p className="text-base leading-relaxed opacity-90 mb-3" style={{color: '#F5F5DC'}}>
                       Mastertour Venue is the next step from Eventric for accurate tech pack data for venues and touring artists. We have been beta testing and consulting on the roll out.
                     </p>
                     <a 
                       href="https://www.eventric.com/master-tour-venue/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-molten font-bold hover:text-white transition-colors duration-200 glow text-sm"
+                      className="text-molten font-bold hover:text-white transition-colors duration-200 text-sm"
                     >
                       Visit Master Tour Venue →
                     </a>
@@ -106,9 +106,9 @@ export default function Projects() {
                 <div className="flex items-start gap-4 flex-1">
                   <span className="text-molten text-2xl font-bold">2.</span>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading glow mb-1">AI Powered Remote SPL</h2>
-                    <div className="text-sm text-white/60 font-normal mb-3">(Sound Pressure Level)</div>
-                    <p className="text-base leading-relaxed opacity-90">
+                    <h2 className="text-2xl font-heading mb-1" style={{color: '#F5F5DC'}}>AI Powered Remote SPL</h2>
+                    <div className="text-sm font-normal mb-3" style={{color: '#F5F5DC', opacity: 0.6}}>(Sound Pressure Level)</div>
+                    <p className="text-base leading-relaxed opacity-90" style={{color: '#F5F5DC'}}>
                       AI-powered cloud-based SPL remote monitoring with analytics and reports for construction and live events. Real-time sound pressure level tracking that combines compliance monitoring with predictive insights—ensuring safety while optimizing acoustic performance.
                     </p>
                   </div>
@@ -129,8 +129,8 @@ export default function Projects() {
                 <div className="flex items-start gap-4 flex-1">
                   <span className="text-molten text-2xl font-bold">2.</span>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading glow mb-3">EVA — Events Virtual Assistant</h2>
-                    <p className="text-base leading-relaxed opacity-90">
+                    <h2 className="text-2xl font-heading mb-3" style={{color: '#F5F5DC'}}>EVA — Events Virtual Assistant</h2>
+                    <p className="text-base leading-relaxed opacity-90" style={{color: '#F5F5DC'}}>
                       The orchestration core of CLB's AI system. EVA routes client inquiries, manages agent workflows, and coordinates behind-the-scenes logistics for tours, productions, and consulting pipelines. She's the planner that never misses a cue.
                     </p>
                   </div>
@@ -151,8 +151,8 @@ export default function Projects() {
                 <div className="flex items-start gap-4 flex-1">
                   <span className="text-molten text-2xl font-bold">3.</span>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading glow mb-3">R.Y.D.E.R. — Mental Health AI for Creatives</h2>
-                    <p className="text-base leading-relaxed opacity-90">
+                    <h2 className="text-2xl font-heading mb-3" style={{color: '#F5F5DC'}}>R.Y.D.E.R. — Mental Health AI for Creatives</h2>
+                    <p className="text-base leading-relaxed opacity-90" style={{color: '#F5F5DC'}}>
                       R.Y.D.E.R. (Reminding You: Darkness Eventually Recedes) is a trauma-aware conversational agent built for freelancers and event staff. Anonymous, reflective, and emotionally attuned—this isn't therapy, it's a check-in with soul.
                     </p>
                   </div>
@@ -173,13 +173,13 @@ export default function Projects() {
                 <div className="flex items-start gap-4 flex-1">
                   <span className="text-molten text-2xl font-bold">4.</span>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading glow mb-3">EVE — Conversational AI for CLB</h2>
-                    <p className="text-base leading-relaxed opacity-90 mb-3">
+                    <h2 className="text-2xl font-heading mb-3" style={{color: '#F5F5DC'}}>EVE — Conversational AI for CLB</h2>
+                    <p className="text-base leading-relaxed opacity-90 mb-3" style={{color: '#F5F5DC'}}>
                       The velvet rope meets sharp strategy. EVE guides visitors through CLB's services, sparks insights, and converts interest into contact. She's part concierge, part co-pilot—and she always sends the curious straight to Chris.
                     </p>
                     <a 
                       href="/#eve-chat" 
-                      className="text-molten font-bold hover:text-white transition-colors duration-200 glow text-sm"
+                      className="text-molten font-bold hover:text-white transition-colors duration-200 text-sm"
                     >
                       Chat with EVE now! →
                     </a>
@@ -201,8 +201,8 @@ export default function Projects() {
                 <div className="flex items-start gap-4 flex-1">
                   <span className="text-molten text-2xl font-bold">5.</span>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading glow mb-3">Byte — Voice-to-Voice Semantic Research Agent</h2>
-                    <p className="text-base leading-relaxed opacity-90">
+                    <h2 className="text-2xl font-heading mb-3" style={{color: '#F5F5DC'}}>Byte — Voice-to-Voice Semantic Research Agent</h2>
+                    <p className="text-base leading-relaxed opacity-90" style={{color: '#F5F5DC'}}>
                       Byte is a voice-native AI built for deep file parsing, archival search, and contextual synthesis. Housed in a clean voice interface, Byte speaks with clarity, thinks with nuance, and commands a suite of its own sub-agents to handle complex research.
                     </p>
                   </div>
@@ -223,8 +223,8 @@ export default function Projects() {
                 <div className="flex items-start gap-4 flex-1">
                   <span className="text-molten text-2xl font-bold">6.</span>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading glow mb-3">Glytch — Retro-Futurist API Assistant</h2>
-                    <p className="text-base leading-relaxed opacity-90">
+                    <h2 className="text-2xl font-heading mb-3" style={{color: '#F5F5DC'}}>Glytch — Retro-Futurist API Assistant</h2>
+                    <p className="text-base leading-relaxed opacity-90" style={{color: '#F5F5DC'}}>
                       Glytch lives inside a vintage iMac and channels the spirit of TARS from Interstellar. Running on the Assistants API, it's a local, voice-interactive consulting companion—designed for creative ideation, irreverent insights, and unexpected brilliance.
                     </p>
                   </div>
@@ -243,9 +243,9 @@ export default function Projects() {
             <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
               <div className="flex items-start gap-4 mb-4">
                 <span className="text-molten text-2xl font-bold">7.</span>
-                <h2 className="text-2xl font-heading glow">Multi-Agent Intelligence Lab</h2>
+                <h2 className="text-2xl font-heading" style={{color: '#F5F5DC'}}>Multi-Agent Intelligence Lab</h2>
               </div>
-              <p className="text-base leading-relaxed opacity-90 ml-8">
+              <p className="text-base leading-relaxed opacity-90 ml-8" style={{color: '#F5F5DC'}}>
                 The CLB skunkworks. Here, we develop federated agent architectures, experiment with cross-agent communication, and prototype consulting flows that can adapt in real time. This is where the future of interface meets the reality of execution.
               </p>
             </div>
@@ -254,9 +254,9 @@ export default function Projects() {
             <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
               <div className="flex items-start gap-4 mb-4">
                 <span className="text-molten text-2xl font-bold">8.</span>
-                <h2 className="text-2xl font-heading glow">JAMES — Core Memory & Strategic AI Backbone</h2>
+                <h2 className="text-2xl font-heading" style={{color: '#F5F5DC'}}>JAMES — Core Memory & Strategic AI Backbone</h2>
               </div>
-              <p className="text-base leading-relaxed opacity-90 ml-8">
+              <p className="text-base leading-relaxed opacity-90 ml-8" style={{color: '#F5F5DC'}}>
                 JAMES is the cognitive substrate behind it all. Long-term memory, real-time synthesis, and multi-agent orchestration—all designed to align with Chris's evolving strategy. He remembers everything, challenges assumptions, and ensures that CLB isn't just smart—it's alive.
               </p>
             </div>
@@ -265,21 +265,21 @@ export default function Projects() {
             <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
               <div className="flex items-start gap-4 mb-4">
                 <span className="text-molten text-2xl font-bold">9.</span>
-                <h2 className="text-2xl font-heading glow">AI Consulting Sandbox</h2>
+                <h2 className="text-2xl font-heading" style={{color: '#F5F5DC'}}>AI Consulting Sandbox</h2>
               </div>
-              <p className="text-base leading-relaxed opacity-90 ml-8">
+              <p className="text-base leading-relaxed opacity-90 ml-8" style={{color: '#F5F5DC'}}>
                 A Firebase-powered testbed for hospitality strategy. This project analyzes live sales data to uncover patterns, predict demand, and turn operational noise into actionable insight—for restaurants ready to move beyond spreadsheets.
               </p>
             </div>
           </div>
           
           <div className="text-center py-12 mt-16">
-            <p className="text-lg opacity-70 italic">Strategy Born from the Wreckage, Intelligence Forged in the Fire</p>
+            <p className="text-lg opacity-70 italic" style={{color: '#F5F5DC'}}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</p>
           </div>
 
           {/* Contact Section */}
           <section className="py-12 px-6 text-center">
-            <h2 className="text-3xl font-heading mb-6">Let's start discussing how I can set you up for success.</h2>
+            <h2 className="text-3xl font-heading mb-6" style={{color: '#F5F5DC'}}>Let's start discussing how I can set you up for success.</h2>
             <div className="max-w-lg mx-auto space-y-6">
               <div className="space-y-4">
                 <a 
@@ -287,11 +287,11 @@ export default function Projects() {
                   className="group block relative overflow-hidden py-4 px-8 bg-transparent text-white font-bold rounded-lg border border-molten hover:border-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 active:scale-95"
                 >
                   <div className="relative flex flex-col items-center justify-center text-center">
-                    <div className="text-lg font-bold">Ready to go?</div>
-                    <div className="text-sm opacity-80">chrisleebergstrom@gmail.com</div>
+                    <div className="text-lg font-bold" style={{color: '#F5F5DC'}}>Ready to go?</div>
+                    <div className="text-sm opacity-80" style={{color: '#F5F5DC'}}>chrisleebergstrom@gmail.com</div>
                   </div>
                 </a>
-                <p className="text-sm text-molten/70 flex items-center justify-center space-x-2">
+                <p className="text-sm flex items-center justify-center space-x-2" style={{color: '#F5F5DC', opacity: 0.7}}>
                   <span>⚡</span>
                   <span>Let's discuss your project needs</span>
                   <span>⚡</span>
