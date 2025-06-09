@@ -72,9 +72,9 @@ export default function ChatPanel() {
             const rect = eveHeading.getBoundingClientRect();
             const offsetTop = window.pageYOffset + rect.top;
             
-            // Scroll 80px higher than center to ensure input area is visible
+            // Scroll 120px higher than center to ensure more of input area is visible
             window.scrollTo({
-              top: offsetTop - 80,
+              top: offsetTop - 120,
               behavior: 'smooth'
             });
           }
@@ -216,7 +216,7 @@ export default function ChatPanel() {
       <form onSubmit={sendMessage} className="flex border-t border-molten/30 bg-black/30">
         <input
           ref={inputRef}
-          className="flex-1 p-4 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-molten/50 rounded-none"
+          className="chat-input flex-1 p-4 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-molten/50 rounded-none"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder={isTyping ? "EVE is thinking..." : "Ask me anything about AI, consulting, or development..."}

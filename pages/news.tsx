@@ -26,7 +26,7 @@ export default function News() {
         <meta name="description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consultancy" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#9370DB" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
         
         {/* Open Graph tags for social sharing */}

@@ -73,7 +73,7 @@ export default function Home() {
         <meta name="description" content="AI-focused consultancy providing intelligent solutions and development services" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#9370DB" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
         
         {/* Open Graph tags for social sharing */}
@@ -186,6 +186,7 @@ export default function Home() {
           }}
         />
       </Head>
+      
       {/* Parallax Background */}
       <div className="parallax-container">
         <div 

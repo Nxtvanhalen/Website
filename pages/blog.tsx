@@ -78,10 +78,12 @@ export default function Blog() {
       {/* Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
         <div 
-          className="absolute inset-0 bg-cover md:bg-fixed"
+          className="absolute inset-0"
           style={{
-            backgroundImage: "url('/images/musing.png')",
-            backgroundPosition: 'center 0%',
+            backgroundImage: "url('/images/musing.PNG')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            transform: 'translateY(100px)',
             minHeight: '120vh'
           }}
         />

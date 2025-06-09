@@ -122,6 +122,25 @@ npx next dev --hostname 0.0.0.0 --port 3000
 
 ## Recent Major Updates (December 2024 - Comprehensive Enhancement Session)
 
+### 🎨 Mobile Purple Background & Musings Image Fix (Latest Session - January 2025)
+- **Purple Mobile Safe-Area**: Fixed inconsistent purple background in mobile notch/safe-area across all pages
+- **Theme-Color Consistency**: Updated all pages to use `#9370DB` theme-color for consistent mobile status bar styling
+- **Musings Background Fix**: Corrected case-sensitive file reference from `musing.png` to `musing.PNG`
+- **Safe-Area Header Padding**: Added `env(safe-area-inset-top)` to header padding for proper mobile notch coverage
+- **Musings Image Positioning**: Fixed background image positioning using `transform: translateY(100px)` instead of CSS background-position
+- **CSS Conflict Resolution**: Removed problematic broad selector `[style*="background-image"]` that was overriding positioning with `!important`
+- **Background Positioning Solution**: Use CSS transform instead of background-position for reliable image positioning (CSS background-position can be blocked by existing rules)
+- **Surgical Implementation**: Maintained all existing parallax backgrounds and visual effects while adding purple mobile UI
+
+### 🛠️ RSS Integration & Background Enhancement (Previous Session)
+- **Native XML Parser**: Replaced problematic rss-parser dependency with custom JavaScript RSS parser
+- **Substack Integration**: Successfully integrated real-time Substack post fetching for blog page
+- **Background Consistency**: Added `minHeight: '120vh'` to all pages for consistent purple overflow area on mobile
+- **No Dependencies**: Eliminated external RSS parsing dependencies that caused production build failures
+- **Production Ready**: RSS feed now works reliably across all deployment environments
+
+## Previous Session Updates (December 2024)
+
 ### 🚀 Performance & SEO Optimizations
 - **Resource Hints**: Added DNS prefetch, preconnect, and font preloading for faster loading
 - **Sitemap**: Dynamic XML sitemap generation at `/sitemap.xml` for better search indexing
@@ -223,10 +242,18 @@ curl -s http://127.0.0.1:3000 | head -5
 
 ### Git Workflow & Commits
 ```bash
-# Recent commits (December 2024 - Comprehensive Enhancement Session):
+# Recent commits (December 2024 - RSS Integration & Background Enhancement):
+98ac08e - Replace rss-parser with native XML parsing solution
+08bc2b2 - Fix TypeScript compilation error for rss-parser import
+fcac3e8 - Fix Substack RSS parsing with proper ES6 dynamic import
+ac0088f - Add consistent 120vh background height and fix Substack API resilience
+05e2a4a - Fix rss-parser dependency for production deployment
+5019735 - Implement comprehensive styling consistency and infrastructure improvements
+
+# Previous session commits (December 2024 - Comprehensive Enhancement Session):
 8d700ff - Add dynamic XML sitemap for improved SEO indexing
 b6e05ba - Add comprehensive SEO, accessibility, and performance optimizations
-409c621 - Fix CTA box positioning and optimize mobile social icons (from previous session)
+409c621 - Fix CTA box positioning and optimize mobile social icons
 
 # Previous session commits:
 fe66e16 - Force cache clear for deployment
@@ -271,9 +298,18 @@ c438c0d - Enhance navigation, content, and add profile picture
 ### Current Status
 - **Parallax system**: Stable and functioning correctly
 - **Page loading**: Chat auto-focus properly disabled, no page jump issues
+- **Mobile Chat UX**: Smart keyboard recentering system implemented for optimal mobile experience
 - **CSS caching**: May require clearing `.next` cache for changes to appear
 - **Navigation**: Optimized for 3 main pages (About, Projects, News/Press)
 - **Profile Picture**: Properly implemented with responsive framing
+
+### Mobile Chat Keyboard Handling
+- **Auto-recentering**: When mobile keyboard disappears, chat smoothly scrolls back into view
+- **Smart detection**: Only triggers when user was actively using chat input (prevents unwanted scrolling)
+- **Viewport monitoring**: Uses `window.visualViewport` to detect keyboard show/hide (150px threshold)
+- **Scroll offset**: 120px above EVE heading to ensure input area remains visible
+- **Timing**: 200ms delay for smooth recentering, 500ms blur delay for interaction tracking
+- **Target element**: Scrolls to `eve-ai-heading` for consistent positioning
 
 ### Best Practices
 - Commit frequently with descriptive messages
@@ -324,6 +360,8 @@ c438c0d - Enhance navigation, content, and add profile picture
 - ✅ **SEO Ready**: Sitemap, structured data, analytics active
 - ✅ **Accessibility Compliant**: WCAG standards met
 - ✅ **Analytics Tracking**: Google Analytics conversion tracking active
+- ✅ **RSS Integration**: Native Substack feed parsing working reliably
+- ✅ **Mobile UX**: Consistent purple overflow area across all pages (120vh backgrounds)
 - ✅ **Professional Foundation**: Ready for consulting business growth
 
 ### Analytics Configuration

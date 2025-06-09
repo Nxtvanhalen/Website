@@ -33,6 +33,7 @@
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(8px);
   padding: 20px 5%;
+  padding-top: calc(20px + env(safe-area-inset-top));
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,6 +45,7 @@
 }
 .header.scrolled {
   padding: 15px 5%;
+  padding-top: calc(15px + env(safe-area-inset-top));
   background: rgba(0,0,0,0.5);
 }
 .logo {
@@ -531,8 +533,9 @@ h1, h2, h3 {
     background-repeat: no-repeat !important;
   }
   
-  /* Ensure backgrounds don't zoom on mobile - homepage and other inline styles */
-  [style*="background-image"] {
+  /* Mobile-specific background fixes for homepage parallax */
+  .parallax-bg,
+  .parallax-bg-2 {
     background-attachment: scroll !important;
     background-size: cover !important;
     background-position: center 20% !important;
@@ -642,6 +645,11 @@ select:focus,
   outline: 2px solid var(--deep-orange) !important;
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+/* Exception: Chat input uses purple ring instead of orange outline */
+.chat-input:focus {
+  outline: none !important;
 }
 
 /* Fix purple scrollbar gutter on FAQ and Musings pages */
