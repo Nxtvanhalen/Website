@@ -89,19 +89,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" content="#9370DB" />
         
-        {/* Google tag (gtag.js) - Using beforeInteractive for early loading */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XZ6CF9XQD7"
-          strategy="beforeInteractive"
-        />
-        <Script id="google-analytics" strategy="beforeInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XZ6CF9XQD7');
-          `}
-        </Script>
       </Head>
       <Header />
       <Component {...pageProps} />
