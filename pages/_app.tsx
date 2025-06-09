@@ -89,21 +89,17 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" content="#9370DB" />
         
-        {/* Google Analytics */}
+        {/* Google tag (gtag.js) */}
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          strategy="lazyOnload"
+          src="https://www.googletagmanager.com/gtag/js?id=G-XZ6CF9XQD7"
+          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
-              page_title: document.title,
-              page_location: window.location.href,
-              anonymize_ip: true
-            });
+            gtag('config', 'G-XZ6CF9XQD7');
           `}
         </Script>
       </Head>
