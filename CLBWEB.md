@@ -130,6 +130,60 @@ pkill -f next
 npx next dev --hostname 0.0.0.0 --port 3000
 ```
 
+## 🚨 CRITICAL: Development Server Issues (June 2025)
+
+### Node.js v22 + Next.js 14 Compatibility Issue
+**PROBLEM**: Using Node.js v22 with Next.js 14 causes CSS compilation failures in development mode, resulting in white screen (FOUC prevention without CSS loading).
+
+**SYMPTOMS**:
+- `body{display:none}` in HTML but no CSS files loading
+- White screen in dev mode (`npm run dev`)
+- Same code works perfectly in production mode and live deployment
+- Background dev server (`nohup npm run dev > dev.log 2>&1 &`) fails same way
+
+**ROOT CAUSE**: Node.js v22 incompatibility with Next.js 14 CSS compilation pipeline
+
+**SOLUTIONS**:
+
+#### Option 1: Use Production Mode for Local Development (RECOMMENDED)
+```bash
+# After making code changes:
+pkill -f next                           # Stop any running servers
+npm run build                          # Rebuild (takes ~30 seconds)  
+nohup npm start > prod.log 2>&1 &     # Start production server
+# Test at http://localhost:3000
+# NO hot reload - must rebuild after each change
+```
+
+**Advantages**:
+- ✅ Identical to live deployment
+- ✅ Reliable CSS/styling
+- ✅ No white screen issues
+- ❌ Must rebuild for each change (no hot reload)
+
+#### Option 2: Downgrade Node.js (Alternative)
+```bash
+# Install nvm and use Node 18 or 20
+nvm install 18
+nvm use 18
+npm run dev  # Should work normally
+```
+
+#### Option 3: Accept Broken Dev Mode
+- Use production mode for final testing
+- Work with broken dev mode for rapid iteration
+- Deploy frequently to test on live site
+
+**NEVER WASTE TIME ON**:
+- Clearing `.next` cache (doesn't fix the issue)
+- Modifying CSS imports or FOUC prevention
+- Tweaking Next.js configuration
+- Different dev server start methods
+
+**The issue is environmental, not code-related.**
+
+---
+
 ## Recent Major Updates (December 2024 - Comprehensive Enhancement Session)
 
 ### 🎨 Mobile Purple Background & Musings Image Fix (Latest Session - January 2025)

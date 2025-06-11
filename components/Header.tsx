@@ -39,7 +39,11 @@ export default function Header() {
             className="logo"
             aria-label="CLB Consulting - Return to homepage"
           >
-            <span>CLB</span>Consulting
+            <img 
+              src="/images/Purple Logo.png" 
+              alt="CLB Consulting Logo" 
+              className="h-8 w-auto"
+            />
           </Link>
           
           {/* Profile Picture - Desktop Only */}
