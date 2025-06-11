@@ -77,7 +77,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        
         {/* Favicon and App Icons */}
         <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />

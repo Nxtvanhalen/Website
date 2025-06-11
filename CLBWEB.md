@@ -13,7 +13,10 @@ Chris Lee Bergstrom's theatrical consulting website - positioned as revolutionar
 
 ### Directory Structure
 ```
-Working Directory: /Users/chrisbergstrom/Documents/WEBSITE/frontend/repo-fix
+> **NOTE**: Due to iCloud syncing issues, this repo should be cloned into a local folder outside of iCloud (e.g., `/Users/chrisbergstrom/WEBSITE/frontend/repo-fix`).
+```
+```
+Working Directory: /Users/chrisbergstrom/WEBSITE/frontend/repo-fix
 ├── components/
 │   ├── ChatPanel.tsx (transparent styling)
 │   ├── Contact.tsx (simplified messaging)  
@@ -39,6 +42,12 @@ Working Directory: /Users/chrisbergstrom/Documents/WEBSITE/frontend/repo-fix
 ```
 
 **Important**: 
+- To ensure you’re working on the latest production code, clone or pull the `nxtvanhalen/Website` repo into this folder:
+  ```bash
+  git clone git@github.com:nxtvanhalen/Website.git repo-fix
+  cd repo-fix
+  git pull origin main
+  ```
 - ONLY `repo-fix` directory is git-connected (pushes to `nxtvanhalen/Website`)
 - Main `/frontend` directory is NOT git-connected
 - Always work in `repo-fix` for all development
@@ -110,8 +119,9 @@ Working Directory: /Users/chrisbergstrom/Documents/WEBSITE/frontend/repo-fix
 ### Starting Dev Server
 ```bash
 # SOLUTION: Use background process method (solves binding issues)
-cd /Users/chrisbergstrom/Documents/WEBSITE/frontend/repo-fix
-nohup npx next dev > next.log 2>&1 & 
+# (Ensure you're in the cloned `repo-fix` folder outside of iCloud)
+cd /Users/chrisbergstrom/WEBSITE/frontend/repo-fix
+nohup npx next dev > next.log 2>&1 &
 sleep 3
 curl -s http://localhost:3000 | head -5  # Verify it's working
 

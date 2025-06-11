@@ -4,7 +4,13 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Google tag (gtag.js) */}
+      {/* Google tag (gtag.js) */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
+      />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-XZ6CF9XQD7"
