@@ -241,11 +241,19 @@ export default function Home() {
             id="company-heading"
             className="text-4xl font-heading mb-4 bg-gradient-to-r from-white via-molten to-white bg-clip-text text-transparent glow-subtle"
           >
-            CLB Consultancy
+            CLB Consulting
           </h1>
           <p className="text-xl mb-6 max-w-3xl mx-auto leading-relaxed" style={{color: '#F5F5DC'}}>
             <span className="font-bold" style={{color: '#F5F5DC'}}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</span>
           </p>
+          
+          {/* Flashing lights warning */}
+          <div className="flex items-center justify-center mb-4 text-yellow-400">
+            <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fillRule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+            </svg>
+            <span className="text-sm font-medium">This video contains flashing lights</span>
+          </div>
         </section>
         
         
@@ -269,6 +277,9 @@ export default function Home() {
               <source src="/videos/IMG_0279.mp4" type="video/mp4" />
               <p>Your browser does not support the video tag. This video showcases CLB Consultancy's AI integration and entertainment technology work.</p>
             </video>
+            <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>
+              The Dandy Warhols Live in Paris, France
+            </p>
           </div>
         </section>
         
