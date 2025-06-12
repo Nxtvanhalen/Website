@@ -159,7 +159,7 @@ export default function FAQ() {
           </div>
 
           {/* Contact CTA */}
-          <div className="mt-16 text-center bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm">
+          <div className="mt-16 mb-24 text-center bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm">
             <h2 className="text-3xl font-heading mb-4" style={{color: '#F5F5DC'}}>Still have questions?</h2>
             <p className="text-lg mb-6 max-w-2xl mx-auto" style={{color: '#F5F5DC', opacity: 0.9}}>
               Ready to discuss how CLB Consultancy can transform your operations and empower your team? 

@@ -237,7 +237,7 @@ export default function Blog() {
           </div>
 
           {/* Contact Section */}
-          <div className="text-center bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm">
+          <div className="text-center bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm mb-24">
             <h2 className="text-3xl font-heading mb-4" style={{color: '#F5F5DC'}}>Want to Discuss These Ideas?</h2>
             <p className="text-lg mb-6 max-w-2xl mx-auto" style={{color: '#F5F5DC', opacity: 0.9}}>
               Have thoughts on a piece? Questions about implementation? 

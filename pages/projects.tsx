@@ -54,7 +54,7 @@ export default function Projects() {
         <div 
           className="projects-parallax-bg absolute inset-0 bg-center bg-cover md:bg-fixed"
           style={{
-            backgroundImage: "url('/images/AI3.jpg')",
+            backgroundImage: "url('/images/AI5.jpg')",
             minHeight: '120vh'
           }}
         />

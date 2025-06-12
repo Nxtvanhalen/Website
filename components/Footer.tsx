@@ -3,7 +3,11 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-logo">
-          <span>CLB</span>Consultancy
+          <img 
+            src="/images/Purple Logo.png" 
+            alt="CLB Consulting Logo" 
+            className="h-8 w-auto"
+          />
         </div>
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} CLB Brand. All rights reserved.</p>
