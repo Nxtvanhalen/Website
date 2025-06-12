@@ -117,30 +117,14 @@ export default function Marquee() {
               role="img"
               aria-label="Scrolling gallery of project screenshots and portfolio images"
             >
-              {/* First set of items */}
+              {/* First set of items - starting with Project9 as first */}
               <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
                 <img 
-                  src="/images/gallery/Project1.webp" 
-                  alt="Project 1 - CLB Consultancy portfolio showcase" 
+                  src="/images/gallery/Project9.webp" 
+                  alt="Project 9 - CLB Consultancy portfolio showcase" 
                   className="w-full h-full object-cover" 
                 />
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
-                <img src="/images/gallery/Project2.webp" alt="Project 2" className="w-full h-full object-cover" />
-              </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
-                <img src="/images/gallery/Project3.webp" alt="Project 3" className="w-full h-full object-cover" />
-              </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
-                <img src="/images/gallery/Project4.webp" alt="Project 4" className="w-full h-full object-cover" />
-              </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
-                <img src="/images/gallery/Project5.webp" alt="Project 5" className="w-full h-full object-cover" />
-              </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
-                <img src="/images/gallery/Project6.webp" alt="Project 6" className="w-full h-full object-cover" />
-              </div>
-              {/* Duplicate set for seamless loop */}
               <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
                 <img src="/images/gallery/Project1.webp" alt="Project 1" className="w-full h-full object-cover" />
               </div>
@@ -151,13 +135,47 @@ export default function Marquee() {
                 <img src="/images/gallery/Project3.webp" alt="Project 3" className="w-full h-full object-cover" />
               </div>
               <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
-                <img src="/images/gallery/Project4.webp" alt="Project 4" className="w-full h-full object-cover" />
+                <img src="/images/gallery/BRMC2.webp" alt="BRMC2" className="w-full h-full object-cover" />
               </div>
               <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
                 <img src="/images/gallery/Project5.webp" alt="Project 5" className="w-full h-full object-cover" />
               </div>
               <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
                 <img src="/images/gallery/Project6.webp" alt="Project 6" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project7.webp" alt="Project 7" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project8.webp" alt="Project 8" className="w-full h-full object-cover" />
+              </div>
+              {/* Duplicate set for seamless loop */}
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project9.webp" alt="Project 9" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project1.webp" alt="Project 1" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project2.webp" alt="Project 2" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project3.webp" alt="Project 3" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/BRMC2.webp" alt="BRMC2" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project5.webp" alt="Project 5" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project6.webp" alt="Project 6" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project7.webp" alt="Project 7" className="w-full h-full object-cover" />
+              </div>
+              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+                <img src="/images/gallery/Project8.webp" alt="Project 8" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>

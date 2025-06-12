@@ -1,10 +1,23 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Marquee from '../components/Marquee';
 import Ethos from '../components/Ethos';
 import Contact from '../components/Contact';
 
 export default function Home() {
+  const [videosDisabled, setVideosDisabled] = useState(false);
+  const videosDisabledRef = useRef(false);
+
+  const handlePauseVideos = () => {
+    setVideosDisabled(true);
+    videosDisabledRef.current = true;
+    // Immediately pause any currently playing videos
+    const video = document.getElementById('scroll-video') as HTMLVideoElement;
+    const brmcVideo = document.getElementById('brmc-video') as HTMLVideoElement;
+    if (video) video.pause();
+    if (brmcVideo) brmcVideo.pause();
+  };
+
   useEffect(() => {
     // Force page to top immediately
     document.documentElement.scrollTop = 0;
@@ -28,22 +41,39 @@ export default function Home() {
     // Video scroll trigger with Intersection Observer
     const setupVideoScrollTrigger = () => {
       const video = document.getElementById('scroll-video') as HTMLVideoElement;
-      if (!video) return;
+      const brmcVideo = document.getElementById('brmc-video') as HTMLVideoElement;
+      
+      if (video) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!videosDisabledRef.current && entry.isIntersecting) {
+                video.play().catch(console.log);
+              } else {
+                video.pause();
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+        observer.observe(video);
+      }
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              video.play().catch(console.log);
-            } else {
-              video.pause();
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      observer.observe(video);
+      if (brmcVideo) {
+        const brmcObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!videosDisabledRef.current && entry.isIntersecting) {
+                brmcVideo.play().catch(console.log);
+              } else {
+                brmcVideo.pause();
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+        brmcObserver.observe(brmcVideo);
+      }
     };
 
 
@@ -60,6 +90,36 @@ export default function Home() {
       fadeCleanup();
     };
   }, []);
+
+  // Handle video disable/enable state changes
+  useEffect(() => {
+    const video = document.getElementById('scroll-video') as HTMLVideoElement;
+    const brmcVideo = document.getElementById('brmc-video') as HTMLVideoElement;
+    
+    if (videosDisabled) {
+      // Pause videos and disable them
+      if (video) {
+        video.pause();
+        video.style.pointerEvents = 'none';
+        video.style.opacity = '0.5';
+      }
+      if (brmcVideo) {
+        brmcVideo.pause();
+        brmcVideo.style.pointerEvents = 'none';
+        brmcVideo.style.opacity = '0.5';
+      }
+    } else {
+      // Re-enable videos
+      if (video) {
+        video.style.pointerEvents = 'auto';
+        video.style.opacity = '1';
+      }
+      if (brmcVideo) {
+        brmcVideo.style.pointerEvents = 'auto';
+        brmcVideo.style.opacity = '1';
+      }
+    }
+  }, [videosDisabled]);
 
   // Force scroll to top on component mount
   useEffect(() => {
@@ -248,11 +308,91 @@ export default function Home() {
           </p>
           
           {/* Flashing lights warning */}
-          <div className="flex items-center justify-center mb-4 text-yellow-400">
-            <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-              <path fillRule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-            </svg>
-            <span className="text-sm font-medium">This video contains flashing lights</span>
+          <div className="flex flex-col items-center mb-4 text-yellow-400">
+            <div className="flex items-center justify-center mb-3">
+              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm font-medium">These videos below contain flashing lights</span>
+            </div>
+            {!videosDisabled && (
+              <button
+                onClick={handlePauseVideos}
+                className="px-4 py-2 bg-transparent border border-yellow-400 text-yellow-400 text-sm font-medium rounded hover:bg-yellow-400/10 hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400/50"
+                aria-label="Pause auto-playing videos"
+              >
+                Please pause the videos
+              </button>
+            )}
+            {videosDisabled && (
+              <div className="text-sm font-medium opacity-70">
+                Videos paused - refresh page to re-enable
+              </div>
+            )}
+          </div>
+          
+          {/* Down arrows chevron pattern */}
+          <div className="flex flex-col items-center text-yellow-400">
+            {/* Row 1: 5 arrows */}
+            <div className="flex items-center justify-center space-x-4 mb-2">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+            </div>
+            {/* Row 2: 4 arrows */}
+            <div className="flex items-center justify-center space-x-4 mb-2">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+            </div>
+            {/* Row 3: 3 arrows */}
+            <div className="flex items-center justify-center space-x-4 mb-2">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+            </div>
+            {/* Row 4: 2 arrows */}
+            <div className="flex items-center justify-center space-x-4 mb-2">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+            </div>
+            {/* Row 5: 1 arrow */}
+            <div className="flex items-center justify-center mb-4">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+            </div>
           </div>
         </section>
         
@@ -279,6 +419,32 @@ export default function Home() {
             </video>
             <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>
               The Dandy Warhols Live in Paris, France
+            </p>
+          </div>
+        </section>
+
+        {/* Second video section - BRMC */}
+        <section 
+          className="py-12 px-6"
+          aria-label="BRMC promotional video showcase"
+        >
+          <div className="max-w-4xl mx-auto">
+            <video 
+              id="brmc-video"
+              className="w-full h-auto border-none rounded-none bg-transparent"
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="BRMC promotional video - plays automatically when scrolled into view"
+              title="BRMC Live Performance Video"
+            >
+              <source src="/videos/BRMC.mov" type="video/quicktime" />
+              <source src="/videos/BRMC.mp4" type="video/mp4" />
+              <p>Your browser does not support the video tag. This video showcases BRMC's live performance in Portugal.</p>
+            </video>
+            <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>
+              Black Rebel Motorcycle Club in Vilar de Mouros, Portugal
             </p>
           </div>
         </section>
