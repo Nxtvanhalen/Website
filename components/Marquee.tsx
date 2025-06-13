@@ -175,64 +175,118 @@ export default function Marquee() {
               aria-label="Interactive gallery of project screenshots and portfolio images"
             >
               {/* First set of items - starting with Project9 as first */}
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img 
                   src="/images/gallery/Project9.webp" 
                   alt="Project 9 - CLB Consultancy portfolio showcase" 
                   className="w-full h-full object-cover" 
                 />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project1.webp" alt="Project 1" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project2.webp" alt="Project 2" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project3.webp" alt="Project 3" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/BRMC2.webp" alt="BRMC2" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project5.webp" alt="Project 5" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project6.webp" alt="Project 6" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project7.webp" alt="Project 7" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project8.webp" alt="Project 8" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
               {/* Duplicate set for seamless loop */}
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project9.webp" alt="Project 9" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project1.webp" alt="Project 1" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project2.webp" alt="Project 2" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project3.webp" alt="Project 3" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/BRMC2.webp" alt="BRMC2" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project5.webp" alt="Project 5" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project6.webp" alt="Project 6" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project7.webp" alt="Project 7" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
-              <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
+              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
                 <img src="/images/gallery/Project8.webp" alt="Project 8" className="w-full h-full object-cover" />
+                <div className="gallery-watermark">
+                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                </div>
               </div>
             </div>
           </div>
