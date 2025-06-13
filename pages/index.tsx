@@ -449,6 +449,30 @@ export default function Home() {
           </div>
         </section>
         
+        {/* Profile Image Section */}
+        <section 
+          className="py-12 px-6"
+          aria-label="Chris Lee Bergstrom profile image"
+        >
+          <div className="max-w-4xl mx-auto flex justify-center">
+            <div className="w-80 h-96 rounded-lg overflow-hidden bg-black/20">
+              <img 
+                src="/images/profile/chris-profile.jpg" 
+                alt="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" 
+                className="w-full h-full object-contain profile-image-mask"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+              />
+              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-molten/30 to-gray-700/50" style={{display: 'none'}}>
+                <span className="text-2xl font-bold" style={{color: '#F5F5DC'}}>CLB</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <Ethos />
         <Contact />
       </main>

@@ -116,7 +116,18 @@ Working Directory: /Users/chrisbergstrom/WEBSITE/frontend/repo-fix
 
 ## Development Workflow
 
-### Starting Dev Server
+### Quick Production Dev Workflow (RECOMMENDED)
+```bash
+# Due to Node.js v22 + Next.js 14 compatibility issues, use production mode for local dev
+pkill -f next                           # Kill any existing processes
+npm run build                          # Build (~30 seconds)
+nohup npm start > prod.log 2>&1 &     # Start production server in background
+sleep 3
+curl -s http://localhost:3000 | head -5  # Verify it's working at http://localhost:3000
+# Note: Must rebuild after each change (no hot reload)
+```
+
+### Original Dev Server Method (May Have Issues)
 ```bash
 # SOLUTION: Use background process method (solves binding issues)
 # (Ensure you're in the cloned `repo-fix` folder outside of iCloud)
