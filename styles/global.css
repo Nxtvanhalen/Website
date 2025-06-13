@@ -432,14 +432,27 @@ h1, h2, h3 {
   display: none;
 }
 
+/* Enhanced gallery interaction */
+.gallery-container {
+  cursor: grab;
+}
+
+.gallery-container:active {
+  cursor: grabbing;
+}
+
 .gallery-track {
   scroll-behavior: smooth;
 }
 
-.gallery-track-ticker {
+.gallery-track {
   display: flex;
-  animation: gallery-scroll 45s linear infinite;
-  will-change: transform;
+  transition: none;
+}
+
+.gallery-container {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .gallery-item {

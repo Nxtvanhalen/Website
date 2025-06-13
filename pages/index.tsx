@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Landing() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white relative">
       <Head>
         <title>CLB Consultancy</title>
         <meta name="description" content="Strategy Born from the Wreckage, Intelligence Forged in the Fire" />
@@ -33,13 +33,43 @@ export default function Landing() {
         <link rel="canonical" href="https://chrisleebergstrom.com" />
       </Head>
       
+      {/* Muted Parallax Background for Landing Page */}
+      <div className="parallax-container">
+        <div 
+          className="parallax-bg-2"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100vh',
+            backgroundImage: 'url(/images/parallax-bg2.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            filter: 'brightness(0.3) saturate(0.8) blur(1px)',
+            opacity: 0.4,
+            zIndex: 1,
+            minHeight: '120vh'
+          }}
+        ></div>
+      </div>
+      
       <main 
         className="min-h-screen flex flex-col items-center justify-center relative"
         role="main"
         aria-label="CLB Consultancy Landing Page"
+        style={{position: 'relative', zIndex: 10}}
       >
+        {/* Chris Lee Bergstrom Name */}
+        <div className="text-center mb-8">
+          <h1 className="text-3xl md:text-4xl font-heading font-medium" style={{color: 'rgba(147, 112, 219, 0.7)'}}>
+            Chris Lee Bergstrom
+          </h1>
+        </div>
+        
         {/* Large CLB Logo PNG with Glitchy Glow */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <img 
             src="/images/Purple Logo.png" 
             alt="CLB Consultancy Logo" 
@@ -50,11 +80,23 @@ export default function Landing() {
         {/* Enter Button - Blurred with Pulse and Blue Edges */}
         <Link 
           href="/home"
-          className="px-12 py-4 bg-white/10 backdrop-blur-md text-white text-xl font-medium rounded-xl hover:bg-white/20 transition-all duration-500 focus:outline-none animate-pulse-slow landing-enter-button"
+          className="px-12 py-4 bg-white/10 backdrop-blur-md text-white text-xl font-medium rounded-xl hover:bg-white/20 transition-all duration-500 focus:outline-none animate-pulse-slow landing-enter-button mb-8"
           aria-label="Enter CLB Consultancy website"
         >
           Enter
         </Link>
+        
+        {/* Contact Link */}
+        <div className="text-center">
+          <a 
+            href="mailto:chrisleebergstrom@gmail.com?subject=AI Project Inquiry - Landing Page Contact"
+            className="block px-8 py-3 bg-transparent border border-molten text-molten text-lg font-medium rounded hover:bg-molten/10 hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+            aria-label="Contact Chris Lee Bergstrom via email"
+          >
+            Contact
+          </a>
+          <div className="text-sm mt-2" style={{color: '#F5F5DC', opacity: 0.7}}>chrisleebergstrom@gmail.com</div>
+        </div>
       </main>
     </div>
   );

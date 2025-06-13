@@ -47,14 +47,24 @@ export default function Home() {
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
+              console.log('Video 1 intersection:', entry.isIntersecting, 'Ratio:', entry.intersectionRatio);
               if (!videosDisabledRef.current && entry.isIntersecting) {
-                video.play().catch(console.log);
+                console.log('Playing video 1');
+                video.muted = true; // Ensure muted for autoplay
+                video.play().catch((error) => {
+                  console.log('Video 1 play failed:', error);
+                  // Fallback: try to play after user interaction
+                  document.addEventListener('click', () => {
+                    video.play().catch(console.log);
+                  }, { once: true });
+                });
               } else {
+                console.log('Pausing video 1');
                 video.pause();
               }
             });
           },
-          { threshold: 0.5 }
+          { threshold: [0, 0.1, 0.25], rootMargin: '50% 0px 50% 0px' }
         );
         observer.observe(video);
       }
@@ -63,14 +73,24 @@ export default function Home() {
         const brmcObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
+              console.log('Video 2 intersection:', entry.isIntersecting, 'Ratio:', entry.intersectionRatio);
               if (!videosDisabledRef.current && entry.isIntersecting) {
-                brmcVideo.play().catch(console.log);
+                console.log('Playing video 2');
+                brmcVideo.muted = true; // Ensure muted for autoplay
+                brmcVideo.play().catch((error) => {
+                  console.log('Video 2 play failed:', error);
+                  // Fallback: try to play after user interaction
+                  document.addEventListener('click', () => {
+                    brmcVideo.play().catch(console.log);
+                  }, { once: true });
+                });
               } else {
+                console.log('Pausing video 2');
                 brmcVideo.pause();
               }
             });
           },
-          { threshold: 0.5 }
+          { threshold: [0, 0.1, 0.25], rootMargin: '50% 0px 50% 0px' }
         );
         brmcObserver.observe(brmcVideo);
       }

@@ -1,8 +1,12 @@
 import ChatPanel from './ChatPanel';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Marquee() {
   const [currentBox, setCurrentBox] = useState(0);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const [autoScrollPosition, setAutoScrollPosition] = useState(0);
+  const animationRef = useRef<number>();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -11,6 +15,49 @@ export default function Marquee() {
 
     return () => clearInterval(interval);
   }, []);
+
+  // Auto-scroll animation
+  useEffect(() => {
+    if (!isUserInteracting && galleryRef.current) {
+      const animate = () => {
+        setAutoScrollPosition(prev => {
+          const maxScroll = galleryRef.current!.scrollWidth / 2; // Half because we have duplicated items
+          const newPosition = prev + 0.5; // Scroll speed
+          return newPosition >= maxScroll ? 0 : newPosition;
+        });
+        animationRef.current = requestAnimationFrame(animate);
+      };
+      animationRef.current = requestAnimationFrame(animate);
+    }
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isUserInteracting]);
+
+  // Apply scroll position
+  useEffect(() => {
+    if (!isUserInteracting && galleryRef.current) {
+      galleryRef.current.scrollLeft = autoScrollPosition;
+    }
+  }, [autoScrollPosition, isUserInteracting]);
+
+  // Touch/Mouse handlers
+  const handleTouchStart = () => {
+    setIsUserInteracting(true);
+  };
+
+  const handleTouchEnd = () => {
+    // Small delay before resuming auto-scroll for natural feel
+    setTimeout(() => {
+      if (galleryRef.current) {
+        setAutoScrollPosition(galleryRef.current.scrollLeft);
+      }
+      setIsUserInteracting(false);
+    }, 300);
+  };
 
   const boxes = [
     {
@@ -111,11 +158,21 @@ export default function Marquee() {
           className="mb-16 w-full max-w-6xl mx-auto px-4"
           aria-label="Portfolio gallery showcasing Chris's projects"
         >
-          <div className="gallery-container overflow-hidden">
+          <div 
+            ref={galleryRef}
+            className="gallery-container overflow-x-scroll overflow-y-hidden"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleTouchStart}
+            onMouseUp={handleTouchEnd}
+            onMouseLeave={handleTouchEnd}
+          >
             <div 
-              className="gallery-track-ticker flex gap-6"
+              className="gallery-track flex gap-6"
+              style={{ width: 'max-content' }}
               role="img"
-              aria-label="Scrolling gallery of project screenshots and portfolio images"
+              aria-label="Interactive gallery of project screenshots and portfolio images"
             >
               {/* First set of items - starting with Project9 as first */}
               <div className="gallery-item flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden">
