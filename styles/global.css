@@ -484,6 +484,20 @@ h1, h2, h3 {
   border-color: #F8F6F0;
 }
 
+/* Prevent image downloading and right-click context menu */
+.gallery-item-with-watermark img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+}
+
 .gallery-watermark {
   position: absolute;
   bottom: 8px;
