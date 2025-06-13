@@ -1,5 +1,6 @@
 import '../styles/global.css';
 import type { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect } from 'react';
@@ -17,6 +18,8 @@ declare global {
 }
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const isLandingPage = router.pathname === '/';
   useEffect(() => {
     // Track email clicks for conversion analytics
     const trackEmailClicks = () => {
@@ -89,9 +92,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#9370DB" />
         
       </Head>
-      <Header />
+      {!isLandingPage && <Header />}
       <Component {...pageProps} />
-      <Footer />
+      {!isLandingPage && <Footer />}
     </>
   );
 }

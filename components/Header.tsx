@@ -35,7 +35,7 @@ export default function Header() {
         {/* Top row: Logo, Profile Picture, and Social Icons */}
         <div className="flex items-center justify-between w-full pb-3">
           <Link 
-            href="/" 
+            href="/home" 
             className="logo"
             aria-label="CLB Consulting - Return to homepage"
           >

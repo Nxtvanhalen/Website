@@ -499,6 +499,81 @@ h1, h2, h3 {
   -webkit-mask-composite: source-in;
 }
 
+/* Landing page Enter button slow pulse animation */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* Landing page logo glitchy glow effect */
+@keyframes logo-glitch-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(147, 112, 219, 0.5));
+  }
+  25% {
+    filter: drop-shadow(0 0 20px rgba(147, 112, 219, 0.8)) drop-shadow(0 0 30px rgba(147, 112, 219, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(147, 112, 219, 0.6)) drop-shadow(2px 0 5px rgba(147, 112, 219, 0.3));
+  }
+  75% {
+    filter: drop-shadow(-1px 0 8px rgba(147, 112, 219, 0.7)) drop-shadow(0 0 25px rgba(147, 112, 219, 0.5));
+  }
+}
+
+.landing-logo-glow {
+  animation: logo-glitch-glow 4s ease-in-out infinite;
+}
+
+/* Landing page Enter button with soft blue edges */
+.landing-enter-button {
+  mask: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  ),
+  linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  mask-composite: intersect;
+  -webkit-mask: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  ),
+  linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  -webkit-mask-composite: source-in;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.landing-enter-button:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+}
+
 /* Parallax Background */
 .parallax-container {
   position: fixed;
