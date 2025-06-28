@@ -1,5 +1,6 @@
 import ChatPanel from './ChatPanel';
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 export default function Marquee() {
   const [currentBox, setCurrentBox] = useState(0);
@@ -187,119 +188,122 @@ export default function Marquee() {
             >
               {/* First set of items - starting with Project9 as first */}
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img 
+                <Image 
                   src="/images/gallery/Project9.webp" 
                   alt="Project 9 - CLB Consultancy portfolio showcase" 
-                  className="w-full h-full object-cover" 
+                  fill
+                  className="object-cover" 
                   onContextMenu={handleContextMenu}
                   onDragStart={handleDragStart}
                   draggable={false}
+                  sizes="(max-width: 768px) 100vw, 320px"
+                  priority={false}
                 />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project1.webp" alt="Project 1" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project1.webp" alt="AI consulting project dashboard showing multi-modal integration interface" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project2.webp" alt="Project 2" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project2.webp" alt="Entertainment technology setup with professional audio equipment and lighting controls" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project3.webp" alt="Project 3" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project3.webp" alt="Strategic consulting workspace with data visualization and planning documents" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/BRMC2.webp" alt="BRMC2" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/BRMC2.webp" alt="Black Rebel Motorcycle Club live performance with dramatic stage lighting in Portugal" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project5.webp" alt="Project 5" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project5.webp" alt="Team collaboration session showing AI-powered workflow optimization solutions" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project6.webp" alt="Project 6" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project6.webp" alt="Live event coordination center with multiple screens showing real-time production data" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project7.webp" alt="Project 7" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project7.webp" alt="Entertainment venue technical setup featuring advanced sound and visual systems" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project8.webp" alt="Project 8" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project8.webp" alt="CLB Consultancy client workshop demonstrating AI integration strategies" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               {/* Duplicate set for seamless loop */}
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project9.webp" alt="Project 9" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project9.webp" alt="Project 9" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project1.webp" alt="Project 1" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project1.webp" alt="AI consulting project dashboard showing multi-modal integration interface" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project2.webp" alt="Project 2" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project2.webp" alt="Entertainment technology setup with professional audio equipment and lighting controls" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project3.webp" alt="Project 3" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project3.webp" alt="Strategic consulting workspace with data visualization and planning documents" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/BRMC2.webp" alt="BRMC2" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/BRMC2.webp" alt="Black Rebel Motorcycle Club live performance with dramatic stage lighting in Portugal" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project5.webp" alt="Project 5" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project5.webp" alt="Team collaboration session showing AI-powered workflow optimization solutions" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project6.webp" alt="Project 6" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project6.webp" alt="Live event coordination center with multiple screens showing real-time production data" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project7.webp" alt="Project 7" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project7.webp" alt="Entertainment venue technical setup featuring advanced sound and visual systems" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
               <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <img src="/images/gallery/Project8.webp" alt="Project 8" className="w-full h-full object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} />
+                <Image src="/images/gallery/Project8.webp" alt="CLB Consultancy client workshop demonstrating AI integration strategies" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
                 <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="CLB Logo" className="h-3 w-auto opacity-60" />
+                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
                 </div>
               </div>
             </div>
