@@ -7,7 +7,9 @@ export default function Marquee() {
   const galleryRef = useRef<HTMLDivElement>(null);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
   const [autoScrollPosition, setAutoScrollPosition] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const animationRef = useRef<number>();
+  const loadedImages = useRef<Set<string>>(new Set());
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -17,9 +19,9 @@ export default function Marquee() {
     return () => clearInterval(interval);
   }, []);
 
-  // Auto-scroll animation - optimized for performance
+  // Auto-scroll animation - starts when images are loaded and not interacting
   useEffect(() => {
-    if (!isUserInteracting && galleryRef.current) {
+    if (!isUserInteracting && galleryRef.current && (imagesLoaded || loadedImages.current.size > 3)) {
       const animate = () => {
         setAutoScrollPosition(prev => {
           const container = galleryRef.current;
@@ -35,7 +37,15 @@ export default function Marquee() {
         });
         animationRef.current = requestAnimationFrame(animate);
       };
-      animationRef.current = requestAnimationFrame(animate);
+      
+      // Small delay to ensure DOM is ready
+      const timeoutId = setTimeout(() => {
+        animationRef.current = requestAnimationFrame(animate);
+      }, 50);
+      
+      return () => {
+        clearTimeout(timeoutId);
+      };
     }
 
     return () => {
@@ -43,7 +53,7 @@ export default function Marquee() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isUserInteracting]);
+  }, [isUserInteracting, imagesLoaded]);
 
   // Apply scroll position
   useEffect(() => {
@@ -78,43 +88,33 @@ export default function Marquee() {
     return false;
   };
 
-  // Gallery image component with fallback
+  // Gallery image component with load tracking
   const GalleryImage = ({ src, alt }: { src: string; alt: string }) => {
-    const [imageError, setImageError] = useState(false);
-    const [imageLoaded, setImageLoaded] = useState(false);
+    const handleImageLoad = () => {
+      loadedImages.current.add(src);
+      // Check if all images are loaded (9 unique images)
+      if (loadedImages.current.size >= 9 && !imagesLoaded) {
+        setImagesLoaded(true);
+      }
+    };
 
     return (
       <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-        {!imageError ? (
-          <Image 
-            src={src}
-            alt={alt}
-            fill
-            className={`object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-            onContextMenu={handleContextMenu}
-            onDragStart={handleDragStart}
-            onLoad={() => setImageLoaded(true)}
-            onError={() => {
-              console.log('Next.js Image failed, falling back to regular img:', src);
-              setImageError(true);
-            }}
-            draggable={false}
-            sizes="(max-width: 768px) 100vw, 320px"
-            priority={false}
-            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-          />
-        ) : (
-          <img 
-            src={src}
-            alt={alt}
-            className="w-full h-full object-cover"
-            onContextMenu={handleContextMenu}
-            onDragStart={handleDragStart}
-            draggable={false}
-            onLoad={() => setImageLoaded(true)}
-            style={{ opacity: imageLoaded ? 1 : 0.5 }}
-          />
-        )}
+        <img 
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover"
+          onContextMenu={handleContextMenu}
+          onDragStart={handleDragStart}
+          onLoad={handleImageLoad}
+          draggable={false}
+          loading="lazy"
+          onError={(e) => {
+            console.log('Image failed to load:', src);
+            e.currentTarget.style.opacity = '0.3';
+            e.currentTarget.style.background = '#333';
+          }}
+        />
         <div className="gallery-watermark">
           <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
         </div>
@@ -242,7 +242,7 @@ export default function Marquee() {
               <GalleryImage src="/images/gallery/Project1.webp" alt="AI consulting project dashboard showing multi-modal integration interface" />
               <GalleryImage src="/images/gallery/Project2.webp" alt="Entertainment technology setup with professional audio equipment and lighting controls" />
               <GalleryImage src="/images/gallery/Project3.webp" alt="Strategic consulting workspace with data visualization and planning documents" />
-              <GalleryImage src="/images/gallery/BRMC2.webp" alt="Black Rebel Motorcycle Club live performance with dramatic stage lighting in Portugal" />
+              <GalleryImage src="/images/gallery/BRMC2.webp?v=20250628" alt="Black Rebel Motorcycle Club live performance with dramatic stage lighting in Portugal" />
               <GalleryImage src="/images/gallery/Project5.webp" alt="Team collaboration session showing AI-powered workflow optimization solutions" />
               <GalleryImage src="/images/gallery/Project6.webp" alt="Live event coordination center with multiple screens showing real-time production data" />
               <GalleryImage src="/images/gallery/Project7.webp" alt="Entertainment venue technical setup featuring advanced sound and visual systems" />
@@ -252,7 +252,7 @@ export default function Marquee() {
               <GalleryImage src="/images/gallery/Project1.webp" alt="AI consulting project dashboard showing multi-modal integration interface" />
               <GalleryImage src="/images/gallery/Project2.webp" alt="Entertainment technology setup with professional audio equipment and lighting controls" />
               <GalleryImage src="/images/gallery/Project3.webp" alt="Strategic consulting workspace with data visualization and planning documents" />
-              <GalleryImage src="/images/gallery/BRMC2.webp" alt="Black Rebel Motorcycle Club live performance with dramatic stage lighting in Portugal" />
+              <GalleryImage src="/images/gallery/BRMC2.webp?v=20250628" alt="Black Rebel Motorcycle Club live performance with dramatic stage lighting in Portugal" />
               <GalleryImage src="/images/gallery/Project5.webp" alt="Team collaboration session showing AI-powered workflow optimization solutions" />
               <GalleryImage src="/images/gallery/Project6.webp" alt="Live event coordination center with multiple screens showing real-time production data" />
               <GalleryImage src="/images/gallery/Project7.webp" alt="Entertainment venue technical setup featuring advanced sound and visual systems" />
