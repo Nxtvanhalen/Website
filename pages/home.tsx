@@ -433,8 +433,8 @@ export default function Home() {
               aria-label="CLB Consultancy promotional video - plays automatically when scrolled into view"
               title="CLB Consultancy Showcase Video"
             >
-              <source src="/videos/IMG_0279.mov" type="video/quicktime" />
               <source src="/videos/IMG_0279.mp4" type="video/mp4" />
+              <source src="/videos/IMG_0279.mov" type="video/quicktime" />
               <p>Your browser does not support the video tag. This video showcases CLB Consultancy's AI integration and entertainment technology work.</p>
             </video>
             <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>
@@ -459,8 +459,8 @@ export default function Home() {
               aria-label="BRMC promotional video - plays automatically when scrolled into view"
               title="BRMC Live Performance Video"
             >
-              <source src="/videos/BRMC.mov" type="video/quicktime" />
               <source src="/videos/BRMC.mp4" type="video/mp4" />
+              <source src="/videos/BRMC.mov" type="video/quicktime" />
               <p>Your browser does not support the video tag. This video showcases BRMC's live performance in Portugal.</p>
             </video>
             <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>

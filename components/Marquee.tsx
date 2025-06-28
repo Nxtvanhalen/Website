@@ -17,13 +17,20 @@ export default function Marquee() {
     return () => clearInterval(interval);
   }, []);
 
-  // Auto-scroll animation
+  // Auto-scroll animation - optimized for performance
   useEffect(() => {
     if (!isUserInteracting && galleryRef.current) {
       const animate = () => {
         setAutoScrollPosition(prev => {
-          const maxScroll = galleryRef.current!.scrollWidth / 2; // Half because we have duplicated items
-          const newPosition = prev + 0.5; // Scroll speed
+          const container = galleryRef.current;
+          if (!container) return prev;
+          
+          const itemWidth = 320 + 24; // w-80 (320px) + gap (24px)
+          const totalItems = 9; // Number of unique gallery items
+          const maxScroll = itemWidth * totalItems; // Total width of one set
+          const newPosition = prev + 0.3; // Slower, smoother scroll speed
+          
+          // Seamless loop: when we reach the end of first set, jump to beginning
           return newPosition >= maxScroll ? 0 : newPosition;
         });
         animationRef.current = requestAnimationFrame(animate);
@@ -69,6 +76,50 @@ export default function Marquee() {
   const handleDragStart = (e: React.DragEvent) => {
     e.preventDefault();
     return false;
+  };
+
+  // Gallery image component with fallback
+  const GalleryImage = ({ src, alt }: { src: string; alt: string }) => {
+    const [imageError, setImageError] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState(false);
+
+    return (
+      <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
+        {!imageError ? (
+          <Image 
+            src={src}
+            alt={alt}
+            fill
+            className={`object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+            onContextMenu={handleContextMenu}
+            onDragStart={handleDragStart}
+            onLoad={() => setImageLoaded(true)}
+            onError={() => {
+              console.log('Next.js Image failed, falling back to regular img:', src);
+              setImageError(true);
+            }}
+            draggable={false}
+            sizes="(max-width: 768px) 100vw, 320px"
+            priority={false}
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+          />
+        ) : (
+          <img 
+            src={src}
+            alt={alt}
+            className="w-full h-full object-cover"
+            onContextMenu={handleContextMenu}
+            onDragStart={handleDragStart}
+            draggable={false}
+            onLoad={() => setImageLoaded(true)}
+            style={{ opacity: imageLoaded ? 1 : 0.5 }}
+          />
+        )}
+        <div className="gallery-watermark">
+          <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
+        </div>
+      </div>
+    );
   };
 
   const boxes = [
@@ -187,125 +238,25 @@ export default function Marquee() {
               aria-label="Interactive gallery of project screenshots and portfolio images"
             >
               {/* First set of items - starting with Project9 as first */}
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image 
-                  src="/images/gallery/Project9.webp" 
-                  alt="Project 9 - CLB Consultancy portfolio showcase" 
-                  fill
-                  className="object-cover" 
-                  onContextMenu={handleContextMenu}
-                  onDragStart={handleDragStart}
-                  draggable={false}
-                  sizes="(max-width: 768px) 100vw, 320px"
-                  priority={false}
-                />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project1.webp" alt="AI consulting project dashboard showing multi-modal integration interface" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project2.webp" alt="Entertainment technology setup with professional audio equipment and lighting controls" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project3.webp" alt="Strategic consulting workspace with data visualization and planning documents" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/BRMC2.webp" alt="Black Rebel Motorcycle Club live performance with dramatic stage lighting in Portugal" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project5.webp" alt="Team collaboration session showing AI-powered workflow optimization solutions" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project6.webp" alt="Live event coordination center with multiple screens showing real-time production data" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project7.webp" alt="Entertainment venue technical setup featuring advanced sound and visual systems" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project8.webp" alt="CLB Consultancy client workshop demonstrating AI integration strategies" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
+              <GalleryImage src="/images/gallery/Project9.webp" alt="Project 9 - CLB Consultancy portfolio showcase" />
+              <GalleryImage src="/images/gallery/Project1.webp" alt="AI consulting project dashboard showing multi-modal integration interface" />
+              <GalleryImage src="/images/gallery/Project2.webp" alt="Entertainment technology setup with professional audio equipment and lighting controls" />
+              <GalleryImage src="/images/gallery/Project3.webp" alt="Strategic consulting workspace with data visualization and planning documents" />
+              <GalleryImage src="/images/gallery/BRMC2.webp" alt="Black Rebel Motorcycle Club live performance with dramatic stage lighting in Portugal" />
+              <GalleryImage src="/images/gallery/Project5.webp" alt="Team collaboration session showing AI-powered workflow optimization solutions" />
+              <GalleryImage src="/images/gallery/Project6.webp" alt="Live event coordination center with multiple screens showing real-time production data" />
+              <GalleryImage src="/images/gallery/Project7.webp" alt="Entertainment venue technical setup featuring advanced sound and visual systems" />
+              <GalleryImage src="/images/gallery/Project8.webp" alt="CLB Consultancy client workshop demonstrating AI integration strategies" />
               {/* Duplicate set for seamless loop */}
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project9.webp" alt="Project 9" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project1.webp" alt="AI consulting project dashboard showing multi-modal integration interface" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project2.webp" alt="Entertainment technology setup with professional audio equipment and lighting controls" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project3.webp" alt="Strategic consulting workspace with data visualization and planning documents" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/BRMC2.webp" alt="Black Rebel Motorcycle Club live performance with dramatic stage lighting in Portugal" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project5.webp" alt="Team collaboration session showing AI-powered workflow optimization solutions" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project6.webp" alt="Live event coordination center with multiple screens showing real-time production data" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project7.webp" alt="Entertainment venue technical setup featuring advanced sound and visual systems" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
-              <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-                <Image src="/images/gallery/Project8.webp" alt="CLB Consultancy client workshop demonstrating AI integration strategies" fill className="object-cover" onContextMenu={handleContextMenu} onDragStart={handleDragStart} draggable={false} sizes="(max-width: 768px) 100vw, 320px" priority={false} />
-                <div className="gallery-watermark">
-                  <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
-                </div>
-              </div>
+              <GalleryImage src="/images/gallery/Project9.webp" alt="Project 9 - CLB Consultancy portfolio showcase" />
+              <GalleryImage src="/images/gallery/Project1.webp" alt="AI consulting project dashboard showing multi-modal integration interface" />
+              <GalleryImage src="/images/gallery/Project2.webp" alt="Entertainment technology setup with professional audio equipment and lighting controls" />
+              <GalleryImage src="/images/gallery/Project3.webp" alt="Strategic consulting workspace with data visualization and planning documents" />
+              <GalleryImage src="/images/gallery/BRMC2.webp" alt="Black Rebel Motorcycle Club live performance with dramatic stage lighting in Portugal" />
+              <GalleryImage src="/images/gallery/Project5.webp" alt="Team collaboration session showing AI-powered workflow optimization solutions" />
+              <GalleryImage src="/images/gallery/Project6.webp" alt="Live event coordination center with multiple screens showing real-time production data" />
+              <GalleryImage src="/images/gallery/Project7.webp" alt="Entertainment venue technical setup featuring advanced sound and visual systems" />
+              <GalleryImage src="/images/gallery/Project8.webp" alt="CLB Consultancy client workshop demonstrating AI integration strategies" />
             </div>
           </div>
         </section>

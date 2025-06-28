@@ -237,55 +237,47 @@ h1, h2, h3 {
   }
 }
 
-/* Enhanced glow effect for EVE AI */
+/* Optimized glow effects - reduced complexity for better performance */
 @keyframes glow {
   0%, 100% { 
     text-shadow: 
-      0 0 0px #F5F5DC,
-      0 0 0.15625px #F5F5DC, 
-      0 0 0.3125px #F5F5DC, 
-      0 0 0.46875px #F5F5DC,
-      0 0 0.625px #F5F5DC; 
+      0 0 2px #F5F5DC,
+      0 0 4px #F5F5DC; 
   }
   50% { 
     text-shadow: 
-      0 0 0px #F5F5DC,
-      0 0 0.3125px #F5F5DC, 
-      0 0 0.625px #F5F5DC, 
-      0 0 0.9375px #F5F5DC,
-      0 0 1.25px #F5F5DC,
-      0 0 1.5625px #F5F5DC; 
+      0 0 4px #F5F5DC,
+      0 0 8px #F5F5DC,
+      0 0 12px #F5F5DC; 
   }
 }
 
 .glow {
-  animation: glow 6s ease-in-out infinite alternate;
+  animation: glow 4s ease-in-out infinite alternate;
   color: #F5F5DC;
   font-weight: 600;
+  will-change: text-shadow;
 }
 
-/* Subtle glow for main heading */
+/* Subtle glow for main heading - simplified */
 @keyframes glow-subtle {
   0%, 100% { 
     text-shadow: 
-      0 0 0.5px #F5F5DC, 
       0 0 1px #F5F5DC, 
-      0 0 1.5px #F5F5DC,
       0 0 2px #F5F5DC; 
   }
   50% { 
     text-shadow: 
-      0 0 1px #F5F5DC, 
       0 0 2px #F5F5DC, 
-      0 0 3px #F5F5DC,
       0 0 4px #F5F5DC,
-      0 0 5px #F5F5DC; 
+      0 0 6px #F5F5DC; 
   }
 }
 
 .glow-subtle {
-  animation: glow-subtle 6s ease-in-out infinite alternate;
+  animation: glow-subtle 4s ease-in-out infinite alternate;
   color: #F5F5DC;
+  will-change: text-shadow;
 }
 
 /* Custom animations to replace framer-motion */
@@ -432,9 +424,12 @@ h1, h2, h3 {
   display: none;
 }
 
-/* Enhanced gallery interaction */
+/* Enhanced gallery interaction - optimized for performance */
 .gallery-container {
   cursor: grab;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  will-change: scroll-position;
 }
 
 .gallery-container:active {
@@ -442,45 +437,19 @@ h1, h2, h3 {
 }
 
 .gallery-track {
-  scroll-behavior: smooth;
-}
-
-.gallery-track {
   display: flex;
   transition: none;
+  will-change: transform;
 }
 
-.gallery-container {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+.gallery-item, .gallery-item-with-watermark {
+  transition: transform 0.2s ease;
+  will-change: transform;
+  /* Remove expensive mask effects for better performance */
 }
 
-.gallery-item {
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  mask: radial-gradient(
-    ellipse at center,
-    black 60%,
-    transparent 95%
-  );
-}
-
-.gallery-item:hover {
-  transform: translateY(-4px) !important;
-  border-color: #F8F6F0;
-}
-
-/* Gallery watermark positioning */
-.gallery-item-with-watermark {
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  mask: radial-gradient(
-    ellipse at center,
-    black 60%,
-    transparent 95%
-  );
-}
-
-.gallery-item-with-watermark:hover {
-  transform: translateY(-4px) !important;
+.gallery-item:hover, .gallery-item-with-watermark:hover {
+  transform: translateY(-2px); /* Reduced movement for smoother animation */
   border-color: #F8F6F0;
 }
 
