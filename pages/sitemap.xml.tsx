@@ -12,6 +12,11 @@ function generateSiteMap() {
       priority: '1.0'
     },
     {
+      url: '/home',
+      changefreq: 'weekly',
+      priority: '0.9'
+    },
+    {
       url: '/about',
       changefreq: 'monthly', 
       priority: '0.8'
@@ -22,14 +27,24 @@ function generateSiteMap() {
       priority: '0.8'
     },
     {
+      url: '/blog',
+      changefreq: 'weekly',
+      priority: '0.7'
+    },
+    {
       url: '/news',
       changefreq: 'weekly',
       priority: '0.7'
     },
     {
-      url: '/help',
+      url: '/faq',
       changefreq: 'monthly',
-      priority: '0.5'
+      priority: '0.6'
+    },
+    {
+      url: '/privacy',
+      changefreq: 'yearly',
+      priority: '0.3'
     }
   ];
 

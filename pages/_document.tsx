@@ -17,27 +17,91 @@ export default function Document() {
           }
         `
       }} />
-      {/* Google tag (gtag.js) */}
+      {/* Google tag (gtag.js) - Modified to respect cookie consent */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
       />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-XZ6CF9XQD7"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-XZ6CF9XQD7');
-            `,
-          }}
-        />
+      
+      {/* Osano CookieConsent - Must load before GA */}
+      <link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" 
+      />
+      <link 
+        rel="stylesheet" 
+        href="/styles/cookieconsent-overrides.css" 
+      />
+      <script 
+        src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" 
+        data-cfasync="false"
+      ></script>
+      
+      {/* Initialize Cookie Consent with purple theme */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.addEventListener("load", function(){
+              window.cookieconsent.initialise({
+                "palette": {
+                  "popup": {
+                    "background": "#1E1E1E",
+                    "text": "#ffffff",
+                    "border": "2px solid #9370DB"
+                  },
+                  "button": {
+                    "background": "#9370DB",
+                    "text": "#ffffff",
+                    "border": "transparent"
+                  }
+                },
+                "theme": "classic",
+                "position": "bottom",
+                "type": "opt-in",
+                "content": {
+                  "message": "We use cookies to enhance your experience and analyze site usage. By clicking 'Accept', you consent to our use of cookies.",
+                  "allow": "Accept",
+                  "deny": "Decline",
+                  "link": "Learn more",
+                  "href": "/privacy"
+                },
+                onStatusChange: function(status, chosenBefore) {
+                  if (status === 'allow') {
+                    // Load Google Analytics only after consent
+                    loadGoogleAnalytics();
+                  }
+                },
+                onInitialise: function(status) {
+                  if (status === 'allow') {
+                    // Load Google Analytics if already consented
+                    loadGoogleAnalytics();
+                  }
+                }
+              });
+            });
+            
+            // Function to load Google Analytics
+            function loadGoogleAnalytics() {
+              // Create GA script element
+              var gaScript = document.createElement('script');
+              gaScript.async = true;
+              gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XZ6CF9XQD7';
+              document.head.appendChild(gaScript);
+              
+              // Initialize gtag
+              gaScript.onload = function() {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                window.gtag = gtag;
+                gtag('js', new Date());
+                gtag('config', 'G-XZ6CF9XQD7');
+              };
+            }
+          `,
+        }}
+      />
       </Head>
       <body>
         <Main />

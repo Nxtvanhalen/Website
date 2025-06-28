@@ -10,7 +10,7 @@ export default function Footer() {
           />
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} CLB Brand. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} CLB Brand. All rights reserved. | <a href="/privacy" className="hover:text-[#9370DB] transition-colors">Privacy Policy</a></p>
         </div>
       </div>
     </footer>

@@ -1,0 +1,97 @@
+/* Custom Osano Cookie Consent Styling - Purple Theme */
+
+/* Main popup container */
+.cc-window {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(147, 112, 219, 0.3) !important;
+  margin: 20px !important;
+  max-width: 600px !important;
+  animation: slideUp 0.3s ease-out !important;
+}
+
+/* Popup text */
+.cc-message {
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 20px !important;
+}
+
+/* Button styling */
+.cc-compliance .cc-btn {
+  border-radius: 6px !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+
+/* Accept button */
+.cc-compliance .cc-btn.cc-allow {
+  background-color: #9370DB !important;
+  border: 2px solid #9370DB !important;
+  color: white !important;
+}
+
+.cc-compliance .cc-btn.cc-allow:hover {
+  background-color: #7B5EBF !important;
+  border-color: #7B5EBF !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(147, 112, 219, 0.4) !important;
+}
+
+/* Decline button */
+.cc-compliance .cc-btn.cc-deny {
+  background-color: transparent !important;
+  border: 2px solid #666 !important;
+  color: #999 !important;
+  margin-right: 10px !important;
+}
+
+.cc-compliance .cc-btn.cc-deny:hover {
+  border-color: #999 !important;
+  color: #ccc !important;
+}
+
+/* Learn more link */
+.cc-link {
+  color: #9370DB !important;
+  text-decoration: underline !important;
+  transition: color 0.2s ease !important;
+}
+
+.cc-link:hover {
+  color: #7B5EBF !important;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .cc-window {
+    margin: 10px !important;
+    max-width: calc(100% - 20px) !important;
+  }
+  
+  .cc-compliance {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    gap: 10px !important;
+  }
+  
+  .cc-compliance .cc-btn {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
