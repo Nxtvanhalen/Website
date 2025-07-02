@@ -1,5 +1,28 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+// Helper function to decode HTML entities
+function decodeHTMLEntities(text: string): string {
+  const entities: { [key: string]: string } = {
+    '&#8217;': "'",
+    '&#8212;': "—",
+    '&#8220;': '"',
+    '&#8221;': '"',
+    '&#128771;': '🜃',
+    '&amp;': '&',
+    '&lt;': '<',
+    '&gt;': '>',
+    '&quot;': '"',
+    '&#39;': "'",
+    '&nbsp;': ' '
+  };
+  
+  let decodedText = text;
+  for (const [entity, replacement] of Object.entries(entities)) {
+    decodedText = decodedText.replace(new RegExp(entity, 'g'), replacement);
+  }
+  return decodedText;
+}
+
 // Simple XML parsing function
 function parseRSSFeed(xmlString: string) {
   const items: any[] = [];
@@ -30,13 +53,17 @@ function parseRSSFeed(xmlString: string) {
       const pubDateMatch = itemXml.match(/<pubDate>(.*?)<\/pubDate>/);
       item.pubDate = pubDateMatch ? pubDateMatch[1] : '';
       
-      // Extract description/content
+      // Extract content:encoded (full content) first, fallback to description
+      const contentMatch = itemXml.match(/<content:encoded><!\[CDATA\[([\s\S]*?)\]\]><\/content:encoded>/);
       const descMatch = itemXml.match(/<description><!\[CDATA\[(.*?)\]\]><\/description>/);
-      const fullContent = descMatch ? descMatch[1] : '';
+      
+      // Use content:encoded if available, otherwise use description
+      const fullContent = contentMatch ? contentMatch[1] : (descMatch ? descMatch[1] : '');
       
       // Create content snippet (first 200 chars of text content)
       const textContent = fullContent.replace(/<[^>]*>/g, '').trim();
-      item.contentSnippet = textContent.length > 200 ? textContent.substring(0, 200) + '...' : textContent;
+      const decodedTextContent = decodeHTMLEntities(textContent);
+      item.contentSnippet = decodedTextContent.length > 200 ? decodedTextContent.substring(0, 200) + '...' : decodedTextContent;
       item.content = fullContent;
       
       // Extract author
