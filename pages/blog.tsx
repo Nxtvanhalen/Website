@@ -98,8 +98,7 @@ export default function Blog() {
               Musings
             </h1>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-8" style={{color: '#F5F5DC', opacity: 0.9}}>
-              <span className="font-bold" style={{color: '#F5F5DC'}}>Insights forged in the fire of real-world experience.</span>{' '}
-              Deep dives into AI strategy, entertainment technology, systems thinking, and the art of transformation.
+              A more raw and unfiltered forum
             </p>
             <div className="h-0.5 bg-molten mx-auto w-32 animate-pulse-width"></div>
           </div>
