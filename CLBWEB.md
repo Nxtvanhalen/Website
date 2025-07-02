@@ -197,7 +197,16 @@ npm run dev  # Should work normally
 
 ## Recent Major Updates (December 2024 - Comprehensive Enhancement Session)
 
-### 🚀 Pre-Launch Audit & Performance Optimization (Latest Session - June 2025)
+### 🔧 Blog Page Updates & Substack Integration Fix (Latest Session - July 2025)
+- **Blog Title Simplified**: Changed from "Strategic Musings" to "Musings" for cleaner branding
+- **Subtitle Refined**: Updated from lengthy description to "A more raw and unfiltered forum"
+- **HTML Entity Decoding**: Fixed Substack RSS feed parser to properly decode HTML entities
+- **Emoji Support**: Added decoder for common emojis (😏, 🜃, 🦣, 😎) and special characters (—, …, é)
+- **Content Display**: Blog post snippets now show proper apostrophes, quotes, and emojis instead of HTML codes
+- **RSS Feed Parsing**: Enhanced to extract full content from content:encoded tags instead of just descriptions
+- **Future-Proofed**: Entity decoder can be easily extended for new special characters as needed
+
+### 🚀 Pre-Launch Audit & Performance Optimization (Previous Session - June 2025)
 - **GDPR Compliance**: Implemented Osano CookieConsent with purple theming (#9370DB) and opt-in mode
 - **Privacy Infrastructure**: Created comprehensive privacy policy page with footer links and sitemap integration
 - **Cookie Management**: Google Analytics now properly blocked until user consent, with persistent preference storage
@@ -338,7 +347,14 @@ curl -s http://127.0.0.1:3000 | head -5
 
 ### Git Workflow & Commits
 ```bash
-# Recent commits (June 2025 - Pre-Launch Audit & Optimization):
+# Recent commits (July 2025 - Blog Updates & Substack Fix):
+ef7d856 - Simplify blog subtitle for more direct messaging
+1b9b5a0 - Update blog page title and enhance HTML entity decoding
+c83777b - Fix HTML entity decoding in Substack RSS feed parser
+
+# Previous commits (June 2025 - Pre-Launch Audit & Optimization):
+dd3eff4 - Fix gallery auto-scroll initialization and BRMC image display
+eb23845 - Fix Chrome compatibility and optimize performance
 d6f8194 - Fix CSS caching headers for better production performance
 34b0221 - Complete comprehensive pre-launch audit and performance optimization
 80b4d9e - Implement GDPR compliance with Osano CookieConsent and privacy infrastructure
