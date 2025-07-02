@@ -58,12 +58,12 @@ export default function Blog() {
   return (
     <>
       <Head>
-        <title>Strategic Musings - CLB Consultancy Blog | AI Insights & Industry Analysis</title>
+        <title>Musings - CLB Consultancy Blog | AI Insights & Industry Analysis</title>
         <meta name="description" content="Strategic insights, AI analysis, and industry musings from CLB Consultancy. Explore our thoughts on entertainment technology, team dynamics, and systems thinking." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         {/* Open Graph tags */}
-        <meta property="og:title" content="Strategic Musings - CLB Consultancy Blog | AI Insights & Industry Analysis" />
+        <meta property="og:title" content="Musings - CLB Consultancy Blog | AI Insights & Industry Analysis" />
         <meta property="og:description" content="Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/blog" />
@@ -95,7 +95,7 @@ export default function Blog() {
           {/* Header Section */}
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-heading mb-6 glow-subtle">
-              Strategic Musings
+              Musings
             </h1>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-8" style={{color: '#F5F5DC', opacity: 0.9}}>
               <span className="font-bold" style={{color: '#F5F5DC'}}>Insights forged in the fire of real-world experience.</span>{' '}
@@ -107,7 +107,7 @@ export default function Blog() {
           {/* Latest Substack Posts */}
           <div className="mb-16">
             <h2 className="text-3xl font-heading mb-8 text-center" style={{color: '#F5F5DC'}}>
-              Latest Strategic Musings
+              Latest Musings
             </h2>
             
             {loading && (
@@ -204,7 +204,7 @@ export default function Blog() {
           <div className="bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm mb-16">
             <div className="text-center">
               <h2 className="text-3xl font-heading mb-6" style={{color: '#F5F5DC'}}>
-                Subscribe to Strategic Musings
+                Subscribe to Musings
               </h2>
               <p className="text-lg mb-8 max-w-2xl mx-auto leading-relaxed" style={{color: '#F5F5DC', opacity: 0.9}}>
                 Get exclusive insights on AI strategy, entertainment technology, and systems thinking delivered directly to your inbox. 
@@ -245,7 +245,7 @@ export default function Blog() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a 
-                href="mailto:chrisleebergstrom@gmail.com?subject=Strategic Musings Discussion"
+                href="mailto:chrisleebergstrom@gmail.com?subject=Musings Discussion"
                 className="inline-block py-3 px-8 bg-transparent border border-molten text-molten font-bold rounded hover:bg-molten/10 hover:text-white transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
               >
                 Start the Conversation
