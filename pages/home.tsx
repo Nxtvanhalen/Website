@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useState, useRef } from 'react';
 import Marquee from '../components/Marquee';
-import Ethos from '../components/Ethos';
 import Contact from '../components/Contact';
 
 export default function Home() {
@@ -493,7 +492,6 @@ export default function Home() {
           </div>
         </section>
         
-        <Ethos />
         <Contact />
       </main>
     </>

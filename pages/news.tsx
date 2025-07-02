@@ -312,7 +312,6 @@ export default function News() {
 
           {/* Contact Section */}
           <section className="py-12 px-6 text-center">
-            <h2 className="text-3xl font-heading mb-6">Let's start discussing how I can set you up for success.</h2>
             <div className="max-w-lg mx-auto space-y-6">
               <div className="space-y-4">
                 <a 

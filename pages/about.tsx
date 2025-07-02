@@ -67,7 +67,7 @@ export default function About() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-16">
             <div className="text-center flex-1 mb-8 md:mb-0">
               <h1 className="text-4xl md:text-5xl font-heading mb-4 glow-subtle">Chris Lee Bergstrom</h1>
-              <p className="text-xl md:text-2xl font-bold italic" style={{color: '#F5F5DC'}}>doesn't just consult—he orchestrates.</p>
+              <p className="text-xl md:text-2xl font-bold italic" style={{color: '#F5F5DC'}}>"I don't just consult, I orchestrate."</p>
             </div>
             
             {/* Profile Picture */}
@@ -123,7 +123,7 @@ export default function About() {
               <div className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300">
                 <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>Audio Engineering & Infrastructure</h3>
                 <ul className="space-y-2 text-sm leading-relaxed" style={{color: '#F5F5DC'}}>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Professional Audio Systems</span><br/>Dante Networking & Routing, Shure Wireless Systems (Axient, ULX-D)</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Professional Audio Systems</span><br/>Dante Networking & Routing, Shure Wireless Systems (Axient, ULX-D), SMAART System Analysis and Training</li>
                   <li><span className="font-bold" style={{color: '#F5F5DC'}}>Sound Design & Programming</span><br/>QLab Programming, Waves Plugins & Live Mixing Integration</li>
                   <li><span className="font-bold" style={{color: '#F5F5DC'}}>Advanced Audio Technologies</span><br/>Spatial Audio Systems, Dolby Atmos, RF Coordination & Frequency Management</li>
                 </ul>
@@ -173,7 +173,6 @@ export default function About() {
 
           {/* Contact Section */}
           <section className="py-12 px-6 text-center">
-            <h2 className="text-3xl font-heading mb-6" style={{color: '#F5F5DC'}}>Let's start discussing how I can set you up for success.</h2>
             <div className="max-w-lg mx-auto space-y-6">
               <div className="space-y-4">
                 <a 
