@@ -197,7 +197,18 @@ npm run dev  # Should work normally
 
 ## Recent Major Updates (December 2024 - Comprehensive Enhancement Session)
 
-### 🔧 Blog Page Updates & Substack Integration Fix (Latest Session - July 2025)
+### ✨ Major Content Overhaul & Messaging Streamline (Latest Session - July 2025)
+- **Personal Narrative**: Replaced short intro with comprehensive "Who Is Chris Lee Bergstrom" story
+- **Musical Journey**: Added detailed narrative spanning audio career, live sound obsession, and artistic philosophy
+- **Quote Update**: Changed about page from third-person to first-person: "I don't just consult, I orchestrate"
+- **Audio Engineering**: Added "SMAART System Analysis and Training" to professional expertise
+- **Content Removal**: Eliminated entire CLB Consulting ethos section (principles, built-on values, decorative dividers)
+- **Contact Simplification**: Removed "Let's start discussing..." headings across all pages for cleaner CTAs
+- **Narrative Flow**: Removed section heading for more immersive storytelling experience
+- **Messaging Strategy**: Shifted from corporate consulting language to personal, artistic approach
+- **Woody Guthrie Reference**: Included "This Machine Kills Fascists" philosophy and call for artistic revolution
+
+### 🔧 Blog Page Updates & Substack Integration Fix (Previous Session - July 2025)
 - **Blog Title Simplified**: Changed from "Strategic Musings" to "Musings" for cleaner branding
 - **Subtitle Refined**: Updated from lengthy description to "A more raw and unfiltered forum"
 - **HTML Entity Decoding**: Fixed Substack RSS feed parser to properly decode HTML entities
@@ -347,7 +358,9 @@ curl -s http://127.0.0.1:3000 | head -5
 
 ### Git Workflow & Commits
 ```bash
-# Recent commits (July 2025 - Blog Updates & Substack Fix):
+# Recent commits (July 2025 - Content Overhaul & Blog Updates):
+85fa0df - Major content overhaul and streamlined messaging
+49fc24d - Update CLBWEB.md with latest blog page improvements
 ef7d856 - Simplify blog subtitle for more direct messaging
 1b9b5a0 - Update blog page title and enhance HTML entity decoding
 c83777b - Fix HTML entity decoding in Substack RSS feed parser
