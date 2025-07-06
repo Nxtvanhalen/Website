@@ -71,13 +71,13 @@ Working Directory: /Users/chrisbergstrom/WEBSITE/frontend/repo-fix
 - **No solid backgrounds**: All CTAs are transparent with border styling
 - **Glow effects** (separate classes): 
   - `glow`: Standard intensity for project names and special text
-  - `glow-subtle`: Gentle effect for main headings (Chris Lee Bergstrom, CLB Consultancy)
+  - `glow-subtle`: Gentle effect for main headings (Chris Lee Bergstrom, CLB Consulting)
 - **Animations**: Pulsing underline with `animate-pulse-width` (7s duration, 37% max width)
 
 ### Content Structure
 1. **Header**: Logo + social icons (top), navigation links (bottom)
 2. **Marquee**: Hero section with Chris Lee Bergstrom + gallery + EVE chat
-3. **CLB Consultancy**: Tagline section (reduced spacing)
+3. **CLB Consulting**: Tagline section (reduced spacing)
 4. **Video**: Scroll-triggered with Intersection Observer
 5. **Ethos**: Centered content, no bullet points
 6. **Contact**: Simplified with personal messaging
@@ -197,7 +197,24 @@ npm run dev  # Should work normally
 
 ## Recent Major Updates (December 2024 - Comprehensive Enhancement Session)
 
-### ✨ Major Content Overhaul & Messaging Streamline (Latest Session - July 2025)
+### 🔍 Comprehensive SEO Enhancements for Brand Consistency (Latest Session - July 2025)
+- **Brand Name Standardization**: Updated all references from "CLB Consultancy" to "CLB Consulting" for consistency with Google Business Profile
+- **Enhanced Metadata**: Improved page titles and descriptions to include both company and personal brand names
+- **Explicit Brand Linking**: Added H2 tag stating "CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom"
+- **Comprehensive Schema Markup**: Implemented structured data on all pages:
+  - **Home Page**: Organization + LocalBusiness + Person + Service catalog with alternate names
+  - **About Page**: ProfilePage with detailed Person schema linking to company
+  - **Projects Page**: CollectionPage with all 8 AI projects individually listed
+  - **Blog Page**: Blog schema ready for article posts with publisher information
+  - **FAQ Page**: FAQPage with structured Q&As for rich snippets in search results
+  - **News Page**: CollectionPage for press coverage and media appearances
+- **Search Optimization**: Added alternate names ("CLB Consultancy", "Chris Lee Bergstrom Consulting", "Chris Bergstrom", "CLB")
+- **LocalBusiness Integration**: Added business hours, location, and service catalog for Google Business Profile
+- **Breadcrumb Navigation**: Implemented breadcrumb schema on all pages for better search result display
+- **Consistent Linking**: All schemas properly interconnected with consistent IDs across pages
+- **Analytics Ready**: All changes automatically tracked by existing Google Analytics setup
+
+### ✨ Major Content Overhaul & Messaging Streamline (Previous Session - July 2025)
 - **Personal Narrative**: Replaced short intro with comprehensive "Who Is Chris Lee Bergstrom" story
 - **Musical Journey**: Added detailed narrative spanning audio career, live sound obsession, and artistic philosophy
 - **Quote Update**: Changed about page from third-person to first-person: "I don't just consult, I orchestrate"
