@@ -5,8 +5,8 @@ export default function Privacy() {
   return (
     <>
       <Head>
-        <title>Privacy Policy - CLB Consultancy</title>
-        <meta name="description" content="Privacy Policy for CLB Consultancy - How we collect, use, and protect your information" />
+        <title>Privacy Policy - CLB Consulting</title>
+        <meta name="description" content="Privacy Policy for CLB Consulting - How we collect, use, and protect your information" />
         <meta name="theme-color" content="#9370DB" />
         <meta name="robots" content="index, follow" />
       </Head>
@@ -24,7 +24,7 @@ export default function Privacy() {
               </p>
               
               <p>
-                At CLB Consultancy ("we," "our," or "us"), we respect your privacy and are committed to protecting your personal data. 
+                At CLB Consulting ("we," "our," or "us"), we respect your privacy and are committed to protecting your personal data. 
                 This privacy policy explains how we collect, use, and safeguard your information when you visit our website 
                 chrisleebergstrom.com.
               </p>
@@ -141,7 +141,7 @@ export default function Privacy() {
                 If you have questions about this privacy policy or your personal data, please contact us at:
               </p>
               <div className="mt-4 p-6 border-2 border-[#9370DB] rounded-lg">
-                <p className="font-semibold">CLB Consultancy</p>
+                <p className="font-semibold">CLB Consulting</p>
                 <p>Email: <a href="mailto:chris@chrisleebergstrom.com" className="text-[#9370DB] hover:underline">chris@chrisleebergstrom.com</a></p>
                 <p>Website: <a href="https://chrisleebergstrom.com" className="text-[#9370DB] hover:underline">chrisleebergstrom.com</a></p>
               </div>

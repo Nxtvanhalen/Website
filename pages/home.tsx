@@ -148,16 +148,16 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>CLB Consultancy - AI-Powered Solutions</title>
-        <meta name="description" content="AI-focused consultancy providing intelligent solutions and development services" />
+        <title>CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology</title>
+        <meta name="description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations. Grammy-nominated expertise meets cutting-edge technology." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
         
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="CLB Consultancy - AI Strategy & Entertainment Technology" />
-        <meta property="og:description" content="Strategy Born from the Wreckage, Intelligence Forged in the Fire. AI consulting for entertainment, hospitality, and live events." />
+        <meta property="og:title" content="CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology" />
+        <meta property="og:description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations. Grammy-nominated expertise meets cutting-edge technology." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com" />
         <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile.jpg" />
@@ -169,8 +169,8 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="CLB Consultancy - AI Strategy & Entertainment Technology" />
-        <meta name="twitter:description" content="Strategy Born from the Wreckage, Intelligence Forged in the Fire. AI consulting for entertainment, hospitality, and live events." />
+        <meta name="twitter:title" content="CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology" />
+        <meta name="twitter:description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
         
@@ -185,17 +185,24 @@ export default function Home() {
               "@context": "https://schema.org",
               "@graph": [
                 {
-                  "@type": "Organization",
+                  "@type": ["Organization", "LocalBusiness"],
                   "@id": "https://chrisleebergstrom.com/#organization",
-                  "name": "CLB Consultancy",
+                  "name": "CLB Consulting",
+                  "alternateName": ["CLB Consultancy", "Chris Lee Bergstrom Consulting"],
                   "url": "https://chrisleebergstrom.com",
                   "logo": {
                     "@type": "ImageObject",
                     "url": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg"
                   },
-                  "description": "AI-focused consultancy providing intelligent solutions for entertainment, hospitality, and live events industry",
+                  "image": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
+                  "description": "CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom, specializing in AI-driven solutions for entertainment, hospitality, and live events industry",
                   "slogan": "Strategy Born from the Wreckage, Intelligence Forged in the Fire",
                   "founder": {
+                    "@type": "Person",
+                    "@id": "https://chrisleebergstrom.com/about#person",
+                    "name": "Chris Lee Bergstrom"
+                  },
+                  "owner": {
                     "@type": "Person",
                     "@id": "https://chrisleebergstrom.com/about#person",
                     "name": "Chris Lee Bergstrom"
@@ -203,7 +210,19 @@ export default function Home() {
                   "contactPoint": {
                     "@type": "ContactPoint",
                     "email": "chrisleebergstrom@gmail.com",
-                    "contactType": "Business Inquiries"
+                    "contactType": "Business Inquiries",
+                    "availableLanguage": "English"
+                  },
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "US"
+                  },
+                  "priceRange": "$$$",
+                  "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "18:00"
                   },
                   "sameAs": [
                     "https://www.linkedin.com/in/chris-bergstrom",
@@ -220,20 +239,58 @@ export default function Home() {
                     "Multi-Agent Systems",
                     "Team Building",
                     "Operational Efficiency"
-                  ]
+                  ],
+                  "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "AI Consulting Services",
+                    "itemListElement": [
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "AI Strategy Consulting",
+                          "description": "Strategic AI implementation for entertainment and hospitality"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Multi-Agent Systems Development",
+                          "description": "Custom AI agent solutions for operational efficiency"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Team Building & Training",
+                          "description": "AI-enhanced team cohesion and training programs"
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
                   "@type": "Person",
                   "@id": "https://chrisleebergstrom.com/about#person",
                   "name": "Chris Lee Bergstrom",
+                  "alternateName": ["Chris Bergstrom", "CLB"],
                   "jobTitle": "AI Strategy Consultant & Founder",
-                  "description": "Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events",
+                  "description": "Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events. Founder and principal consultant at CLB Consulting.",
                   "url": "https://chrisleebergstrom.com/about",
                   "image": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
                   "worksFor": {
                     "@id": "https://chrisleebergstrom.com/#organization"
                   },
+                  "owns": {
+                    "@id": "https://chrisleebergstrom.com/#organization"
+                  },
                   "hasCredential": "Grammy-nominated Audio Engineer",
+                  "alumniOf": {
+                    "@type": "CollegeOrUniversity",
+                    "name": "Professional Audio Engineering Background"
+                  },
                   "knowsAbout": [
                     "AI Implementation",
                     "Entertainment Industry",
@@ -241,19 +298,22 @@ export default function Home() {
                     "Live Sound Production",
                     "Tour Management",
                     "Multi-Modal AI Systems",
-                    "Team Cohesion Strategies"
+                    "Team Cohesion Strategies",
+                    "SMAART System Analysis and Training"
                   ],
                   "sameAs": [
                     "https://www.linkedin.com/in/chris-bergstrom",
                     "https://www.instagram.com/chrisleebergstrom",
-                    "https://www.youtube.com/@chrisleebergstrom"
-                  ]
+                    "https://www.youtube.com/@chrisleebergstrom",
+                    "https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr"
+                  ],
+                  "email": "chrisleebergstrom@gmail.com"
                 },
                 {
                   "@type": "WebSite",
                   "@id": "https://chrisleebergstrom.com/#website",
                   "url": "https://chrisleebergstrom.com",
-                  "name": "CLB Consultancy",
+                  "name": "CLB Consulting",
                   "description": "AI consulting for entertainment, hospitality, and live events",
                   "publisher": {
                     "@id": "https://chrisleebergstrom.com/#organization"
@@ -322,9 +382,12 @@ export default function Home() {
           >
             CLB Consulting
           </h1>
-          <p className="text-xl mb-6 max-w-3xl mx-auto leading-relaxed" style={{color: '#F5F5DC'}}>
+          <p className="text-xl mb-2 max-w-3xl mx-auto leading-relaxed" style={{color: '#F5F5DC'}}>
             <span className="font-bold" style={{color: '#F5F5DC'}}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</span>
           </p>
+          <h2 className="text-lg mb-6 max-w-3xl mx-auto" style={{color: '#F5F5DC', opacity: 0.9}}>
+            CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom
+          </h2>
           
           {/* Flashing lights warning */}
           <div className="flex flex-col items-center mb-4 text-yellow-400">

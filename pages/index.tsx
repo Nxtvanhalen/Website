@@ -5,8 +5,8 @@ export default function Landing() {
   return (
     <div className="min-h-screen bg-black text-white relative">
       <Head>
-        <title>CLB Consultancy</title>
-        <meta name="description" content="Strategy Born from the Wreckage, Intelligence Forged in the Fire" />
+        <title>CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology Consultant</title>
+        <meta name="description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations. Grammy-nominated expertise meets cutting-edge technology." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
@@ -23,8 +23,8 @@ export default function Landing() {
         <meta name="msapplication-TileColor" content="#000000" />
         
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="CLB Consultancy - AI Strategy & Entertainment Technology" />
-        <meta property="og:description" content="Strategy Born from the Wreckage, Intelligence Forged in the Fire. AI consulting for entertainment, hospitality, and live events." />
+        <meta property="og:title" content="CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology" />
+        <meta property="og:description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations. Grammy-nominated expertise meets cutting-edge technology." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com" />
         <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile.jpg" />
@@ -58,7 +58,7 @@ export default function Landing() {
       <main 
         className="min-h-screen flex flex-col items-center justify-center relative"
         role="main"
-        aria-label="CLB Consultancy Landing Page"
+        aria-label="CLB Consulting Landing Page"
         style={{position: 'relative', zIndex: 10}}
       >
         {/* Chris Lee Bergstrom Name */}
@@ -72,7 +72,7 @@ export default function Landing() {
         <div className="text-center mb-12">
           <img 
             src="/images/Purple Logo.png" 
-            alt="CLB Consultancy Logo" 
+            alt="CLB Consulting Logo" 
             className="w-72 md:w-96 lg:w-[32rem] h-auto mx-auto landing-logo-glow"
           />
         </div>
@@ -81,7 +81,7 @@ export default function Landing() {
         <Link 
           href="/home"
           className="px-12 py-4 bg-white/10 backdrop-blur-md text-white text-xl font-medium rounded-xl hover:bg-white/20 transition-all duration-500 focus:outline-none animate-pulse-slow landing-enter-button mb-8"
-          aria-label="Enter CLB Consultancy website"
+          aria-label="Enter CLB Consulting website"
         >
           Enter
         </Link>

@@ -23,7 +23,7 @@ export default function Projects() {
   return (
     <>
       <Head>
-        <title>Projects - CLB Consultancy</title>
+        <title>Projects - CLB Consulting</title>
         <meta name="description" content="View Chris Lee Bergstrom's portfolio and project work" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" href="/manifest.json" />
@@ -31,7 +31,7 @@ export default function Projects() {
         <link rel="apple-touch-icon" href="/icon-192.png" />
         
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="Projects - CLB Consultancy" />
+        <meta property="og:title" content="Projects - CLB Consulting" />
         <meta property="og:description" content="Current AI projects and consulting work by Chris Lee Bergstrom" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/projects" />
@@ -42,10 +42,97 @@ export default function Projects() {
         
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Projects - CLB Consultancy" />
+        <meta name="twitter:title" content="Projects - CLB Consulting" />
         <meta name="twitter:description" content="Current AI projects and consulting work by Chris Lee Bergstrom" />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              "name": "AI Projects by Chris Lee Bergstrom",
+              "description": "Current AI projects and consulting work by Chris Lee Bergstrom at CLB Consulting",
+              "url": "https://chrisleebergstrom.com/projects",
+              "isPartOf": {
+                "@type": "WebSite",
+                "@id": "https://chrisleebergstrom.com/#website"
+              },
+              "author": {
+                "@type": "Person",
+                "@id": "https://chrisleebergstrom.com/about#person",
+                "name": "Chris Lee Bergstrom"
+              },
+              "provider": {
+                "@type": "Organization",
+                "@id": "https://chrisleebergstrom.com/#organization",
+                "name": "CLB Consulting"
+              },
+              "hasPart": [
+                {
+                  "@type": "CreativeWork",
+                  "name": "AI Consulting Sandbox & Research",
+                  "description": "Experimental AI integration patterns and proofs of concept"
+                },
+                {
+                  "@type": "CreativeWork",
+                  "name": "EVA - Enterprise Virtual Assistant",
+                  "description": "Professional AI assistant for business operations"
+                },
+                {
+                  "@type": "CreativeWork",
+                  "name": "R.Y.D.E.R. - AI Legal Assistant",
+                  "description": "Specialized AI for legal document analysis and preparation"
+                },
+                {
+                  "@type": "CreativeWork",
+                  "name": "EVE - Entertainment Venue Expert",
+                  "description": "AI consultant for venue operations and event management"
+                },
+                {
+                  "@type": "CreativeWork",
+                  "name": "Byte - Software Development AI",
+                  "description": "Development-focused AI for code generation and review"
+                },
+                {
+                  "@type": "CreativeWork",
+                  "name": "Glytch - Creative AI Suite",
+                  "description": "AI tools for creative professionals and content generation"
+                },
+                {
+                  "@type": "CreativeWork",
+                  "name": "Multi-Agent Lab",
+                  "description": "Research lab for multi-agent AI system development"
+                },
+                {
+                  "@type": "CreativeWork",
+                  "name": "JAMES - AI Butler Assistant",
+                  "description": "Sophisticated personal AI assistant for daily operations"
+                }
+              ],
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://chrisleebergstrom.com"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Projects",
+                    "item": "https://chrisleebergstrom.com/projects"
+                  }
+                ]
+              }
+            })
+          }}
+        />
       </Head>
       
       <Header />

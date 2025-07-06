@@ -71,12 +71,12 @@ export default function FAQ() {
   return (
     <>
       <Head>
-        <title>FAQ - CLB Consultancy | AI Strategy & Entertainment Technology</title>
-        <meta name="description" content="Frequently asked questions about CLB Consultancy's AI integration services, team building solutions, and entertainment technology consulting." />
+        <title>FAQ - CLB Consulting | AI Strategy & Entertainment Technology</title>
+        <meta name="description" content="Frequently asked questions about CLB Consulting's AI integration services, team building solutions, and entertainment technology consulting." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         {/* Open Graph tags */}
-        <meta property="og:title" content="FAQ - CLB Consultancy | AI Strategy & Entertainment Technology" />
+        <meta property="og:title" content="FAQ - CLB Consulting | AI Strategy & Entertainment Technology" />
         <meta property="og:description" content="Get answers about our AI consulting services, team building solutions, and entertainment technology expertise." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/faq" />
@@ -84,6 +84,92 @@ export default function FAQ() {
         
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com/faq" />
+        
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "name": "Frequently Asked Questions - CLB Consulting",
+              "description": "Common questions about CLB Consulting's AI strategy services and approach",
+              "url": "https://chrisleebergstrom.com/faq",
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://chrisleebergstrom.com/#organization",
+                "name": "CLB Consulting"
+              },
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What makes CLB Consulting different from other AI consulting firms?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chris operates as a cultural intelligence studio that treats AI as a tool—not a substitute—for human insight. His work lives at the intersection of storytelling, systems thinking, and ethical engineering. Where most AI firms optimize for scale, he optimizes for meaning."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What does 'Strategy Born from the Wreckage, Intelligence Forged in the Fire' mean?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "This isn't just a tagline—it's Chris's methodology. He's learned from real-world pressure situations in live entertainment. His strategies come from experience with systems under stress, not theoretical frameworks."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What types of AI solutions do you provide?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chris specializes in multi-modal and multi-lingual AI integrations that prioritize accessibility and efficiency. Focus areas include entertainment technology, hospitality systems, live events management, team building solutions, and operational optimization."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How do you approach team building and morale?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "At CLB, Chris treats culture as infrastructure. Team building is about designing a system where people feel seen, safe, and intellectually alive. CLB teams are interdisciplinary by design, thriving on cross-pollination."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What can I expect from working with EVE AI?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. EVE provides real-time consulting insights, project analysis, and strategic recommendations."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What industries do you work with?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chris's core expertise spans entertainment, logistics, audio and acoustical analysis, and live events, but his systems-thinking approach translates across industries."
+                  }
+                }
+              ],
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://chrisleebergstrom.com"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "FAQ",
+                    "item": "https://chrisleebergstrom.com/faq"
+                  }
+                ]
+              }
+            })
+          }}
+        />
       </Head>
 
       <Header />
@@ -162,7 +248,7 @@ export default function FAQ() {
           <div className="mt-16 mb-24 text-center bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm">
             <h2 className="text-3xl font-heading mb-4" style={{color: '#F5F5DC'}}>Still have questions?</h2>
             <p className="text-lg mb-6 max-w-2xl mx-auto" style={{color: '#F5F5DC', opacity: 0.9}}>
-              Ready to discuss how CLB Consultancy can transform your operations and empower your team? 
+              Ready to discuss how CLB Consulting can transform your operations and empower your team? 
               Let's start the conversation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

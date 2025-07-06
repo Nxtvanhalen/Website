@@ -22,16 +22,16 @@ export default function News() {
   return (
     <>
       <Head>
-        <title>News/Press - CLB Consultancy</title>
-        <meta name="description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consultancy" />
+        <title>News/Press - CLB Consulting</title>
+        <meta name="description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
         
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="News/Press - CLB Consultancy" />
-        <meta property="og:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consultancy" />
+        <meta property="og:title" content="News/Press - CLB Consulting" />
+        <meta property="og:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/news" />
         <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
@@ -41,10 +41,51 @@ export default function News() {
         
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="News/Press - CLB Consultancy" />
-        <meta name="twitter:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consultancy" />
+        <meta name="twitter:title" content="News/Press - CLB Consulting" />
+        <meta name="twitter:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting" />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              "name": "News & Press - CLB Consulting",
+              "description": "Latest news, press coverage, and media appearances featuring Chris Lee Bergstrom",
+              "url": "https://chrisleebergstrom.com/news",
+              "author": {
+                "@type": "Person",
+                "@id": "https://chrisleebergstrom.com/about#person",
+                "name": "Chris Lee Bergstrom"
+              },
+              "about": {
+                "@type": "Organization",
+                "@id": "https://chrisleebergstrom.com/#organization",
+                "name": "CLB Consulting"
+              },
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://chrisleebergstrom.com"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "News/Press",
+                    "item": "https://chrisleebergstrom.com/news"
+                  }
+                ]
+              }
+            })
+          }}
+        />
       </Head>
       
       <Header />

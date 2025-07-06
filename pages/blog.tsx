@@ -58,12 +58,12 @@ export default function Blog() {
   return (
     <>
       <Head>
-        <title>Musings - CLB Consultancy Blog | AI Insights & Industry Analysis</title>
-        <meta name="description" content="Strategic insights, AI analysis, and industry musings from CLB Consultancy. Explore our thoughts on entertainment technology, team dynamics, and systems thinking." />
+        <title>Musings - CLB Consulting Blog | AI Insights & Industry Analysis</title>
+        <meta name="description" content="Strategic insights, AI analysis, and industry musings from CLB Consulting. Explore our thoughts on entertainment technology, team dynamics, and systems thinking." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         {/* Open Graph tags */}
-        <meta property="og:title" content="Musings - CLB Consultancy Blog | AI Insights & Industry Analysis" />
+        <meta property="og:title" content="Musings - CLB Consulting Blog | AI Insights & Industry Analysis" />
         <meta property="og:description" content="Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/blog" />
@@ -71,6 +71,48 @@ export default function Blog() {
         
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com/blog" />
+        
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Blog",
+              "name": "Musings - CLB Consulting Blog",
+              "description": "Strategic insights on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom",
+              "url": "https://chrisleebergstrom.com/blog",
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://chrisleebergstrom.com/#organization",
+                "name": "CLB Consulting"
+              },
+              "author": {
+                "@type": "Person",
+                "@id": "https://chrisleebergstrom.com/about#person",
+                "name": "Chris Lee Bergstrom"
+              },
+              "blogPost": [],
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://chrisleebergstrom.com"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Blog",
+                    "item": "https://chrisleebergstrom.com/blog"
+                  }
+                ]
+              }
+            })
+          }}
+        />
       </Head>
 
       <Header />

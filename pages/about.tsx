@@ -23,7 +23,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Chris - CLB Consultancy</title>
+        <title>About Chris - CLB Consulting</title>
         <meta name="description" content="Learn about Chris Lee Bergstrom's background and experience" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" href="/manifest.json" />
@@ -31,7 +31,7 @@ export default function About() {
         <link rel="apple-touch-icon" href="/icon-192.png" />
         
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="About Chris Lee Bergstrom - CLB Consultancy" />
+        <meta property="og:title" content="About Chris Lee Bergstrom - CLB Consulting" />
         <meta property="og:description" content="Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/about" />
@@ -42,10 +42,75 @@ export default function About() {
         
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Chris Lee Bergstrom - CLB Consultancy" />
+        <meta name="twitter:title" content="About Chris Lee Bergstrom - CLB Consulting" />
         <meta name="twitter:description" content="Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events" />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfilePage",
+              "mainEntity": {
+                "@type": "Person",
+                "@id": "https://chrisleebergstrom.com/about#person",
+                "name": "Chris Lee Bergstrom",
+                "alternateName": ["Chris Bergstrom", "CLB"],
+                "jobTitle": "AI Strategy Consultant & Founder of CLB Consulting",
+                "description": "Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events. Founder and principal consultant at CLB Consulting.",
+                "image": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
+                "email": "chrisleebergstrom@gmail.com",
+                "worksFor": {
+                  "@type": "Organization",
+                  "@id": "https://chrisleebergstrom.com/#organization",
+                  "name": "CLB Consulting"
+                },
+                "founder": {
+                  "@type": "Organization",
+                  "@id": "https://chrisleebergstrom.com/#organization",
+                  "name": "CLB Consulting"
+                },
+                "hasCredential": "Grammy-nominated Audio Engineer",
+                "knowsAbout": [
+                  "AI Implementation",
+                  "Entertainment Industry",
+                  "Audio Engineering",
+                  "Live Sound Production",
+                  "Tour Management",
+                  "Multi-Modal AI Systems",
+                  "Team Cohesion Strategies",
+                  "SMAART System Analysis and Training"
+                ],
+                "sameAs": [
+                  "https://www.linkedin.com/in/chris-bergstrom",
+                  "https://www.instagram.com/chrisleebergstrom",
+                  "https://www.youtube.com/@chrisleebergstrom",
+                  "https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr"
+                ]
+              },
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://chrisleebergstrom.com"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "About",
+                    "item": "https://chrisleebergstrom.com/about"
+                  }
+                ]
+              }
+            })
+          }}
+        />
       </Head>
       
       <Header />

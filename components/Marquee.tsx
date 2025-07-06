@@ -255,7 +255,7 @@ export default function Marquee() {
               aria-label="Interactive gallery of project screenshots and portfolio images"
             >
               {/* First set of items - starting with Project9 as first */}
-              <GalleryImage src="/images/gallery/Project9.webp" alt="Project 9 - CLB Consultancy portfolio showcase" />
+              <GalleryImage src="/images/gallery/Project9.webp" alt="Project 9 - CLB Consulting portfolio showcase" />
               <GalleryImage src="/images/gallery/Project1.webp" alt="AI consulting project dashboard showing multi-modal integration interface" />
               <GalleryImage src="/images/gallery/Project2.webp" alt="Entertainment technology setup with professional audio equipment and lighting controls" />
               <GalleryImage src="/images/gallery/Project3.webp" alt="Strategic consulting workspace with data visualization and planning documents" />
@@ -263,9 +263,9 @@ export default function Marquee() {
               <GalleryImage src="/images/gallery/Project5.webp" alt="Team collaboration session showing AI-powered workflow optimization solutions" />
               <GalleryImage src="/images/gallery/Project6.webp" alt="Live event coordination center with multiple screens showing real-time production data" />
               <GalleryImage src="/images/gallery/Project7.webp" alt="Entertainment venue technical setup featuring advanced sound and visual systems" />
-              <GalleryImage src="/images/gallery/Project8.webp" alt="CLB Consultancy client workshop demonstrating AI integration strategies" />
+              <GalleryImage src="/images/gallery/Project8.webp" alt="CLB Consulting client workshop demonstrating AI integration strategies" />
               {/* Duplicate set for seamless loop */}
-              <GalleryImage src="/images/gallery/Project9.webp" alt="Project 9 - CLB Consultancy portfolio showcase" />
+              <GalleryImage src="/images/gallery/Project9.webp" alt="Project 9 - CLB Consulting portfolio showcase" />
               <GalleryImage src="/images/gallery/Project1.webp" alt="AI consulting project dashboard showing multi-modal integration interface" />
               <GalleryImage src="/images/gallery/Project2.webp" alt="Entertainment technology setup with professional audio equipment and lighting controls" />
               <GalleryImage src="/images/gallery/Project3.webp" alt="Strategic consulting workspace with data visualization and planning documents" />
@@ -273,7 +273,7 @@ export default function Marquee() {
               <GalleryImage src="/images/gallery/Project5.webp" alt="Team collaboration session showing AI-powered workflow optimization solutions" />
               <GalleryImage src="/images/gallery/Project6.webp" alt="Live event coordination center with multiple screens showing real-time production data" />
               <GalleryImage src="/images/gallery/Project7.webp" alt="Entertainment venue technical setup featuring advanced sound and visual systems" />
-              <GalleryImage src="/images/gallery/Project8.webp" alt="CLB Consultancy client workshop demonstrating AI integration strategies" />
+              <GalleryImage src="/images/gallery/Project8.webp" alt="CLB Consulting client workshop demonstrating AI integration strategies" />
             </div>
           </div>
         </section>
