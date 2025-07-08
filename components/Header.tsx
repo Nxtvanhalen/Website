@@ -34,17 +34,28 @@ export default function Header() {
         <div className="flex flex-col w-full">
         {/* Top row: Logo, Profile Picture, and Social Icons */}
         <div className="flex items-center justify-between w-full pb-3">
-          <Link 
-            href="/home" 
-            className="logo"
-            aria-label="CLB Consulting - Return to homepage"
-          >
-            <img 
-              src="/images/Purple Logo.png" 
-              alt="CLB Consulting Logo" 
-              className="h-8 w-auto"
-            />
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link 
+              href="/home" 
+              className="logo"
+              aria-label="CLB Consulting - Return to homepage"
+            >
+              <img 
+                src="/images/Purple Logo.png" 
+                alt="CLB Consulting Logo" 
+                className="h-8 w-auto"
+              />
+            </Link>
+            <a 
+              href="https://lizpettengill.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="designer-credit"
+              aria-label="Visit Liz Pettengill's website - Logo designer"
+            >
+              Logo designed by Liz Pettengill
+            </a>
+          </div>
           
           {/* Profile Picture - Desktop Only */}
           <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">

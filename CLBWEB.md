@@ -197,7 +197,18 @@ npm run dev  # Should work normally
 
 ## Recent Major Updates (December 2024 - Comprehensive Enhancement Session)
 
-### 🔍 Comprehensive SEO Enhancements for Brand Consistency (Latest Session - July 2025)
+### 🎨 Designer Credit Addition (Latest Session - July 8, 2025)
+- **Logo Designer Attribution**: Added "Logo designed by Liz Pettengill" credit next to the CLB logo in header
+- **Styling Details**: 
+  - Molten color (#F8F6F0) with elegant glow effect matching site's premium aesthetic
+  - Font: Space Grotesk at 0.75rem (desktop) / 0.65rem (mobile) for consistency
+  - Positioned with 20px top margin for optimal vertical alignment
+- **Interactive Link**: Credit is clickable and links to https://lizpettengill.com (opens in new tab)
+- **Hover Effects**: Enhanced glow and subtle lift animation on hover for polished interaction
+- **Accessibility**: Proper ARIA label and semantic markup for screen readers
+- **Responsive Design**: Scales appropriately across all device sizes
+
+### 🔍 Comprehensive SEO Enhancements for Brand Consistency (Previous Session - July 2025)
 - **Brand Name Standardization**: Updated all references from "CLB Consultancy" to "CLB Consulting" for consistency with Google Business Profile
 - **Enhanced Metadata**: Improved page titles and descriptions to include both company and personal brand names
 - **Explicit Brand Linking**: Added H2 tag stating "CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom"
