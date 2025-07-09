@@ -178,29 +178,72 @@ export default function Marquee() {
             Chris Lee Bergstrom
           </h2>
           
-          {/* Call-to-action box - always centered */}
-          <div className="flex justify-center">
+          {/* Three boxes layout */}
+          <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
+            {/* Left box */}
             <div 
-              className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] backdrop-blur-sm shadow-lg"
+              className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+              role="region"
+              aria-label="Coming soon feature"
+            >
+              <div className="w-full h-24 rounded overflow-hidden mb-3">
+                <img 
+                  src="/UG.jpeg" 
+                  alt="Coming soon feature preview" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-lg font-bold text-center glow" style={{color: '#F5F5DC'}}>Coming Soon</div>
+            </div>
+            
+            {/* Center box - existing rotating content */}
+            <div 
+              className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
               role="region"
               aria-label="Rotating consultation offers"
               aria-live="polite"
             >
               <div 
                 key={currentBox}
-                className="animate-crossfade"
+                className="animate-crossfade flex flex-col h-full justify-between"
               >
-                <div className="text-sm font-bold mb-2" style={{color: '#F5F5DC'}}>{boxes[currentBox].title}</div>
-                <div className="text-xs mb-3" style={{color: '#F5F5DC', opacity: 0.9}}>{boxes[currentBox].description}</div>
-                <a 
-                  href={`mailto:chrisleebergstrom@gmail.com?subject=${boxes[currentBox].subject}`}
-                  className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
-                  aria-label={`Contact Chris about ${boxes[currentBox].title} - ${boxes[currentBox].description}`}
-                >
-                  Let's Talk Strategy
-                </a>
-                <div className="text-xs mt-1" style={{color: '#F5F5DC', opacity: 0.6}}>chrisleebergstrom@gmail.com</div>
+                <div>
+                  <div className="text-sm font-bold mb-2" style={{color: '#F5F5DC'}}>{boxes[currentBox].title}</div>
+                  <div className="text-xs mb-3" style={{color: '#F5F5DC', opacity: 0.9}}>{boxes[currentBox].description}</div>
+                </div>
+                <div>
+                  <a 
+                    href={`mailto:chrisleebergstrom@gmail.com?subject=${boxes[currentBox].subject}`}
+                    className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+                    aria-label={`Contact Chris about ${boxes[currentBox].title} - ${boxes[currentBox].description}`}
+                  >
+                    Let's Talk Strategy
+                  </a>
+                  <div className="text-xs mt-1 text-center" style={{color: '#F5F5DC', opacity: 0.6}}>chrisleebergstrom@gmail.com</div>
+                </div>
               </div>
+            </div>
+            
+            {/* Right box */}
+            <div 
+              className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+              role="region"
+              aria-label="AI Chess Game"
+            >
+              <div>
+                <div className="text-sm font-bold mb-2" style={{color: '#F5F5DC'}}>AI Chess Game</div>
+                <div className="text-xs mb-3" style={{color: '#F5F5DC', opacity: 0.9}}>Challenge our AI in a game of chess - built with cutting-edge technology</div>
+              </div>
+              <a 
+                href="https://ai-chess-cfah.onrender.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg font-bold text-center glow block w-full py-2"
+                style={{color: '#F5F5DC', textDecoration: 'none'}}
+                aria-label="Play Chester - AI Chess Game"
+              >
+                Play Chester
+              </a>
             </div>
           </div>
         </div>

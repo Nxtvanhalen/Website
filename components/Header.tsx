@@ -53,7 +53,7 @@ export default function Header() {
               className="designer-credit"
               aria-label="Visit Liz Pettengill's website - Logo designer"
             >
-              Logo designed by Liz Pettengill
+              Logo by Liz Pettengill
             </a>
           </div>
           
