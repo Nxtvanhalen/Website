@@ -6,10 +6,7 @@ export default function Marquee() {
   const [currentBox, setCurrentBox] = useState(0);
   const galleryRef = useRef<HTMLDivElement>(null);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
-  const [autoScrollPosition, setAutoScrollPosition] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const animationRef = useRef<number>();
-  const loadedImages = useRef<Set<string>>(new Set());
+  const isUserInteractingRef = useRef(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,62 +16,54 @@ export default function Marquee() {
     return () => clearInterval(interval);
   }, []);
 
-  // Auto-scroll animation - starts when images are loaded and not interacting
+  // Auto-scroll animation using setInterval for simplicity
   useEffect(() => {
-    if (!isUserInteracting && galleryRef.current && (imagesLoaded || loadedImages.current.size > 3)) {
-      const animate = () => {
-        setAutoScrollPosition(prev => {
+    let intervalId: NodeJS.Timeout;
+    
+    // Wait for component to mount
+    const timeoutId = setTimeout(() => {
+      intervalId = setInterval(() => {
+        if (galleryRef.current && !isUserInteractingRef.current) {
           const container = galleryRef.current;
-          if (!container) return prev;
+          const currentScroll = container.scrollLeft;
+          const scrollAmount = 1; // pixels per frame
           
-          const itemWidth = 320 + 24; // w-80 (320px) + gap (24px)
-          const totalItems = 9; // Number of unique gallery items
-          const maxScroll = itemWidth * totalItems; // Total width of one set
-          const newPosition = prev + 0.3; // Slower, smoother scroll speed
+          // Calculate max scroll before reset
+          const itemWidth = 344; // 320px + 24px gap
+          const totalItems = 9;
+          const resetPoint = itemWidth * totalItems;
           
-          // Seamless loop: when we reach the end of first set, jump to beginning
-          return newPosition >= maxScroll ? 0 : newPosition;
-        });
-        animationRef.current = requestAnimationFrame(animate);
-      };
-      
-      // Small delay to ensure DOM is ready
-      const timeoutId = setTimeout(() => {
-        animationRef.current = requestAnimationFrame(animate);
-      }, 50);
-      
-      return () => {
-        clearTimeout(timeoutId);
-      };
-    }
-
+          if (currentScroll >= resetPoint) {
+            // Reset to start
+            container.scrollLeft = 0;
+          } else {
+            // Normal scroll
+            container.scrollLeft = currentScroll + scrollAmount;
+          }
+        }
+      }, 20); // Run every 20ms (50fps)
+    }, 1000); // Wait 1 second before starting
+    
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
+      clearTimeout(timeoutId);
+      if (intervalId) {
+        clearInterval(intervalId);
       }
     };
-  }, [isUserInteracting, imagesLoaded]);
-
-  // Apply scroll position
-  useEffect(() => {
-    if (!isUserInteracting && galleryRef.current) {
-      galleryRef.current.scrollLeft = autoScrollPosition;
-    }
-  }, [autoScrollPosition, isUserInteracting]);
+  }, []);
 
   // Touch/Mouse handlers
   const handleTouchStart = () => {
     setIsUserInteracting(true);
+    isUserInteractingRef.current = true;
   };
 
   const handleTouchEnd = () => {
     // Small delay before resuming auto-scroll for natural feel
     setTimeout(() => {
-      if (galleryRef.current) {
-        setAutoScrollPosition(galleryRef.current.scrollLeft);
-      }
       setIsUserInteracting(false);
-    }, 300);
+      isUserInteractingRef.current = false;
+    }, 1000); // Increased delay for better UX
   };
 
   // Prevent context menu on gallery images
@@ -88,16 +77,8 @@ export default function Marquee() {
     return false;
   };
 
-  // Gallery image component with load tracking
+  // Gallery image component
   const GalleryImage = ({ src, alt }: { src: string; alt: string }) => {
-    const handleImageLoad = () => {
-      loadedImages.current.add(src);
-      // Check if all images are loaded (9 unique images)
-      if (loadedImages.current.size >= 9 && !imagesLoaded) {
-        setImagesLoaded(true);
-      }
-    };
-
     return (
       <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
         <img 
@@ -106,7 +87,6 @@ export default function Marquee() {
           className="w-full h-full object-cover"
           onContextMenu={handleContextMenu}
           onDragStart={handleDragStart}
-          onLoad={handleImageLoad}
           draggable={false}
           loading="lazy"
           onError={(e) => {
@@ -284,7 +264,11 @@ export default function Marquee() {
           <div 
             ref={galleryRef}
             className="gallery-container overflow-x-scroll overflow-y-hidden"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none',
+              scrollBehavior: 'auto' // Prevent smooth scrolling conflicts
+            }}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             onMouseDown={handleTouchStart}
