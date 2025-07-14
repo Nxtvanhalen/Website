@@ -174,12 +174,15 @@ export default function Projects() {
                       Visit Master Tour Venue →
                     </a>
                 </div>
-                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden">
-                  <img 
+                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
+                  <Image 
                     src="/images/projects/Mastertour.jpg" 
                     alt="Master Tour" 
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover"
                     style={{objectPosition: '50% 30%'}}
+                    quality={75}
                   />
                 </div>
               </div>
@@ -195,11 +198,14 @@ export default function Projects() {
                       AI-powered cloud-based SPL remote monitoring with analytics and reports for construction and live events. Real-time sound pressure level tracking that combines compliance monitoring with predictive insights—ensuring safety while optimizing acoustic performance.
                     </p>
                 </div>
-                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden">
-                  <img 
+                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
+                  <Image 
                     src="/images/projects/Rosi.png" 
                     alt="AI Powered Remote SPL" 
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover"
+                    quality={75}
                   />
                 </div>
               </div>
@@ -214,11 +220,14 @@ export default function Projects() {
                       The orchestration core of CLB's AI system. EVA routes client inquiries, manages agent workflows, and coordinates behind-the-scenes logistics for tours, productions, and consulting pipelines. She's the planner that never misses a cue.
                     </p>
                 </div>
-                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden">
-                  <img 
+                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
+                  <Image 
                     src="/images/projects/EVA.png" 
                     alt="EVA - Events Virtual Assistant" 
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover object-top"
+                    quality={75}
                   />
                 </div>
               </div>
@@ -233,11 +242,14 @@ export default function Projects() {
                       R.Y.D.E.R. (Reminding You: Darkness Eventually Recedes) is a trauma-aware conversational agent built for freelancers and event staff. Anonymous, reflective, and emotionally attuned—this isn't therapy, it's a check-in with soul.
                     </p>
                 </div>
-                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden">
-                  <img 
+                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
+                  <Image 
                     src="/images/projects/Ryder.png" 
                     alt="R.Y.D.E.R. - Mental Health AI for Creatives" 
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover object-top"
+                    quality={75}
                   />
                 </div>
               </div>
@@ -258,11 +270,14 @@ export default function Projects() {
                       Chat with EVE now! →
                     </a>
                 </div>
-                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden">
-                  <img 
+                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
+                  <Image 
                     src="/images/projects/EVE.png" 
                     alt="EVE - Conversational AI for CLB" 
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover object-top"
+                    quality={75}
                   />
                 </div>
               </div>
@@ -277,11 +292,14 @@ export default function Projects() {
                       Byte is a voice-native AI built for deep file parsing, archival search, and contextual synthesis. Housed in a clean voice interface, Byte speaks with clarity, thinks with nuance, and commands a suite of its own sub-agents to handle complex research.
                     </p>
                 </div>
-                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden">
-                  <img 
+                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
+                  <Image 
                     src="/images/projects/Byte.png" 
                     alt="Byte - Voice-to-Voice Semantic Research Agent" 
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover object-top"
+                    quality={75}
                   />
                 </div>
               </div>
@@ -296,11 +314,14 @@ export default function Projects() {
                       Glytch lives inside a vintage iMac and channels the spirit of TARS from Interstellar. Running on the Assistants API, it's a local, voice-interactive consulting companion—designed for creative ideation, irreverent insights, and unexpected brilliance.
                     </p>
                 </div>
-                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden">
-                  <img 
+                <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
+                  <Image 
                     src="/images/projects/Glytch.png" 
                     alt="Glytch - Retro-Futurist API Assistant" 
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover object-top"
+                    quality={75}
                   />
                 </div>
               </div>

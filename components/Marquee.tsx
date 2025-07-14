@@ -81,22 +81,32 @@ export default function Marquee() {
   const GalleryImage = ({ src, alt }: { src: string; alt: string }) => {
     return (
       <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-        <img 
+        <Image 
           src={src}
           alt={alt}
+          width={320}
+          height={240}
           className="w-full h-full object-cover"
           onContextMenu={handleContextMenu}
           onDragStart={handleDragStart}
           draggable={false}
           loading="lazy"
+          quality={85}
           onError={(e) => {
             console.log('Image failed to load:', src);
-            e.currentTarget.style.opacity = '0.3';
-            e.currentTarget.style.background = '#333';
+            const target = e.target as HTMLImageElement;
+            target.style.opacity = '0.3';
+            target.style.background = '#333';
           }}
         />
         <div className="gallery-watermark">
-          <img src="/images/Purple Logo.png" alt="" className="h-3 w-auto opacity-60" />
+          <Image 
+            src="/images/Purple Logo.png" 
+            alt="" 
+            width={48}
+            height={12}
+            className="h-3 w-auto opacity-60" 
+          />
         </div>
       </div>
     );
@@ -135,18 +145,22 @@ export default function Marquee() {
       <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-52 pb-16 text-center text-white">
         {/* Mobile Profile Picture - Above heading */}
         <div className="md:hidden mb-6 flex justify-center">
-          <div className="w-20 h-20 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50">
-            <img 
+          <div className="w-20 h-20 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
+            <Image 
               src="/images/profile/chris-profile.jpg" 
               alt="Chris Lee Bergstrom" 
+              width={80}
+              height={80}
               className="w-full h-full object-cover object-top"
+              priority
               onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                const target = e.target as HTMLElement;
+                target.style.display = 'none';
+                const fallback = target.nextElementSibling as HTMLElement;
                 if (fallback) fallback.style.display = 'flex';
               }}
             />
-            <div className="w-full h-full flex items-center justify-center" style={{display: 'none'}}>
+            <div className="w-full h-full flex items-center justify-center absolute inset-0" style={{display: 'none'}}>
               <span className="text-sm font-bold" style={{color: '#F5F5DC'}}>CB</span>
             </div>
           </div>
@@ -166,11 +180,14 @@ export default function Marquee() {
               role="region"
               aria-label="Coming soon feature"
             >
-              <div className="w-full h-24 rounded overflow-hidden mb-3">
-                <img 
+              <div className="w-full h-24 rounded overflow-hidden mb-3 relative">
+                <Image 
                   src="/UG.jpeg" 
                   alt="Coming soon feature preview" 
+                  width={220}
+                  height={96}
                   className="w-full h-full object-cover"
+                  quality={75}
                 />
               </div>
               <div className="text-lg font-bold text-center glow" style={{color: '#F5F5DC'}}>Coming Soon</div>
@@ -314,11 +331,14 @@ export default function Marquee() {
             EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. AI should never replace the artist. It should empower the visionary.
           </p>
           <div className="flex justify-center">
-            <div className="w-24 h-24 rounded-lg border border-molten/40 overflow-hidden">
-              <img 
+            <div className="w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
+              <Image 
                 src="/images/projects/EVE.png" 
                 alt="EVE AI avatar - A sophisticated conversational AI assistant for strategic consulting" 
+                width={96}
+                height={96}
                 className="w-full h-full object-cover object-top"
+                quality={75}
               />
             </div>
           </div>

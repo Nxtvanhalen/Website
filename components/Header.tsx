@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -40,10 +41,13 @@ export default function Header() {
               className="logo"
               aria-label="CLB Consulting - Return to homepage"
             >
-              <img 
+              <Image 
                 src="/images/Purple Logo.png" 
                 alt="CLB Consulting Logo" 
+                width={120}
+                height={32}
                 className="h-8 w-auto"
+                priority
               />
             </Link>
             <a 
@@ -59,18 +63,22 @@ export default function Header() {
           
           {/* Profile Picture - Desktop Only */}
           <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
-            <div className="w-14 h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50">
-              <img 
+            <div className="w-14 h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
+              <Image 
                 src="/images/profile/chris-profile.jpg" 
                 alt="Chris Lee Bergstrom" 
+                width={56}
+                height={56}
                 className="w-full h-full object-cover object-top"
+                priority
                 onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                  const target = e.target as HTMLElement;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling as HTMLElement;
                   if (fallback) fallback.style.display = 'flex';
                 }}
               />
-              <div className="w-full h-full flex items-center justify-center" style={{display: 'none'}}>
+              <div className="w-full h-full flex items-center justify-center absolute inset-0" style={{display: 'none'}}>
                 <span className="text-molten text-xs font-bold">CB</span>
               </div>
             </div>
