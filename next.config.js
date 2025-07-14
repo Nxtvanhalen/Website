@@ -3,20 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   generateEtags: false,
-  async redirects() {
-    return [
-      {
-        source: '/_next/static/js/app.js',
-        destination: '/404',
-        permanent: false,
-      },
-      {
-        source: '/_next/static/css/app.css',
-        destination: '/404',
-        permanent: false,
-      },
-    ]
-  },
   async headers() {
     return [
       {
