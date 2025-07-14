@@ -1,90 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-
-// Helper function to decode HTML entities
-function decodeHTMLEntities(text: string): string {
-  const entities: { [key: string]: string } = {
-    '&#8217;': "'",
-    '&#8212;': "—",
-    '&#8220;': '"',
-    '&#8221;': '"',
-    '&#128771;': '🜃',
-    '&#128527;': '😏',
-    '&#8230;': '…',
-    '&#129763;': '🦣',
-    '&#128526;': '😎',
-    '&#233;': 'é',
-    '&amp;': '&',
-    '&lt;': '<',
-    '&gt;': '>',
-    '&quot;': '"',
-    '&#39;': "'",
-    '&nbsp;': ' '
-  };
-  
-  let decodedText = text;
-  for (const [entity, replacement] of Object.entries(entities)) {
-    decodedText = decodedText.replace(new RegExp(entity, 'g'), replacement);
-  }
-  return decodedText;
-}
-
-// Simple XML parsing function
-function parseRSSFeed(xmlString: string) {
-  const items: any[] = [];
-  
-  // Extract title, description
-  const titleMatch = xmlString.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/);
-  const descriptionMatch = xmlString.match(/<description><!\[CDATA\[(.*?)\]\]><\/description>/);
-  
-  const feedTitle = titleMatch ? titleMatch[1] : 'Chris Lee Bergstrom';
-  const feedDescription = descriptionMatch ? descriptionMatch[1] : 'Entertainment industry and AI insights';
-  
-  // Extract all items
-  const itemMatches = xmlString.match(/<item>[\s\S]*?<\/item>/g);
-  
-  if (itemMatches) {
-    for (const itemXml of itemMatches.slice(0, 5)) {
-      const item: any = {};
-      
-      // Extract title
-      const titleMatch = itemXml.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/);
-      item.title = titleMatch ? titleMatch[1] : '';
-      
-      // Extract link
-      const linkMatch = itemXml.match(/<link>(.*?)<\/link>/);
-      item.link = linkMatch ? linkMatch[1] : '';
-      
-      // Extract pub date
-      const pubDateMatch = itemXml.match(/<pubDate>(.*?)<\/pubDate>/);
-      item.pubDate = pubDateMatch ? pubDateMatch[1] : '';
-      
-      // Extract content:encoded (full content) first, fallback to description
-      const contentMatch = itemXml.match(/<content:encoded><!\[CDATA\[([\s\S]*?)\]\]><\/content:encoded>/);
-      const descMatch = itemXml.match(/<description><!\[CDATA\[(.*?)\]\]><\/description>/);
-      
-      // Use content:encoded if available, otherwise use description
-      const fullContent = contentMatch ? contentMatch[1] : (descMatch ? descMatch[1] : '');
-      
-      // Create content snippet (first 200 chars of text content)
-      const textContent = fullContent.replace(/<[^>]*>/g, '').trim();
-      const decodedTextContent = decodeHTMLEntities(textContent);
-      item.contentSnippet = decodedTextContent.length > 200 ? decodedTextContent.substring(0, 200) + '...' : decodedTextContent;
-      item.content = fullContent;
-      
-      // Extract author
-      const authorMatch = itemXml.match(/<dc:creator><!\[CDATA\[(.*?)\]\]><\/dc:creator>/);
-      item.author = authorMatch ? authorMatch[1] : 'Chris Lee Bergstrom';
-      
-      items.push(item);
-    }
-  }
-  
-  return {
-    title: feedTitle,
-    description: feedDescription,
-    items: items
-  };
-}
+import { XMLParser } from 'fast-xml-parser';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
@@ -100,24 +15,72 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     
     const feedData = await response.text();
     
-    // Parse XML using our custom parser
-    const feed = parseRSSFeed(feedData);
+    // Configure the XML parser
+    const parser = new XMLParser({
+      ignoreAttributes: false,
+      attributeNamePrefix: '@_',
+      parseTagValue: true,
+      trimValues: true,
+      parseAttributeValue: true,
+      processEntities: true,
+      htmlEntities: true
+    });
     
-    // Transform the feed data to include only what we need
-    const posts = feed.items.map((item: any) => ({
-      title: item.title,
-      link: item.link,
-      pubDate: item.pubDate,
-      contentSnippet: item.contentSnippet,
-      content: item.content,
-      author: item.author
-    }));
+    // Parse the XML
+    const parsedData = parser.parse(feedData);
+    const channel = parsedData?.rss?.channel;
+    
+    if (!channel) {
+      throw new Error('Invalid RSS feed structure');
+    }
+    
+    // Extract feed metadata
+    const feedTitle = channel.title || 'Chris Lee Bergstrom';
+    const feedDescription = channel.description || 'Entertainment industry and AI insights';
+    
+    // Ensure items is an array (could be a single item)
+    const items = Array.isArray(channel.item) ? channel.item : (channel.item ? [channel.item] : []);
+    
+    // Transform the feed data to include only what we need (max 5 items)
+    const posts = items.slice(0, 5).map((item: any) => {
+      // Handle text content (including CDATA which is automatically parsed)
+      const getTextContent = (field: any): string => {
+        if (!field) return '';
+        if (typeof field === 'string') return field;
+        if (typeof field === 'object' && field['#text']) return field['#text'];
+        return '';
+      };
+      
+      const title = getTextContent(item.title);
+      const link = getTextContent(item.link);
+      const pubDate = getTextContent(item.pubDate);
+      const author = getTextContent(item['dc:creator']) || 'Chris Lee Bergstrom';
+      
+      // Get content from content:encoded or description
+      let fullContent = getTextContent(item['content:encoded']);
+      if (!fullContent) {
+        fullContent = getTextContent(item.description);
+      }
+      
+      // Create content snippet (first 200 chars of text content)
+      const textContent = fullContent.replace(/<[^>]*>/g, '').trim();
+      const contentSnippet = textContent.length > 200 ? textContent.substring(0, 200) + '...' : textContent;
+      
+      return {
+        title,
+        link,
+        pubDate,
+        contentSnippet,
+        content: fullContent,
+        author
+      };
+    });
     
     res.status(200).json({
       success: true,
       posts: posts,
-      feedTitle: feed.title,
-      feedDescription: feed.description
+      feedTitle: feedTitle,
+      feedDescription: feedDescription
     });
     
   } catch (error) {

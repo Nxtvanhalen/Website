@@ -36,10 +36,6 @@ const nextConfig = {
             value: "max-age=63072000; includeSubDomains; preload"
           },
           {
-            key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' www.googletagmanager.com cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.jsdelivr.net; font-src 'self' fonts.gstatic.com; img-src 'self' data: www.googletagmanager.com; connect-src 'self' www.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self'"
-          },
-          {
             key: "X-Frame-Options",
             value: "DENY"
           },
