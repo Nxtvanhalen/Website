@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npx next dev",
-    "build": "npm run postinstall && npx next build",
+    "build": "npm ci && npx next build",
     "export": "npx next export",
     "start": "npx next start",
     "postinstall": "npm list typescript @types/react @types/node || npm install typescript @types/react @types/node @types/react-dom"
