@@ -46,9 +46,36 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Handle text content (including CDATA which is automatically parsed)
       const getTextContent = (field: any): string => {
         if (!field) return '';
-        if (typeof field === 'string') return field;
-        if (typeof field === 'object' && field['#text']) return field['#text'];
-        return '';
+        let content = '';
+        if (typeof field === 'string') content = field;
+        else if (typeof field === 'object' && field['#text']) content = field['#text'];
+        else return '';
+        
+        // Decode HTML entities
+        return content
+          .replace(/&#8217;/g, "'")
+          .replace(/&#8220;/g, '"')
+          .replace(/&#8221;/g, '"')
+          .replace(/&#8211;/g, '–')
+          .replace(/&#8212;/g, '—')
+          .replace(/&#8230;/g, '…')
+          .replace(/&#8216;/g, "'")
+          .replace(/&#8218;/g, '‚')
+          .replace(/&#8222;/g, '„')
+          .replace(/&#8226;/g, '•')
+          .replace(/&#8482;/g, '™')
+          .replace(/&#8594;/g, '→')
+          .replace(/&#8592;/g, '←')
+          .replace(/&#8593;/g, '↑')
+          .replace(/&#8595;/g, '↓')
+          .replace(/&#39;/g, "'")
+          .replace(/&quot;/g, '"')
+          .replace(/&amp;/g, '&')
+          .replace(/&lt;/g, '<')
+          .replace(/&gt;/g, '>')
+          .replace(/&nbsp;/g, ' ')
+          .replace(/&#(\d+);/g, (match, num) => String.fromCharCode(parseInt(num, 10)))
+          .replace(/&#x([0-9a-fA-F]+);/g, (match, hex) => String.fromCharCode(parseInt(hex, 16)));
       };
       
       const title = getTextContent(item.title);
