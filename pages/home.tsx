@@ -537,11 +537,16 @@ export default function Home() {
           aria-label="Chris Lee Bergstrom profile image"
         >
           <div className="max-w-4xl mx-auto flex justify-center">
-            <div className="w-80 h-96 rounded-lg overflow-hidden bg-black/20">
+            <div className="w-80 h-96 rounded-lg overflow-hidden bg-black/20" style={{
+              mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+              maskComposite: 'intersect',
+              WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+              WebkitMaskComposite: 'source-in'
+            }}>
               <img 
                 src="/images/profile/chris-profile.jpg" 
                 alt="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" 
-                className="w-full h-full object-contain profile-image-mask"
+                className="w-full h-full object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   const fallback = e.currentTarget.nextElementSibling as HTMLElement;

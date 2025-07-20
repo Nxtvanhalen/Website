@@ -179,7 +179,7 @@ export default function Header() {
         
         {/* Secondary Navigation Links */}
         <nav 
-          className="flex items-center justify-between max-w-2xl mx-auto w-full px-4 py-2 md:px-8"
+          className="flex items-center justify-center gap-12 max-w-2xl mx-auto w-full px-4 py-2 md:px-8"
           role="navigation"
           aria-label="Secondary navigation"
         >
@@ -190,6 +190,21 @@ export default function Header() {
           >
             FAQ
           </a>
+          
+          <a 
+            href="https://ryder-k6er.onrender.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-link ml-7"
+            style={{
+              color: '#00ff00',
+              textShadow: '0 0 8px #00ff00, 0 0 4px #00ff00'
+            }}
+            aria-label="Ryder AI Assistant"
+          >
+            Ryder
+          </a>
+          
           <a 
             href="/blog" 
             className="nav-link"

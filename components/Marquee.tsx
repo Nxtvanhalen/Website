@@ -295,8 +295,35 @@ export default function Marquee() {
               That addiction to the magic of live sound led me to every corner of the globe and into the orbit of all kinds of artists—famous and anonymous, inspired and stubborn, revolutionary and wrecked. As the years rolled on, I took on bigger risks, bigger shows, and projects that forced me to get smarter, tougher, and more patient. I learned the hardest way how to build teams and crews, how to hold a vision together under pressure, and how to stay awake for 40 hours straight if that's what the show needed. I picked up lifelong friends, lost a few along the way, and found out who was truly dedicated to the work of making art matter.
             </p>
             <p>
-              That's where you'll find me: at the place where art, technology, and the daily mess of living all crash into each other and somehow produce something worth feeling. I don't claim to have all the answers. But I know what I've seen, what I've survived, and what I believe: the advancement of the arts is directly tied to the advancement of society.
+              That's where you'll find me: at the place where art, technology, and the daily mess of living all crash into each other and somehow produce something worth feeling. I don't claim to have all the answers. But I know what I've seen, what I've survived, and what I believe: <span className="italic font-semibold" style={{color: '#F5F5DC', textShadow: '0 0 2px #F5F5DC'}}>"the advancement of the arts is directly tied to the advancement of society."</span>
             </p>
+            
+            {/* PNW Image Section */}
+            <div className="w-full max-w-sm mx-auto my-6">
+              <div className="border-none rounded-none bg-transparent" style={{
+                mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                maskComposite: 'intersect',
+                WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                WebkitMaskComposite: 'source-in'
+              }}>
+                <Image 
+                  src="/images/PNW.webp" 
+                  alt="Pacific Northwest - Chris Lee Bergstrom"
+                  width={256}
+                  height={144}
+                  className="w-full h-auto border-none rounded-none bg-transparent"
+                  quality={85}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
+                  sizes="(max-width: 768px) 100vw, 256px"
+                />
+              </div>
+              <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>
+                Pacific Northwest pic by Chris Lee Bergstrom
+              </p>
+            </div>
+            
             <p>
               Artists can reclaim every step of the journey—from creation to presentation. Artists can and should run, shape, and distribute the places where people come to be changed by art. If there's going to be a revolution in the arts, it will start with the artists. Not with managers or committees, but with people who live and bleed for the work.
             </p>
