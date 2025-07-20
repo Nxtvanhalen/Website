@@ -227,15 +227,25 @@ export default function Marquee() {
               role="region"
               aria-label="AI Chess Game"
             >
+              <div className="w-full h-20 rounded overflow-hidden mb-2 relative">
+                <Image 
+                  src="/images/Chester.webp" 
+                  alt="Chester AI Chess Game" 
+                  width={220}
+                  height={80}
+                  className="w-full h-full object-cover object-bottom"
+                  quality={75}
+                />
+              </div>
               <div>
-                <div className="text-sm font-bold mb-2" style={{color: '#F5F5DC'}}>AI Chess Game</div>
-                <div className="text-xs mb-3" style={{color: '#F5F5DC', opacity: 0.9}}>Challenge our AI in a game of chess - built with cutting-edge technology</div>
+                <div className="text-xs font-bold mb-1" style={{color: '#F5F5DC'}}>AI Chess Game</div>
+                <div className="text-[10px] mb-1" style={{color: '#F5F5DC', opacity: 0.9}}>Challenge Chester AI</div>
               </div>
               <a 
                 href="https://ai-chess-cfah.onrender.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg font-bold text-center glow block w-full py-2"
+                className="text-base font-bold text-center glow block w-full py-1"
                 style={{color: '#F5F5DC', textDecoration: 'none'}}
                 aria-label="Play Chester - AI Chess Game"
               >
@@ -254,6 +264,33 @@ export default function Marquee() {
             <p>
               I started my career in the deep end of audio—drawn by an obsession with harmony, phase, coherence, and the wild science of pure sound. I've spent a lifetime chasing what music does to the soul. It's always been the primary addiction, and I know I'll never shake it. Music can, has, and will change the world. It's the universal translator, the code to unlock everything.
             </p>
+            
+            {/* XL4 Image Section */}
+            <div className="w-full max-w-sm mx-auto my-6">
+              <div className="border-none rounded-none bg-transparent" style={{
+                mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                maskComposite: 'intersect',
+                WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                WebkitMaskComposite: 'source-in'
+              }}>
+                <Image 
+                  src="/images/XL4.webp" 
+                  alt="Colorado State Fair - Mixing for Tracy Lawrence"
+                  width={256}
+                  height={144}
+                  className="w-full h-auto border-none rounded-none bg-transparent"
+                  quality={85}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
+                  sizes="(max-width: 768px) 100vw, 256px"
+                />
+              </div>
+              <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>
+                Colorado State Fair mixing for Tracy Lawrence
+              </p>
+            </div>
+            
             <p>
               That addiction to the magic of live sound led me to every corner of the globe and into the orbit of all kinds of artists—famous and anonymous, inspired and stubborn, revolutionary and wrecked. As the years rolled on, I took on bigger risks, bigger shows, and projects that forced me to get smarter, tougher, and more patient. I learned the hardest way how to build teams and crews, how to hold a vision together under pressure, and how to stay awake for 40 hours straight if that's what the show needed. I picked up lifelong friends, lost a few along the way, and found out who was truly dedicated to the work of making art matter.
             </p>
