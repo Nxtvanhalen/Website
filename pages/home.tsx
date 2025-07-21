@@ -160,9 +160,9 @@ export default function Home() {
         <meta property="og:description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations. Grammy-nominated expertise meets cutting-edge technology." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile.jpg" />
-        <meta property="og:image:width" content="1331" />
-        <meta property="og:image:height" content="2000" />
+        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="1200" />
         <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
         
         {/* Twitter Card tags */}
@@ -171,7 +171,7 @@ export default function Home() {
         <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology" />
         <meta name="twitter:description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations." />
-        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile.jpg" />
+        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
         
         {/* Canonical URL */}
