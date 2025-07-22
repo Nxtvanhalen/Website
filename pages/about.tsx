@@ -35,7 +35,7 @@ export default function About() {
         <meta property="og:description" content="Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/about" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
         <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
@@ -44,7 +44,7 @@ export default function About() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Chris Lee Bergstrom - CLB Consulting" />
         <meta name="twitter:description" content="Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events" />
-        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
         
         {/* JSON-LD Structured Data */}

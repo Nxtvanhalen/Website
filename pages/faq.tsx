@@ -80,7 +80,7 @@ export default function FAQ() {
         <meta property="og:description" content="Get answers about our AI consulting services, team building solutions, and entertainment technology expertise." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/faq" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
         <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
@@ -91,7 +91,7 @@ export default function FAQ() {
         <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="FAQ - CLB Consulting | AI Strategy & Entertainment Technology" />
         <meta name="twitter:description" content="Get answers about our AI consulting services, team building solutions, and entertainment technology expertise." />
-        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
 
         {/* Canonical URL */}

@@ -34,7 +34,7 @@ export default function News() {
         <meta property="og:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/news" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
         <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
@@ -45,7 +45,7 @@ export default function News() {
         <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="News/Press - CLB Consulting" />
         <meta name="twitter:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting" />
-        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
         
         {/* JSON-LD Structured Data */}
