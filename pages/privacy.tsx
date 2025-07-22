@@ -9,6 +9,28 @@ export default function Privacy() {
         <meta name="description" content="Privacy Policy for CLB Consulting - How we collect, use, and protect your information" />
         <meta name="theme-color" content="#9370DB" />
         <meta name="robots" content="index, follow" />
+
+        {/* Open Graph tags for social sharing */}
+        <meta property="og:title" content="Privacy Policy - CLB Consulting" />
+        <meta property="og:description" content="Privacy Policy for CLB Consulting - How we collect, use, and protect your information" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://chrisleebergstrom.com/privacy" />
+        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="1200" />
+        <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@chrisleebergstrom" />
+        <meta name="twitter:creator" content="@chrisleebergstrom" />
+        <meta name="twitter:title" content="Privacy Policy - CLB Consulting" />
+        <meta name="twitter:description" content="Privacy Policy for CLB Consulting - How we collect, use, and protect your information" />
+        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://chrisleebergstrom.com/privacy" />
       </Head>
 
       <main className="min-h-screen bg-[#1E1E1E] text-white pt-32 pb-20">

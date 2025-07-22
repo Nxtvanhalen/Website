@@ -67,8 +67,20 @@ export default function Blog() {
         <meta property="og:description" content="Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/blog" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile.jpg" />
-        
+        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="1200" />
+        <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@chrisleebergstrom" />
+        <meta name="twitter:creator" content="@chrisleebergstrom" />
+        <meta name="twitter:title" content="Musings - CLB Consulting Blog | AI Insights & Industry Analysis" />
+        <meta name="twitter:description" content="Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom." />
+        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
+        <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com/blog" />
         

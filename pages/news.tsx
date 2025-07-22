@@ -41,6 +41,8 @@ export default function News() {
         
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@chrisleebergstrom" />
+        <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="News/Press - CLB Consulting" />
         <meta name="twitter:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting" />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square.jpg" />
