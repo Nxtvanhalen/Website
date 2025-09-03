@@ -130,7 +130,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   
   try {
     // Rate limiting
-    const clientIP = req.ip || req.socket.remoteAddress || 'unknown';
+    const clientIP = (req.headers['x-forwarded-for'] as string)?.split(',')[0] || 
+                     req.connection?.remoteAddress || 
+                     req.socket?.remoteAddress || 
+                     'unknown';
     if (!checkRateLimit(clientIP)) {
       throw new ClientError('Rate limit exceeded. Please try again later.', 429);
     }
