@@ -8,8 +8,8 @@ export default function ChatPanel() {
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [threadId, setThreadId] = useState<string | null>(
-    typeof window !== 'undefined' ? localStorage.getItem('threadId') : null
+  const [responseId, setResponseId] = useState<string | null>(
+    typeof window !== 'undefined' ? localStorage.getItem('responseId') : null
   );
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -136,7 +136,7 @@ export default function ChatPanel() {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: content, history: messages, threadId })
+        body: JSON.stringify({ prompt: content, previousResponseId: responseId })
       });
       
       if (!res.ok) {
@@ -150,9 +150,9 @@ export default function ChatPanel() {
       };
       
       setMessages((prev) => [...prev, assistantMsg]);
-      if (data.threadId && data.threadId !== threadId) {
-        setThreadId(data.threadId);
-        localStorage.setItem('threadId', data.threadId);
+      if (data.responseId && data.responseId !== responseId) {
+        setResponseId(data.responseId);
+        localStorage.setItem('responseId', data.responseId);
       }
     } catch (err) {
       const errorMsg: Message = { 
