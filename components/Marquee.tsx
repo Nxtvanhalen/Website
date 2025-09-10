@@ -1,6 +1,7 @@
 import ChatPanel from './ChatPanel';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import TypewriterText from './TypewriterText';
 
 export default function Marquee() {
   const [currentBox, setCurrentBox] = useState(0);
@@ -168,8 +169,14 @@ export default function Marquee() {
         
         {/* Chris Lee Bergstrom heading with CTA box */}
         <div className="w-full mb-6">
-          <h2 className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 glow-subtle text-center">
-            Chris Lee Bergstrom
+          <h2 className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center">
+            <TypewriterText 
+              text="Chris Lee Bergstrom"
+              className="glow-subtle"
+              speed={100}
+              delay={500}
+              showCursor={true}
+            />
           </h2>
           
           {/* Three boxes layout */}

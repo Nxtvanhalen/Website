@@ -12,8 +12,8 @@ export default class MyDocument extends Document<MyDocumentProps> {
     // Generate a unique nonce for this request
     const nonce = crypto.randomBytes(16).toString('base64')
     
-    // Construct the CSP header with the nonce
-    const cspString = `default-src 'self'; script-src 'self' 'nonce-${nonce}' www.googletagmanager.com cdn.jsdelivr.net; style-src 'self' 'nonce-${nonce}' fonts.googleapis.com cdn.jsdelivr.net; font-src 'self' fonts.gstatic.com; img-src 'self' data: www.googletagmanager.com; connect-src 'self' www.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self'`
+    // Construct the CSP header with the nonce (updated for Framer Motion support)
+    const cspString = `default-src 'self'; script-src 'self' 'unsafe-eval' 'nonce-${nonce}' www.googletagmanager.com cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' 'nonce-${nonce}' fonts.googleapis.com cdn.jsdelivr.net; font-src 'self' fonts.gstatic.com; img-src 'self' data: www.googletagmanager.com; connect-src 'self' www.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self'`
     
     // Set the CSP header on the response
     if (ctx.res) {

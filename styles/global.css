@@ -833,3 +833,35 @@ select:focus,
 }
 
 /* Fix purple scrollbar gutter on FAQ and Musings pages */
+
+/* Typewriter Animation Effects */
+@keyframes typewriter-glow {
+  0% { 
+    text-shadow: none;
+  }
+  100% { 
+    text-shadow: 
+      0 0 10px rgba(147, 112, 219, 0.8),
+      0 0 20px rgba(147, 112, 219, 0.6),
+      0 0 30px rgba(147, 112, 219, 0.4);
+  }
+}
+
+.typewriter-glow {
+  animation: typewriter-glow 2s ease-in forwards;
+  animation-delay: 2.4s;
+  will-change: text-shadow;
+}
+
+/* Typewriter Cursor Animation */
+@keyframes cursor-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.typewriter-cursor {
+  animation: cursor-blink 1s infinite;
+  color: rgba(147, 112, 219, 0.7);
+  font-weight: 500;
+  margin-left: 2px;
+}

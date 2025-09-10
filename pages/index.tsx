@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import TypewriterText from '../components/TypewriterText';
 
 export default function Landing() {
   return (
@@ -75,8 +76,14 @@ export default function Landing() {
       >
         {/* Chris Lee Bergstrom Name */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-heading font-medium" style={{color: 'rgba(147, 112, 219, 0.7)'}}>
-            Chris Lee Bergstrom
+          <h1 className="text-3xl md:text-4xl font-heading font-medium">
+            <TypewriterText 
+              text="Chris Lee Bergstrom"
+              style={{color: 'rgba(147, 112, 219, 0.7)'}}
+              speed={100}
+              delay={500}
+              showCursor={true}
+            />
           </h1>
         </div>
         
