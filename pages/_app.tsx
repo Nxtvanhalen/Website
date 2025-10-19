@@ -21,10 +21,17 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const isLandingPage = router.pathname === '/';
   useEffect(() => {
+    // Store event listeners for proper cleanup
+    const emailClickHandlers = new WeakMap();
+    const ctaClickHandlers = new WeakMap();
+
     // Track email clicks for conversion analytics
     const trackEmailClicks = () => {
       document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-        link.addEventListener('click', () => {
+        // Skip if already has a handler
+        if (emailClickHandlers.has(link)) return;
+
+        const handler = () => {
           if (typeof window.gtag !== 'undefined') {
             window.gtag('event', 'email_click', {
               event_category: 'engagement',
@@ -32,7 +39,10 @@ export default function App({ Component, pageProps }: AppProps) {
               value: 1
             });
           }
-        });
+        };
+
+        emailClickHandlers.set(link, handler);
+        link.addEventListener('click', handler);
       });
     };
 
@@ -40,7 +50,10 @@ export default function App({ Component, pageProps }: AppProps) {
     const trackCTAClicks = () => {
       // Track rotating CTA box clicks
       document.querySelectorAll('a[href*="subject=AI Project Inquiry"]').forEach(link => {
-        link.addEventListener('click', () => {
+        // Skip if already has a handler
+        if (ctaClickHandlers.has(link)) return;
+
+        const handler = () => {
           if (typeof window.gtag !== 'undefined') {
             const subject = link.getAttribute('href')?.match(/subject=([^&]*)/)?.[1] || 'unknown';
             window.gtag('event', 'cta_click', {
@@ -49,7 +62,10 @@ export default function App({ Component, pageProps }: AppProps) {
               value: 1
             });
           }
-        });
+        };
+
+        ctaClickHandlers.set(link, handler);
+        link.addEventListener('click', handler);
       });
     };
 
@@ -68,7 +84,10 @@ export default function App({ Component, pageProps }: AppProps) {
       subtree: true
     });
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      // Note: WeakMaps will automatically clean up when elements are removed from DOM
+    };
   }, []);
 
   return (

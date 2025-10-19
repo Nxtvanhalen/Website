@@ -88,24 +88,51 @@ function validateUserMessage(message: any): string | null {
   return null;
 }
 
-// Rate limiting (simple in-memory)
+// Rate limiting with automatic cleanup
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT = 20; // requests per minute per IP
 const RATE_LIMIT_WINDOW = 60000; // 1 minute in milliseconds
+const MAX_ENTRIES = 1000; // Maximum entries to prevent unbounded growth
+let lastCleanup = Date.now();
+
+function cleanupRateLimitMap() {
+  const now = Date.now();
+  // Clean up expired entries every 5 minutes
+  if (now - lastCleanup > 300000) {
+    const entriesToDelete: string[] = [];
+    rateLimitMap.forEach((data, ip) => {
+      if (now > data.resetTime) {
+        entriesToDelete.push(ip);
+      }
+    });
+    entriesToDelete.forEach(ip => rateLimitMap.delete(ip));
+    lastCleanup = now;
+  }
+
+  // Emergency cleanup if map grows too large
+  if (rateLimitMap.size > MAX_ENTRIES) {
+    const entries = Array.from(rateLimitMap.entries());
+    entries.sort((a, b) => a[1].resetTime - b[1].resetTime);
+    const toDelete = entries.slice(0, Math.floor(MAX_ENTRIES / 2));
+    toDelete.forEach(([ip]) => rateLimitMap.delete(ip));
+  }
+}
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
+  cleanupRateLimitMap();
+
   const userLimit = rateLimitMap.get(ip);
-  
+
   if (!userLimit || now > userLimit.resetTime) {
     rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
     return true;
   }
-  
+
   if (userLimit.count >= RATE_LIMIT) {
     return false;
   }
-  
+
   userLimit.count++;
   return true;
 }
@@ -119,14 +146,24 @@ class ClientError extends Error {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Set cache headers for OPTIONS preflight
+  if (req.method === 'OPTIONS') {
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Max-Age', '86400');
+    return res.status(200).end();
+  }
+
   // Validate HTTP method
   if (req.method !== 'POST') {
     res.setHeader('Allow', ['POST']);
-    return res.status(405).json({ 
+    return res.status(405).json({
       error: 'Method Not Allowed',
       details: 'This endpoint only accepts POST requests'
     });
   }
+
+  // Set no-cache for POST responses
+  res.setHeader('Cache-Control', 'no-store, max-age=0');
   
   try {
     // Rate limiting

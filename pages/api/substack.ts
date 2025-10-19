@@ -1,8 +1,25 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { XMLParser } from 'fast-xml-parser';
 
+// Simple in-memory cache
+let cachedData: { posts: any[], feedTitle: string, feedDescription: string, timestamp: number } | null = null;
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Set cache headers for client-side caching
+  res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+
   try {
+    // Check cache first
+    if (cachedData && Date.now() - cachedData.timestamp < CACHE_DURATION) {
+      return res.status(200).json({
+        success: true,
+        posts: cachedData.posts,
+        feedTitle: cachedData.feedTitle,
+        feedDescription: cachedData.feedDescription,
+        cached: true
+      });
+    }
     // Substack RSS feed URL
     const substackFeedUrl = 'https://chrisleebergstrom.substack.com/feed';
     
@@ -103,6 +120,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       };
     });
     
+    // Cache the data
+    cachedData = {
+      posts,
+      feedTitle,
+      feedDescription,
+      timestamp: Date.now()
+    };
+
     res.status(200).json({
       success: true,
       posts: posts,
