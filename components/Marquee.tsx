@@ -272,7 +272,7 @@ export default function Marquee() {
               I build systems where art and technology work in sync — because I've lived both sides.
             </p>
             <p>
-              I started in the deep end of live sound, chasing perfect harmony, phase, and the science of emotion. Decades later, I've led crews, built production infrastructures, and rescued venues from chaos. Whether it's an international tour, a citywide cultural system, or a failing arts organization, I find the signal in the noise and make it sing again.
+              I started in the deep end of live sound, chasing perfect harmony, phase, and the science of acoustics. Decades later, I've led crews, built production infrastructures, and rescued venues from chaos. Whether it's an international tour, a citywide cultural system, or a failing arts organization, I find the signal in the noise and make it sing again.
             </p>
 
             {/* XL4 Image Section */}
@@ -305,7 +305,7 @@ export default function Marquee() {
               I'm not just an engineer — I'm a builder of ecosystems.
             </p>
             <p>
-              From world tours to public venues, I've learned how to lead under pressure, turn inefficiency into momentum, and bring artists, technicians, and institutions back into harmony. When things are broken, I fix them. When they're working, I make them legendary.
+              From world tours to public venues, I've learned how to lead under pressure, turn inefficiency into momentum, and bring artists, technicians, and institutions back into harmony.
             </p>
 
             {/* PNW Image Section */}
@@ -338,7 +338,7 @@ export default function Marquee() {
               Because the advancement of art is the advancement of society.
             </p>
             <p>
-              If you're ready to rebuild something real — your venue, your culture strategy, your live systems — let's talk. I don't do "arts and culture" by committee. I do the work that makes people feel alive again.
+              If you're ready to rebuild something real — your venue, your culture strategy, your live systems — let's talk. I don't do "arts and culture" by committee. I do the work that makes art feel alive again.
             </p>
           </div>
           <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-molten block animate-pulse-width w-32" />
