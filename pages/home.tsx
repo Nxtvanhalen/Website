@@ -328,7 +328,7 @@ export default function Home() {
       
       {/* Parallax Background */}
       <div className="parallax-container">
-        <div 
+        <div
           className="parallax-bg-2"
           style={{
             position: 'absolute',
@@ -336,7 +336,7 @@ export default function Home() {
             left: 0,
             width: '100%',
             height: '100vh',
-            backgroundImage: 'url(/images/parallax-bg2.webp)',
+            backgroundImage: 'url(/images/homepagenano1.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -355,7 +355,7 @@ export default function Home() {
         right: '10px',
         width: '200px',
         height: '100px',
-        backgroundImage: 'url(/images/parallax-bg2.webp)',
+        backgroundImage: 'url(/images/homepagenano1.webp)',
         backgroundSize: 'cover',
         border: '2px solid red',
         zIndex: 9999,
