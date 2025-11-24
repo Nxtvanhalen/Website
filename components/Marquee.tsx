@@ -268,10 +268,13 @@ export default function Marquee() {
         {/* Who Is Chris Lee Bergstrom section with pulsing line - Mobile responsive */}
         <div className="relative mb-16 mx-auto max-w-4xl px-4">
           <div className="text-base font-body opacity-90 leading-relaxed space-y-6" style={{color: '#F5F5DC'}}>
-            <p>
-              I started my career in the deep end of audio—drawn by an obsession with harmony, phase, coherence, and the wild science of pure sound. I've spent a lifetime chasing what music does to the soul. It's always been the primary addiction, and I know I'll never shake it. Music can, has, and will change the world. It's the universal translator, the code to unlock everything.
+            <p className="font-semibold text-lg">
+              I build systems where art and technology work in sync — because I've lived both sides.
             </p>
-            
+            <p>
+              I started in the deep end of live sound, chasing perfect harmony, phase, and the science of emotion. Decades later, I've led crews, built production infrastructures, and rescued venues from chaos. Whether it's an international tour, a citywide cultural system, or a failing arts organization, I find the signal in the noise and make it sing again.
+            </p>
+
             {/* XL4 Image Section */}
             <div className="w-full max-w-sm mx-auto my-6">
               <div className="border-none rounded-none bg-transparent" style={{
@@ -280,8 +283,8 @@ export default function Marquee() {
                 WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
                 WebkitMaskComposite: 'source-in'
               }}>
-                <Image 
-                  src="/images/XL4.webp" 
+                <Image
+                  src="/images/XL4.webp"
                   alt="Colorado State Fair - Mixing for Tracy Lawrence"
                   width={256}
                   height={144}
@@ -297,14 +300,14 @@ export default function Marquee() {
                 Colorado State Fair mixing for Tracy Lawrence
               </p>
             </div>
-            
-            <p>
-              That addiction to the magic of live sound led me to every corner of the globe and into the orbit of all kinds of artists—famous and anonymous, inspired and stubborn, revolutionary and wrecked. As the years rolled on, I took on bigger risks, bigger shows, and projects that forced me to get smarter, tougher, and more patient. I learned the hardest way how to build teams and crews, how to hold a vision together under pressure, and how to stay awake for 40 hours straight if that's what the show needed. I picked up lifelong friends, lost a few along the way, and found out who was truly dedicated to the work of making art matter.
+
+            <p className="font-semibold text-lg">
+              I'm not just an engineer — I'm a builder of ecosystems.
             </p>
             <p>
-              That's where you'll find me: at the place where art, technology, and the daily mess of living all crash into each other and somehow produce something worth feeling. I don't claim to have all the answers. But I know what I've seen, what I've survived, and what I believe: <span className="italic font-semibold" style={{color: '#F5F5DC', textShadow: '0 0 2px #F5F5DC'}}>"the advancement of the arts is directly tied to the advancement of society."</span>
+              From world tours to public venues, I've learned how to lead under pressure, turn inefficiency into momentum, and bring artists, technicians, and institutions back into harmony. When things are broken, I fix them. When they're working, I make them legendary.
             </p>
-            
+
             {/* PNW Image Section */}
             <div className="w-full max-w-sm mx-auto my-6">
               <div className="border-none rounded-none bg-transparent" style={{
@@ -313,8 +316,8 @@ export default function Marquee() {
                 WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
                 WebkitMaskComposite: 'source-in'
               }}>
-                <Image 
-                  src="/images/PNW.webp" 
+                <Image
+                  src="/images/PNW.webp"
                   alt="Pacific Northwest - Chris Lee Bergstrom"
                   width={256}
                   height={144}
@@ -330,15 +333,12 @@ export default function Marquee() {
                 Pacific Northwest pic by Chris Lee Bergstrom
               </p>
             </div>
-            
-            <p>
-              Artists can reclaim every step of the journey—from creation to presentation. Artists can and should run, shape, and distribute the places where people come to be changed by art. If there's going to be a revolution in the arts, it will start with the artists. Not with managers or committees, but with people who live and bleed for the work.
+
+            <p className="font-semibold text-lg">
+              Because the advancement of art is the advancement of society.
             </p>
             <p>
-              This isn't nostalgia. This is a call for return—a return to the raw, the honest, the truly disruptive. Back to Woody with his guitar and that scrawled message: "This Machine Kills Fascists." Because the arts—when they're free, when they're run by the true believers—do kill the old ways and make space for something braver.
-            </p>
-            <p className="font-semibold">
-              So, this is the discussion I'm here to start. If you're tired of the hollow rituals, of "arts and culture" by committee, if you want something real—pull up a chair. Let's make something that matters.
+              If you're ready to rebuild something real — your venue, your culture strategy, your live systems — let's talk. I don't do "arts and culture" by committee. I do the work that makes people feel alive again.
             </p>
           </div>
           <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-molten block animate-pulse-width w-32" />
