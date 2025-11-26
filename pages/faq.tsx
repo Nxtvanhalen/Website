@@ -235,7 +235,7 @@ export default function FAQ() {
                 </button>
                 
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  openIndex === index ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
                 }`}>
                   <div className="px-6 pb-5 pt-0">
                     <div className="border-t border-molten/20 pt-4">
