@@ -217,7 +217,7 @@ export default function Projects() {
                 <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{color: '#F5F5DC'}}>EVA — Events Virtual Assistant</h2>
                     <p className="text-base leading-relaxed opacity-90" style={{color: '#F5F5DC'}}>
-                      The orchestration core of CLB's AI system. EVA routes client inquiries, manages agent workflows, and coordinates behind-the-scenes logistics for tours, productions, and consulting pipelines. She's the planner that never misses a cue.
+                      The orchestration core of CLB's intelligent ecosystem. EVA is an AI built for the entertainment industry — managing logistics, routing inquiries, coordinating crews, and adapting to any production environment. Fully customizable, endlessly scalable, and always show-ready.
                     </p>
                 </div>
                 <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
