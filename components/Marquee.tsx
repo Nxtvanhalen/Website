@@ -183,8 +183,8 @@ export default function Marquee() {
           {/* Three boxes layout */}
           <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
             {/* Left box */}
-            <div 
-              className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+            <div
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
               role="region"
               aria-label="Coming soon feature"
             >
@@ -203,7 +203,7 @@ export default function Marquee() {
             
             {/* Center box - rotating content with Motion animations */}
             <div
-              className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between relative overflow-hidden"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between relative overflow-hidden"
               role="region"
               aria-label="Rotating consultation offers"
               aria-live="polite"
@@ -239,35 +239,37 @@ export default function Marquee() {
             </div>
             
             {/* Right box */}
-            <div 
-              className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+            <div
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
               role="region"
               aria-label="AI Chess Game"
             >
-              <div className="w-full h-20 rounded overflow-hidden mb-2 relative">
-                <Image 
-                  src="/images/Chester.webp" 
-                  alt="Chester AI Chess Game" 
+              <motion.div
+                className="w-full h-32 rounded overflow-hidden mb-2 relative cursor-pointer"
+                whileHover={{ scale: 2.0 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <Image
+                  src="/images/Chesterupdate2.jpeg"
+                  alt="Chester AI Chess Game"
                   width={220}
-                  height={80}
-                  className="w-full h-full object-cover object-bottom"
+                  height={128}
+                  className="w-full h-full object-contain"
                   quality={75}
                 />
-              </div>
-              <div>
-                <div className="text-xs font-bold mb-1" style={{color: '#F5F5DC'}}>AI Chess Game</div>
-                <div className="text-[10px] mb-1" style={{color: '#F5F5DC', opacity: 0.9}}>Challenge Chester AI</div>
-              </div>
-              <a 
+              </motion.div>
+              <motion.a
                 href="https://ai-chess-cfah.onrender.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-base font-bold text-center glow block w-full py-1"
-                style={{color: '#F5F5DC', textDecoration: 'none'}}
+                className="nav-link font-bold text-center block w-full py-0 mt-2"
+                style={{color: '#F5F5DC', textDecoration: 'none', fontSize: '14px'}}
                 aria-label="Play Chester - AI Chess Game"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
                 Play Chester
-              </a>
+              </motion.a>
             </div>
           </div>
         </div>
