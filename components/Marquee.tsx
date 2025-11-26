@@ -203,7 +203,7 @@ export default function Marquee() {
                 />
               </motion.div>
               <div>
-                <div className="text-xs font-bold text-center mb-1" style={{color: '#F5F5DC'}}>Building in Public Beta</div>
+                <div className="text-xs font-bold italic text-center mb-1" style={{color: '#F5F5DC'}}>Building in Public Beta</div>
                 <motion.a
                   href="https://logi-route-a9c09ae8.base44.app/login?from_url=https%3A%2F%2Flogi-route-a9c09ae8.base44.app%2F"
                   target="_blank"
@@ -274,7 +274,7 @@ export default function Marquee() {
                 />
               </motion.div>
               <div>
-                <div className="text-xs font-bold text-center mb-1" style={{color: '#F5F5DC'}}>Building in Public Beta</div>
+                <div className="text-xs font-bold italic text-center mb-1" style={{color: '#F5F5DC'}}>Building in Public Beta</div>
                 <motion.a
                   href="https://ai-chess-cfah.onrender.com"
                   target="_blank"
@@ -307,12 +307,17 @@ export default function Marquee() {
 
             {/* XL4 Image Section */}
             <div className="w-full max-w-sm mx-auto my-6">
-              <div className="border-none rounded-none bg-transparent" style={{
-                mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-                maskComposite: 'intersect',
-                WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-                WebkitMaskComposite: 'source-in'
-              }}>
+              <motion.div
+                className="border-none rounded-none bg-transparent cursor-pointer"
+                style={{
+                  mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                  maskComposite: 'intersect',
+                  WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                  WebkitMaskComposite: 'source-in'
+                }}
+                whileHover={{ scale: 1.25 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
                 <Image
                   src="/images/XL4.webp"
                   alt="Colorado State Fair - Mixing for Tracy Lawrence"
@@ -325,7 +330,7 @@ export default function Marquee() {
                   blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
                   sizes="(max-width: 768px) 100vw, 256px"
                 />
-              </div>
+              </motion.div>
               <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>
                 Colorado State Fair mixing for Tracy Lawrence
               </p>
@@ -340,12 +345,17 @@ export default function Marquee() {
 
             {/* PNW Image Section */}
             <div className="w-full max-w-sm mx-auto my-6">
-              <div className="border-none rounded-none bg-transparent" style={{
-                mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-                maskComposite: 'intersect',
-                WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-                WebkitMaskComposite: 'source-in'
-              }}>
+              <motion.div
+                className="border-none rounded-none bg-transparent cursor-pointer"
+                style={{
+                  mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                  maskComposite: 'intersect',
+                  WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                  WebkitMaskComposite: 'source-in'
+                }}
+                whileHover={{ scale: 1.25 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
                 <Image
                   src="/images/PNW.webp"
                   alt="Pacific Northwest - Chris Lee Bergstrom"
@@ -358,7 +368,7 @@ export default function Marquee() {
                   blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
                   sizes="(max-width: 768px) 100vw, 256px"
                 />
-              </div>
+              </motion.div>
               <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>
                 Pacific Northwest pic by Chris Lee Bergstrom
               </p>
@@ -371,7 +381,6 @@ export default function Marquee() {
               If you're ready to rebuild something real — your venue, your culture strategy, your live systems — let's talk. I don't do "arts and culture" by committee. I do the work that makes art feel alive again.
             </p>
           </div>
-          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-molten block animate-pulse-width w-32" />
         </div>
 
         {/* Horizontal scrolling gallery - ticker style */}

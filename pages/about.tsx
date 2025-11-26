@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import Header from '../components/Header';
+import { motion } from 'motion/react';
 
 export default function About() {
   useEffect(() => {
@@ -129,14 +130,13 @@ export default function About() {
       
       <main className="min-h-screen bg-transparent text-white pt-52 px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-16">
-            <div className="text-center flex-1 mb-8 md:mb-0">
+          <div className="relative mb-16">
+            <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-heading mb-4 glow-subtle">Chris Lee Bergstrom</h1>
-              <p className="text-xl md:text-2xl font-bold italic" style={{color: '#F5F5DC'}}>"I don't just consult, I orchestrate."</p>
             </div>
-            
+
             {/* Profile Picture */}
-            <div className="md:ml-12 flex-shrink-0 flex justify-center md:justify-end">
+            <div className="flex justify-center md:absolute md:right-0 md:top-0">
               <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50">
                 <img 
                   src="/images/profile/chris-profile.jpg" 
@@ -164,70 +164,63 @@ export default function About() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Creative Leadership & Strategy */}
-              <div className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300">
-                <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>Creative Leadership & Strategy</h3>
+              <motion.div
+                className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>🎭 Creative Leadership & Strategy</h3>
                 <ul className="space-y-2 text-sm leading-relaxed" style={{color: '#F5F5DC'}}>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Grammy-Nominated Audio Engineer</span><br/>Deep experience in live sound, touring, and recording with top-tier artists</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Global Tour & Production Management</span><br/>Managed complex logistics and large teams across international venues and festivals</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Creative Director & Brand Strategist</span><br/>Spearheaded theatrical branding for CLB Consulting and tech platforms. Expert in building "narrative systems" that align tech with culture</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Public Speaker & Writer</span><br/>Known for clarity, poetic argument, and challenging cultural assumptions head-on</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🌍 Global Tour & Production Management</span><br/>Managed complex logistics and large teams across international venues and festivals</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🎨 Creative Director & Brand Strategist</span><br/>Spearheaded theatrical branding for CLB Consulting and tech platforms. Expert in building "narrative systems" that align tech with culture</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🎤 Public Speaker & Writer</span><br/>Known for clarity, poetic argument, and challenging cultural assumptions head-on</li>
                 </ul>
-              </div>
+              </motion.div>
 
               {/* AI & Technical Systems */}
-              <div className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300">
-                <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>AI & Technical Systems</h3>
+              <motion.div
+                className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>🤖 AI & Technical Systems</h3>
                 <ul className="space-y-2 text-sm leading-relaxed" style={{color: '#F5F5DC'}}>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>AI Strategy & Ethical Tech Integration</span><br/>Founder of tools like EVA, Byte, and JAMES. Advocates for culturally sensitive AI that empowers rather than extracts</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>AI Systems Developer (Multi-Agent Architect)</span><br/>Architect behind JAMES (multi-agent LLM symphony), Byte (voice-to-voice bot), and EVA (Events Virtual Assistant) ecosystems</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Technical Systems Designer</span><br/>Specialist in backstage operations, automation, safety protocols, and venue sustainability</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🧠 AI Strategy & Ethical Tech Integration</span><br/>Founder of tools like EVA, Byte, and JAMES. Advocates for culturally sensitive AI that empowers rather than extracts</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🏗️ AI Systems Developer (Multi-Agent Architect)</span><br/>Architect behind JAMES (multi-agent LLM symphony), Byte (voice-to-voice bot), and EVA (Events Virtual Assistant) ecosystems</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>⚙️ Technical Systems Designer</span><br/>Specialist in backstage operations, automation, safety protocols, and venue sustainability</li>
                 </ul>
-              </div>
+              </motion.div>
 
               {/* Audio Engineering & Infrastructure */}
-              <div className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300">
-                <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>Audio Engineering & Infrastructure</h3>
+              <motion.div
+                className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>🎛️ Audio Engineering & Infrastructure</h3>
                 <ul className="space-y-2 text-sm leading-relaxed" style={{color: '#F5F5DC'}}>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Professional Audio Systems</span><br/>Dante Networking & Routing, Shure Wireless Systems (Axient, ULX-D), SMAART System Analysis and Training</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Sound Design & Programming</span><br/>QLab Programming, Waves Plugins & Live Mixing Integration</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Advanced Audio Technologies</span><br/>Spatial Audio Systems, Dolby Atmos, RF Coordination & Frequency Management</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🔌 Professional Audio Systems</span><br/>Dante Networking & Routing, Shure Wireless Systems (Axient, ULX-D), SMAART System Analysis and Training</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🎵 Sound Design & Programming</span><br/>QLab Programming, Waves Plugins & Live Mixing Integration</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🔊 Advanced Audio Technologies</span><br/>Spatial Audio Systems, Dolby Atmos, RF Coordination & Frequency Management</li>
                 </ul>
-              </div>
+              </motion.div>
 
               {/* Social Impact & Operations */}
-              <div className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300">
-                <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>Social Impact & Operations</h3>
+              <motion.div
+                className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>🌟 Social Impact & Operations</h3>
                 <ul className="space-y-2 text-sm leading-relaxed" style={{color: '#F5F5DC'}}>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Equity & Labor Advocacy</span><br/>Pushed for inclusive practices, backstage dignity, and systemic change in the arts sector</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Climate & Sustainability Champion</span><br/>Embedded green principles into production workflows and citywide venue strategies</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>Complex Logistics Management</span><br/>Touring logistics (Carnet, Visas, Advances), Emergency Planning & Safety Protocols</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>⚖️ Equity & Labor Advocacy</span><br/>Pushed for inclusive practices, backstage dignity, and systemic change in the arts sector</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🌱 Climate & Sustainability Champion</span><br/>Embedded green principles into production workflows and citywide venue strategies</li>
+                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>📋 Complex Logistics Management</span><br/>Touring logistics (Carnet, Visas, Advances), Emergency Planning & Safety Protocols</li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
           </div>
           
-          <div className="space-y-8 mt-16">
-            {/* Main introduction */}
-            <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
-              <p className="text-lg leading-relaxed mb-6" style={{color: '#F5F5DC'}}>
-                With over <span className="font-bold" style={{color: '#F5F5DC'}}>two decades</span> in live entertainment, civic innovation, and creative systems design, Chris moves across industries with precision. He's led festivals, run city-wide cultural programs, built award-winning shows, and now architects AI systems that think with soul.
-              </p>
-            </div>
-
-            {/* Philosophy section */}
-            <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
-              <p className="text-lg leading-relaxed mb-6" style={{color: '#F5F5DC'}}>
-                Chris works where <span className="glow">vision meets logistics</span>—designing strategies that are <em>lived</em>, not theorized. From backstage to boardroom, his approach blends clarity, challenge, and just enough chaos to break something open.
-              </p>
-            </div>
-
-            {/* Core promise */}
-            <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
-              <p className="text-lg leading-relaxed" style={{color: '#F5F5DC'}}>
-                He's not here to impress you. He's here to <span className="font-bold" style={{color: '#F5F5DC'}}>reframe the problem</span>, <span className="font-bold" style={{color: '#F5F5DC'}}>build the architecture</span>, and leave you with a better system than you had before.
-              </p>
-            </div>
-          </div>
           
           <div className="text-center py-16 mt-16">
             <p className="text-xl italic font-heading" style={{color: '#F5F5DC', opacity: 0.8}}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</p>

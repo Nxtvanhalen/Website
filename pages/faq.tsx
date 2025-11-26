@@ -14,52 +14,52 @@ export default function FAQ() {
   const faqs: FAQItem[] = [
     {
       question: "What makes CLB Consulting different from other AI consulting firms?",
-      answer: "Chris operates as a cultural intelligence studio that treats AI as a tool—not a substitute—for human insight. His work lives at the intersection of storytelling, systems thinking, and ethical engineering.\n\nWhere most AI firms optimize for scale, he optimizes for meaning. He brings decades of lived experience in entertainment, civic leadership, and strategic design—and he doesn't just build solutions, he reshapes the questions.\n\nChris is deeply human, deeply technical, and allergic to performative innovation. He's not here to automate your soul—he's here to amplify your mission.",
+      answer: "🎯 Chris operates as a cultural intelligence studio that treats AI as a tool—not a substitute—for human insight. His work lives at the intersection of storytelling, systems thinking, and ethical engineering.\n\n💡 Where most AI firms optimize for scale, he optimizes for meaning. He brings decades of lived experience in entertainment, civic leadership, and strategic design—and he doesn't just build solutions, he reshapes the questions.\n\n🤝 Chris is deeply human, deeply technical, and allergic to performative innovation. He's not here to automate your soul—he's here to amplify your mission.",
       category: "About CLB"
     },
     {
       question: "What does 'Strategy Born from the Wreckage, Intelligence Forged in the Fire' mean?",
-      answer: "This isn't just a tagline—it's Chris's methodology, his modus operandi. He's learned from real-world pressure situations in live entertainment, from arenas to civic halls. His strategies come from experience with systems under stress, not theoretical frameworks. He turns chaos into clarity.",
+      answer: "🔥 This isn't just a tagline—it's Chris's methodology, his modus operandi. He's learned from real-world pressure situations in live entertainment, from arenas to civic halls. 💪 His strategies come from experience with systems under stress, not theoretical frameworks. He turns chaos into clarity.",
       category: "Philosophy"
     },
     {
       question: "What types of AI solutions do you provide?",
-      answer: "Chris specializes in multi-modal and multi-lingual AI integrations that prioritize accessibility and efficiency. His focus areas include entertainment technology, hospitality systems, live events management, team building solutions, and operational optimization. He builds AI that empowers the visionary, never replaces the artist.",
+      answer: "🤖 Chris specializes in multi-modal and multi-lingual AI integrations that prioritize accessibility and efficiency. 🌐 His focus areas include entertainment technology, hospitality systems, live events management, team building solutions, and operational optimization. ⚡ He builds AI that empowers the visionary, never replaces the artist.",
       category: "Services"
     },
     {
       question: "How do you approach team building and morale?",
-      answer: "At CLB, Chris treats culture as infrastructure. Team building isn't pizza parties and trust falls—it's designing a system where people feel seen, safe, and intellectually alive.\n\nHe builds morale by respecting the intelligence in the room. That means clear communication, low-ego collaboration, and space to experiment without fear. He expects excellence, but he doesn't confuse that with burnout.\n\nCLB teams are interdisciplinary by design. They thrive on cross-pollination—artists working with engineers, philosophers with coders. It keeps the work weird, sharp, and worth doing.",
+      answer: "🏗️ At CLB, Chris treats culture as infrastructure. Team building isn't pizza parties and trust falls—it's designing a system where people feel seen, safe, and intellectually alive.\n\n🧠 He builds morale by respecting the intelligence in the room. That means clear communication, low-ego collaboration, and space to experiment without fear. He expects excellence, but he doesn't confuse that with burnout.\n\n🤝 CLB teams are interdisciplinary by design. They thrive on cross-pollination—artists working with engineers, philosophers with coders. It keeps the work weird, sharp, and worth doing.",
       category: "Team Building"
     },
     {
       question: "What can I expect from working with EVE AI?",
-      answer: "EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. EVE provides real-time consulting insights, project analysis, and strategic recommendations. She's designed to empower your decision-making, not replace your creative process.",
+      answer: "🤖 EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. ⚡ EVE provides real-time consulting insights, project analysis, and strategic recommendations. 💡 She's designed to empower your decision-making, not replace your creative process.",
       category: "EVE AI"
     },
     {
       question: "What industries do you work with?",
-      answer: "Chris's core expertise spans entertainment, logistics, audio and acoustical analysis, and live events, but his systems-thinking approach translates across industries. He works with anyone who values operational elegance over rigidity, and who understands that infrastructure is culture.",
+      answer: "🎭 Chris's core expertise spans entertainment, logistics, audio and acoustical analysis, and live events, but his systems-thinking approach translates across industries. 🏗️ He works with anyone who values operational elegance over rigidity, and who understands that infrastructure is culture.",
       category: "Industries"
     },
     {
       question: "How do you ensure cost efficiency for clients?",
-      answer: "Chris starts with holistic analysis no matter where his clients are at, and he's honest and empathetic as he learns their goals and dreams and builds from there. It's not just about cost saving—it's about thriving into the future.",
+      answer: "📊 Chris starts with holistic analysis no matter where his clients are at, and he's honest and empathetic as he learns their goals and dreams and builds from there. 🚀 It's not just about cost saving—it's about thriving into the future.",
       category: "ROI"
     },
     {
       question: "What's your background in entertainment and audio engineering?",
-      answer: "Chris Lee Bergstrom is a Grammy-nominated audio engineer with two decades of global live and studio experience. From backstage production to strategic operations, this hands-on experience working with some of the most influential talent in the world in high-pressure environments informs every strategic decision he makes.",
+      answer: "🎛️ Chris Lee Bergstrom has two decades of global live and studio experience. 🌍 From backstage production to strategic operations, this hands-on experience working with some of the most influential talent in the world in high-pressure environments informs every strategic decision he makes.",
       category: "Experience"
     },
     {
       question: "How do you handle project timelines and deliverables?",
-      answer: "Chris operates with the precision of live event production—where there are no second chances. His frameworks are built for velocity without sacrificing quality. Every project includes clear milestones, real-time communication, and adaptive strategies that evolve with your needs.",
+      answer: "⏱️ Chris operates with the precision of live event production—where there are no second chances. 🎯 His frameworks are built for velocity without sacrificing quality. 📋 Every project includes clear milestones, real-time communication, and adaptive strategies that evolve with your needs.",
       category: "Process"
     },
     {
       question: "Do you offer ongoing support after implementation?",
-      answer: "Absolutely. Chris doesn't just build systems and walk away—he ensures they thrive. His approach includes training, optimization, and continuous improvement. He leaves systems better than he found them, with your team empowered to maintain and evolve them.",
+      answer: "✅ Absolutely. Chris doesn't just build systems and walk away—he ensures they thrive. 📚 His approach includes training, optimization, and continuous improvement. 🛠️ He leaves systems better than he found them, with your team empowered to maintain and evolve them.",
       category: "Support"
     }
   ];
@@ -83,7 +83,7 @@ export default function FAQ() {
         <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
-        <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Audio Engineer" />
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -92,7 +92,7 @@ export default function FAQ() {
         <meta name="twitter:title" content="FAQ - CLB Consulting | AI Strategy & Entertainment Technology" />
         <meta name="twitter:description" content="Get answers about our AI consulting services, team building solutions, and entertainment technology expertise." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
-        <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Audio Engineer" />
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com/faq" />
