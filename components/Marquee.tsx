@@ -2,6 +2,7 @@ import ChatPanel from './ChatPanel';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import TypewriterText from './TypewriterText';
+import { AnimatePresence, motion } from 'motion/react';
 
 export default function Marquee() {
   const [currentBox, setCurrentBox] = useState(0);
@@ -200,32 +201,41 @@ export default function Marquee() {
               <div className="text-lg font-bold text-center glow" style={{color: '#F5F5DC'}}>Coming Soon</div>
             </div>
             
-            {/* Center box - existing rotating content */}
-            <div 
-              className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+            {/* Center box - rotating content with Motion animations */}
+            <div
+              className="bg-black/30 border-2 border-molten rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between relative overflow-hidden"
               role="region"
               aria-label="Rotating consultation offers"
               aria-live="polite"
             >
-              <div 
-                key={currentBox}
-                className="animate-crossfade flex flex-col h-full justify-between"
-              >
-                <div>
-                  <div className="text-sm font-bold mb-2" style={{color: '#F5F5DC'}}>{boxes[currentBox].title}</div>
-                  <div className="text-xs mb-3" style={{color: '#F5F5DC', opacity: 0.9}}>{boxes[currentBox].description}</div>
-                </div>
-                <div>
-                  <a 
-                    href={`mailto:chrisleebergstrom@gmail.com?subject=${boxes[currentBox].subject}`}
-                    className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
-                    aria-label={`Contact Chris about ${boxes[currentBox].title} - ${boxes[currentBox].description}`}
-                  >
-                    Let's Talk Strategy
-                  </a>
-                  <div className="text-xs mt-1 text-center" style={{color: '#F5F5DC', opacity: 0.6}}>chrisleebergstrom@gmail.com</div>
-                </div>
-              </div>
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={currentBox}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{
+                    duration: 0.5,
+                    ease: [0.4, 0.0, 0.2, 1] // Custom easing for smooth motion
+                  }}
+                  className="flex flex-col h-full justify-between"
+                >
+                  <div>
+                    <div className="text-sm font-bold mb-2" style={{color: '#F5F5DC'}}>{boxes[currentBox].title}</div>
+                    <div className="text-xs mb-3" style={{color: '#F5F5DC', opacity: 0.9}}>{boxes[currentBox].description}</div>
+                  </div>
+                  <div>
+                    <a
+                      href={`mailto:chrisleebergstrom@gmail.com?subject=${boxes[currentBox].subject}`}
+                      className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+                      aria-label={`Contact Chris about ${boxes[currentBox].title} - ${boxes[currentBox].description}`}
+                    >
+                      Let's Talk Strategy
+                    </a>
+                    <div className="text-xs mt-1 text-center" style={{color: '#F5F5DC', opacity: 0.6}}>chrisleebergstrom@gmail.com</div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
             
             {/* Right box */}
