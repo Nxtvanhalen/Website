@@ -116,19 +116,19 @@ export default function Marquee() {
 
   const boxes = [
     {
-      title: "AI Integrations",
-      description: "Ask me about AI integrations that are multi-modal and multi-lingual for accessibility and efficiencies!",
-      subject: "AI Project Inquiry - Multi-Modal Integration"
+      title: "🔧 We rebuild broken systems — fast.",
+      description: "Efficient, scalable, human-centered solutions that transform disorganized operations into cohesive, high-performing systems.",
+      subject: "Systems Rebuild Inquiry"
     },
     {
-      title: "Cost Efficiency", 
-      description: "Ask me about how I can save or generate your company 20-30 percent and set you up for the future of entertainment!",
-      subject: "AI Project Inquiry - Cost Savings & Entertainment Future"
+      title: "🎭 Where art meets infrastructure.",
+      description: "From touring operations to cultural institutions, we design frameworks that let creativity thrive — blending technical precision with artistic vision.",
+      subject: "Creative Infrastructure Inquiry"
     },
     {
-      title: "Team Building & Morale",
-      description: "Morale is worth 30 percent and team cohesion is not only good for business, it's ethical and sustainable practices!",
-      subject: "AI Project Inquiry - Team Building & Morale Solutions"
+      title: "🚀 Future-proof your live experience.",
+      description: "AI tools, optimized workflows, sustainable tech — we help you evolve your organization before the industry leaves you behind.",
+      subject: "Future-Proofing Inquiry"
     }
   ];
 
@@ -184,26 +184,44 @@ export default function Marquee() {
           <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
             {/* Left box */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] h-[240px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
               role="region"
-              aria-label="Coming soon feature"
+              aria-label="Logi Route project"
             >
-              <div className="w-full h-24 rounded overflow-hidden mb-3 relative">
-                <Image 
-                  src="/UG.jpeg" 
-                  alt="Coming soon feature preview" 
+              <motion.div
+                className="w-full h-24 rounded overflow-hidden mb-3 relative cursor-pointer"
+                whileHover={{ scale: 2.0 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <Image
+                  src="/images/LogiRoute.webp"
+                  alt="Logi Route project preview"
                   width={220}
                   height={96}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   quality={75}
                 />
+              </motion.div>
+              <div>
+                <div className="text-xs font-bold text-center mb-1" style={{color: '#F5F5DC'}}>Building in Public Beta</div>
+                <motion.a
+                  href="https://logi-route-a9c09ae8.base44.app/login?from_url=https%3A%2F%2Flogi-route-a9c09ae8.base44.app%2F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="nav-link font-bold text-center block w-full py-0"
+                  style={{color: '#F5F5DC', textDecoration: 'none', fontSize: '14px'}}
+                  aria-label="Visit LogiRoute - Logistics Management Platform"
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  LogiRoute
+                </motion.a>
               </div>
-              <div className="text-lg font-bold text-center glow" style={{color: '#F5F5DC'}}>Coming Soon</div>
             </div>
             
             {/* Center box - rotating content with Motion animations */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between relative overflow-hidden"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] h-[240px] backdrop-blur-sm shadow-lg flex flex-col justify-between relative overflow-hidden"
               role="region"
               aria-label="Rotating consultation offers"
               aria-live="polite"
@@ -218,29 +236,26 @@ export default function Marquee() {
                     duration: 0.5,
                     ease: [0.4, 0.0, 0.2, 1] // Custom easing for smooth motion
                   }}
-                  className="flex flex-col h-full justify-between"
                 >
-                  <div>
-                    <div className="text-sm font-bold mb-2" style={{color: '#F5F5DC'}}>{boxes[currentBox].title}</div>
-                    <div className="text-xs mb-3" style={{color: '#F5F5DC', opacity: 0.9}}>{boxes[currentBox].description}</div>
-                  </div>
-                  <div>
-                    <a
-                      href={`mailto:chrisleebergstrom@gmail.com?subject=${boxes[currentBox].subject}`}
-                      className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
-                      aria-label={`Contact Chris about ${boxes[currentBox].title} - ${boxes[currentBox].description}`}
-                    >
-                      Let's Talk Strategy
-                    </a>
-                    <div className="text-xs mt-1 text-center" style={{color: '#F5F5DC', opacity: 0.6}}>chrisleebergstrom@gmail.com</div>
-                  </div>
+                  <div className="text-sm font-bold mb-2" style={{color: '#F5F5DC'}}>{boxes[currentBox].title}</div>
+                  <div className="text-xs mb-3" style={{color: '#F5F5DC', opacity: 0.9}}>{boxes[currentBox].description}</div>
                 </motion.div>
               </AnimatePresence>
+              <div>
+                <a
+                  href="mailto:chrisleebergstrom@gmail.com?subject=Consultation Inquiry"
+                  className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+                  aria-label="Contact Chris for consultation"
+                >
+                  Let's Talk Strategy
+                </a>
+                <div className="text-xs mt-1 text-center" style={{color: '#F5F5DC', opacity: 0.6}}>chrisleebergstrom@gmail.com</div>
+              </div>
             </div>
             
             {/* Right box */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] min-h-[200px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] h-[240px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
               role="region"
               aria-label="AI Chess Game"
             >
@@ -258,18 +273,21 @@ export default function Marquee() {
                   quality={75}
                 />
               </motion.div>
-              <motion.a
-                href="https://ai-chess-cfah.onrender.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="nav-link font-bold text-center block w-full py-0 mt-2"
-                style={{color: '#F5F5DC', textDecoration: 'none', fontSize: '14px'}}
-                aria-label="Play Chester - AI Chess Game"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              >
-                Play Chester
-              </motion.a>
+              <div>
+                <div className="text-xs font-bold text-center mb-1" style={{color: '#F5F5DC'}}>Building in Public Beta</div>
+                <motion.a
+                  href="https://ai-chess-cfah.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="nav-link font-bold text-center block w-full py-0"
+                  style={{color: '#F5F5DC', textDecoration: 'none', fontSize: '14px'}}
+                  aria-label="Play Chester - AI Chess Game"
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  Play Chester
+                </motion.a>
+              </div>
             </div>
           </div>
         </div>
