@@ -8,18 +8,18 @@ interface MyDocumentProps extends DocumentInitialProps {
 export default class MyDocument extends Document<MyDocumentProps> {
   static async getInitialProps(ctx: DocumentContext): Promise<MyDocumentProps> {
     const initialProps = await Document.getInitialProps(ctx)
-    
+
     // Generate a unique nonce for this request
     const nonce = crypto.randomBytes(16).toString('base64')
-    
+
     // Construct the CSP header with the nonce (updated for Framer Motion support)
     const cspString = `default-src 'self'; script-src 'self' 'unsafe-eval' 'nonce-${nonce}' www.googletagmanager.com cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' 'nonce-${nonce}' fonts.googleapis.com cdn.jsdelivr.net; font-src 'self' fonts.gstatic.com; img-src 'self' data: www.googletagmanager.com; connect-src 'self' www.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self'`
-    
+
     // Set the CSP header on the response
     if (ctx.res) {
       ctx.res.setHeader('Content-Security-Policy', cspString)
     }
-    
+
     return {
       ...initialProps,
       nonce
@@ -28,16 +28,16 @@ export default class MyDocument extends Document<MyDocumentProps> {
 
   render() {
     const { nonce } = this.props
-    
+
     return (
       <Html lang="en">
         <Head>
           {/* Critical CSS for immediate rendering */}
-          <style 
+          <style
             nonce={nonce}
             dangerouslySetInnerHTML={{
               __html: `
-                html { background-color: #1E1E1E; color: #ffffff; }
+                html { background-color: #000000; color: #ffffff; }
                 body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; }
                 .gallery-item { width: 320px; height: 240px; flex-shrink: 0; }
                 .gallery-track-ticker { display: flex; animation: gallery-scroll 45s linear infinite; }
@@ -46,56 +46,56 @@ export default class MyDocument extends Document<MyDocumentProps> {
                   100% { transform: translateX(calc(-320px * 9 - 1.5rem * 8)); }
                 }
               `
-            }} 
+            }}
           />
-      {/* Google tag (gtag.js) - Modified to respect cookie consent */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
-      />
-      
-      {/* Osano CookieConsent - Loaded asynchronously to not block render */}
-      {/* Using media="print" trick for async CSS loading */}
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
-        media="print"
-        // @ts-ignore - onLoad is valid HTML attribute for async CSS loading
-        onLoad="this.media='all'"
-      />
-      <noscript>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
-        />
-      </noscript>
-      <link
-        rel="stylesheet"
-        href="/styles/cookieconsent-overrides.css"
-        media="print"
-        // @ts-ignore - onLoad is valid HTML attribute for async CSS loading
-        onLoad="this.media='all'"
-      />
-      <noscript>
-        <link
-          rel="stylesheet"
-          href="/styles/cookieconsent-overrides.css"
-        />
-      </noscript>
+          {/* Google tag (gtag.js) - Modified to respect cookie consent */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
+          />
+
+          {/* Osano CookieConsent - Loaded asynchronously to not block render */}
+          {/* Using media="print" trick for async CSS loading */}
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
+            media="print"
+            // @ts-ignore - onLoad is valid HTML attribute for async CSS loading
+            onLoad="this.media='all'"
+          />
+          <noscript>
+            <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
+            />
+          </noscript>
+          <link
+            rel="stylesheet"
+            href="/styles/cookieconsent-overrides.css"
+            media="print"
+            // @ts-ignore - onLoad is valid HTML attribute for async CSS loading
+            onLoad="this.media='all'"
+          />
+          <noscript>
+            <link
+              rel="stylesheet"
+              href="/styles/cookieconsent-overrides.css"
+            />
+          </noscript>
           <script
             nonce={nonce}
             src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
             data-cfasync="false"
             defer
           ></script>
-          
+
           {/* Initialize Cookie Consent with purple theme */}
           <script
             nonce={nonce}
             dangerouslySetInnerHTML={{
-          __html: `
+              __html: `
             window.addEventListener("load", function(){
               if (typeof window.cookieconsent === 'undefined') {
                 console.warn('CookieConsent library not loaded');

@@ -33,6 +33,7 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Update*: Unified Marquee layout to be horizontal (Image Left | Text Right) on **all** screen sizes, ensuring consistent design across mobile and desktop.
     - *Update*: Increased desktop box width to `300px` to relieve cramping in the horizontal layout.
     - *Update*: Matched font sizes in the center Marquee box to the outer boxes for visual consistency.
+    - *Update*: Changed mobile theme color and background to `#000000` (Black) to eliminate grey bars on overscroll.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.

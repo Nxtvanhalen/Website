@@ -105,8 +105,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#000000" />
-        <meta name="theme-color" content="#9370DB" />
-        
+        <meta name="theme-color" content="#000000" />
+
       </Head>
       {!isLandingPage && <Header />}
       <Component {...pageProps} />
