@@ -26,6 +26,8 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Update*: Changed Marquee CTA text to "Reach out!" and switched to Framer Motion scaling for consistency with header tabs.
     - *Update*: Added descriptive text to LogiRoute and Chester boxes, adjusting layout to fit within fixed dimensions.
     - *Update*: Optimized mobile layout by increasing box width (`max-w-[340px]`) and font size (`text-[11px]`) for better readability.
+    - *Update*: Switched Marquee CTA boxes to a horizontal layout (`flex-row`) on mobile to utilize space better and allow for larger text/images.
+    - *Update*: Changed mobile image sizing to `object-contain` to prevent excessive zooming/cropping on landscape images in portrait containers.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.

@@ -177,12 +177,12 @@ export default function Marquee() {
           <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
             {/* Left box */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row lg:flex-col justify-between items-center lg:items-stretch gap-4 lg:gap-0"
               role="region"
               aria-label="Logi Route project"
             >
               <motion.div
-                className="w-full h-24 rounded overflow-hidden mb-1 relative cursor-pointer"
+                className="w-1/2 lg:w-full h-full lg:h-24 rounded overflow-hidden relative cursor-pointer flex-shrink-0"
                 whileHover={{ scale: 2.0 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
@@ -195,8 +195,8 @@ export default function Marquee() {
                   quality={75}
                 />
               </motion.div>
-              <div>
-                <div className="text-[10px] font-bold italic text-center mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
+              <div className="w-1/2 lg:w-full flex flex-col justify-center">
+                <div className="text-xs lg:text-[10px] font-bold italic text-center mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
                 <motion.a
                   href="https://logi-route-a9c09ae8.base44.app/login?from_url=https%3A%2F%2Flogi-route-a9c09ae8.base44.app%2F"
                   target="_blank"
@@ -209,7 +209,7 @@ export default function Marquee() {
                 >
                   LogiRoute
                 </motion.a>
-                <p className="text-[11px] lg:text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
+                <p className="text-[10px] lg:text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
                   This is actively being developed in the open for everyone to be apart of the process! Please reach out with any issues or suggestions!
                 </p>
               </div>
@@ -217,27 +217,29 @@ export default function Marquee() {
 
             {/* Center box - rotating content with Motion animations */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-col justify-between relative overflow-hidden"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row lg:flex-col justify-between items-center lg:items-stretch gap-4 lg:gap-0 relative overflow-hidden"
               role="region"
               aria-label="Rotating consultation offers"
               aria-live="polite"
             >
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={currentBox}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{
-                    duration: 0.5,
-                    ease: [0.4, 0.0, 0.2, 1] // Custom easing for smooth motion
-                  }}
-                >
-                  <div className="text-sm font-bold mb-2" style={{ color: '#F5F5DC' }}>{boxes[currentBox].title}</div>
-                  <div className="text-xs mb-3" style={{ color: '#F5F5DC', opacity: 0.9 }}>{boxes[currentBox].description}</div>
-                </motion.div>
-              </AnimatePresence>
-              <div>
+              <div className="w-1/2 lg:w-full flex flex-col justify-center">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={currentBox}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.4, 0.0, 0.2, 1] // Custom easing for smooth motion
+                    }}
+                  >
+                    <div className="text-sm font-bold mb-2" style={{ color: '#F5F5DC' }}>{boxes[currentBox].title}</div>
+                    <div className="text-xs mb-3 lg:mb-3" style={{ color: '#F5F5DC', opacity: 0.9 }}>{boxes[currentBox].description}</div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+              <div className="w-1/2 lg:w-full flex flex-col justify-center">
                 <motion.a
                   href="mailto:chrisleebergstrom@gmail.com?subject=Consultation Inquiry"
                   className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
@@ -246,18 +248,18 @@ export default function Marquee() {
                 >
                   Reach out!
                 </motion.a>
-                <div className="text-xs mt-1 text-center" style={{ color: '#F5F5DC', opacity: 0.6 }}>chrisleebergstrom@gmail.com</div>
+                <div className="text-[10px] lg:text-xs mt-1 text-center" style={{ color: '#F5F5DC', opacity: 0.6 }}>chrisleebergstrom@gmail.com</div>
               </div>
             </div>
 
             {/* Right box */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row lg:flex-col justify-between items-center lg:items-stretch gap-4 lg:gap-0"
               role="region"
               aria-label="AI Chess Game"
             >
               <motion.div
-                className="w-full h-32 rounded overflow-hidden mb-1 relative cursor-pointer"
+                className="w-1/2 lg:w-full h-full lg:h-32 rounded overflow-hidden relative cursor-pointer flex-shrink-0"
                 whileHover={{ scale: 2.0 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
@@ -270,8 +272,8 @@ export default function Marquee() {
                   quality={75}
                 />
               </motion.div>
-              <div>
-                <div className="text-[10px] font-bold italic text-center mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
+              <div className="w-1/2 lg:w-full flex flex-col justify-center">
+                <div className="text-xs lg:text-[10px] font-bold italic text-center mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
                 <motion.a
                   href="https://ai-chess-cfah.onrender.com"
                   target="_blank"
@@ -284,7 +286,7 @@ export default function Marquee() {
                 >
                   Play Chester
                 </motion.a>
-                <p className="text-[11px] lg:text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
+                <p className="text-[10px] lg:text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
                   Challenge the AI. Built in public to explore game theory and React performance.
                 </p>
               </div>
