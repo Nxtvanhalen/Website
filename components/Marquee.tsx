@@ -177,12 +177,12 @@ export default function Marquee() {
           <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
             {/* Left box */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row lg:flex-col justify-between items-center lg:items-stretch gap-4 lg:gap-0"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[300px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row justify-between items-center gap-4 lg:gap-2"
               role="region"
               aria-label="Logi Route project"
             >
               <motion.div
-                className="w-1/2 lg:w-full h-full lg:h-24 rounded overflow-hidden relative cursor-pointer flex-shrink-0"
+                className="w-1/2 h-full rounded overflow-hidden relative cursor-pointer flex-shrink-0"
                 whileHover={{ scale: 2.0 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
@@ -195,7 +195,7 @@ export default function Marquee() {
                   quality={75}
                 />
               </motion.div>
-              <div className="w-1/2 lg:w-full flex flex-col justify-center">
+              <div className="w-1/2 flex flex-col justify-center">
                 <div className="text-xs lg:text-[10px] font-bold italic text-center mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
                 <motion.a
                   href="https://logi-route-a9c09ae8.base44.app/login?from_url=https%3A%2F%2Flogi-route-a9c09ae8.base44.app%2F"
@@ -217,12 +217,12 @@ export default function Marquee() {
 
             {/* Center box - rotating content with Motion animations */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row lg:flex-col justify-between items-center lg:items-stretch gap-4 lg:gap-0 relative overflow-hidden"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[300px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row justify-between items-center gap-4 lg:gap-2 relative overflow-hidden"
               role="region"
               aria-label="Rotating consultation offers"
               aria-live="polite"
             >
-              <div className="w-1/2 lg:w-full flex flex-col justify-center">
+              <div className="w-1/2 flex flex-col justify-center">
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.div
                     key={currentBox}
@@ -234,32 +234,41 @@ export default function Marquee() {
                       ease: [0.4, 0.0, 0.2, 1] // Custom easing for smooth motion
                     }}
                   >
-                    <div className="text-sm font-bold mb-2" style={{ color: '#F5F5DC' }}>{boxes[currentBox].title}</div>
-                    <div className="text-xs mb-3 lg:mb-3" style={{ color: '#F5F5DC', opacity: 0.9 }}>{boxes[currentBox].description}</div>
+                    <div className="text-xs lg:text-[10px] font-bold mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>{boxes[currentBox].title}</div>
+                    <div className="text-[10px] lg:text-[9px] leading-tight opacity-80 mb-2 lg:mb-2" style={{ color: '#F5F5DC' }}>{boxes[currentBox].description}</div>
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <div className="w-1/2 lg:w-full flex flex-col justify-center">
+              <div className="w-1/2 flex flex-col justify-center items-center gap-2">
+                <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0">
+                  <Image
+                    src="/images/profile/chris-profile.jpg"
+                    alt="Chris Lee Bergstrom"
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
                 <motion.a
                   href="mailto:chrisleebergstrom@gmail.com?subject=Consultation Inquiry"
-                  className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+                  className="block w-full py-1.5 px-2 bg-transparent border border-molten text-molten text-[10px] lg:text-xs rounded text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
                   aria-label="Contact Chris for consultation"
                   whileHover={{ scale: 1.1 }}
                 >
                   Reach out!
                 </motion.a>
-                <div className="text-[10px] lg:text-xs mt-1 text-center" style={{ color: '#F5F5DC', opacity: 0.6 }}>chrisleebergstrom@gmail.com</div>
+                <div className="text-[9px] lg:text-[10px] text-center leading-tight break-all" style={{ color: '#F5F5DC', opacity: 0.6 }}>chrisleebergstrom@gmail.com</div>
               </div>
             </div>
 
             {/* Right box */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row lg:flex-col justify-between items-center lg:items-stretch gap-4 lg:gap-0"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[300px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row justify-between items-center gap-4 lg:gap-2"
               role="region"
               aria-label="AI Chess Game"
             >
               <motion.div
-                className="w-1/2 lg:w-full h-full lg:h-32 rounded overflow-hidden relative cursor-pointer flex-shrink-0"
+                className="w-1/2 h-full rounded overflow-hidden relative cursor-pointer flex-shrink-0"
                 whileHover={{ scale: 2.0 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
@@ -272,7 +281,7 @@ export default function Marquee() {
                   quality={75}
                 />
               </motion.div>
-              <div className="w-1/2 lg:w-full flex flex-col justify-center">
+              <div className="w-1/2 flex flex-col justify-center">
                 <div className="text-xs lg:text-[10px] font-bold italic text-center mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
                 <motion.a
                   href="https://ai-chess-cfah.onrender.com"

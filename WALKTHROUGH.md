@@ -28,6 +28,11 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Update*: Optimized mobile layout by increasing box width (`max-w-[340px]`) and font size (`text-[11px]`) for better readability.
     - *Update*: Switched Marquee CTA boxes to a horizontal layout (`flex-row`) on mobile to utilize space better and allow for larger text/images.
     - *Update*: Changed mobile image sizing to `object-contain` to prevent excessive zooming/cropping on landscape images in portrait containers.
+    - *Update*: Added profile picture to the center Marquee box, stacking it with the "Reach out!" button and email for a more personal touch.
+    - *Update*: Increased profile picture size in the Marquee CTA box (`w-14` mobile, `w-16` desktop) for better visibility.
+    - *Update*: Unified Marquee layout to be horizontal (Image Left | Text Right) on **all** screen sizes, ensuring consistent design across mobile and desktop.
+    - *Update*: Increased desktop box width to `300px` to relieve cramping in the horizontal layout.
+    - *Update*: Matched font sizes in the center Marquee box to the outer boxes for visual consistency.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.
