@@ -24,6 +24,7 @@ I have enhanced the website with Framer Motion animations to create a more dynam
 - **Effect**: Elements fade in one by one. The "Enter" button has a magnetic effect that follows the mouse cursor slightly.
 - **Verification**: Refresh the landing page. Move the mouse near the "Enter" button to see the magnetic pull.
     - *Update*: Changed Marquee CTA text to "Reach out!" and switched to Framer Motion scaling for consistency with header tabs.
+    - *Update*: Added descriptive text to LogiRoute and Chester boxes, adjusting layout to fit within fixed dimensions.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.

@@ -182,7 +182,7 @@ export default function Marquee() {
               aria-label="Logi Route project"
             >
               <motion.div
-                className="w-full h-24 rounded overflow-hidden mb-3 relative cursor-pointer"
+                className="w-full h-24 rounded overflow-hidden mb-1 relative cursor-pointer"
                 whileHover={{ scale: 2.0 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
@@ -196,7 +196,7 @@ export default function Marquee() {
                 />
               </motion.div>
               <div>
-                <div className="text-xs font-bold italic text-center mb-1" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
+                <div className="text-[10px] font-bold italic text-center mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
                 <motion.a
                   href="https://logi-route-a9c09ae8.base44.app/login?from_url=https%3A%2F%2Flogi-route-a9c09ae8.base44.app%2F"
                   target="_blank"
@@ -209,6 +209,9 @@ export default function Marquee() {
                 >
                   LogiRoute
                 </motion.a>
+                <p className="text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
+                  This is actively being developed in the open for everyone to be apart of the process! Please reach out with any issues or suggestions!
+                </p>
               </div>
             </div>
 
@@ -254,7 +257,7 @@ export default function Marquee() {
               aria-label="AI Chess Game"
             >
               <motion.div
-                className="w-full h-32 rounded overflow-hidden mb-2 relative cursor-pointer"
+                className="w-full h-32 rounded overflow-hidden mb-1 relative cursor-pointer"
                 whileHover={{ scale: 2.0 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
@@ -268,7 +271,7 @@ export default function Marquee() {
                 />
               </motion.div>
               <div>
-                <div className="text-xs font-bold italic text-center mb-1" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
+                <div className="text-[10px] font-bold italic text-center mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
                 <motion.a
                   href="https://ai-chess-cfah.onrender.com"
                   target="_blank"
@@ -281,6 +284,9 @@ export default function Marquee() {
                 >
                   Play Chester
                 </motion.a>
+                <p className="text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
+                  Challenge the AI. Built in public to explore game theory and React performance.
+                </p>
               </div>
             </div>
           </div>
