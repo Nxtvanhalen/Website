@@ -56,19 +56,39 @@ export default class MyDocument extends Document<MyDocumentProps> {
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
       />
       
-      {/* Osano CookieConsent - Must load before GA */}
-      <link 
-        rel="stylesheet" 
-        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" 
+      {/* Osano CookieConsent - Loaded asynchronously to not block render */}
+      {/* Using media="print" trick for async CSS loading */}
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
+        media="print"
+        // @ts-ignore - onLoad is valid HTML attribute for async CSS loading
+        onLoad="this.media='all'"
       />
-      <link 
-        rel="stylesheet" 
-        href="/styles/cookieconsent-overrides.css" 
+      <noscript>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
+        />
+      </noscript>
+      <link
+        rel="stylesheet"
+        href="/styles/cookieconsent-overrides.css"
+        media="print"
+        // @ts-ignore - onLoad is valid HTML attribute for async CSS loading
+        onLoad="this.media='all'"
       />
-          <script 
+      <noscript>
+        <link
+          rel="stylesheet"
+          href="/styles/cookieconsent-overrides.css"
+        />
+      </noscript>
+          <script
             nonce={nonce}
-            src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" 
+            src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
             data-cfasync="false"
+            defer
           ></script>
           
           {/* Initialize Cookie Consent with purple theme */}
