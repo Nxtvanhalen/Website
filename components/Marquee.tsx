@@ -20,7 +20,7 @@ export default function Marquee() {
   // Auto-scroll animation using setInterval for simplicity
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
-    
+
     // Wait for component to mount
     const timeoutId = setTimeout(() => {
       intervalId = setInterval(() => {
@@ -28,12 +28,12 @@ export default function Marquee() {
           const container = galleryRef.current;
           const currentScroll = container.scrollLeft;
           const scrollAmount = 1; // pixels per frame
-          
+
           // Calculate max scroll before reset
           const itemWidth = 344; // 320px + 24px gap
           const totalItems = 9;
           const resetPoint = itemWidth * totalItems;
-          
+
           if (currentScroll >= resetPoint) {
             // Reset to start
             container.scrollLeft = 0;
@@ -44,7 +44,7 @@ export default function Marquee() {
         }
       }, 20); // Run every 20ms (50fps)
     }, 1000); // Wait 1 second before starting
-    
+
     return () => {
       clearTimeout(timeoutId);
       if (intervalId) {
@@ -82,7 +82,7 @@ export default function Marquee() {
   const GalleryImage = ({ src, alt }: { src: string; alt: string }) => {
     return (
       <div className="gallery-item-with-watermark flex-shrink-0 w-80 h-60 rounded-lg border border-molten/30 overflow-hidden relative">
-        <Image 
+        <Image
           src={src}
           alt={alt}
           width={320}
@@ -101,12 +101,12 @@ export default function Marquee() {
           }}
         />
         <div className="gallery-watermark">
-          <Image 
-            src="/images/Purple Logo.png" 
-            alt="" 
+          <Image
+            src="/images/Purple Logo.png"
+            alt=""
             width={48}
             height={12}
-            className="h-3 w-auto opacity-60" 
+            className="h-3 w-auto opacity-60"
           />
         </div>
       </div>
@@ -147,9 +147,9 @@ export default function Marquee() {
         {/* Mobile Profile Picture - Above heading */}
         <div className="md:hidden mb-6 flex justify-center">
           <div className="w-20 h-20 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
-            <Image 
-              src="/images/profile/chris-profile.jpg" 
-              alt="Chris Lee Bergstrom" 
+            <Image
+              src="/images/profile/chris-profile.jpg"
+              alt="Chris Lee Bergstrom"
               width={80}
               height={80}
               className="w-full h-full object-cover object-top"
@@ -161,23 +161,23 @@ export default function Marquee() {
                 if (fallback) fallback.style.display = 'flex';
               }}
             />
-            <div className="w-full h-full flex items-center justify-center absolute inset-0" style={{display: 'none'}}>
-              <span className="text-sm font-bold" style={{color: '#F5F5DC'}}>CB</span>
+            <div className="w-full h-full flex items-center justify-center absolute inset-0" style={{ display: 'none' }}>
+              <span className="text-sm font-bold" style={{ color: '#F5F5DC' }}>CB</span>
             </div>
           </div>
         </div>
-        
+
         {/* Chris Lee Bergstrom heading with CTA box */}
         <div className="w-full mb-6">
           <h2 className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center">
             Chris Lee Bergstrom
           </h2>
-          
+
           {/* Three boxes layout */}
           <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
             {/* Left box */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] h-[240px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
               role="region"
               aria-label="Logi Route project"
             >
@@ -196,13 +196,13 @@ export default function Marquee() {
                 />
               </motion.div>
               <div>
-                <div className="text-xs font-bold italic text-center mb-1" style={{color: '#F5F5DC'}}>Building in Public Beta</div>
+                <div className="text-xs font-bold italic text-center mb-1" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
                 <motion.a
                   href="https://logi-route-a9c09ae8.base44.app/login?from_url=https%3A%2F%2Flogi-route-a9c09ae8.base44.app%2F"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="nav-link font-bold text-center block w-full py-0"
-                  style={{color: '#F5F5DC', textDecoration: 'none', fontSize: '14px'}}
+                  style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px' }}
                   aria-label="Visit LogiRoute - Logistics Management Platform"
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -211,10 +211,10 @@ export default function Marquee() {
                 </motion.a>
               </div>
             </div>
-            
+
             {/* Center box - rotating content with Motion animations */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] h-[240px] backdrop-blur-sm shadow-lg flex flex-col justify-between relative overflow-hidden"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-col justify-between relative overflow-hidden"
               role="region"
               aria-label="Rotating consultation offers"
               aria-live="polite"
@@ -230,8 +230,8 @@ export default function Marquee() {
                     ease: [0.4, 0.0, 0.2, 1] // Custom easing for smooth motion
                   }}
                 >
-                  <div className="text-sm font-bold mb-2" style={{color: '#F5F5DC'}}>{boxes[currentBox].title}</div>
-                  <div className="text-xs mb-3" style={{color: '#F5F5DC', opacity: 0.9}}>{boxes[currentBox].description}</div>
+                  <div className="text-sm font-bold mb-2" style={{ color: '#F5F5DC' }}>{boxes[currentBox].title}</div>
+                  <div className="text-xs mb-3" style={{ color: '#F5F5DC', opacity: 0.9 }}>{boxes[currentBox].description}</div>
                 </motion.div>
               </AnimatePresence>
               <div>
@@ -242,13 +242,13 @@ export default function Marquee() {
                 >
                   Let's Talk Strategy
                 </a>
-                <div className="text-xs mt-1 text-center" style={{color: '#F5F5DC', opacity: 0.6}}>chrisleebergstrom@gmail.com</div>
+                <div className="text-xs mt-1 text-center" style={{ color: '#F5F5DC', opacity: 0.6 }}>chrisleebergstrom@gmail.com</div>
               </div>
             </div>
-            
+
             {/* Right box */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] h-[240px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
               role="region"
               aria-label="AI Chess Game"
             >
@@ -267,13 +267,13 @@ export default function Marquee() {
                 />
               </motion.div>
               <div>
-                <div className="text-xs font-bold italic text-center mb-1" style={{color: '#F5F5DC'}}>Building in Public Beta</div>
+                <div className="text-xs font-bold italic text-center mb-1" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
                 <motion.a
                   href="https://ai-chess-cfah.onrender.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="nav-link font-bold text-center block w-full py-0"
-                  style={{color: '#F5F5DC', textDecoration: 'none', fontSize: '14px'}}
+                  style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px' }}
                   aria-label="Play Chester - AI Chess Game"
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -284,13 +284,13 @@ export default function Marquee() {
             </div>
           </div>
         </div>
-        <p className="text-xl font-body italic text-center mb-8 max-w-2xl opacity-90" style={{color: '#F5F5DC'}}>
+        <p className="text-xl font-body italic text-center mb-8 max-w-2xl opacity-90" style={{ color: '#F5F5DC' }}>
           "The advancement of the arts is directly related to the advancement of society"
         </p>
-        
+
         {/* Who Is Chris Lee Bergstrom section with pulsing line - Mobile responsive */}
         <div className="relative mb-16 mx-auto max-w-4xl px-4">
-          <div className="text-base font-body opacity-90 leading-relaxed space-y-6" style={{color: '#F5F5DC'}}>
+          <div className="text-base font-body opacity-90 leading-relaxed space-y-6" style={{ color: '#F5F5DC' }}>
             <p className="font-semibold text-lg">
               I build systems where art and technology work in sync — because I've lived both sides.
             </p>
@@ -324,7 +324,7 @@ export default function Marquee() {
                   sizes="(max-width: 768px) 100vw, 256px"
                 />
               </motion.div>
-              <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>
+              <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.6 }}>
                 Colorado State Fair mixing for Tracy Lawrence
               </p>
             </div>
@@ -362,7 +362,7 @@ export default function Marquee() {
                   sizes="(max-width: 768px) 100vw, 256px"
                 />
               </motion.div>
-              <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>
+              <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.6 }}>
                 Pacific Northwest pic by Chris Lee Bergstrom
               </p>
             </div>
@@ -377,15 +377,15 @@ export default function Marquee() {
         </div>
 
         {/* Horizontal scrolling gallery - ticker style */}
-        <section 
+        <section
           className="mb-16 w-full max-w-6xl mx-auto px-4"
           aria-label="Portfolio gallery showcasing Chris's projects"
         >
-          <div 
+          <div
             ref={galleryRef}
             className="gallery-container overflow-x-scroll overflow-y-hidden"
-            style={{ 
-              scrollbarWidth: 'none', 
+            style={{
+              scrollbarWidth: 'none',
               msOverflowStyle: 'none',
               scrollBehavior: 'auto' // Prevent smooth scrolling conflicts
             }}
@@ -395,7 +395,7 @@ export default function Marquee() {
             onMouseUp={handleTouchEnd}
             onMouseLeave={handleTouchEnd}
           >
-            <div 
+            <div
               className="gallery-track flex gap-6"
               style={{ width: 'max-content' }}
               role="img"
@@ -424,20 +424,20 @@ export default function Marquee() {
             </div>
           </div>
         </section>
-        <section 
-          className="mb-8 max-w-3xl mx-auto text-center" 
+        <section
+          className="mb-8 max-w-3xl mx-auto text-center"
           id="eve-chat"
           aria-labelledby="eve-heading"
         >
-          <h3 id="eve-heading" className="text-3xl font-heading mb-4" style={{color: '#F5F5DC'}}>Ask EVE.</h3>
-          <p className="text-lg leading-relaxed opacity-90 mb-6" style={{color: '#F5F5DC'}}>
+          <h3 id="eve-heading" className="text-3xl font-heading mb-4" style={{ color: '#F5F5DC' }}>Ask EVE.</h3>
+          <p className="text-lg leading-relaxed opacity-90 mb-6" style={{ color: '#F5F5DC' }}>
             EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. AI should never replace the artist. It should empower the visionary.
           </p>
           <div className="flex justify-center">
             <div className="w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-              <Image 
-                src="/images/projects/EVE.png" 
-                alt="EVE AI avatar - A sophisticated conversational AI assistant for strategic consulting" 
+              <Image
+                src="/images/projects/EVE.png"
+                alt="EVE AI avatar - A sophisticated conversational AI assistant for strategic consulting"
                 width={96}
                 height={96}
                 className="w-full h-full object-cover object-top"
@@ -446,19 +446,19 @@ export default function Marquee() {
             </div>
           </div>
         </section>
-        
-        <h4 id="eve-ai-heading" className="text-4xl font-heading mb-2" style={{color: '#F5F5DC'}}>
+
+        <h4 id="eve-ai-heading" className="text-4xl font-heading mb-2" style={{ color: '#F5F5DC' }}>
           EVE AI
         </h4>
-        <div 
-          className="w-full max-w-4xl mt-2 mb-2 bg-black/40 rounded-lg shadow-xl overflow-hidden border border-white" 
+        <div
+          className="w-full max-w-4xl mt-2 mb-2 bg-black/40 rounded-lg shadow-xl overflow-hidden border border-white"
           style={{ height: '50vh', minHeight: '350px' }}
           role="application"
           aria-label="EVE AI Chat Interface - Interactive conversational AI for consulting inquiries"
         >
           <ChatPanel />
         </div>
-        
+
       </div>
     </div>
   );
