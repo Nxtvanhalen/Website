@@ -132,7 +132,7 @@ export default function Marquee() {
   ];
 
   return (
-    <div className="relative w-full min-h-screen overflow-visible animate-fade-in mb-16">
+    <div className="relative w-full min-h-screen overflow-visible mb-16">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 200 200"
@@ -169,14 +169,9 @@ export default function Marquee() {
         
         {/* Chris Lee Bergstrom heading with CTA box */}
         <div className="w-full mb-6">
-          <motion.h2
-            className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
+          <h2 className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center">
             Chris Lee Bergstrom
-          </motion.h2>
+          </h2>
           
           {/* Three boxes layout */}
           <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
