@@ -235,13 +235,14 @@ export default function Marquee() {
                 </motion.div>
               </AnimatePresence>
               <div>
-                <a
+                <motion.a
                   href="mailto:chrisleebergstrom@gmail.com?subject=Consultation Inquiry"
-                  className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded hover:bg-molten/10 hover:text-white transition-all text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+                  className="block w-full py-2 px-3 bg-transparent border border-molten text-molten text-xs rounded text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
                   aria-label="Contact Chris for consultation"
+                  whileHover={{ scale: 1.1 }}
                 >
-                  Let's Talk Strategy
-                </a>
+                  Reach out!
+                </motion.a>
                 <div className="text-xs mt-1 text-center" style={{ color: '#F5F5DC', opacity: 0.6 }}>chrisleebergstrom@gmail.com</div>
               </div>
             </div>

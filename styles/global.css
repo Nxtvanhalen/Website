@@ -159,7 +159,7 @@
   text-decoration: none;
   padding: 16px 20px 1px 20px;
   border-radius: 3px;
-  transition: all 0.3s ease;
+  /* transition removed to avoid conflict with framer-motion */
   position: relative;
   letter-spacing: 0.5px;
   line-height: 1;
@@ -177,11 +177,10 @@
 
 .nav-link:hover {
   color: white;
-  transform: translateY(-2px);
+  /* transform and animation removed to avoid conflict with framer-motion */
   text-shadow:
     0 0 12px rgba(255, 255, 255, 0.8),
     0 0 20px rgba(255, 255, 255, 0.4);
-  animation: nav-glitch 0.3s ease-in-out;
 }
 
 @keyframes nav-glitch {
