@@ -77,6 +77,10 @@ export default class MyDocument extends Document<MyDocumentProps> {
             dangerouslySetInnerHTML={{
           __html: `
             window.addEventListener("load", function(){
+              if (typeof window.cookieconsent === 'undefined') {
+                console.warn('CookieConsent library not loaded');
+                return;
+              }
               window.cookieconsent.initialise({
                 "palette": {
                   "popup": {
