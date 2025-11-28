@@ -25,6 +25,7 @@ I have enhanced the website with Framer Motion animations to create a more dynam
 - **Verification**: Refresh the landing page. Move the mouse near the "Enter" button to see the magnetic pull.
     - *Update*: Changed Marquee CTA text to "Reach out!" and switched to Framer Motion scaling for consistency with header tabs.
     - *Update*: Added descriptive text to LogiRoute and Chester boxes, adjusting layout to fit within fixed dimensions.
+    - *Update*: Optimized mobile layout by increasing box width (`max-w-[340px]`) and font size (`text-[11px]`) for better readability.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.

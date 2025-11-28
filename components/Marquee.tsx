@@ -177,7 +177,7 @@ export default function Marquee() {
           <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
             {/* Left box */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
               role="region"
               aria-label="Logi Route project"
             >
@@ -209,7 +209,7 @@ export default function Marquee() {
                 >
                   LogiRoute
                 </motion.a>
-                <p className="text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
+                <p className="text-[11px] lg:text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
                   This is actively being developed in the open for everyone to be apart of the process! Please reach out with any issues or suggestions!
                 </p>
               </div>
@@ -217,7 +217,7 @@ export default function Marquee() {
 
             {/* Center box - rotating content with Motion animations */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-col justify-between relative overflow-hidden"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-col justify-between relative overflow-hidden"
               role="region"
               aria-label="Rotating consultation offers"
               aria-live="polite"
@@ -252,7 +252,7 @@ export default function Marquee() {
 
             {/* Right box */}
             <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[220px] h-[220px] backdrop-blur-sm shadow-lg flex flex-col justify-between"
               role="region"
               aria-label="AI Chess Game"
             >
@@ -284,7 +284,7 @@ export default function Marquee() {
                 >
                   Play Chester
                 </motion.a>
-                <p className="text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
+                <p className="text-[11px] lg:text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
                   Challenge the AI. Built in public to explore game theory and React performance.
                 </p>
               </div>
