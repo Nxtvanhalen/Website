@@ -61,14 +61,14 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   }, [count, text.length, speed, delay, onComplete]);
   
   return (
-    <span 
-      className={`${className} ${isComplete ? 'typewriter-glow' : ''}`} 
+    <span
+      className={`${className} ${isComplete ? 'typewriter-glow' : ''}`}
       style={style}
       aria-label={text}
       role="heading"
       aria-level={1}
     >
-      <motion.span>{displayText}</motion.span>
+      <motion.span style={{ filter: 'none', opacity: 1 }}>{displayText}</motion.span>
       {showCursor && hasStarted && !isComplete && (
         <span className="typewriter-cursor" aria-hidden="true">
           {cursorChar}

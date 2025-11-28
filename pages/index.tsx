@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import TypewriterText from '../components/TypewriterText';
+import { motion } from 'framer-motion';
 
 export default function Landing() {
   return (
@@ -76,15 +76,14 @@ export default function Landing() {
       >
         {/* Chris Lee Bergstrom Name */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-heading font-medium">
-            <TypewriterText 
-              text="Chris Lee Bergstrom"
-              style={{color: 'rgba(147, 112, 219, 0.7)'}}
-              speed={100}
-              delay={500}
-              showCursor={true}
-            />
-          </h1>
+          <motion.h1
+            className="text-3xl md:text-4xl font-heading font-medium"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            Chris Lee Bergstrom
+          </motion.h1>
         </div>
         
         {/* Large CLB Logo PNG with Glitchy Glow */}

@@ -1,7 +1,6 @@
 import ChatPanel from './ChatPanel';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import TypewriterText from './TypewriterText';
 import { AnimatePresence, motion } from 'motion/react';
 
 export default function Marquee() {
@@ -170,15 +169,14 @@ export default function Marquee() {
         
         {/* Chris Lee Bergstrom heading with CTA box */}
         <div className="w-full mb-6">
-          <h2 className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center">
-            <TypewriterText 
-              text="Chris Lee Bergstrom"
-              className="glow-subtle"
-              speed={100}
-              delay={500}
-              showCursor={true}
-            />
-          </h2>
+          <motion.h2
+            className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            Chris Lee Bergstrom
+          </motion.h2>
           
           {/* Three boxes layout */}
           <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
