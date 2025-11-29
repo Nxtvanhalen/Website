@@ -48,6 +48,8 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Update*: Refactored Marquee box styles into a reusable constant with 4 experimental options (Current, Modern Glass, Neon Glow, Minimal Dark) for easy theme switching.
     - *Update*: Activated "Neon Molten Glow" style (Option 3) and customized it with a purple glow (`#9370DB`) and semi-transparent background (`bg-black/60`) to match the site theme.
     - *Update*: Refactored Marquee title styles into a reusable constant with 4 experimental options (Plain, Cinematic, Hollow, Gradient). Activated "Cinematic Wide" (Option 2) for a premium editorial look.
+    - *Update*: Optimized mobile layout by reducing the top padding (`pt-32`) to close the gap between the header and profile picture, while maintaining spacious padding (`md:pt-52`) on desktop.
+    - *Update*: Reduced mobile header padding to `10px` (from `20px`) to decrease header height and prevent overlap with the profile picture.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.

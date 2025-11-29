@@ -178,7 +178,7 @@ export default function Marquee() {
           CLB
         </text>
       </svg>
-      <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-52 pb-16 text-center text-white">
+      <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-32 md:pt-52 pb-16 text-center text-white">
         {/* Mobile Profile Picture - Above heading */}
         <div className="md:hidden mb-6 flex justify-center">
           <div className="w-20 h-20 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
