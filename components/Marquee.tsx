@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'motion/react';
 import { useChat } from '../context/ChatContext';
+import SectionTracker from './SectionTracker';
 
 export default function Marquee() {
   const { openChat } = useChat();
@@ -205,7 +206,11 @@ export default function Marquee() {
         </div>
 
         {/* Chris Lee Bergstrom heading with CTA box */}
-        <div className="w-full mb-6">
+        <SectionTracker
+          name="Homepage - Hero"
+          className="w-full mb-6"
+          butlerMessage="This is where it starts. Need help navigating Chris's world?"
+        >
           <h2 className={titleStyle}>
             Chris Lee Bergstrom
           </h2>
@@ -263,102 +268,114 @@ export default function Marquee() {
             </div>
 
             {/* Left box */}
-            <div
+            <SectionTracker
+              name="Homepage - LogiRoute"
               className={boxStyle}
-              role="region"
-              aria-label="Logi Route project"
+              butlerMessage="LogiRoute is built for complex logistics. Want to know how it optimizes touring schedules?"
             >
-              <motion.div
-                className="w-1/2 h-full rounded overflow-hidden relative cursor-pointer flex-shrink-0"
-                whileHover={{ scale: 2.0 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
+              <div
+                role="region"
+                aria-label="Logi Route project"
+                className="w-full h-full flex flex-row justify-between items-center gap-4 lg:gap-2"
               >
-                <Image
-                  src="/images/LogiRoute.webp"
-                  alt="Logi Route project preview"
-                  width={220}
-                  height={96}
-                  className="w-full h-full object-contain"
-                  quality={75}
-                />
-              </motion.div>
-              <div className="w-1/2 flex flex-col justify-start items-center pt-4">
-                <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0 mb-1">
-                  <Image
-                    src="/images/profile/chris-profile.jpg"
-                    alt="Chris Lee Bergstrom"
-                    width={56}
-                    height={56}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                <motion.a
-                  href="https://logi-route-a9c09ae8.base44.app/login?from_url=https%3A%2F%2Flogi-route-a9c09ae8.base44.app%2F"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="nav-link font-bold text-center block w-full py-0"
-                  style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px' }}
-                  aria-label="Visit LogiRoute - Logistics Management Platform"
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                <motion.div
+                  className="w-1/2 h-full rounded overflow-hidden relative cursor-pointer flex-shrink-0"
+                  whileHover={{ scale: 2.0 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  LogiRoute
-                </motion.a>
-                <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
-                  "This is actively being developed in the open for everyone to be apart of the process! Please reach out with any issues or suggestions!"
-                </p>
+                  <Image
+                    src="/images/LogiRoute.webp"
+                    alt="Logi Route project preview"
+                    width={220}
+                    height={96}
+                    className="w-full h-full object-contain"
+                    quality={75}
+                  />
+                </motion.div>
+                <div className="w-1/2 flex flex-col justify-start items-center pt-4">
+                  <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0 mb-1">
+                    <Image
+                      src="/images/profile/chris-profile.jpg"
+                      alt="Chris Lee Bergstrom"
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <motion.a
+                    href="https://logi-route-a9c09ae8.base44.app/login?from_url=https%3A%2F%2Flogi-route-a9c09ae8.base44.app%2F"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="nav-link font-bold text-center block w-full py-0"
+                    style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px' }}
+                    aria-label="Visit LogiRoute - Logistics Management Platform"
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    LogiRoute
+                  </motion.a>
+                  <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
+                    "This is actively being developed in the open for everyone to be apart of the process! Please reach out with any issues or suggestions!"
+                  </p>
+                </div>
               </div>
-            </div>
+            </SectionTracker>
 
             {/* Right box */}
-            <div
+            <SectionTracker
+              name="Homepage - Chester"
               className={boxStyle}
-              role="region"
-              aria-label="AI Chess Game"
+              butlerMessage="Chester isn't just a game. It's a study in AI decision making. Care for a match?"
             >
-              <motion.div
-                className="w-1/2 h-full rounded overflow-hidden relative cursor-pointer flex-shrink-0"
-                whileHover={{ scale: 2.0 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
+              <div
+                role="region"
+                aria-label="AI Chess Game"
+                className="w-full h-full flex flex-row justify-between items-center gap-4 lg:gap-2"
               >
-                <Image
-                  src="/images/Chesterupdate2.jpeg"
-                  alt="Chester AI Chess Game"
-                  width={220}
-                  height={128}
-                  className="w-full h-full object-contain"
-                  quality={75}
-                />
-              </motion.div>
-              <div className="w-1/2 flex flex-col justify-start items-center pt-4">
-                <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0 mb-1">
-                  <Image
-                    src="/images/profile/chris-profile.jpg"
-                    alt="Chris Lee Bergstrom"
-                    width={56}
-                    height={56}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                <motion.a
-                  href="https://ai-chess-cfah.onrender.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="nav-link font-bold text-center block w-full py-0"
-                  style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px' }}
-                  aria-label="Play Chester - AI Chess Game"
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                <motion.div
+                  className="w-1/2 h-full rounded overflow-hidden relative cursor-pointer flex-shrink-0"
+                  whileHover={{ scale: 2.0 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  Play Chester
-                </motion.a>
-                <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
-                  "Challenge the AI. Built in public to explore game theory and React performance."
-                </p>
+                  <Image
+                    src="/images/Chesterupdate2.jpeg"
+                    alt="Chester AI Chess Game"
+                    width={220}
+                    height={128}
+                    className="w-full h-full object-contain"
+                    quality={75}
+                  />
+                </motion.div>
+                <div className="w-1/2 flex flex-col justify-start items-center pt-4">
+                  <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0 mb-1">
+                    <Image
+                      src="/images/profile/chris-profile.jpg"
+                      alt="Chris Lee Bergstrom"
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <motion.a
+                    href="https://ai-chess-cfah.onrender.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="nav-link font-bold text-center block w-full py-0"
+                    style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px' }}
+                    aria-label="Play Chester - AI Chess Game"
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    Play Chester
+                  </motion.a>
+                  <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
+                    "Challenge the AI. Built in public to explore game theory and React performance."
+                  </p>
+                </div>
               </div>
-            </div>
+            </SectionTracker>
           </div>
-        </div>
+        </SectionTracker>
         <p className="text-xl font-body italic text-center mb-8 max-w-2xl opacity-90" style={{ color: '#F5F5DC' }}>
           "The advancement of the arts is directly related to the advancement of a society"
         </p>
@@ -377,7 +394,11 @@ export default function Marquee() {
         </div>
 
         {/* Who Is Chris Lee Bergstrom section with pulsing line - Mobile responsive */}
-        <div className="relative mb-16 mx-auto max-w-4xl px-4">
+        <SectionTracker
+          name="Homepage - Bio"
+          className="relative mb-16 mx-auto max-w-4xl px-4"
+          butlerMessage="Chris has lived both sides—art and tech. Ask me about his work with Black Rebel Motorcycle Club."
+        >
           <div className="text-base font-body opacity-90 leading-relaxed space-y-6" style={{ color: '#F5F5DC' }}>
             <p className="font-semibold text-lg italic">
               "I build systems where art and technology work together"
@@ -456,12 +477,13 @@ export default function Marquee() {
               If you're ready to rebuild something real 🏗️ — let's talk 💬. I don't do "culture by committee" 🚫. I do the work that makes art feel alive again ✨.
             </p>
           </div>
-        </div>
+        </SectionTracker>
 
         {/* Horizontal scrolling gallery - ticker style */}
-        <section
+        <SectionTracker
+          name="Homepage - Gallery"
           className="mb-16 w-full max-w-6xl mx-auto px-4"
-          aria-label="Portfolio gallery showcasing Chris's projects"
+          butlerMessage="A visual history of chaos tamed. See a project that catches your eye?"
         >
           <div
             ref={galleryRef}
@@ -505,7 +527,7 @@ export default function Marquee() {
               <GalleryImage src="/images/gallery/Project8.webp" alt="CLB Consulting client workshop demonstrating AI integration strategies" />
             </div>
           </div>
-        </section>
+        </SectionTracker>
 
 
       </div>

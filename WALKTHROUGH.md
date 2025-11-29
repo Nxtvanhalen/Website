@@ -101,3 +101,21 @@ I have enhanced the website with Framer Motion animations to create a more dynam
 ## Next Steps
 - The user can now preview these changes in their local development environment (`npm run dev`).
 - Further fine-tuning of animation timings can be done based on user preference.
+
+### 7. EVE Context Awareness & Butler Mode
+- **Feature**: Refined EVE's "Butler Mode" to be smarter and less intrusive.
+- **Change**: 
+    - **Centered Trigger**: EVE now only comments when a section is in the **middle 20%** of the screen (using `margin: "-40% 0px -40% 0px"`), ensuring relevance to what you're actually looking at.
+    - **Faster Response**: Reduced the "linger duration" from 10s to **4s** for snappier feedback.
+    - **UI Polish**:
+        - **Purple Theme**: Changed the notification strip and accents to the site's signature purple (`#9370DB`).
+        - **Softer Corners**: Updated the notification box with `rounded-xl` for a more modern, friendly look.
+        - **Thinking Indicator**: Added a 1-second "thinking" state (spinning loader + "Processing...") before the message appears to simulate real-time analysis.
+        - **Reduced Duration**: Shortened the message display time to **7 seconds** (plus 1s thinking time) to keep it brief.
+- **Coverage**: Integrated `SectionTracker` with custom `butlerMessage` props across:
+    - **Projects Page**: Specific insights for each project card (Remote SPL, Byte, Glytch, etc.).
+    - **News Page**: Comments on podcast features, articles, and contact info.
+    - **FAQ Page**: Offers to help answer questions or provide witty retorts.
+    - **Blog Page**: Introduces the "Musings" section and encourages subscription.
+    - **About Page**: Provides context on Chris's background and expertise.
+- **Verification**: Scroll slowly through any of these pages and linger on a section for 4 seconds to see EVE's proactive insights.

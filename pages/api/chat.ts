@@ -75,16 +75,16 @@ function validateUserMessage(message: any): string | null {
   if (!message || typeof message !== 'string') {
     return 'User message must be a non-empty string';
   }
-  
+
   const trimmed = message.trim();
   if (trimmed.length === 0) {
     return 'User message cannot be empty';
   }
-  
+
   if (trimmed.length > 4000) {
     return 'User message exceeds maximum length of 4000 characters';
   }
-  
+
   return null;
 }
 
@@ -164,56 +164,62 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   // Set no-cache for POST responses
   res.setHeader('Cache-Control', 'no-store, max-age=0');
-  
+
   try {
     // Rate limiting
-    const clientIP = (req.headers['x-forwarded-for'] as string)?.split(',')[0] || 
-                     req.connection?.remoteAddress || 
-                     req.socket?.remoteAddress || 
-                     'unknown';
+    const clientIP = (req.headers['x-forwarded-for'] as string)?.split(',')[0] ||
+      req.connection?.remoteAddress ||
+      req.socket?.remoteAddress ||
+      'unknown';
     if (!checkRateLimit(clientIP)) {
       throw new ClientError('Rate limit exceeded. Please try again later.', 429);
     }
-    
+
     // Extract and validate inputs
-    const { prompt: userMessage, previousResponseId } = req.body;
+    const { prompt: userMessage, previousResponseId, context } = req.body;
     const apiKey = process.env.OPENAI_API_KEY;
-    
+
     // Check if API key is configured
     if (!apiKey) {
       throw new ClientError('OpenAI API key is not configured', 500);
     }
-    
+
     // Initialize OpenAI client
     const openai = new OpenAI({
       apiKey: apiKey
     });
-    
+
     // Validate user message
     const messageError = validateUserMessage(userMessage);
     if (messageError) {
       throw new ClientError(messageError);
     }
-    
+
     // Validate previous response ID if provided
     if (previousResponseId && typeof previousResponseId !== 'string') {
       throw new ClientError('Previous response ID must be a string');
     }
-    
+
+    // Enhance system prompt with context
+    let systemPrompt = EVE_SYSTEM_PROMPT;
+    if (context) {
+      systemPrompt += `\n\n[CURRENT CONTEXT]\nThe user is currently viewing the "${context}" section of the website. Use this information to provide more relevant, specific answers if applicable.`;
+    }
+
     // Use GPT-5 with Responses API (raw fetch since SDK may not support it yet)
     const requestBody: any = {
       model: 'gpt-5-nano-2025-08-07',
       input: userMessage.trim(),
-      instructions: EVE_SYSTEM_PROMPT,
+      instructions: systemPrompt,
       reasoning: {
         effort: 'minimal'
       }
     };
-    
+
     if (previousResponseId) {
       requestBody.previous_response_id = previousResponseId;
     }
-    
+
     const apiResponse = await fetch('https://api.openai.com/v1/responses', {
       method: 'POST',
       headers: {
@@ -222,18 +228,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
       body: JSON.stringify(requestBody)
     });
-    
+
     if (!apiResponse.ok) {
       throw new Error(`OpenAI API error: ${apiResponse.status} ${apiResponse.statusText}`);
     }
-    
+
     const response = await apiResponse.json();
     console.log('GPT-5 Response:', JSON.stringify(response, null, 2));
-    
+
     // Extract response content and ID from Responses API
     let reply = 'I\'m experiencing some technical difficulties. Please try again in a moment, or feel free to email me directly!';
     let responseId = null;
-    
+
     if (response && response.output && Array.isArray(response.output)) {
       // Find the message output in the response array
       const messageOutput = response.output.find((item: any) => item.type === 'message');
@@ -244,35 +250,35 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
       }
     }
-    
+
     if (response && response.id) {
       responseId = response.id;
     }
 
     // Return response with response ID for future messages
     console.log('Sending response:', { reply, responseId, success: true });
-    return res.status(200).json({ 
-      reply, 
+    return res.status(200).json({
+      reply,
       responseId,
-      success: true 
+      success: true
     });
-    
+
   } catch (error: any) {
     console.error('Chat API error:', error);
-    
+
     // Handle client errors differently from server errors
     if (error instanceof ClientError) {
-      return res.status(error.statusCode).json({ 
+      return res.status(error.statusCode).json({
         error: error.message,
         success: false
       });
     }
-    
+
     // Check if it's an OpenAI API error
     if (error.status) {
       const statusCode = error.status;
       let errorMessage = 'OpenAI API error';
-      
+
       switch (statusCode) {
         case 401:
           errorMessage = 'Invalid API key';
@@ -288,15 +294,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         default:
           errorMessage = error.message || 'Unknown OpenAI API error';
       }
-      
-      return res.status(statusCode >= 500 ? 503 : statusCode).json({ 
+
+      return res.status(statusCode >= 500 ? 503 : statusCode).json({
         error: errorMessage,
         success: false
       });
     }
-    
+
     // Generic server error
-    return res.status(500).json({ 
+    return res.status(500).json({
       error: 'Internal server error. Please try again later',
       success: false
     });

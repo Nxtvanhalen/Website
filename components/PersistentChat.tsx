@@ -5,7 +5,7 @@ import ChatPanel from './ChatPanel';
 import Image from 'next/image';
 
 export default function PersistentChat() {
-    const { isOpen, toggleChat } = useChat();
+    const { isOpen, toggleChat, setNotificationActive } = useChat();
     const [showNotification, setShowNotification] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -13,18 +13,22 @@ export default function PersistentChat() {
         // Check if we've shown the notification in this session
         const hasShown = sessionStorage.getItem('eve_notification_shown_v2');
         if (!hasShown && !isOpen) {
-            // Delay slightly for effect
+            // Delay slightly for effect (reduced to 1s)
             const timer = setTimeout(() => {
                 setShowNotification(true);
+                setNotificationActive(true);
                 sessionStorage.setItem('eve_notification_shown_v2', 'true');
 
                 // Auto-hide after 10 seconds
-                setTimeout(() => setShowNotification(false), 10000);
-            }, 2000);
+                setTimeout(() => {
+                    setShowNotification(false);
+                    setNotificationActive(false);
+                }, 10000);
+            }, 1000);
 
             return () => clearTimeout(timer);
         }
-    }, [isOpen]);
+    }, [isOpen, setNotificationActive]);
 
     return (
         <div className="fixed bottom-6 right-[15px] z-[100] flex flex-col items-end">
@@ -81,10 +85,10 @@ export default function PersistentChat() {
                         initial={{ opacity: 0, x: 20, scale: 0.9 }}
                         animate={{ opacity: 1, x: 0, scale: 1 }}
                         exit={{ opacity: 0, x: 20, scale: 0.9 }}
-                        className="absolute bottom-20 right-0 mb-2 mr-2 bg-black/80 backdrop-blur-md border-l-4 border-molten p-4 rounded-r-lg shadow-[0_0_15px_rgba(248,246,240,0.3)] max-w-[250px]"
+                        className="absolute bottom-20 right-0 mb-2 mr-2 bg-black/80 backdrop-blur-md border-l-4 border-[#9370DB] p-4 rounded-xl shadow-[0_0_15px_rgba(147,112,219,0.3)] max-w-[250px]"
                     >
                         <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-sm border border-molten/50 overflow-hidden shrink-0">
+                            <div className="w-8 h-8 rounded-sm border border-[#9370DB]/50 overflow-hidden shrink-0">
                                 <Image
                                     src="/images/projects/EVE.png"
                                     alt="EVE"
@@ -94,7 +98,7 @@ export default function PersistentChat() {
                                 />
                             </div>
                             <div>
-                                <h4 className="text-xs font-bold text-molten uppercase tracking-wider mb-1">Incoming Transmission</h4>
+                                <h4 className="text-xs font-bold text-[#9370DB] uppercase tracking-wider mb-1">Incoming Transmission</h4>
                                 <p className="text-xs text-white/90 leading-tight">
                                     I'm EVE. Tactical Intelligence Engine running on GPT-5.1. I don't just answer—I synthesize. Try me.
                                 </p>

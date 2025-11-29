@@ -2,7 +2,10 @@ import { useState, useRef, useEffect, FormEvent } from 'react';
 
 type Message = { role: 'user' | 'assistant'; content: string };
 
+import { useChat } from '../context/ChatContext';
+
 export default function ChatPanel() {
+  const { currentContext } = useChat();
   const [messages, setMessages] = useState<Message[]>([
     { role: 'assistant', content: 'Welcome to CLB Consulting! I\'m EVE, your AI assistant. How can I help you with your project needs today?' }
   ]);
@@ -153,7 +156,7 @@ export default function ChatPanel() {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: content, previousResponseId: responseId })
+        body: JSON.stringify({ prompt: content, previousResponseId: responseId, context: currentContext })
       });
 
       if (!res.ok) {
@@ -207,8 +210,8 @@ export default function ChatPanel() {
             <div
               key={idx}
               className={`max-w-[85%] px-4 py-3 rounded-lg shadow-lg animate-fade-in ${msg.role === 'user'
-                  ? 'bg-transparent text-white self-end ml-auto border-l-4 border-molten'
-                  : 'bg-transparent text-white self-start mr-auto border-l-4 border-molten'
+                ? 'bg-transparent text-white self-end ml-auto border-l-4 border-molten'
+                : 'bg-transparent text-white self-start mr-auto border-l-4 border-molten'
                 }`}
             >
               {msg.role === 'assistant' && (

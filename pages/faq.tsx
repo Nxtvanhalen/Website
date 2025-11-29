@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import Header from '../components/Header';
+import SectionTracker from '../components/SectionTracker';
 
 interface FAQItem {
   question: string;
@@ -201,82 +202,91 @@ export default function FAQ() {
       <main className="min-h-screen bg-transparent text-white pt-52 px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header Section */}
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-heading mb-6 glow-subtle">
-              Frequently Asked Questions
-            </h1>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: '#F5F5DC', opacity: 0.9 }}>
-              <span className="font-bold" style={{ color: '#F5F5DC' }}>Strategy Born from the Wreckage 🏚️, Intelligence Forged in the Fire 🔥</span> —
-              Get answers about AI consulting 🤖, team building 🤝, and entertainment tech 🎭.
-            </p>
-            <div className="mt-8 h-0.5 bg-molten mx-auto w-32 animate-pulse-width"></div>
-          </div>
+          <SectionTracker name="FAQ - Header">
+            <div className="text-center mb-16">
+              <h1 className="text-5xl md:text-6xl font-heading mb-6 glow-subtle">
+                Frequently Asked Questions
+              </h1>
+              <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: '#F5F5DC', opacity: 0.9 }}>
+                <span className="font-bold" style={{ color: '#F5F5DC' }}>Strategy Born from the Wreckage 🏚️, Intelligence Forged in the Fire 🔥</span> —
+                Get answers about AI consulting 🤖, team building 🤝, and entertainment tech 🎭.
+              </p>
+              <div className="mt-8 h-0.5 bg-molten mx-auto w-32 animate-pulse-width"></div>
+            </div>
+          </SectionTracker>
 
           {/* FAQ Items */}
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-black/40 border border-molten/30 rounded-lg overflow-hidden backdrop-blur-sm hover:border-molten/50 transition-all duration-300"
-              >
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-molten/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-molten/50"
-                  aria-expanded={openIndex === index}
+          <SectionTracker
+            name="FAQ - List"
+            butlerMessage="Got questions? I might have answers. Or at least a witty retort."
+          >
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="bg-black/40 border border-molten/30 rounded-lg overflow-hidden backdrop-blur-sm hover:border-molten/50 transition-all duration-300"
                 >
-                  <h3 className="text-lg font-semibold pr-4 leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    {faq.question}
-                  </h3>
-                  <div className={`text-molten text-2xl font-bold transform transition-transform duration-200 flex-shrink-0 ${openIndex === index ? 'rotate-45' : ''
-                    }`}>
-                    +
-                  </div>
-                </button>
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-molten/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-molten/50"
+                    aria-expanded={openIndex === index}
+                  >
+                    <h3 className="text-lg font-semibold pr-4 leading-relaxed" style={{ color: '#F5F5DC' }}>
+                      {faq.question}
+                    </h3>
+                    <div className={`text-molten text-2xl font-bold transform transition-transform duration-200 flex-shrink-0 ${openIndex === index ? 'rotate-45' : ''
+                      }`}>
+                      +
+                    </div>
+                  </button>
 
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
-                  }`}>
-                  <div className="px-6 pb-5 pt-0">
-                    <div className="border-t border-molten/20 pt-4">
-                      <p className="leading-relaxed" style={{ color: '#F5F5DC', opacity: 0.9 }}>
-                        {faq.answer}
-                      </p>
-                      {faq.category && (
-                        <div className="mt-3">
-                          <span className="inline-block px-3 py-1 bg-molten/20 text-xs font-bold rounded-full" style={{ color: '#F5F5DC' }}>
-                            {faq.category}
-                          </span>
-                        </div>
-                      )}
+                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}>
+                    <div className="px-6 pb-5 pt-0">
+                      <div className="border-t border-molten/20 pt-4">
+                        <p className="leading-relaxed" style={{ color: '#F5F5DC', opacity: 0.9 }}>
+                          {faq.answer}
+                        </p>
+                        {faq.category && (
+                          <div className="mt-3">
+                            <span className="inline-block px-3 py-1 bg-molten/20 text-xs font-bold rounded-full" style={{ color: '#F5F5DC' }}>
+                              {faq.category}
+                            </span>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </SectionTracker>
 
           {/* Contact CTA */}
-          <div className="mt-16 mb-24 text-center bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm">
-            <h2 className="text-3xl font-heading mb-4" style={{ color: '#F5F5DC' }}>Still have questions?</h2>
-            <p className="text-lg mb-6 max-w-2xl mx-auto" style={{ color: '#F5F5DC', opacity: 0.9 }}>
-              Ready to discuss how CLB Consulting can transform your operations and empower your team?
-              Let's start the conversation.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="mailto:chrisleebergstrom@gmail.com?subject=FAQ Follow-up - Let's Discuss Your Project"
-                className="inline-block py-3 px-8 bg-transparent border border-molten text-molten font-bold rounded hover:bg-molten/10 hover:text-white transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
-              >
-                Get in Touch
-              </a>
-              <span className="text-white/60">or</span>
-              <a
-                href="/#eve-chat"
-                className="inline-block py-3 px-8 bg-molten/20 border border-molten text-white font-bold rounded hover:bg-molten/30 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
-              >
-                Chat with EVE AI
-              </a>
+          <SectionTracker name="FAQ - Contact">
+            <div className="mt-16 mb-24 text-center bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm">
+              <h2 className="text-3xl font-heading mb-4" style={{ color: '#F5F5DC' }}>Still have questions?</h2>
+              <p className="text-lg mb-6 max-w-2xl mx-auto" style={{ color: '#F5F5DC', opacity: 0.9 }}>
+                Ready to discuss how CLB Consulting can transform your operations and empower your team?
+                Let's start the conversation.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a
+                  href="mailto:chrisleebergstrom@gmail.com?subject=FAQ Follow-up - Let's Discuss Your Project"
+                  className="inline-block py-3 px-8 bg-transparent border border-molten text-molten font-bold rounded hover:bg-molten/10 hover:text-white transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
+                >
+                  Get in Touch
+                </a>
+                <span className="text-white/60">or</span>
+                <a
+                  href="/#eve-chat"
+                  className="inline-block py-3 px-8 bg-molten/20 border border-molten text-white font-bold rounded hover:bg-molten/30 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
+                >
+                  Chat with EVE AI
+                </a>
+              </div>
             </div>
-          </div>
+          </SectionTracker>
         </div>
       </main>
     </>

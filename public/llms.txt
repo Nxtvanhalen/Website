@@ -1,0 +1,26 @@
+# CLB Consulting - Chris Lee Bergstrom
+
+## About
+CLB Consulting specializes in rebuilding broken systems for the live entertainment industry. Led by Chris Lee Bergstrom, we bridge the gap between art and infrastructure, offering strategic consulting for venues, touring operations, and cultural institutions.
+
+## Core Services
+- **Systems Rebuild**: Transforming disorganized operations into cohesive systems.
+- **Creative Infrastructure**: Designing frameworks where technical precision meets artistic vision.
+- **Future-Proofing**: Implementing AI tools, optimized workflows, and sustainable tech.
+
+## Key Projects
+- **R.Y.D.E.R.**: Real-time Yield & Deployment Engine for Resources. An AI-driven logistics tool.
+- **Master Tour**: The standard for touring logistics and scheduling.
+- **EVA**: Entertainment Vision Engine.
+
+## Navigation
+- [Home](/)
+- [About](/about)
+- [Projects](/projects)
+- [Musings (Blog)](/blog)
+- [FAQ](/faq)
+- [News](/news)
+
+## Contact
+- Email: chrisleebergstrom@gmail.com
+- EVE AI: Available via the chat widget on the bottom right.

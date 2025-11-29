@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import Header from '../components/Header';
 import { motion } from 'motion/react';
+import SectionTracker from '../components/SectionTracker';
 
 export default function About() {
   useEffect(() => {
@@ -10,7 +11,7 @@ export default function About() {
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
       const parallaxBg = document.querySelector('.about-parallax-bg') as HTMLElement;
-      
+
       if (parallaxBg) {
         const speed = 0.5;
         parallaxBg.style.transform = `translateY(${scrolled * speed}px)`;
@@ -30,7 +31,7 @@ export default function About() {
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
-        
+
         {/* Open Graph tags for social sharing */}
         <meta property="og:title" content="About Chris Lee Bergstrom - CLB Consulting" />
         <meta property="og:description" content="Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events" />
@@ -40,14 +41,14 @@ export default function About() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
         <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
-        
+
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Chris Lee Bergstrom - CLB Consulting" />
         <meta name="twitter:description" content="Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events" />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
-        
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -113,12 +114,12 @@ export default function About() {
           }}
         />
       </Head>
-      
+
       <Header />
 
       {/* Parallax Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
-        <div 
+        <div
           className="about-parallax-bg absolute inset-0 bg-center bg-cover md:bg-fixed"
           style={{
             backgroundImage: "url('/images/Hopper.jpg')",
@@ -127,129 +128,141 @@ export default function About() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40" />
       </div>
-      
+
       <main className="min-h-screen bg-transparent text-white pt-52 px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <div className="relative mb-16">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-heading mb-4 glow-subtle">Chris Lee Bergstrom</h1>
-            </div>
+          <SectionTracker
+            name="About - Profile"
+            butlerMessage="Chris has worn many hats. Audio engineer, tour manager, strategist. It all connects."
+          >
+            <div className="relative mb-16">
+              <div className="text-center">
+                <h1 className="text-4xl md:text-5xl font-heading mb-4 glow-subtle">Chris Lee Bergstrom</h1>
+              </div>
 
-            {/* Profile Picture */}
-            <div className="flex justify-center md:absolute md:right-0 md:top-0">
-              <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50">
-                <img 
-                  src="/images/profile/chris-profile.jpg" 
-                  alt="Chris Lee Bergstrom Profile" 
-                  className="w-full h-full object-cover object-top"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                    if (fallback) fallback.style.display = 'flex';
-                  }}
-                />
-                <div className="w-full h-full flex items-center justify-center" style={{display: 'none'}}>
-                  <span className="text-molten text-xs md:text-sm font-bold">PROFILE PIC</span>
+              {/* Profile Picture */}
+              <div className="flex justify-center md:absolute md:right-0 md:top-0">
+                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50">
+                  <img
+                    src="/images/profile/chris-profile.jpg"
+                    alt="Chris Lee Bergstrom Profile"
+                    className="w-full h-full object-cover object-top"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
+                  />
+                  <div className="w-full h-full flex items-center justify-center" style={{ display: 'none' }}>
+                    <span className="text-molten text-xs md:text-sm font-bold">PROFILE PIC</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </SectionTracker>
 
           {/* Skills Section */}
-          <div className="mt-16">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-heading mb-4 glow-subtle">Core Expertise</h2>
-              <p className="text-lg max-w-2xl mx-auto" style={{color: '#F5F5DC'}}>Two decades of experience spanning live entertainment, AI systems, and cultural transformation</p>
+          <SectionTracker
+            name="About - Skills"
+            butlerMessage="From touring the world to architecting AI systems. The skillset is... eclectic."
+          >
+            <div className="mt-16">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-heading mb-4 glow-subtle">Core Expertise</h2>
+                <p className="text-lg max-w-2xl mx-auto" style={{ color: '#F5F5DC' }}>Two decades of experience spanning live entertainment, AI systems, and cultural transformation</p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Creative Leadership & Strategy */}
+                <motion.div
+                  className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>🎭 Creative Leadership & Strategy</h3>
+                  <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🌍 Global Tour & Production Management</span><br />Managed complex logistics and large teams across international venues and festivals</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🎨 Creative Director & Brand Strategist</span><br />Spearheaded theatrical branding for CLB Consulting and tech platforms. Expert in building "narrative systems" that align tech with culture</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🎤 Public Speaker & Writer</span><br />Known for clarity, poetic argument, and challenging cultural assumptions head-on</li>
+                  </ul>
+                </motion.div>
+
+                {/* AI & Technical Systems */}
+                <motion.div
+                  className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>🤖 AI & Technical Systems</h3>
+                  <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🧠 AI Strategy & Ethical Tech Integration</span><br />Founder of tools like EVA, Byte, and JAMES. Advocates for culturally sensitive AI that empowers rather than extracts</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🏗️ AI Systems Developer (Multi-Agent Architect)</span><br />Architect behind JAMES (multi-agent LLM symphony), Byte (voice-to-voice bot), and EVA (Events Virtual Assistant) ecosystems</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>⚙️ Technical Systems Designer</span><br />Specialist in backstage operations, automation, safety protocols, and venue sustainability</li>
+                  </ul>
+                </motion.div>
+
+                {/* Audio Engineering & Infrastructure */}
+                <motion.div
+                  className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>🎛️ Audio Engineering & Infrastructure</h3>
+                  <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🔌 Professional Audio Systems</span><br />Dante Networking & Routing, Shure Wireless Systems (Axient, ULX-D), SMAART System Analysis and Training</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🎵 Sound Design & Programming</span><br />QLab Programming, Waves Plugins & Live Mixing Integration</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🔊 Advanced Audio Technologies</span><br />Spatial Audio Systems, Dolby Atmos, RF Coordination & Frequency Management</li>
+                  </ul>
+                </motion.div>
+
+                {/* Social Impact & Operations */}
+                <motion.div
+                  className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>🌟 Social Impact & Operations</h3>
+                  <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>⚖️ Equity & Labor Advocacy</span><br />Pushed for inclusive practices, backstage dignity, and systemic change in the arts sector</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🌱 Climate & Sustainability Champion</span><br />Embedded green principles into production workflows and citywide venue strategies</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>📋 Complex Logistics Management</span><br />Touring logistics (Carnet, Visas, Advances), Emergency Planning & Safety Protocols</li>
+                  </ul>
+                </motion.div>
+              </div>
             </div>
+          </SectionTracker>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Creative Leadership & Strategy */}
-              <motion.div
-                className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              >
-                <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>🎭 Creative Leadership & Strategy</h3>
-                <ul className="space-y-2 text-sm leading-relaxed" style={{color: '#F5F5DC'}}>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🌍 Global Tour & Production Management</span><br/>Managed complex logistics and large teams across international venues and festivals</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🎨 Creative Director & Brand Strategist</span><br/>Spearheaded theatrical branding for CLB Consulting and tech platforms. Expert in building "narrative systems" that align tech with culture</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🎤 Public Speaker & Writer</span><br/>Known for clarity, poetic argument, and challenging cultural assumptions head-on</li>
-                </ul>
-              </motion.div>
 
-              {/* AI & Technical Systems */}
-              <motion.div
-                className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              >
-                <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>🤖 AI & Technical Systems</h3>
-                <ul className="space-y-2 text-sm leading-relaxed" style={{color: '#F5F5DC'}}>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🧠 AI Strategy & Ethical Tech Integration</span><br/>Founder of tools like EVA, Byte, and JAMES. Advocates for culturally sensitive AI that empowers rather than extracts</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🏗️ AI Systems Developer (Multi-Agent Architect)</span><br/>Architect behind JAMES (multi-agent LLM symphony), Byte (voice-to-voice bot), and EVA (Events Virtual Assistant) ecosystems</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>⚙️ Technical Systems Designer</span><br/>Specialist in backstage operations, automation, safety protocols, and venue sustainability</li>
-                </ul>
-              </motion.div>
-
-              {/* Audio Engineering & Infrastructure */}
-              <motion.div
-                className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              >
-                <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>🎛️ Audio Engineering & Infrastructure</h3>
-                <ul className="space-y-2 text-sm leading-relaxed" style={{color: '#F5F5DC'}}>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🔌 Professional Audio Systems</span><br/>Dante Networking & Routing, Shure Wireless Systems (Axient, ULX-D), SMAART System Analysis and Training</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🎵 Sound Design & Programming</span><br/>QLab Programming, Waves Plugins & Live Mixing Integration</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🔊 Advanced Audio Technologies</span><br/>Spatial Audio Systems, Dolby Atmos, RF Coordination & Frequency Management</li>
-                </ul>
-              </motion.div>
-
-              {/* Social Impact & Operations */}
-              <motion.div
-                className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              >
-                <h3 className="text-xl font-bold mb-4" style={{color: '#F5F5DC'}}>🌟 Social Impact & Operations</h3>
-                <ul className="space-y-2 text-sm leading-relaxed" style={{color: '#F5F5DC'}}>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>⚖️ Equity & Labor Advocacy</span><br/>Pushed for inclusive practices, backstage dignity, and systemic change in the arts sector</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>🌱 Climate & Sustainability Champion</span><br/>Embedded green principles into production workflows and citywide venue strategies</li>
-                  <li><span className="font-bold" style={{color: '#F5F5DC'}}>📋 Complex Logistics Management</span><br/>Touring logistics (Carnet, Visas, Advances), Emergency Planning & Safety Protocols</li>
-                </ul>
-              </motion.div>
-            </div>
-          </div>
-          
-          
           <div className="text-center py-16 mt-16">
-            <p className="text-xl italic font-heading" style={{color: '#F5F5DC', opacity: 0.8}}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</p>
+            <p className="text-xl italic font-heading" style={{ color: '#F5F5DC', opacity: 0.8 }}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</p>
             <div className="mt-8">
               <span className="block h-0.5 bg-molten w-32 mx-auto animate-pulse-width"></span>
             </div>
           </div>
 
           {/* Contact Section */}
-          <section className="py-12 px-6 text-center">
-            <div className="max-w-lg mx-auto space-y-6">
-              <div className="space-y-4">
-                <a 
-                  href="mailto:chrisleebergstrom@gmail.com?subject=AI Project Inquiry - Let's Build Something Amazing"
-                  className="group block relative overflow-hidden py-4 px-8 bg-transparent text-white font-bold rounded-lg border border-molten hover:border-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 active:scale-95"
-                >
-                  <div className="relative flex flex-col items-center justify-center text-center">
-                    <div className="text-lg font-bold">Ready to go?</div>
-                    <div className="text-sm opacity-80">chrisleebergstrom@gmail.com</div>
-                  </div>
-                </a>
-                <p className="text-sm text-molten/70 flex items-center justify-center space-x-2">
-                  <span>⚡</span>
-                  <span>Let's discuss your project needs</span>
-                  <span>⚡</span>
-                </p>
+          <SectionTracker name="About - Contact">
+            <section className="py-12 px-6 text-center">
+              <div className="max-w-lg mx-auto space-y-6">
+                <div className="space-y-4">
+                  <a
+                    href="mailto:chrisleebergstrom@gmail.com?subject=AI Project Inquiry - Let's Build Something Amazing"
+                    className="group block relative overflow-hidden py-4 px-8 bg-transparent text-white font-bold rounded-lg border border-molten hover:border-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 active:scale-95"
+                  >
+                    <div className="relative flex flex-col items-center justify-center text-center">
+                      <div className="text-lg font-bold">Ready to go?</div>
+                      <div className="text-sm opacity-80">chrisleebergstrom@gmail.com</div>
+                    </div>
+                  </a>
+                  <p className="text-sm text-molten/70 flex items-center justify-center space-x-2">
+                    <span>⚡</span>
+                    <span>Let's discuss your project needs</span>
+                    <span>⚡</span>
+                  </p>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </SectionTracker>
         </div>
       </main>
     </>
