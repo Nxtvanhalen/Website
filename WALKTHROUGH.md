@@ -70,6 +70,7 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Update*: Applied a vibrant rainbow gradient theme to the Substack icon.
     - *Update*: Tightened the spacing in the Musings page header and removed the redundant "Latest Musings" section title.
     - *Update*: Removed the profile picture from the Musings page header as per user request.
+    - *Update*: Refined the EVE section text on the homepage to be less "cheesy", added emojis, highlighted her advanced capabilities (GPT-5.1), and added a playful "She doesn't bite... much" closing.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.

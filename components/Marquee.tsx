@@ -511,7 +511,9 @@ export default function Marquee() {
         >
           <h3 id="eve-heading" className="text-3xl font-heading mb-4" style={{ color: '#F5F5DC' }}>Ask EVE.</h3>
           <p className="text-lg leading-relaxed opacity-90 mb-6" style={{ color: '#F5F5DC' }}>
-            EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. AI should never replace the artist. It should empower the visionary.
+            EVE isn't just a chatbot—she's a tactical intelligence engine 🧠. She synthesizes, challenges, and refines your ideas 💎. AI shouldn't replace the artist; it should amplify the visionary 🚀.
+            <br /><br />
+            Unlike standard assistants, EVE runs on a full-scale, state-of-the-art model (GPT-5.1, Nov '25) ⚡. She's built for complex reasoning, not just scripted replies. If she nudges you to email 📧, it's because I designed her to connect us—but make no mistake, she can hold her own in the deep end 🌊. Try it out! She doesn't bite... much 😉.
           </p>
           <div className="flex justify-center">
             <div className="w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
