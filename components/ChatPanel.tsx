@@ -19,8 +19,25 @@ export default function ChatPanel() {
   //   inputRef.current?.focus();
   // }, []);
 
-  // Scroll to bottom on new messages
+  // Load messages from LocalStorage on mount
   useEffect(() => {
+    const savedMessages = localStorage.getItem('eve_chat_history');
+    if (savedMessages) {
+      try {
+        setMessages(JSON.parse(savedMessages));
+      } catch (e) {
+        console.error('Failed to parse chat history', e);
+      }
+    }
+  }, []);
+
+  // Save messages to LocalStorage whenever they change
+  useEffect(() => {
+    if (messages.length > 1) { // Don't save if it's just the initial welcome message
+      localStorage.setItem('eve_chat_history', JSON.stringify(messages));
+    }
+
+    // Scroll to bottom
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
@@ -43,24 +60,24 @@ export default function ChatPanel() {
     let initialHeight = 0;
     let isKeyboardVisible = false;
     let isUserInteractingWithChat = false;
-    
+
     const handleViewportChange = () => {
       if (typeof window === 'undefined' || !window.visualViewport) return;
-      
+
       const currentHeight = window.visualViewport.height;
-      
+
       // Initialize on first run
       if (initialHeight === 0) {
         initialHeight = currentHeight;
         return;
       }
-      
+
       const heightDiff = initialHeight - currentHeight;
       const wasKeyboardVisible = isKeyboardVisible;
-      
+
       // Keyboard is considered visible if viewport height reduced by more than 150px
       isKeyboardVisible = heightDiff > 150;
-      
+
       // Only recenter when:
       // 1. User was interacting with chat input
       // 2. Keyboard was visible and now disappears
@@ -71,7 +88,7 @@ export default function ChatPanel() {
             // Get the element's position and scroll with offset to show input area
             const rect = eveHeading.getBoundingClientRect();
             const offsetTop = window.pageYOffset + rect.top;
-            
+
             // Scroll 120px higher than center to ensure more of input area is visible
             window.scrollTo({
               top: offsetTop - 120,
@@ -83,11 +100,11 @@ export default function ChatPanel() {
         }, 200);
       }
     };
-    
+
     const handleInputFocus = () => {
       isUserInteractingWithChat = true;
     };
-    
+
     const handleInputBlur = () => {
       // Don't immediately reset - let the viewport handler decide
       setTimeout(() => {
@@ -96,19 +113,19 @@ export default function ChatPanel() {
         }
       }, 500);
     };
-    
+
     if (typeof window !== 'undefined' && window.visualViewport) {
       const viewport = window.visualViewport;
       const input = inputRef.current;
-      
+
       initialHeight = viewport.height;
       viewport.addEventListener('resize', handleViewportChange);
-      
+
       if (input) {
         input.addEventListener('focus', handleInputFocus);
         input.addEventListener('blur', handleInputBlur);
       }
-      
+
       return () => {
         viewport.removeEventListener('resize', handleViewportChange);
         if (input) {
@@ -123,41 +140,41 @@ export default function ChatPanel() {
     e.preventDefault();
     const content = input.trim();
     if (!content || isTyping) return;
-    
+
     const userMsg: Message = { role: 'user', content };
     setMessages((prev) => [...prev, userMsg]);
     setInput('');
     setIsTyping(true);
-    
+
     try {
       // Add realistic delay for typing effect
       await new Promise(resolve => setTimeout(resolve, 800 + Math.random() * 1200));
-      
+
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: content, previousResponseId: responseId })
       });
-      
+
       if (!res.ok) {
         throw new Error('Network response was not ok');
       }
-      
+
       const data = await res.json();
-      const assistantMsg: Message = { 
-        role: 'assistant', 
-        content: data.reply || 'I apologize, but I couldn\'t process that request. Please try again.' 
+      const assistantMsg: Message = {
+        role: 'assistant',
+        content: data.reply || 'I apologize, but I couldn\'t process that request. Please try again.'
       };
-      
+
       setMessages((prev) => [...prev, assistantMsg]);
       if (data.responseId && data.responseId !== responseId) {
         setResponseId(data.responseId);
         localStorage.setItem('responseId', data.responseId);
       }
     } catch (err) {
-      const errorMsg: Message = { 
-        role: 'assistant', 
-        content: 'I\'m experiencing some technical difficulties. Please try again in a moment, or feel free to email me directly!' 
+      const errorMsg: Message = {
+        role: 'assistant',
+        content: 'I\'m experiencing some technical difficulties. Please try again in a moment, or feel free to email me directly!'
       };
       setMessages((prev) => [...prev, errorMsg]);
     } finally {
@@ -189,18 +206,17 @@ export default function ChatPanel() {
           {messages.map((msg, idx) => (
             <div
               key={idx}
-              className={`max-w-[85%] px-4 py-3 rounded-lg shadow-lg animate-fade-in ${
-                msg.role === 'user' 
-                  ? 'bg-transparent text-white self-end ml-auto border-l-4 border-molten' 
+              className={`max-w-[85%] px-4 py-3 rounded-lg shadow-lg animate-fade-in ${msg.role === 'user'
+                  ? 'bg-transparent text-white self-end ml-auto border-l-4 border-molten'
                   : 'bg-transparent text-white self-start mr-auto border-l-4 border-molten'
-              }`}
+                }`}
             >
               {msg.role === 'assistant' && (
                 <div className="flex items-center gap-2 mb-2">
                   <div className="w-6 h-6 rounded-full border border-molten/40 overflow-hidden flex-shrink-0">
-                    <img 
-                      src="/images/projects/EVE.png" 
-                      alt="EVE" 
+                    <img
+                      src="/images/projects/EVE.png"
+                      alt="EVE"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
@@ -222,8 +238,8 @@ export default function ChatPanel() {
           placeholder={isTyping ? "EVE is thinking..." : "Ask me anything about AI, consulting, or development..."}
           disabled={isTyping}
         />
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           disabled={isTyping || !input.trim()}
           className="px-6 bg-transparent text-molten font-bold hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all border border-molten hover:border-white hover:scale-105 active:scale-95"
         >

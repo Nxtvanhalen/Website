@@ -6,6 +6,8 @@ import Script from 'next/script';
 import { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { ChatProvider } from '../context/ChatContext';
+import PersistentChat from '../components/PersistentChat';
 
 // Google Analytics tracking ID
 const GA_TRACKING_ID = 'G-XZ6CF9XQD7';
@@ -108,9 +110,12 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#000000" />
 
       </Head>
-      {!isLandingPage && <Header />}
-      <Component {...pageProps} />
-      {!isLandingPage && <Footer />}
+      <ChatProvider>
+        {!isLandingPage && <Header />}
+        <Component {...pageProps} />
+        <PersistentChat />
+        {!isLandingPage && <Footer />}
+      </ChatProvider>
     </>
   );
 }
