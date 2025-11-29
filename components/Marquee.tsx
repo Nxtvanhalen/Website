@@ -23,6 +23,22 @@ export default function Marquee() {
   /* ACTIVE STYLE */
   /* const boxStyle = "bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[300px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row justify-between items-center gap-4 lg:gap-2"; */
 
+  /* 
+    EXPERIMENTAL TITLE STYLES
+    Uncomment one of the following lines to switch styles.
+  */
+  /* Option 1: Plain White (Current) */
+  /* const titleStyle = "text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center text-white"; */
+
+  /* Option 2: Cinematic Wide (Tracking + Light) */
+  const titleStyle = "text-5xl lg:text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center text-white tracking-[0.2em] font-light uppercase";
+
+  /* Option 3: Hollow Outline */
+  /* const titleStyle = "text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.8)] hover:[-webkit-text-stroke:1px_rgba(147,112,219,1)] transition-colors"; */
+
+  /* Option 4: Purple Gradient */
+  /* const titleStyle = "text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-mauve"; */
+
   const [currentBox, setCurrentBox] = useState(0);
   const galleryRef = useRef<HTMLDivElement>(null);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
@@ -188,7 +204,7 @@ export default function Marquee() {
 
         {/* Chris Lee Bergstrom heading with CTA box */}
         <div className="w-full mb-6">
-          <h2 className="text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center">
+          <h2 className={titleStyle}>
             Chris Lee Bergstrom
           </h2>
 
