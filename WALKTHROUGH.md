@@ -45,6 +45,8 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Update*: Replaced "Building in Public Beta" with the profile picture in LogiRoute and Chester boxes.
     - *Update*: Styled the description text in LogiRoute and Chester boxes as personal quotes (italicized and quoted).
     - *Update*: Aligned profile pictures in all three boxes by anchoring them to the top with consistent padding, ensuring they are perfectly level.
+    - *Update*: Refactored Marquee box styles into a reusable constant with 4 experimental options (Current, Modern Glass, Neon Glow, Minimal Dark) for easy theme switching.
+    - *Update*: Activated "Neon Molten Glow" style (Option 3) and customized it with a purple glow (`#9370DB`) and semi-transparent background (`bg-black/60`) to match the site theme.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.
