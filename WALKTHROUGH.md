@@ -65,6 +65,11 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Update*: Styled the R.Y.D.E.R. project card with a neon green theme (`#00ff00`) for the border, shadow, title, and link to match the Ryder brand.
     - *Update*: Styled the Master Tour project card with a standard red theme (`#FF0000`) for the border, shadow, title, and link to match the Master Tour brand.
     - *Update*: Replaced the EVA project image with `EVA2.JPG` and applied a slight zoom (`scale-125`) for better framing.
+    - *Update*: Removed the animated line below "A more raw and unfiltered forum" on the Musings page for a cleaner look.
+    - *Update*: Added a "Check out the Stack! →" link and a clickable Substack icon to the Musings page header, both with Framer Motion hover effects and a continuous heartbeat pulse.
+    - *Update*: Applied a vibrant rainbow gradient theme to the Substack icon.
+    - *Update*: Tightened the spacing in the Musings page header and removed the redundant "Latest Musings" section title.
+    - *Update*: Removed the profile picture from the Musings page header as per user request.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.
