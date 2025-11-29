@@ -59,6 +59,12 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Update*: Added relevant emojis (🔊, 👥, 🏗️, 🌍, 🏙️, 📡, 🎶) to the bio text to enhance visual appeal.
     - *Update*: Rewrote the "From world tours..." paragraph to be concise and emoji-rich: "I lead under pressure ⚡, turn inefficiency into momentum 🚀, and bring harmony back to the process ☯️."
     - *Update*: Rewrote the closing paragraph to be punchy and emoji-rich: "If you're ready to rebuild something real 🏗️ — let's talk 💬. I don't do 'culture by committee' 🚫. I do the work that makes art feel alive again ✨."
+    - *Update*: Upgraded the FAQ page header text with emojis and punchier phrasing: "Strategy Born from the Wreckage 🏚️, Intelligence Forged in the Fire 🔥..."
+    - *Update*: Refined all project descriptions on the Projects page to be concise, impactful, and emoji-rich (e.g., "The next evolution of tech pack data 🎸", "Cloud-based SPL monitoring 🏗️").
+    - *Update*: Added a "Chat with Ryder now! →" link to the R.Y.D.E.R. project card, pointing to `https://ryder-k6er.onrender.com`.
+    - *Update*: Styled the R.Y.D.E.R. project card with a neon green theme (`#00ff00`) for the border, shadow, title, and link to match the Ryder brand.
+    - *Update*: Styled the Master Tour project card with a standard red theme (`#FF0000`) for the border, shadow, title, and link to match the Master Tour brand.
+    - *Update*: Replaced the EVA project image with `EVA2.JPG` and applied a slight zoom (`scale-125`) for better framing.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.

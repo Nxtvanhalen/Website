@@ -74,7 +74,7 @@ export default function FAQ() {
         <title>FAQ - CLB Consulting | AI Strategy & Entertainment Technology</title>
         <meta name="description" content="Frequently asked questions about CLB Consulting's AI integration services, team building solutions, and entertainment technology consulting." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
+
         {/* Open Graph tags */}
         <meta property="og:title" content="FAQ - CLB Consulting | AI Strategy & Entertainment Technology" />
         <meta property="og:description" content="Get answers about our AI consulting services, team building solutions, and entertainment technology expertise." />
@@ -96,7 +96,7 @@ export default function FAQ() {
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com/faq" />
-        
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -188,7 +188,7 @@ export default function FAQ() {
 
       {/* Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
-        <div 
+        <div
           className="absolute inset-0 bg-center bg-cover md:bg-fixed"
           style={{
             backgroundImage: "url('/images/parallax-bg1.jpeg')",
@@ -197,7 +197,7 @@ export default function FAQ() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
       </div>
-      
+
       <main className="min-h-screen bg-transparent text-white pt-52 px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header Section */}
@@ -205,9 +205,9 @@ export default function FAQ() {
             <h1 className="text-5xl md:text-6xl font-heading mb-6 glow-subtle">
               Frequently Asked Questions
             </h1>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{color: '#F5F5DC', opacity: 0.9}}>
-              <span className="font-bold" style={{color: '#F5F5DC'}}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</span> — 
-              Get answers about our approach to AI consulting, team building, and entertainment technology.
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: '#F5F5DC', opacity: 0.9 }}>
+              <span className="font-bold" style={{ color: '#F5F5DC' }}>Strategy Born from the Wreckage 🏚️, Intelligence Forged in the Fire 🔥</span> —
+              Get answers about AI consulting 🤖, team building 🤝, and entertainment tech 🎭.
             </p>
             <div className="mt-8 h-0.5 bg-molten mx-auto w-32 animate-pulse-width"></div>
           </div>
@@ -215,7 +215,7 @@ export default function FAQ() {
           {/* FAQ Items */}
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div 
+              <div
                 key={index}
                 className="bg-black/40 border border-molten/30 rounded-lg overflow-hidden backdrop-blur-sm hover:border-molten/50 transition-all duration-300"
               >
@@ -224,27 +224,25 @@ export default function FAQ() {
                   className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-molten/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-molten/50"
                   aria-expanded={openIndex === index}
                 >
-                  <h3 className="text-lg font-semibold pr-4 leading-relaxed" style={{color: '#F5F5DC'}}>
+                  <h3 className="text-lg font-semibold pr-4 leading-relaxed" style={{ color: '#F5F5DC' }}>
                     {faq.question}
                   </h3>
-                  <div className={`text-molten text-2xl font-bold transform transition-transform duration-200 flex-shrink-0 ${
-                    openIndex === index ? 'rotate-45' : ''
-                  }`}>
+                  <div className={`text-molten text-2xl font-bold transform transition-transform duration-200 flex-shrink-0 ${openIndex === index ? 'rotate-45' : ''
+                    }`}>
                     +
                   </div>
                 </button>
-                
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
-                }`}>
+
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}>
                   <div className="px-6 pb-5 pt-0">
                     <div className="border-t border-molten/20 pt-4">
-                      <p className="leading-relaxed" style={{color: '#F5F5DC', opacity: 0.9}}>
+                      <p className="leading-relaxed" style={{ color: '#F5F5DC', opacity: 0.9 }}>
                         {faq.answer}
                       </p>
                       {faq.category && (
                         <div className="mt-3">
-                          <span className="inline-block px-3 py-1 bg-molten/20 text-xs font-bold rounded-full" style={{color: '#F5F5DC'}}>
+                          <span className="inline-block px-3 py-1 bg-molten/20 text-xs font-bold rounded-full" style={{ color: '#F5F5DC' }}>
                             {faq.category}
                           </span>
                         </div>
@@ -258,20 +256,20 @@ export default function FAQ() {
 
           {/* Contact CTA */}
           <div className="mt-16 mb-24 text-center bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm">
-            <h2 className="text-3xl font-heading mb-4" style={{color: '#F5F5DC'}}>Still have questions?</h2>
-            <p className="text-lg mb-6 max-w-2xl mx-auto" style={{color: '#F5F5DC', opacity: 0.9}}>
-              Ready to discuss how CLB Consulting can transform your operations and empower your team? 
+            <h2 className="text-3xl font-heading mb-4" style={{ color: '#F5F5DC' }}>Still have questions?</h2>
+            <p className="text-lg mb-6 max-w-2xl mx-auto" style={{ color: '#F5F5DC', opacity: 0.9 }}>
+              Ready to discuss how CLB Consulting can transform your operations and empower your team?
               Let's start the conversation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a 
+              <a
                 href="mailto:chrisleebergstrom@gmail.com?subject=FAQ Follow-up - Let's Discuss Your Project"
                 className="inline-block py-3 px-8 bg-transparent border border-molten text-molten font-bold rounded hover:bg-molten/10 hover:text-white transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
               >
                 Get in Touch
               </a>
               <span className="text-white/60">or</span>
-              <a 
+              <a
                 href="/#eve-chat"
                 className="inline-block py-3 px-8 bg-molten/20 border border-molten text-white font-bold rounded hover:bg-molten/30 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
               >
