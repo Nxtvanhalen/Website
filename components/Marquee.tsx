@@ -404,7 +404,7 @@ export default function Marquee() {
               "I build systems where art and technology work together"
             </p>
             <p>
-              I started in the deep end of live sound 🔊, chasing perfect harmony, phase, and the science of acoustics. Decades later, I've led crews 👥, built production infrastructures 🏗️, and rescued venues from chaos. Whether it's an international tour 🌍, a citywide cultural system 🏙️, or a failing arts organization, I find the signal in the noise 📡 and make it sing 🎶.
+              I started in the deep end of live sound 🔊, chasing perfect harmony, phase, and the science of acoustics. Decades later, I've led crews 👥, built production infrastructures 🏗️, and rescued venues from chaos. Whether it's an international tour 🌍, a citywide cultural system 🏙️, or a failing arts organization 🎭, I find the signal in the noise 📡 and make it sing 🎶.
             </p>
 
             {/* XL4 Image Section */}
