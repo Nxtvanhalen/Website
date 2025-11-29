@@ -175,6 +175,52 @@ export default function Marquee() {
 
           {/* Three boxes layout */}
           <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
+            {/* Center box - rotating content with Motion animations */}
+            <div
+              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[300px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row justify-between items-center gap-4 lg:gap-2 relative overflow-hidden"
+              role="region"
+              aria-label="Rotating consultation offers"
+              aria-live="polite"
+            >
+              <div className="w-1/2 flex flex-col justify-center">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={currentBox}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.4, 0.0, 0.2, 1] // Custom easing for smooth motion
+                    }}
+                  >
+                    <div className="text-sm lg:text-xs font-bold mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>{boxes[currentBox].title}</div>
+                    <div className="text-xs lg:text-[10px] leading-tight opacity-80 mb-2 lg:mb-2" style={{ color: '#F5F5DC' }}>{boxes[currentBox].description}</div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+              <div className="w-1/2 flex flex-col justify-center items-center gap-2">
+                <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0">
+                  <Image
+                    src="/images/profile/chris-profile.jpg"
+                    alt="Chris Lee Bergstrom"
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <motion.a
+                  href="mailto:chrisleebergstrom@gmail.com?subject=Consultation Inquiry"
+                  className="block w-full py-1.5 px-2 bg-transparent border border-molten text-molten text-[10px] lg:text-xs rounded text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+                  aria-label="Contact Chris for consultation"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  Reach out!
+                </motion.a>
+                <div className="text-[9px] lg:text-[10px] text-center leading-tight break-all" style={{ color: '#F5F5DC', opacity: 0.6 }}>chrisleebergstrom@gmail.com</div>
+              </div>
+            </div>
+
             {/* Left box */}
             <div
               className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[300px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row justify-between items-center gap-4 lg:gap-2"
@@ -212,52 +258,6 @@ export default function Marquee() {
                 <p className="text-[10px] lg:text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
                   This is actively being developed in the open for everyone to be apart of the process! Please reach out with any issues or suggestions!
                 </p>
-              </div>
-            </div>
-
-            {/* Center box - rotating content with Motion animations */}
-            <div
-              className="bg-black/30 border-2 border-purple-400 rounded-lg p-4 w-full max-w-[340px] lg:w-[300px] h-[220px] backdrop-blur-sm shadow-lg flex flex-row justify-between items-center gap-4 lg:gap-2 relative overflow-hidden"
-              role="region"
-              aria-label="Rotating consultation offers"
-              aria-live="polite"
-            >
-              <div className="w-1/2 flex flex-col justify-center">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={currentBox}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{
-                      duration: 0.5,
-                      ease: [0.4, 0.0, 0.2, 1] // Custom easing for smooth motion
-                    }}
-                  >
-                    <div className="text-xs lg:text-[10px] font-bold mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>{boxes[currentBox].title}</div>
-                    <div className="text-[10px] lg:text-[9px] leading-tight opacity-80 mb-2 lg:mb-2" style={{ color: '#F5F5DC' }}>{boxes[currentBox].description}</div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-              <div className="w-1/2 flex flex-col justify-center items-center gap-2">
-                <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0">
-                  <Image
-                    src="/images/profile/chris-profile.jpg"
-                    alt="Chris Lee Bergstrom"
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                <motion.a
-                  href="mailto:chrisleebergstrom@gmail.com?subject=Consultation Inquiry"
-                  className="block w-full py-1.5 px-2 bg-transparent border border-molten text-molten text-[10px] lg:text-xs rounded text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
-                  aria-label="Contact Chris for consultation"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  Reach out!
-                </motion.a>
-                <div className="text-[9px] lg:text-[10px] text-center leading-tight break-all" style={{ color: '#F5F5DC', opacity: 0.6 }}>chrisleebergstrom@gmail.com</div>
               </div>
             </div>
 

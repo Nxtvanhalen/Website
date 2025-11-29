@@ -34,6 +34,8 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Update*: Increased desktop box width to `300px` to relieve cramping in the horizontal layout.
     - *Update*: Matched font sizes in the center Marquee box to the outer boxes for visual consistency.
     - *Update*: Changed mobile theme color and background to `#000000` (Black) to eliminate grey bars on overscroll.
+    - *Update*: Swapped the positions of the LogiRoute and Consultation boxes. New order: Consultation -> LogiRoute -> Chester.
+    - *Update*: Increased font size of the scrolling text in the "Reach out" box to better fill vertical space.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.
