@@ -74,7 +74,7 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Feature*: Upgraded EVE to a persistent, floating chat widget (`PersistentChat.tsx`) that stays active across all pages.
     - *Update*: Removed the static chat panel from the homepage and updated the "Ask EVE" section to open the global chat widget.
     - *Update*: Added LocalStorage persistence to the chat, ensuring conversation history is preserved across page navigations and reloads.
-    - *Feature*: Added a "video game style" notification ("Incoming Transmission...") that appears on the first visit to introduce EVE.
+    - *Feature*: Added a "video game style" notification ("Incoming Transmission...") that appears on the first visit to introduce EVE and her capabilities (GPT-5.1).
     - *Fix*: Adjusted chat widget z-index, strictly constrained height (`max-h-[calc(100vh-180px)]`), and positioned the icon slightly off-screen for a sleek "peeking" effect.
     - *Style*: Updated the chat icon with a purple border and an intensified pulsing glow animation (35px spread, 1.5s duration) to ensure high visibility.
     - *Interaction*: Added a hover tooltip ("Chat with EVE") that floats above the icon to clarify its purpose.

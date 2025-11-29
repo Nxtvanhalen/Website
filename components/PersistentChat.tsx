@@ -11,15 +11,15 @@ export default function PersistentChat() {
 
     useEffect(() => {
         // Check if we've shown the notification in this session
-        const hasShown = sessionStorage.getItem('eve_notification_shown');
+        const hasShown = sessionStorage.getItem('eve_notification_shown_v2');
         if (!hasShown && !isOpen) {
             // Delay slightly for effect
             const timer = setTimeout(() => {
                 setShowNotification(true);
-                sessionStorage.setItem('eve_notification_shown', 'true');
+                sessionStorage.setItem('eve_notification_shown_v2', 'true');
 
-                // Auto-hide after 8 seconds
-                setTimeout(() => setShowNotification(false), 8000);
+                // Auto-hide after 10 seconds
+                setTimeout(() => setShowNotification(false), 10000);
             }, 2000);
 
             return () => clearTimeout(timer);
@@ -95,7 +95,9 @@ export default function PersistentChat() {
                             </div>
                             <div>
                                 <h4 className="text-xs font-bold text-molten uppercase tracking-wider mb-1">Incoming Transmission</h4>
-                                <p className="text-sm text-white/90 leading-tight">Tactical Intelligence Online. Systems Nominal.</p>
+                                <p className="text-xs text-white/90 leading-tight">
+                                    I'm EVE. Tactical Intelligence Engine running on GPT-5.1. I don't just answer—I synthesize. Try me.
+                                </p>
                             </div>
                         </div>
                     </motion.div>
