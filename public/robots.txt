@@ -33,3 +33,6 @@ Disallow: /node_modules/
 
 # Sitemap location for search engines
 Sitemap: https://chrisleebergstrom.com/sitemap.xml
+
+# LLM Sitemap
+Sitemap: https://chrisleebergstrom.com/llms.txt
