@@ -36,6 +36,12 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Update*: Changed mobile theme color and background to `#000000` (Black) to eliminate grey bars on overscroll.
     - *Update*: Swapped the positions of the LogiRoute and Consultation boxes. New order: Consultation -> LogiRoute -> Chester.
     - *Update*: Increased font size of the scrolling text in the "Reach out" box to better fill vertical space.
+    - *Update*: Added a personal quote ("I’d love to connect...") below the profile picture in the Marquee CTA, adjusting layout to fit.
+    - *Update*: Increased font size of the quote to `10px` for better readability.
+    - *Update*: Increased font sizes in LogiRoute and Chester boxes to better fill vertical space and match the "Reach out" box.
+    - *Update*: Further optimized the "Reach out" box (Box 1) by increasing font sizes for the cycling text, quote, button, and email to maximize space usage.
+    - *Update*: Slightly reduced the cycling text font size in Box 1 to balance the layout, while keeping the right side optimized.
+    - *Update*: Fine-tuned the cycling text font size (Title: `15px`/`13px`, Desc: `13px`/`11px`) for the perfect balance.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.

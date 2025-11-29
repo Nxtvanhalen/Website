@@ -194,24 +194,27 @@ export default function Marquee() {
                       ease: [0.4, 0.0, 0.2, 1] // Custom easing for smooth motion
                     }}
                   >
-                    <div className="text-sm lg:text-xs font-bold mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>{boxes[currentBox].title}</div>
-                    <div className="text-xs lg:text-[10px] leading-tight opacity-80 mb-2 lg:mb-2" style={{ color: '#F5F5DC' }}>{boxes[currentBox].description}</div>
+                    <div className="text-[15px] lg:text-[13px] font-bold mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>{boxes[currentBox].title}</div>
+                    <div className="text-[13px] lg:text-[11px] leading-tight opacity-80 mb-2 lg:mb-2" style={{ color: '#F5F5DC' }}>{boxes[currentBox].description}</div>
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <div className="w-1/2 flex flex-col justify-center items-center gap-2">
-                <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0">
+              <div className="w-1/2 flex flex-col justify-center items-center gap-1">
+                <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0">
                   <Image
                     src="/images/profile/chris-profile.jpg"
                     alt="Chris Lee Bergstrom"
-                    width={64}
-                    height={64}
+                    width={56}
+                    height={56}
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
+                <p className="text-xs lg:text-[11px] text-center leading-tight italic" style={{ color: '#F5F5DC', opacity: 0.9 }}>
+                  "I’d love to connect and explore how I can help you bring your next idea to life!"
+                </p>
                 <motion.a
                   href="mailto:chrisleebergstrom@gmail.com?subject=Consultation Inquiry"
-                  className="block w-full py-1.5 px-2 bg-transparent border border-molten text-molten text-[10px] lg:text-xs rounded text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+                  className="block w-full py-1 px-2 bg-transparent border border-molten text-molten text-xs lg:text-[11px] rounded text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
                   aria-label="Contact Chris for consultation"
                   whileHover={{ scale: 1.1 }}
                 >
@@ -242,7 +245,7 @@ export default function Marquee() {
                 />
               </motion.div>
               <div className="w-1/2 flex flex-col justify-center">
-                <div className="text-xs lg:text-[10px] font-bold italic text-center mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
+                <div className="text-sm lg:text-xs font-bold italic text-center mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
                 <motion.a
                   href="https://logi-route-a9c09ae8.base44.app/login?from_url=https%3A%2F%2Flogi-route-a9c09ae8.base44.app%2F"
                   target="_blank"
@@ -255,7 +258,7 @@ export default function Marquee() {
                 >
                   LogiRoute
                 </motion.a>
-                <p className="text-[10px] lg:text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
+                <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
                   This is actively being developed in the open for everyone to be apart of the process! Please reach out with any issues or suggestions!
                 </p>
               </div>
@@ -282,7 +285,7 @@ export default function Marquee() {
                 />
               </motion.div>
               <div className="w-1/2 flex flex-col justify-center">
-                <div className="text-xs lg:text-[10px] font-bold italic text-center mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
+                <div className="text-sm lg:text-xs font-bold italic text-center mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
                 <motion.a
                   href="https://ai-chess-cfah.onrender.com"
                   target="_blank"
@@ -295,7 +298,7 @@ export default function Marquee() {
                 >
                   Play Chester
                 </motion.a>
-                <p className="text-[10px] lg:text-[9px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
+                <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
                   Challenge the AI. Built in public to explore game theory and React performance.
                 </p>
               </div>
