@@ -1,121 +1,27 @@
-# Motion Effects Implementation Walkthrough
+# Walkthrough - Middleware Security Update
 
-## Overview
-I have enhanced the website with Framer Motion animations to create a more dynamic and premium user experience. The changes cover page transitions, scroll effects, and micro-interactions.
+## Changes
 
-## Changes Implemented
+### `middleware.ts`
 
-### 1. Page Transitions (`pages/_app.tsx`)
-- **Change**: Wrapped the main `Component` with `AnimatePresence`.
-- **Effect**: Pages now smoothy fade in and out when navigating, rather than abruptly switching.
-- **Verification**: Navigate between any pages (e.g., Home -> About) and observe the smooth opacity transition.
+#### [MODIFY] [middleware.ts](file:///Users/chrisbergstrom/WEBSITE/middleware.ts)
+- **Updated `BLOCKED_IPS`**: Added `208.84.101.102` and `106.196.84.153`.
+- **Updated `BLOCKED_USER_AGENTS`**: Added `VertexWP`, `Go-http-client`, `Python/3.10`, `aiohttp`, `httpx`, `python-httpx`, `curl`, `wget`.
+- **Added `BLOCKED_PATHS`**: New check for paths like `/wp-admin`, `/xmlrpc.php`, `/.env`, etc.
+- **Updated `DATA_CENTER_RANGES`**: Refined the list for fake mobile detection.
+- **Logic Updates**: Implemented the check for `BLOCKED_PATHS`.
 
-### 2. Header Animations (`components/Header.tsx`)
-- **Change**: Converted `<header>` to `<motion.header>`.
-- **Effect**:
-    - The header background becomes translucent and blurs as you scroll down.
-    - Navigation links have a hover effect (scale up).
-    - The logo and profile picture have subtle entrance animations.
-- **Verification**: Scroll down on any page and watch the header background change. Hover over nav links.
-    - *Update*: Removed conflicting CSS hover effects (glitch/transform) to ensure smooth Framer Motion scaling.
+## Verification Results
 
-### 3. Hero Section (`pages/index.tsx`)
-- **Change**: Added staggered entrance animations for the name, logo, and "Enter" button.
-- **Effect**: Elements fade in one by one. The "Enter" button has a magnetic effect that follows the mouse cursor slightly.
-- **Verification**: Refresh the landing page. Move the mouse near the "Enter" button to see the magnetic pull.
-    - *Update*: Changed Marquee CTA text to "Reach out!" and switched to Framer Motion scaling for consistency with header tabs.
-    - *Update*: Added descriptive text to LogiRoute and Chester boxes, adjusting layout to fit within fixed dimensions.
-    - *Update*: Optimized mobile layout by increasing box width (`max-w-[340px]`) and font size (`text-[11px]`) for better readability.
-    - *Update*: Switched Marquee CTA boxes to a horizontal layout (`flex-row`) on mobile to utilize space better and allow for larger text/images.
-    - *Update*: Changed mobile image sizing to `object-contain` to prevent excessive zooming/cropping on landscape images in portrait containers.
-    - *Update*: Added profile picture to the center Marquee box, stacking it with the "Reach out!" button and email for a more personal touch.
-    - *Update*: Increased profile picture size in the Marquee CTA box (`w-14` mobile, `w-16` desktop) for better visibility.
-    - *Update*: Unified Marquee layout to be horizontal (Image Left | Text Right) on **all** screen sizes, ensuring consistent design across mobile and desktop.
-    - *Update*: Increased desktop box width to `300px` to relieve cramping in the horizontal layout.
-    - *Update*: Matched font sizes in the center Marquee box to the outer boxes for visual consistency.
-    - *Update*: Changed mobile theme color and background to `#000000` (Black) to eliminate grey bars on overscroll.
-    - *Update*: Swapped the positions of the LogiRoute and Consultation boxes. New order: Consultation -> LogiRoute -> Chester.
-    - *Update*: Increased font size of the scrolling text in the "Reach out" box to better fill vertical space.
-    - *Update*: Added a personal quote ("I’d love to connect...") below the profile picture in the Marquee CTA, adjusting layout to fit.
-    - *Update*: Increased font size of the quote to `10px` for better readability.
-    - *Update*: Increased font sizes in LogiRoute and Chester boxes to better fill vertical space and match the "Reach out" box.
-    - *Update*: Further optimized the "Reach out" box (Box 1) by increasing font sizes for the cycling text, quote, button, and email to maximize space usage.
-    - *Update*: Slightly reduced the cycling text font size in Box 1 to balance the layout, while keeping the right side optimized.
-    - *Update*: Fine-tuned the cycling text font size (Title: `15px`/`13px`, Desc: `13px`/`11px`) for the perfect balance.
-    - *Update*: Replaced "Building in Public Beta" with the profile picture in LogiRoute and Chester boxes.
-    - *Update*: Styled the description text in LogiRoute and Chester boxes as personal quotes (italicized and quoted).
-    - *Update*: Aligned profile pictures in all three boxes by anchoring them to the top with consistent padding, ensuring they are perfectly level.
-    - *Update*: Refactored Marquee box styles into a reusable constant with 4 experimental options (Current, Modern Glass, Neon Glow, Minimal Dark) for easy theme switching.
-    - *Update*: Activated "Neon Molten Glow" style (Option 3) and customized it with a purple glow (`#9370DB`) and semi-transparent background (`bg-black/60`) to match the site theme.
-    - *Update*: Refactored Marquee title styles into a reusable constant with 4 experimental options (Plain, Cinematic, Hollow, Gradient). Activated "Cinematic Wide" (Option 2) for a premium editorial look.
-    - *Update*: Optimized mobile layout by reducing the top padding (`pt-32`) to close the gap between the header and profile picture, while maintaining spacious padding (`md:pt-52`) on desktop.
-    - *Update*: Reduced mobile header padding to `10px` (from `20px`) to decrease header height and prevent overlap with the profile picture.
-    - *Update*: Corrected typo in the main quote: "advancement of society" -> "advancement of a society".
-    - *Update*: Added a circular profile picture (`BRMC2.webp`) with a purple glow below the main quote.
-    - *Update*: Updated the "I build systems" text to be italicized, quoted, and shortened to: "I build systems where art and technology work together".
-    - *Update*: Removed the text "I'm not just an engineer — I'm a builder of ecosystems." to streamline the content.
-    - *Update*: Removed the text "Because the advancement of art is the advancement of society." to avoid redundancy.
-    - *Update*: Refined the text "make it sing again" to "make it sing".
-    - *Update*: Added relevant emojis (🔊, 👥, 🏗️, 🌍, 🏙️, 📡, 🎶) to the bio text to enhance visual appeal.
-    - *Update*: Rewrote the "From world tours..." paragraph to be concise and emoji-rich: "I lead under pressure ⚡, turn inefficiency into momentum 🚀, and bring harmony back to the process ☯️."
-    - *Update*: Rewrote the closing paragraph to be punchy and emoji-rich: "If you're ready to rebuild something real 🏗️ — let's talk 💬. I don't do 'culture by committee' 🚫. I do the work that makes art feel alive again ✨."
-    - *Update*: Upgraded the FAQ page header text with emojis and punchier phrasing: "Strategy Born from the Wreckage 🏚️, Intelligence Forged in the Fire 🔥..."
-    - *Update*: Refined all project descriptions on the Projects page to be concise, impactful, and emoji-rich (e.g., "The next evolution of tech pack data 🎸", "Cloud-based SPL monitoring 🏗️").
-    - *Update*: Added a "Chat with Ryder now! →" link to the R.Y.D.E.R. project card, pointing to `https://ryder-k6er.onrender.com`.
-    - *Update*: Styled the R.Y.D.E.R. project card with a neon green theme (`#00ff00`) for the border, shadow, title, and link to match the Ryder brand.
-    - *Update*: Styled the Master Tour project card with a standard red theme (`#FF0000`) for the border, shadow, title, and link to match the Master Tour brand.
-    - *Update*: Replaced the EVA project image with `EVA2.JPG` and applied a slight zoom (`scale-125`) for better framing.
-    - *Update*: Removed the animated line below "A more raw and unfiltered forum" on the Musings page for a cleaner look.
-    - *Update*: Added a "Check out the Stack! →" link and a clickable Substack icon to the Musings page header, both with Framer Motion hover effects and a continuous heartbeat pulse.
-    - *Update*: Applied a vibrant rainbow gradient theme to the Substack icon.
-    - *Update*: Tightened the spacing in the Musings page header and removed the redundant "Latest Musings" section title.
-    - *Update*: Removed the profile picture from the Musings page header as per user request.
-    - *Update*: Refined the EVE section text on the homepage to be less "cheesy", added emojis, highlighted her advanced capabilities (GPT-5.1), and added a playful "She doesn't bite... much" closing.
-    - *Feature*: Upgraded EVE to a persistent, floating chat widget (`PersistentChat.tsx`) that stays active across all pages.
-    - *Update*: Removed the static chat panel from the homepage and updated the "Ask EVE" section to open the global chat widget.
-    - *Update*: Added LocalStorage persistence to the chat, ensuring conversation history is preserved across page navigations and reloads.
-    - *Feature*: Added a "video game style" notification ("Incoming Transmission...") that appears on the first visit to introduce EVE and her capabilities (GPT-5.1).
-    - *Fix*: Adjusted chat widget z-index, strictly constrained height (`max-h-[calc(100vh-180px)]`), and positioned the icon slightly off-screen for a sleek "peeking" effect.
-    - *Style*: Updated the chat icon with a purple border and an intensified pulsing glow animation (35px spread, 1.5s duration) to ensure high visibility.
-    - *Interaction*: Added a hover tooltip ("Chat with EVE") that floats above the icon to clarify its purpose.
+### Automated Tests
+- **Build Verification**: Ran `npm run build` successfully.
+    - Result: `Exit code: 0`
+    - Middleware size: `26.8 kB`
 
-### 4. About Page (`pages/about.tsx`)
-- **Change**: Added scroll-triggered animations.
-- **Effect**: The profile picture and "Core Expertise" cards fade in and slide up as you scroll down.
-- **Verification**: Scroll down the About page and observe elements appearing.
-
-### 5. Projects Page (`pages/projects.tsx`)
-- **Change**: Implemented a staggered list animation.
-- **Effect**: Project cards appear one after another in a cascade effect when the page loads or is scrolled into view.
-- **Verification**: Go to the Projects page and watch the cards load in sequence.
-
-### 6. News Page (`pages/news.tsx`)
-- **Change**: Added staggered entrance animations for news items.
-- **Effect**: Similar to the projects page, news articles fade in sequentially.
-- **Verification**: Visit the News page.
-
-## Verification Status
-- **Build**: `npm run build` passed successfully.
-- **Type Check**: TypeScript validation passed.
-
-## Next Steps
-- The user can now preview these changes in their local development environment (`npm run dev`).
-- Further fine-tuning of animation timings can be done based on user preference.
-
-### 7. EVE Context Awareness & Butler Mode
-- **Feature**: Refined EVE's "Butler Mode" to be smarter and less intrusive.
-- **Change**: 
-    - **Centered Trigger**: EVE now only comments when a section is in the **middle 20%** of the screen (using `margin: "-40% 0px -40% 0px"`), ensuring relevance to what you're actually looking at.
-    - **Faster Response**: Reduced the "linger duration" from 10s to **4s** for snappier feedback.
-    - **UI Polish**:
-        - **Purple Theme**: Changed the notification strip and accents to the site's signature purple (`#9370DB`).
-        - **Softer Corners**: Updated the notification box with `rounded-xl` for a more modern, friendly look.
-        - **Thinking Indicator**: Added a 1-second "thinking" state (spinning loader + "Processing...") before the message appears to simulate real-time analysis.
-        - **Reduced Duration**: Shortened the message display time to **7 seconds** (plus 1s thinking time) to keep it brief.
-- **Coverage**: Integrated `SectionTracker` with custom `butlerMessage` props across:
-    - **Projects Page**: Specific insights for each project card (Remote SPL, Byte, Glytch, etc.).
-    - **News Page**: Comments on podcast features, articles, and contact info.
-    - **FAQ Page**: Offers to help answer questions or provide witty retorts.
-    - **Blog Page**: Introduces the "Musings" section and encourages subscription.
-    - **About Page**: Provides context on Chris's background and expertise.
-- **Verification**: Scroll slowly through any of these pages and linger on a section for 4 seconds to see EVE's proactive insights.
+### Manual Verification
+- **Code Review**: Verified that the new arrays and logic are correctly implemented in `middleware.ts`.
+- **Logic Check**:
+    - IPs in `BLOCKED_IPS` will return 403 "Access Denied".
+    - User Agents in `BLOCKED_USER_AGENTS` will return 403 "Bot Detected".
+    - Paths in `BLOCKED_PATHS` will return 403 "Invalid Request".
+    - Fake Mobile (Mobile UA + Data Center IP) will return 403 "VPN/Proxy Detected".
