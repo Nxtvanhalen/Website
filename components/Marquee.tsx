@@ -199,7 +199,7 @@ export default function Marquee() {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <div className="w-1/2 flex flex-col justify-center items-center gap-1">
+              <div className="w-1/2 flex flex-col justify-start items-center gap-1 pt-4">
                 <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0">
                   <Image
                     src="/images/profile/chris-profile.jpg"
@@ -244,8 +244,16 @@ export default function Marquee() {
                   quality={75}
                 />
               </motion.div>
-              <div className="w-1/2 flex flex-col justify-center">
-                <div className="text-sm lg:text-xs font-bold italic text-center mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
+              <div className="w-1/2 flex flex-col justify-start items-center pt-4">
+                <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0 mb-1">
+                  <Image
+                    src="/images/profile/chris-profile.jpg"
+                    alt="Chris Lee Bergstrom"
+                    width={56}
+                    height={56}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
                 <motion.a
                   href="https://logi-route-a9c09ae8.base44.app/login?from_url=https%3A%2F%2Flogi-route-a9c09ae8.base44.app%2F"
                   target="_blank"
@@ -258,8 +266,8 @@ export default function Marquee() {
                 >
                   LogiRoute
                 </motion.a>
-                <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
-                  This is actively being developed in the open for everyone to be apart of the process! Please reach out with any issues or suggestions!
+                <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
+                  "This is actively being developed in the open for everyone to be apart of the process! Please reach out with any issues or suggestions!"
                 </p>
               </div>
             </div>
@@ -284,8 +292,16 @@ export default function Marquee() {
                   quality={75}
                 />
               </motion.div>
-              <div className="w-1/2 flex flex-col justify-center">
-                <div className="text-sm lg:text-xs font-bold italic text-center mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>Building in Public Beta</div>
+              <div className="w-1/2 flex flex-col justify-start items-center pt-4">
+                <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0 mb-1">
+                  <Image
+                    src="/images/profile/chris-profile.jpg"
+                    alt="Chris Lee Bergstrom"
+                    width={56}
+                    height={56}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
                 <motion.a
                   href="https://ai-chess-cfah.onrender.com"
                   target="_blank"
@@ -298,8 +314,8 @@ export default function Marquee() {
                 >
                   Play Chester
                 </motion.a>
-                <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80" style={{ color: '#F5F5DC' }}>
-                  Challenge the AI. Built in public to explore game theory and React performance.
+                <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
+                  "Challenge the AI. Built in public to explore game theory and React performance."
                 </p>
               </div>
             </div>

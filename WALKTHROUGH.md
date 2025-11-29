@@ -42,6 +42,9 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Update*: Further optimized the "Reach out" box (Box 1) by increasing font sizes for the cycling text, quote, button, and email to maximize space usage.
     - *Update*: Slightly reduced the cycling text font size in Box 1 to balance the layout, while keeping the right side optimized.
     - *Update*: Fine-tuned the cycling text font size (Title: `15px`/`13px`, Desc: `13px`/`11px`) for the perfect balance.
+    - *Update*: Replaced "Building in Public Beta" with the profile picture in LogiRoute and Chester boxes.
+    - *Update*: Styled the description text in LogiRoute and Chester boxes as personal quotes (italicized and quoted).
+    - *Update*: Aligned profile pictures in all three boxes by anchoring them to the top with consistent padding, ensuring they are perfectly level.
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.
