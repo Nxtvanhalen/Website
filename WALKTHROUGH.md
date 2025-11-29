@@ -50,6 +50,15 @@ I have enhanced the website with Framer Motion animations to create a more dynam
     - *Update*: Refactored Marquee title styles into a reusable constant with 4 experimental options (Plain, Cinematic, Hollow, Gradient). Activated "Cinematic Wide" (Option 2) for a premium editorial look.
     - *Update*: Optimized mobile layout by reducing the top padding (`pt-32`) to close the gap between the header and profile picture, while maintaining spacious padding (`md:pt-52`) on desktop.
     - *Update*: Reduced mobile header padding to `10px` (from `20px`) to decrease header height and prevent overlap with the profile picture.
+    - *Update*: Corrected typo in the main quote: "advancement of society" -> "advancement of a society".
+    - *Update*: Added a circular profile picture (`BRMC2.webp`) with a purple glow below the main quote.
+    - *Update*: Updated the "I build systems" text to be italicized, quoted, and shortened to: "I build systems where art and technology work together".
+    - *Update*: Removed the text "I'm not just an engineer — I'm a builder of ecosystems." to streamline the content.
+    - *Update*: Removed the text "Because the advancement of art is the advancement of society." to avoid redundancy.
+    - *Update*: Refined the text "make it sing again" to "make it sing".
+    - *Update*: Added relevant emojis (🔊, 👥, 🏗️, 🌍, 🏙️, 📡, 🎶) to the bio text to enhance visual appeal.
+    - *Update*: Rewrote the "From world tours..." paragraph to be concise and emoji-rich: "I lead under pressure ⚡, turn inefficiency into momentum 🚀, and bring harmony back to the process ☯️."
+    - *Update*: Rewrote the closing paragraph to be punchy and emoji-rich: "If you're ready to rebuild something real 🏗️ — let's talk 💬. I don't do 'culture by committee' 🚫. I do the work that makes art feel alive again ✨."
 
 ### 4. About Page (`pages/about.tsx`)
 - **Change**: Added scroll-triggered animations.

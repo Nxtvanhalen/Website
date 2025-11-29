@@ -358,17 +358,30 @@ export default function Marquee() {
           </div>
         </div>
         <p className="text-xl font-body italic text-center mb-8 max-w-2xl opacity-90" style={{ color: '#F5F5DC' }}>
-          "The advancement of the arts is directly related to the advancement of society"
+          "The advancement of the arts is directly related to the advancement of a society"
         </p>
+
+        {/* BRMC2 Circular Image */}
+        <div className="flex justify-center mb-8">
+          <div className="w-24 h-24 rounded-full border-2 border-molten/50 overflow-hidden relative shadow-[0_0_15px_rgba(147,112,219,0.3)]">
+            <Image
+              src="/images/gallery/BRMC2.webp"
+              alt="Chris Lee Bergstrom - BRMC"
+              width={96}
+              height={96}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
 
         {/* Who Is Chris Lee Bergstrom section with pulsing line - Mobile responsive */}
         <div className="relative mb-16 mx-auto max-w-4xl px-4">
           <div className="text-base font-body opacity-90 leading-relaxed space-y-6" style={{ color: '#F5F5DC' }}>
-            <p className="font-semibold text-lg">
-              I build systems where art and technology work in sync — because I've lived both sides.
+            <p className="font-semibold text-lg italic">
+              "I build systems where art and technology work together"
             </p>
             <p>
-              I started in the deep end of live sound, chasing perfect harmony, phase, and the science of acoustics. Decades later, I've led crews, built production infrastructures, and rescued venues from chaos. Whether it's an international tour, a citywide cultural system, or a failing arts organization, I find the signal in the noise and make it sing again.
+              I started in the deep end of live sound 🔊, chasing perfect harmony, phase, and the science of acoustics. Decades later, I've led crews 👥, built production infrastructures 🏗️, and rescued venues from chaos. Whether it's an international tour 🌍, a citywide cultural system 🏙️, or a failing arts organization, I find the signal in the noise 📡 and make it sing 🎶.
             </p>
 
             {/* XL4 Image Section */}
@@ -402,11 +415,8 @@ export default function Marquee() {
               </p>
             </div>
 
-            <p className="font-semibold text-lg">
-              I'm not just an engineer — I'm a builder of ecosystems.
-            </p>
             <p>
-              From world tours to public venues, I've learned how to lead under pressure, turn inefficiency into momentum, and bring artists, technicians, and institutions back into harmony.
+              I lead under pressure ⚡, turn inefficiency into momentum 🚀, and bring harmony back to the process ☯️.
             </p>
 
             {/* PNW Image Section */}
@@ -440,11 +450,8 @@ export default function Marquee() {
               </p>
             </div>
 
-            <p className="font-semibold text-lg">
-              Because the advancement of art is the advancement of society.
-            </p>
             <p>
-              If you're ready to rebuild something real — your venue, your culture strategy, your live systems — let's talk. I don't do "arts and culture" by committee. I do the work that makes art feel alive again.
+              If you're ready to rebuild something real 🏗️ — let's talk 💬. I don't do "culture by committee" 🚫. I do the work that makes art feel alive again ✨.
             </p>
           </div>
         </div>
