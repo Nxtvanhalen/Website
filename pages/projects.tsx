@@ -57,41 +57,94 @@ export default function Projects() {
                 "@id": "https://chrisleebergstrom.com/#organization",
                 "name": "CLB Consulting"
               },
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://chrisleebergstrom.com"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Projects",
+                    "item": "https://chrisleebergstrom.com/projects"
+                  }
+                ]
+              },
               "hasPart": [
                 {
                   "@type": "SoftwareApplication",
                   "name": "Master Tour Venue",
                   "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web Browser, iOS, Android",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  },
                   "description": "The next evolution of tech pack data for venues and artists"
                 },
                 {
                   "@type": "SoftwareApplication",
                   "name": "AI Powered Remote SPL",
                   "applicationCategory": "UtilityApplication",
+                  "operatingSystem": "Web Browser",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  },
                   "description": "Cloud-based SPL monitoring for events and construction"
                 },
                 {
                   "@type": "SoftwareApplication",
                   "name": "EVA — Events Virtual Assistant",
                   "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web Browser",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  },
                   "description": "Logistics, routing, and crew management AI"
                 },
                 {
                   "@type": "SoftwareApplication",
                   "name": "R.Y.D.E.R.",
                   "applicationCategory": "HealthApplication",
+                  "operatingSystem": "Web Browser",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  },
                   "description": "Mental Health AI for Creatives"
                 },
                 {
                   "@type": "SoftwareApplication",
                   "name": "EVE",
                   "applicationCategory": "Bot",
+                  "operatingSystem": "Web Browser",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  },
                   "description": "Conversational AI for CLB Consulting"
                 },
                 {
                   "@type": "SoftwareApplication",
                   "name": "Byte",
                   "applicationCategory": "Bot",
+                  "operatingSystem": "Web Browser",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  },
                   "description": "Voice-to-Voice Semantic Research Agent"
                 }
               ]

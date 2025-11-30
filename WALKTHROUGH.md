@@ -8,6 +8,7 @@
 - **Notification System (Smart Queue)**: Implemented a global cooldown to prevent stacked notifications on desktop while maintaining responsiveness on mobile.
 - **UI Enhancements**: Expanded chat header with "System v2.0", "Air-Gapped" status, and capabilities list.
 - **Security**: Implemented Content Security Policy (CSP) to prevent XSS and unauthorized resource loading.
+- **SEO & Schema**: Added `BreadcrumbList` to Projects page and upgraded Splash page (`/`) schema to full `LocalBusiness` rich results.
 - **Bug Fixes**: Patched Service Worker to ignore POST requests; Fixed notification race conditions.
 
 ## Overview

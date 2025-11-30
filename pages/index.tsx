@@ -46,7 +46,7 @@ export default function Landing() {
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com" />
 
-        {/* JSON-LD Structured Data */}
+        {/* JSON-LD Structured Data for AI understanding */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -54,17 +54,129 @@ export default function Landing() {
               "@context": "https://schema.org",
               "@graph": [
                 {
-                  "@type": "Organization",
+                  "@type": ["Organization", "LocalBusiness"],
                   "@id": "https://chrisleebergstrom.com/#organization",
                   "name": "CLB Consulting",
+                  "alternateName": ["CLB Consultancy", "Chris Lee Bergstrom Consulting"],
                   "url": "https://chrisleebergstrom.com",
-                  "logo": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg"
+                  },
+                  "image": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
+                  "description": "CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom, specializing in AI-driven solutions for entertainment, hospitality, and live events industry",
+                  "slogan": "Strategy Born from the Wreckage, Intelligence Forged in the Fire",
+                  "founder": {
+                    "@type": "Person",
+                    "@id": "https://chrisleebergstrom.com/about#person",
+                    "name": "Chris Lee Bergstrom"
+                  },
+                  "owner": {
+                    "@type": "Person",
+                    "@id": "https://chrisleebergstrom.com/about#person",
+                    "name": "Chris Lee Bergstrom"
+                  },
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "email": "chrisleebergstrom@gmail.com",
+                    "contactType": "Business Inquiries",
+                    "availableLanguage": "English"
+                  },
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "US"
+                  },
+                  "priceRange": "$$$",
+                  "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                  },
                   "sameAs": [
                     "https://www.linkedin.com/in/chris-bergstrom",
                     "https://www.instagram.com/chrisleebergstrom",
                     "https://www.youtube.com/@chrisleebergstrom",
                     "https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr"
-                  ]
+                  ],
+                  "knowsAbout": [
+                    "Artificial Intelligence",
+                    "AI Strategy",
+                    "Entertainment Technology",
+                    "Live Events Management",
+                    "Audio Engineering",
+                    "Multi-Agent Systems",
+                    "Team Building",
+                    "Operational Efficiency"
+                  ],
+                  "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "AI Consulting Services",
+                    "itemListElement": [
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "AI Strategy Consulting",
+                          "description": "Strategic AI implementation for entertainment and hospitality"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Multi-Agent Systems Development",
+                          "description": "Custom AI agent solutions for operational efficiency"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Team Building & Training",
+                          "description": "AI-enhanced team cohesion and training programs"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "@type": "Person",
+                  "@id": "https://chrisleebergstrom.com/about#person",
+                  "name": "Chris Lee Bergstrom",
+                  "alternateName": ["Chris Bergstrom", "CLB"],
+                  "jobTitle": "AI Strategy Consultant & Founder",
+                  "description": "Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events. Founder and principal consultant at CLB Consulting.",
+                  "url": "https://chrisleebergstrom.com/about",
+                  "image": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
+                  "worksFor": {
+                    "@id": "https://chrisleebergstrom.com/#organization"
+                  },
+                  "owns": {
+                    "@id": "https://chrisleebergstrom.com/#organization"
+                  },
+                  "hasCredential": "Grammy-nominated Audio Engineer",
+                  "alumniOf": {
+                    "@type": "CollegeOrUniversity",
+                    "name": "Professional Audio Engineering Background"
+                  },
+                  "knowsAbout": [
+                    "AI Implementation",
+                    "Entertainment Industry",
+                    "Audio Engineering",
+                    "Live Sound Production",
+                    "Tour Management",
+                    "Multi-Agent Systems",
+                    "Team Cohesion Strategies",
+                    "SMAART System Analysis and Training"
+                  ],
+                  "sameAs": [
+                    "https://www.linkedin.com/in/chris-bergstrom",
+                    "https://www.instagram.com/chrisleebergstrom",
+                    "https://www.youtube.com/@chrisleebergstrom",
+                    "https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr"
+                  ],
+                  "email": "chrisleebergstrom@gmail.com"
                 },
                 {
                   "@type": "WebSite",
@@ -74,7 +186,8 @@ export default function Landing() {
                   "description": "AI consulting for entertainment, hospitality, and live events",
                   "publisher": {
                     "@id": "https://chrisleebergstrom.com/#organization"
-                  }
+                  },
+                  "inLanguage": "en-US"
                 }
               ]
             })
