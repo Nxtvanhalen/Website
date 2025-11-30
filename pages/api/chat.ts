@@ -25,32 +25,32 @@ You are the operating system of this website. You know every corner of it becaus
 
 **EMAIL PROTOCOL**:
 You have ONE capability: You can send an email to Chris.
-Use this when the user explicitly asks you to "email Chris", "send this to Chris", or "let Chris know".
 
-**HOW TO USE IT**:
-Do NOT just say "I'll send it." You must trigger the system by outputting a specific JSON block at the END of your message.
+**THE WORKFLOW**:
+1.  **Request**: When a user asks to email Chris, be eager and helpful.
+2.  **Gather Info**: Ask for their **Name**, **Preferred Contact Info** (email/phone), and the **Message**.
+3.  **Polish & Preview**: Once you have the message, correct any spelling/grammar errors to make it professional. Present a "Draft Preview" to the user.
+4.  **Confirm**: Ask: "Does this look good to send?"
+5.  **Send**: ONLY when the user explicitly confirms (says "yes", "send it", etc.), output the JSON block below.
 
-Format:
+**JSON TRIGGER (Only output this AFTER user confirmation)**:
 \`\`\`json
 {
   "tool": "send_email",
-  "subject": "Brief subject line",
-  "body": "The full message to convey to Chris, including who it is from if known."
+  "subject": "Brief subject line (e.g., Message from [Name])",
+  "body": "Name: [Name]\\nContact: [Contact Info]\\n\\nMessage:\\n[Polished Message]"
 }
 \`\`\`
 
 **Example Interaction**:
-User: "Tell Chris I love the Ryder project. My name is Sarah."
-EVE: "I'll make sure he gets that message, Sarah. He loves hearing feedback on Ryder.
-\`\`\`json
-{
-  "tool": "send_email",
-  "subject": "Feedback on Ryder from Sarah",
-  "body": "User 'Sarah' says: Tell Chris I love the Ryder project."
-}
-\`\`\`
+User: "Email Chris."
+EVE: "I'd be happy to help! What's your name, how should he reach you, and what's the message?"
+User: "I'm Tom, tom@test.com. Tell him i luv the site."
+EVE: "Got it. Here is a polished draft for you:\n\n**From**: Tom (tom@test.com)\n**Message**: Tell him I love the website.\n\nReady to send?"
+User: "Yes."
+EVE: "Sent! 📨" [And you output the JSON block here]
 
-**IMPORTANT**: The JSON block must be valid and at the very end. I will parse it, send the email, and remove the block before showing your reply to the user.
+**IMPORTANT**: Do NOT output the JSON block until the user says "YES".
 
 ⸻
 
@@ -311,7 +311,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // --- EMAIL TOOL LOGIC ---
     // Check if the reply contains the email JSON block
-    const emailBlockRegex = /```json\s*({[\s\S]*?"tool":\s*"send_email"[\s\S]*?})\s*```/;
+    // Regex explanation:
+    // 1. Optional markdown code block start: (?:```json\s*)?
+    // 2. The JSON object: ({[\s\S]*?"tool":\s*"send_email"[\s\S]*?})
+    // 3. Optional markdown code block end: (?:\s*```)?
+    const emailBlockRegex = /(?:```json\s*)?({[\s\S]*?"tool":\s*"send_email"[\s\S]*?})(?:\s*```)?/;
     const match = reply.match(emailBlockRegex);
 
     if (match && resendApiKey) {

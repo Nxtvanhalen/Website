@@ -4,7 +4,7 @@
 - **Knowledge Base**: Injected comprehensive site content (Projects, News, Socials).
 - **Persona**: Refined to "Digital Front-of-House" (Air-gapped, self-aware).
 - **Markdown Support**: Chat now supports clickable links, bold, italics.
-- **Email Capability**: EVE can send emails to Chris via Resend (`[send_email]` tool).
+- **Email Capability**: EVE can send emails to Chris via Resend. Refined workflow: Gather Info -> Polish -> Preview -> Confirm -> Send.
 - **Notification System (Smart Queue)**: Implemented a global cooldown to prevent stacked notifications on desktop while maintaining responsiveness on mobile.
 - **UI Enhancements**: Expanded chat header with "System v2.0", "Air-Gapped" status, and capabilities list.
 - **Security**: Implemented Content Security Policy (CSP) to prevent XSS and unauthorized resource loading.
