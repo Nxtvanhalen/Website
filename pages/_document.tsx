@@ -45,6 +45,9 @@ export default class MyDocument extends Document<MyDocumentProps> {
                   0% { transform: translateX(0); }
                   100% { transform: translateX(calc(-320px * 9 - 1.5rem * 8)); }
                 }
+                /* Cookie Consent Overrides */
+                .cc-window { z-index: 999999 !important; }
+                .cc-link { cursor: pointer !important; text-decoration: underline !important; }
               `
             }}
           />
@@ -56,37 +59,14 @@ export default class MyDocument extends Document<MyDocumentProps> {
             href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
           />
 
-          {/* Osano CookieConsent - Loaded asynchronously to not block render */}
-          {/* Using media="print" trick for async CSS loading */}
+          {/* Osano CookieConsent - Loaded locally to avoid ad-blockers */}
           <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
-            media="print"
-            // @ts-ignore - onLoad is valid HTML attribute for async CSS loading
-            onLoad="this.media='all'"
+            href="/static/cookieconsent.css"
           />
-          <noscript>
-            <link
-              rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
-            />
-          </noscript>
-          <link
-            rel="stylesheet"
-            href="/styles/cookieconsent-overrides.css"
-            media="print"
-            // @ts-ignore - onLoad is valid HTML attribute for async CSS loading
-            onLoad="this.media='all'"
-          />
-          <noscript>
-            <link
-              rel="stylesheet"
-              href="/styles/cookieconsent-overrides.css"
-            />
-          </noscript>
           <script
             nonce={nonce}
-            src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+            src="/static/cookieconsent.js"
             data-cfasync="false"
             defer
           ></script>
@@ -121,7 +101,7 @@ export default class MyDocument extends Document<MyDocumentProps> {
                   "message": "We use cookies to enhance your experience and analyze site usage. By clicking 'Accept', you consent to our use of cookies.",
                   "allow": "Accept",
                   "deny": "Decline",
-                  "link": "Learn more",
+                  "link": "Cookies Policy",
                   "href": "/privacy"
                 },
                 onStatusChange: function(status, chosenBefore) {

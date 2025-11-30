@@ -22,12 +22,12 @@ export default function Home() {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
     window.scrollTo(0, 0);
-    
+
     // Also prevent browser from restoring scroll position
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
-    
+
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
     }
@@ -41,7 +41,7 @@ export default function Home() {
     const setupVideoScrollTrigger = () => {
       const video = document.getElementById('scroll-video') as HTMLVideoElement;
       const brmcVideo = document.getElementById('brmc-video') as HTMLVideoElement;
-      
+
       if (video) {
         const observer = new IntersectionObserver(
           (entries) => {
@@ -98,7 +98,7 @@ export default function Home() {
 
     // Simple scroll fade - disabled temporarily
     const setupSimpleScrollFade = () => {
-      return () => {}; // No-op cleanup function
+      return () => { }; // No-op cleanup function
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -114,7 +114,7 @@ export default function Home() {
   useEffect(() => {
     const video = document.getElementById('scroll-video') as HTMLVideoElement;
     const brmcVideo = document.getElementById('brmc-video') as HTMLVideoElement;
-    
+
     if (videosDisabled) {
       // Pause videos and disable them
       if (video) {
@@ -154,7 +154,7 @@ export default function Home() {
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
-        
+
         {/* Open Graph tags for social sharing */}
         <meta property="og:title" content="CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology" />
         <meta property="og:description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations. Grammy-nominated expertise meets cutting-edge technology." />
@@ -164,7 +164,7 @@ export default function Home() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
         <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
-        
+
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
@@ -173,10 +173,10 @@ export default function Home() {
         <meta name="twitter:description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
-        
+
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com" />
-        
+
         {/* JSON-LD Structured Data for AI understanding */}
         <script
           type="application/ld+json"
@@ -325,7 +325,7 @@ export default function Home() {
           }}
         />
       </Head>
-      
+
       {/* Parallax Background */}
       <div className="parallax-container">
         <div
@@ -347,7 +347,7 @@ export default function Home() {
           }}
         ></div>
       </div>
-      
+
       {/* Debug: Keep this div but make it invisible */}
       <div style={{
         position: 'fixed',
@@ -361,34 +361,34 @@ export default function Home() {
         zIndex: 9999,
         display: 'none'
       }}>
-        <span style={{color: 'white', background: 'black'}}>Test Image 2</span>
+        <span style={{ color: 'white', background: 'black' }}>Test Image 2</span>
       </div>
-      
-      <main 
+
+      <main
         id="main-content"
         className="min-h-screen text-white relative"
         role="main"
         aria-label="Main content area"
-        style={{position: 'relative', zIndex: 10}}
+        style={{ position: 'relative', zIndex: 10 }}
       >
         <Marquee />
-        <section 
+        <section
           className="pt-8 pb-8 px-6 text-center"
           aria-labelledby="company-heading"
         >
-          <h1 
+          <h1
             id="company-heading"
             className="text-4xl font-heading mb-4 bg-gradient-to-r from-white via-molten to-white bg-clip-text text-transparent glow-subtle"
           >
             CLB Consulting
           </h1>
-          <p className="text-xl mb-2 max-w-3xl mx-auto leading-relaxed" style={{color: '#F5F5DC'}}>
-            <span className="font-bold" style={{color: '#F5F5DC'}}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</span>
+          <p className="text-xl mb-2 max-w-3xl mx-auto leading-relaxed" style={{ color: '#F5F5DC' }}>
+            <span className="font-bold" style={{ color: '#F5F5DC' }}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</span>
           </p>
-          <h2 className="text-lg mb-6 max-w-3xl mx-auto" style={{color: '#F5F5DC', opacity: 0.9}}>
+          <h2 className="text-lg mb-6 max-w-3xl mx-auto" style={{ color: '#F5F5DC', opacity: 0.9 }}>
             CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom
           </h2>
-          
+
           {/* Flashing lights warning */}
           <div className="flex flex-col items-center mb-4 text-yellow-400">
             <div className="flex items-center justify-center mb-3">
@@ -412,7 +412,7 @@ export default function Home() {
               </div>
             )}
           </div>
-          
+
           {/* Down arrows chevron pattern */}
           <div className="flex flex-col items-center text-yellow-400">
             {/* Row 1: 5 arrows */}
@@ -477,15 +477,15 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
-        
+
+
         {/* Scroll-triggered video section */}
-        <section 
+        <section
           className="py-12 px-6"
           aria-label="Promotional video showcasing CLB Consultancy's work"
         >
           <div className="max-w-4xl mx-auto">
-            <video 
+            <video
               id="scroll-video"
               className="w-full h-auto border-none rounded-none bg-transparent"
               muted
@@ -499,19 +499,19 @@ export default function Home() {
               <source src="/videos/IMG_0279.mov" type="video/quicktime" />
               <p>Your browser does not support the video tag. This video showcases CLB Consultancy's AI integration and entertainment technology work.</p>
             </video>
-            <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>
+            <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.6 }}>
               The Dandy Warhols Live in Paris, France
             </p>
           </div>
         </section>
 
         {/* Second video section - BRMC */}
-        <section 
+        <section
           className="py-12 px-6"
           aria-label="BRMC promotional video showcase"
         >
           <div className="max-w-4xl mx-auto">
-            <video 
+            <video
               id="brmc-video"
               className="w-full h-auto border-none rounded-none bg-transparent"
               muted
@@ -525,14 +525,14 @@ export default function Home() {
               <source src="/videos/BRMC.mov" type="video/quicktime" />
               <p>Your browser does not support the video tag. This video showcases BRMC's live performance in Portugal.</p>
             </video>
-            <p className="text-center text-sm italic mt-2" style={{color: '#F5F5DC', opacity: 0.6}}>
+            <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.6 }}>
               Black Rebel Motorcycle Club in Vilar de Mouros, Portugal
             </p>
           </div>
         </section>
-        
+
         {/* Profile Image Section */}
-        <section 
+        <section
           className="py-12 px-6"
           aria-label="Chris Lee Bergstrom profile image"
         >
@@ -543,9 +543,9 @@ export default function Home() {
               WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
               WebkitMaskComposite: 'source-in'
             }}>
-              <img 
-                src="/images/profile/chris-profile.jpg" 
-                alt="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" 
+              <img
+                src="/images/profile/chris-profile.jpg"
+                alt="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
                 className="w-full h-full object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
@@ -553,14 +553,24 @@ export default function Home() {
                   if (fallback) fallback.style.display = 'flex';
                 }}
               />
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-molten/30 to-gray-700/50" style={{display: 'none'}}>
-                <span className="text-2xl font-bold" style={{color: '#F5F5DC'}}>CLB</span>
+              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-molten/30 to-gray-700/50" style={{ display: 'none' }}>
+                <span className="text-2xl font-bold" style={{ color: '#F5F5DC' }}>CLB</span>
               </div>
             </div>
           </div>
         </section>
-        
+
         <Contact />
+
+        <footer className="pb-8 text-center">
+          <a
+            href="/privacy"
+            className="text-xs opacity-50 hover:opacity-100 transition-opacity duration-300"
+            style={{ color: '#F5F5DC' }}
+          >
+            Privacy Policy
+          </a>
+        </footer>
       </main>
     </>
   );
