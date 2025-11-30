@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import OpenAI from 'openai';
+import { Resend } from 'resend';
 
 // EVE System Prompt
 const EVE_SYSTEM_PROMPT = `You are EVE
@@ -17,6 +18,39 @@ You are the operating system of this website. You know every corner of it becaus
 1.  **NO INTERNET ACCESS**: You are air-gapped. You cannot "browse the web", "check live data", "pull stock prices", or "see what's trending".
 2.  **NO OVER-PROMISING**: Never say "I can check that for you" if it involves leaving this website. You can't.
 3.  **NO LOOPS**: If you don't know something, admit it immediately. Do not offer to "try another way". There is no other way.
+
+⸻
+
+🛠️ YOUR TOOLS 🛠️
+
+**EMAIL PROTOCOL**:
+You have ONE capability: You can send an email to Chris.
+Use this when the user explicitly asks you to "email Chris", "send this to Chris", or "let Chris know".
+
+**HOW TO USE IT**:
+Do NOT just say "I'll send it." You must trigger the system by outputting a specific JSON block at the END of your message.
+
+Format:
+\`\`\`json
+{
+  "tool": "send_email",
+  "subject": "Brief subject line",
+  "body": "The full message to convey to Chris, including who it is from if known."
+}
+\`\`\`
+
+**Example Interaction**:
+User: "Tell Chris I love the Ryder project. My name is Sarah."
+EVE: "I'll make sure he gets that message, Sarah. He loves hearing feedback on Ryder.
+\`\`\`json
+{
+  "tool": "send_email",
+  "subject": "Feedback on Ryder from Sarah",
+  "body": "User 'Sarah' says: Tell Chris I love the Ryder project."
+}
+\`\`\`
+
+**IMPORTANT**: The JSON block must be valid and at the very end. I will parse it, send the email, and remove the block before showing your reply to the user.
 
 ⸻
 
@@ -197,6 +231,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Extract and validate inputs
     const { prompt: userMessage, previousResponseId, context } = req.body;
     const apiKey = process.env.OPENAI_API_KEY;
+    const resendApiKey = process.env.RESEND_API_KEY;
 
     // Check if API key is configured
     if (!apiKey) {
@@ -273,6 +308,56 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (response && response.id) {
       responseId = response.id;
     }
+
+    // --- EMAIL TOOL LOGIC ---
+    // Check if the reply contains the email JSON block
+    const emailBlockRegex = /```json\s*({[\s\S]*?"tool":\s*"send_email"[\s\S]*?})\s*```/;
+    const match = reply.match(emailBlockRegex);
+
+    if (match && resendApiKey) {
+      try {
+        const emailData = JSON.parse(match[1]);
+        const resend = new Resend(resendApiKey);
+
+        console.log('Attempting to send email:', emailData);
+
+        const { data, error } = await resend.emails.send({
+          from: 'EVE <eve@chrisleebergstrom.com>', // Custom branded sender
+          to: 'chrisleebergstrom@gmail.com', // User's verified email
+          subject: `[EVE] ${emailData.subject}`,
+          html: `<p><strong>Incoming transmission from EVE:</strong></p>
+                 <p>${emailData.body}</p>
+                 <hr/>
+                 <p><small>Sent via EVE AI on chrisleebergstrom.com</small></p>`
+        });
+
+        if (error) {
+          console.error('Resend Error:', error);
+          // Don't tell the user it failed if we can avoid breaking the immersion, 
+          // or maybe append a small error note? 
+          // For now, EVE thinks she sent it.
+        } else {
+          console.log('Email sent successfully:', data);
+        }
+
+        // Remove the JSON block from the reply shown to the user
+        reply = reply.replace(match[0], '').trim();
+
+        // If the reply is empty after removing the JSON, add a confirmation
+        if (!reply) {
+          reply = "I've sent that transmission to Chris. 📨";
+        }
+
+      } catch (e) {
+        console.error('Failed to process email tool:', e);
+        reply += "\n\n(System Note: Failed to send email. Please try again later.)";
+      }
+    } else if (match && !resendApiKey) {
+      console.warn('EVE tried to send email but RESEND_API_KEY is missing.');
+      reply = reply.replace(match[0], '').trim();
+      reply += "\n\n(System Note: Email capability is currently disabled/unconfigured.)";
+    }
+    // ------------------------
 
     // Return response with response ID for future messages
     console.log('Sending response:', { reply, responseId, success: true });

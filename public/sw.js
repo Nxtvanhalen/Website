@@ -34,7 +34,7 @@ const CACHE_STRATEGIES = {
 // Install event - cache essential resources
 self.addEventListener('install', (event) => {
   console.log('[SW] Installing service worker...');
-  
+
   event.waitUntil(
     Promise.all([
       // Cache static resources
@@ -53,7 +53,7 @@ self.addEventListener('install', (event) => {
 // Activate event - cleanup old caches and take control
 self.addEventListener('activate', (event) => {
   console.log('[SW] Activating service worker...');
-  
+
   event.waitUntil(
     Promise.all([
       // Clean up old caches
@@ -79,12 +79,17 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
-  
+
   // Only handle requests from our origin
   if (url.origin !== location.origin) {
     return;
   }
-  
+
+  // Bypass service worker for non-GET requests (except navigations)
+  if (request.method !== 'GET') {
+    return;
+  }
+
   // Determine cache strategy based on request type
   if (request.destination === 'image') {
     event.respondWith(handleImageRequest(request));
@@ -104,11 +109,11 @@ async function handleImageRequest(request) {
   try {
     const cache = await caches.open(CACHES.images);
     const cached = await cache.match(request);
-    
+
     if (cached) {
       return cached;
     }
-    
+
     const response = await fetch(request);
     if (response.status === 200) {
       cache.put(request, response.clone());
@@ -124,14 +129,16 @@ async function handleImageRequest(request) {
 async function handleApiRequest(request) {
   try {
     const cache = await caches.open(CACHES.api);
-    
+
     try {
       const response = await fetch(request);
       if (response.status === 200) {
-        // Cache successful API responses for 5 minutes
-        const responseToCache = response.clone();
-        setTimeout(() => cache.delete(request), 5 * 60 * 1000);
-        cache.put(request, responseToCache);
+        // Only cache GET requests
+        if (request.method === 'GET') {
+          const responseToCache = response.clone();
+          setTimeout(() => cache.delete(request), 5 * 60 * 1000);
+          cache.put(request, responseToCache);
+        }
       }
       return response;
     } catch (networkError) {
@@ -144,9 +151,9 @@ async function handleApiRequest(request) {
     }
   } catch (error) {
     console.error('[SW] API request failed:', error);
-    return new Response(JSON.stringify({ 
-      error: 'Service temporarily unavailable', 
-      offline: true 
+    return new Response(JSON.stringify({
+      error: 'Service temporarily unavailable',
+      offline: true
     }), {
       status: 503,
       headers: { 'Content-Type': 'application/json' }
@@ -159,11 +166,11 @@ async function handleStaticAssetRequest(request) {
   try {
     const cache = await caches.open(CACHES.static);
     const cached = await cache.match(request);
-    
+
     if (cached) {
       return cached;
     }
-    
+
     const response = await fetch(request);
     if (response.status === 200) {
       cache.put(request, response.clone());
@@ -180,7 +187,7 @@ async function handlePageRequest(request) {
   try {
     const cache = await caches.open(CACHES.pages);
     const cached = await cache.match(request);
-    
+
     // Fetch fresh version in background
     const fetchPromise = fetch(request).then(response => {
       if (response.status === 200) {
@@ -191,12 +198,12 @@ async function handlePageRequest(request) {
       console.error('[SW] Failed to fetch fresh page:', error);
       return cached;
     });
-    
+
     // Return cached version immediately if available
     if (cached) {
       return cached;
     }
-    
+
     // If no cache, wait for network
     return fetchPromise;
   } catch (error) {
@@ -210,11 +217,11 @@ async function handleGenericRequest(request) {
   try {
     const cache = await caches.open(CACHES.static);
     const cached = await cache.match(request);
-    
+
     if (cached) {
       return cached;
     }
-    
+
     const response = await fetch(request);
     if (response.status === 200 && request.method === 'GET') {
       cache.put(request, response.clone());
