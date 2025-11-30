@@ -181,9 +181,9 @@ export default function Marquee() {
           CLB
         </text>
       </svg>
-      <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-32 md:pt-52 pb-16 text-center text-white">
+      <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-36 md:pt-52 pb-16 text-center text-white">
         {/* Mobile Profile Picture - Above heading */}
-        <div className="md:hidden mb-6 flex justify-center">
+        <div className="md:hidden mb-2 flex justify-center">
           <div className="w-20 h-20 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
             <Image
               src="/images/profile/chris-profile.jpg"
@@ -280,7 +280,7 @@ export default function Marquee() {
               >
                 <motion.div
                   className="w-1/2 h-full rounded overflow-hidden relative cursor-pointer flex-shrink-0"
-                  whileHover={{ scale: 2.0 }}
+                  whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   <Image
@@ -334,7 +334,7 @@ export default function Marquee() {
               >
                 <motion.div
                   className="w-1/2 h-full rounded overflow-hidden relative cursor-pointer flex-shrink-0"
-                  whileHover={{ scale: 2.0 }}
+                  whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   <Image

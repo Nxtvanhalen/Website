@@ -1,14 +1,10 @@
-# Walkthrough - Add Missing JSON-LD
+# Walkthrough - Fine-tune Mobile Spacing
 
 ## Changes
 
-### 1. `pages/projects.tsx`
-#### [MODIFY] [pages/projects.tsx](file:///Users/chrisbergstrom/WEBSITE/pages/projects.tsx)
-- **Added `CollectionPage` Schema**: Added structured data listing your key projects (Master Tour, EVA, Ryder, EVE, Byte, etc.) as `SoftwareApplication` entities. This helps Google understand that this page is a portfolio of software/tech projects.
-
-### 2. `pages/index.tsx` (Splash Page)
-#### [MODIFY] [pages/index.tsx](file:///Users/chrisbergstrom/WEBSITE/pages/index.tsx)
-- **Added `Organization` & `WebSite` Schema**: Added structured data to the root domain to explicitly identify "CLB Consulting" as the organization and website owner. This is crucial for Knowledge Graph panels.
+### `components/Marquee.tsx`
+#### [MODIFY] [components/Marquee.tsx](file:///Users/chrisbergstrom/WEBSITE/components/Marquee.tsx)
+- **Adjusted Top Padding**: Changed `pt-32` to `pt-36`. This provides a middle ground between the original position (too low) and the previous adjustment (too high), ensuring the profile picture sits nicely below the header.
 
 ## Verification Results
 
@@ -17,4 +13,6 @@
     - Result: `Exit code: 0`
 
 ### Manual Verification
-- **Code Check**: Verified that valid JSON-LD scripts were added to the `<Head>` of both files.
+- **Visual Check**:
+    - The content block should have moved down slightly from the previous step.
+    - It should be perfectly positioned below the header.

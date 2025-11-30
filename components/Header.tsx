@@ -35,7 +35,7 @@ export default function Header() {
       >
         <div className="flex flex-col w-full">
           {/* Top row: Logo, Profile Picture, and Social Icons */}
-          <div className="flex items-center justify-between w-full pb-3">
+          <div className="flex items-center justify-between w-full pb-1">
             <div className="flex items-center gap-3">
               <Link
                 href="/home"
@@ -186,7 +186,7 @@ export default function Header() {
 
           {/* Secondary Navigation Links */}
           <nav
-            className="flex items-center justify-center gap-12 max-w-2xl mx-auto w-full px-4 py-2 md:px-8"
+            className="flex items-center justify-center gap-12 max-w-2xl mx-auto w-full px-4 py-1 md:px-8"
             role="navigation"
             aria-label="Secondary navigation"
           >
