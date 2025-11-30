@@ -19,11 +19,11 @@ export default function PersistentChat() {
                 setNotificationActive(true);
                 sessionStorage.setItem('eve_notification_shown_v2', 'true');
 
-                // Auto-hide after 10 seconds
+                // Auto-hide after 4 seconds
                 setTimeout(() => {
                     setShowNotification(false);
                     setNotificationActive(false);
-                }, 10000);
+                }, 4000);
             }, 1000);
 
             return () => clearTimeout(timer);
@@ -82,24 +82,26 @@ export default function PersistentChat() {
             <AnimatePresence>
                 {showNotification && (
                     <motion.div
-                        initial={{ opacity: 0, x: 20, scale: 0.9 }}
-                        animate={{ opacity: 1, x: 0, scale: 1 }}
-                        exit={{ opacity: 0, x: 20, scale: 0.9 }}
-                        className="absolute bottom-20 right-0 mb-2 mr-2 bg-black/80 backdrop-blur-md border-l-4 border-[#9370DB] p-4 rounded-xl shadow-[0_0_15px_rgba(147,112,219,0.3)] max-w-[250px]"
+                        initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                        className="absolute bottom-20 right-0 mb-4 mr-[-12px] bg-black/80 backdrop-blur-md border border-[#9370DB]/50 p-2 rounded-2xl rounded-br-none shadow-[0_0_20px_rgba(147,112,219,0.3)] max-w-[90px]"
                     >
-                        <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-sm border border-[#9370DB]/50 overflow-hidden shrink-0">
-                                <Image
-                                    src="/images/projects/EVE.png"
-                                    alt="EVE"
-                                    width={32}
-                                    height={32}
-                                    className="object-cover"
-                                />
+                        <div className="flex flex-col gap-2">
+                            <div className="flex flex-col items-start gap-1 border-b border-white/10 pb-2">
+                                <div className="w-6 h-6 rounded-sm border border-[#9370DB]/50 overflow-hidden shrink-0">
+                                    <Image
+                                        src="/images/projects/EVE.png"
+                                        alt="EVE"
+                                        width={24}
+                                        height={24}
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <h4 className="text-[10px] font-bold text-[#9370DB] uppercase tracking-wider leading-tight">Incoming Transmission</h4>
                             </div>
                             <div>
-                                <h4 className="text-xs font-bold text-[#9370DB] uppercase tracking-wider mb-1">Incoming Transmission</h4>
-                                <p className="text-xs text-white/90 leading-tight">
+                                <p className="text-[11px] text-white/90 leading-tight">
                                     I'm EVE. Tactical Intelligence Engine running on GPT-5.1. I don't just answer—I synthesize. Try me.
                                 </p>
                             </div>

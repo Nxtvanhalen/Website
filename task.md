@@ -11,4 +11,5 @@
     - [x] Implement dynamic or correct static canonical tags <!-- id: 8 -->
     - [x] Verify fixes <!-- id: 9 -->
 - [x] Fine-tune Mobile Spacing <!-- id: 14 -->
+- [x] Refine Notification UI & Processing State <!-- id: 20 -->
 - [x] Add Missing JSON-LD <!-- id: 10 -->

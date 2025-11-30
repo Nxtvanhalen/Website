@@ -71,10 +71,11 @@ export default function SectionTracker({
     // Effect 3: Auto-hide
     useEffect(() => {
         if (showButler && !isThinking) {
+            // Auto-hide after 4 seconds
             const timer = setTimeout(() => {
                 setShowButler(false);
                 setNotificationActive(false);
-            }, 7000);
+            }, 4000);
             return () => clearTimeout(timer);
         }
     }, [showButler, isThinking, setNotificationActive]);
@@ -87,45 +88,58 @@ export default function SectionTracker({
             <AnimatePresence>
                 {showButler && (
                     <motion.div
-                        initial={{ opacity: 0, x: 20, scale: 0.9 }}
-                        animate={{ opacity: 1, x: 0, scale: 1 }}
-                        exit={{ opacity: 0, x: 20, scale: 0.9 }}
-                        className="fixed bottom-24 right-4 z-[90] mb-2 mr-2 bg-black/80 backdrop-blur-md border-l-4 border-[#9370DB] p-4 rounded-xl shadow-[0_0_15px_rgba(147,112,219,0.3)] max-w-[250px]"
+                        initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                        className="fixed bottom-24 right-[2px] z-[90] mb-4 mr-2 bg-black/80 backdrop-blur-md border border-[#9370DB]/50 p-2 rounded-2xl rounded-br-none shadow-[0_0_20px_rgba(147,112,219,0.3)] max-w-[90px]"
                     >
-                        <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-sm border border-[#9370DB]/50 overflow-hidden shrink-0 relative">
-                                <Image
-                                    src="/images/projects/EVE.png"
-                                    alt="EVE"
-                                    width={32}
-                                    height={32}
-                                    className="object-cover"
-                                />
-                                {isThinking && (
-                                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                                        <div className="w-4 h-4 border-2 border-[#9370DB] border-t-transparent rounded-full animate-spin"></div>
-                                    </div>
-                                )}
-                            </div>
-                            <div>
-                                <h4 className="text-xs font-bold text-[#9370DB] uppercase tracking-wider mb-1">
-                                    {isThinking ? "Processing..." : "Observation"}
-                                </h4>
-                                <div className="text-xs text-white/90 leading-tight min-h-[1.2em]">
-                                    {isThinking ? (
-                                        <span className="animate-pulse">Analyzing context...</span>
-                                    ) : (
-                                        <motion.span
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            transition={{ duration: 0.3 }}
-                                        >
-                                            {butlerMessage}
-                                        </motion.span>
-                                    )}
+                        {isThinking ? (
+                            <div className="flex items-center justify-center h-full min-h-[40px] w-full">
+                                <div className="flex space-x-1">
+                                    <motion.div
+                                        className="w-1.5 h-1.5 bg-[#9370DB] rounded-full"
+                                        animate={{ y: [0, -5, 0] }}
+                                        transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut", delay: 0 }}
+                                    />
+                                    <motion.div
+                                        className="w-1.5 h-1.5 bg-[#9370DB] rounded-full"
+                                        animate={{ y: [0, -5, 0] }}
+                                        transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                                    />
+                                    <motion.div
+                                        className="w-1.5 h-1.5 bg-[#9370DB] rounded-full"
+                                        animate={{ y: [0, -5, 0] }}
+                                        transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+                                    />
                                 </div>
                             </div>
-                        </div>
+                        ) : (
+                            <div className="flex flex-col gap-2">
+                                <div className="flex flex-col items-start gap-1 border-b border-white/10 pb-2">
+                                    <div className="w-6 h-6 rounded-sm border border-[#9370DB]/50 overflow-hidden shrink-0 relative">
+                                        <Image
+                                            src="/images/projects/EVE.png"
+                                            alt="EVE"
+                                            width={24}
+                                            height={24}
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                    <h4 className="text-[10px] font-bold text-[#9370DB] uppercase tracking-wider leading-tight">
+                                        Observation
+                                    </h4>
+                                </div>
+                                <div className="text-[11px] text-white/90 leading-tight min-h-[1.2em]">
+                                    <motion.span
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.3 }}
+                                    >
+                                        {butlerMessage}
+                                    </motion.span>
+                                </div>
+                            </div>
+                        )}
                     </motion.div>
                 )}
             </AnimatePresence>
