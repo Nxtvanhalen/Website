@@ -23,10 +23,16 @@ export default function SectionTracker({
     // Use margin to restrict detection to the center of the viewport
     // "-40% 0px -40% 0px" means the element must be in the middle 20% of the screen height to trigger
     const isInView = useInView(ref, { margin: "-40% 0px -40% 0px" });
-    const { setContext, isOpen, isNotificationActive, setNotificationActive } = useChat();
+    const { setContext, isOpen, isNotificationActive, setNotificationActive, lastNotificationTime, setLastNotificationTime } = useChat();
     const [showButler, setShowButler] = useState(false);
     const [isThinking, setIsThinking] = useState(false);
     const [hasTriggered, setHasTriggered] = useState(false);
+
+    // Keep a ref to the current notification state to avoid stale closures in setTimeout
+    const isNotificationActiveRef = useRef(isNotificationActive);
+    useEffect(() => {
+        isNotificationActiveRef.current = isNotificationActive;
+    }, [isNotificationActive]);
 
     useEffect(() => {
         if (isInView) {
@@ -38,25 +44,47 @@ export default function SectionTracker({
     // Effect 1: Triggering
     useEffect(() => {
         let timer: NodeJS.Timeout;
+        let retryTimer: NodeJS.Timeout;
 
-        if (isInView && butlerMessage && !hasTriggered && !isOpen && !isNotificationActive) {
-            timer = setTimeout(() => {
-                // Check session storage to avoid spamming the same message
-                const storageKey = `eve_butler_${name.replace(/\s+/g, '_')}`;
-                const alreadyShown = sessionStorage.getItem(storageKey);
+        // Check if the global welcome message is pending (prevents collision on first load)
+        const welcomeShown = typeof window !== 'undefined' ? sessionStorage.getItem('eve_notification_shown_v2') : 'true';
 
-                if (!alreadyShown && !isNotificationActive) {
+        const tryTrigger = () => {
+            // Check session storage to avoid spamming the same message
+            const storageKey = `eve_butler_${name.replace(/\s+/g, '_')}`;
+            const alreadyShown = sessionStorage.getItem(storageKey);
+            const welcomeShown = sessionStorage.getItem('eve_notification_shown_v2');
+
+            // Check global cooldown (5 seconds)
+            const timeSinceLast = Date.now() - lastNotificationTime;
+            const cooldown = 5000;
+
+            if (!alreadyShown && !isNotificationActiveRef.current && welcomeShown) {
+                if (timeSinceLast < cooldown) {
+                    // Too soon! Retry in 1 second
+                    console.log(`[${name}] Cooldown active (${timeSinceLast}ms). Retrying...`);
+                    retryTimer = setTimeout(tryTrigger, 1000);
+                } else {
+                    // Safe to fire
                     setShowButler(true);
                     setIsThinking(true);
                     setHasTriggered(true);
                     setNotificationActive(true);
+                    setLastNotificationTime(Date.now());
                     sessionStorage.setItem(storageKey, 'true');
                 }
-            }, lingerDuration);
+            }
+        };
+
+        if (isInView && butlerMessage && !hasTriggered && !isOpen && !isNotificationActive) {
+            timer = setTimeout(tryTrigger, lingerDuration);
         }
 
-        return () => clearTimeout(timer);
-    }, [isInView, butlerMessage, hasTriggered, isOpen, lingerDuration, name, isNotificationActive, setNotificationActive]);
+        return () => {
+            clearTimeout(timer);
+            clearTimeout(retryTimer);
+        };
+    }, [isInView, butlerMessage, hasTriggered, isOpen, lingerDuration, name, isNotificationActive, setNotificationActive, lastNotificationTime, setLastNotificationTime]);
 
     // Effect 2: Thinking to Message Transition
     useEffect(() => {

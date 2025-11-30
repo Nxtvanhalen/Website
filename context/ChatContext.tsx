@@ -9,6 +9,8 @@ interface ChatContextType {
     setContext: (context: string) => void;
     isNotificationActive: boolean;
     setNotificationActive: (active: boolean) => void;
+    lastNotificationTime: number;
+    setLastNotificationTime: (time: number) => void;
 }
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
@@ -17,6 +19,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     const [isOpen, setIsOpen] = useState(false);
     const [currentContext, setCurrentContext] = useState('Home');
     const [isNotificationActive, setNotificationActive] = useState(false);
+    const [lastNotificationTime, setLastNotificationTime] = useState(0);
 
     const openChat = () => setIsOpen(true);
     const closeChat = () => setIsOpen(false);
@@ -32,7 +35,9 @@ export function ChatProvider({ children }: { children: ReactNode }) {
             currentContext,
             setContext,
             isNotificationActive,
-            setNotificationActive
+            setNotificationActive,
+            lastNotificationTime,
+            setLastNotificationTime
         }}>
             {children}
         </ChatContext.Provider>

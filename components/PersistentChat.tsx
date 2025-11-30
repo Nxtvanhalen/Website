@@ -5,7 +5,7 @@ import ChatPanel from './ChatPanel';
 import Image from 'next/image';
 
 export default function PersistentChat() {
-    const { isOpen, toggleChat, setNotificationActive } = useChat();
+    const { isOpen, toggleChat, setNotificationActive, setLastNotificationTime } = useChat();
     const [showNotification, setShowNotification] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -17,6 +17,7 @@ export default function PersistentChat() {
             const timer = setTimeout(() => {
                 setShowNotification(true);
                 setNotificationActive(true);
+                setLastNotificationTime(Date.now());
                 sessionStorage.setItem('eve_notification_shown_v2', 'true');
 
                 // Auto-hide after 4 seconds
@@ -58,6 +59,14 @@ export default function PersistentChat() {
                                         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
                                         <span className="text-[10px] text-white/60 uppercase tracking-wider">Online • GPT-5.1</span>
                                     </div>
+                                </div>
+                                <div className="h-6 w-[1px] bg-white/10 mx-2"></div>
+                                <div className="flex flex-col justify-center">
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-[10px] text-mauve font-bold tracking-wider uppercase">System v2.0</span>
+                                        <span className="text-[9px] text-white/30 uppercase tracking-wider border border-white/10 px-1 rounded">Air-Gapped</span>
+                                    </div>
+                                    <span className="text-[9px] text-white/50 uppercase tracking-wider mt-0.5">Capable: Email • Strategy • Logistics</span>
                                 </div>
                             </div>
                             <button

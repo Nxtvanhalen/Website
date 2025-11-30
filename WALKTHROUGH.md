@@ -1,4 +1,16 @@
-# Walkthrough - Refine Chat Interface Colors
+# Project Walkthrough
+
+## Recent Updates (EVE 2.0)
+- **Knowledge Base**: Injected comprehensive site content (Projects, News, Socials).
+- **Persona**: Refined to "Digital Front-of-House" (Air-gapped, self-aware).
+- **Markdown Support**: Chat now supports clickable links, bold, italics.
+- **Email Capability**: EVE can send emails to Chris via Resend (`[send_email]` tool).
+- **Notification System (Smart Queue)**: Implemented a global cooldown to prevent stacked notifications on desktop while maintaining responsiveness on mobile.
+- **UI Enhancements**: Expanded chat header with "System v2.0", "Air-Gapped" status, and capabilities list.
+- **Bug Fixes**: Patched Service Worker to ignore POST requests; Fixed notification race conditions.
+
+## Overview
+This is the personal website for Chris Lee Bergstrom (CLB Consulting).es
 
 ## Changes
 
