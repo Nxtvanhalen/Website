@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect, FormEvent } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 type Message = { role: 'user' | 'assistant'; content: string };
 
@@ -188,7 +190,7 @@ export default function ChatPanel() {
 
   // Typing indicator component
   const TypingIndicator = () => (
-    <div className="max-w-full px-4 py-3 rounded-lg bg-transparent text-white self-start flex items-center space-x-2 border border-molten">
+    <div className="max-w-full px-4 py-3 rounded-lg bg-transparent text-white self-start flex items-center space-x-2 border border-mauve">
       <span>EVE is thinking</span>
       <div className="flex space-x-1">
         {[0, 1, 2].map((i) => (
@@ -210,13 +212,13 @@ export default function ChatPanel() {
             <div
               key={idx}
               className={`max-w-[85%] px-4 py-3 rounded-lg shadow-lg animate-fade-in ${msg.role === 'user'
-                ? 'bg-transparent text-white self-end ml-auto border-l-4 border-molten'
-                : 'bg-transparent text-white self-start mr-auto border-l-4 border-molten'
+                ? 'bg-transparent text-white self-end ml-auto border-l-4 border-mauve'
+                : 'bg-transparent text-white self-start mr-auto border-l-4 border-mauve'
                 }`}
             >
               {msg.role === 'assistant' && (
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-6 h-6 rounded-full border border-molten/40 overflow-hidden flex-shrink-0">
+                  <div className="w-6 h-6 rounded-full border border-mauve/40 overflow-hidden flex-shrink-0">
                     <img
                       src="/images/projects/EVE.png"
                       alt="EVE"
@@ -226,16 +228,31 @@ export default function ChatPanel() {
                   <div className="text-xs font-bold opacity-70">EVE</div>
                 </div>
               )}
-              <div className="leading-relaxed">{msg.content}</div>
+              <div className="leading-relaxed markdown-content">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    a: ({ node, ...props }: any) => (
+                      <a {...props} target="_blank" rel="noopener noreferrer" className="text-mauve underline hover:text-white transition-colors" />
+                    ),
+                    p: ({ node, ...props }: any) => <p {...props} className="mb-2 last:mb-0" />,
+                    ul: ({ node, ...props }: any) => <ul {...props} className="list-disc ml-4 mb-2" />,
+                    ol: ({ node, ...props }: any) => <ol {...props} className="list-decimal ml-4 mb-2" />,
+                    li: ({ node, ...props }: any) => <li {...props} className="mb-1" />
+                  }}
+                >
+                  {msg.content}
+                </ReactMarkdown>
+              </div>
             </div>
           ))}
           {isTyping && <TypingIndicator />}
         </div>
       </div>
-      <form onSubmit={sendMessage} className="flex border-t border-molten/30 bg-black/30">
+      <form onSubmit={sendMessage} className="flex border-t border-mauve/30 bg-black/30">
         <input
           ref={inputRef}
-          className="chat-input flex-1 p-4 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-molten/50 rounded-none"
+          className="chat-input flex-1 p-4 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-mauve/50 rounded-none"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder={isTyping ? "EVE is thinking..." : "Ask me anything about AI, consulting, or development..."}
@@ -244,7 +261,7 @@ export default function ChatPanel() {
         <button
           type="submit"
           disabled={isTyping || !input.trim()}
-          className="px-6 bg-transparent text-molten font-bold hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all border border-molten hover:border-white hover:scale-105 active:scale-95"
+          className="px-6 bg-transparent text-mauve font-bold hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all border border-mauve hover:border-white hover:scale-105 active:scale-95"
         >
           {isTyping ? '⏳' : '→'}
         </button>

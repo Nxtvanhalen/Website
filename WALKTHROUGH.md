@@ -1,18 +1,15 @@
-# Walkthrough - Refine Notification UI & Processing State
+# Walkthrough - Refine Chat Interface Colors
 
 ## Changes
 
-### 1. `components/PersistentChat.tsx` & `components/SectionTracker.tsx`
-#### [MODIFY] [components/PersistentChat.tsx](file:///Users/chrisbergstrom/WEBSITE/components/PersistentChat.tsx)
-#### [MODIFY] [components/SectionTracker.tsx](file:///Users/chrisbergstrom/WEBSITE/components/SectionTracker.tsx)
-- **Layout Refinement**:
-    - **Width**: Reduced to **`90px`** for an ultra-slim profile.
-    - **Padding**: Reduced to **`p-2`** to maximize content space within the narrow bubble.
-    - **Centering**: Adjusted margins (`mr-[-12px]`) and positioning (`right-[2px]`) to align the bubble visually over the EVE button.
-- **Thinking Animation (SectionTracker)**:
-    - Replaced the "Processing..." text and spinner with a **minimalist "Dancing Dots" animation**.
-    - When EVE is thinking, the bubble shows *only* three purple dots bouncing in sequence.
-    - Once processing is complete, it transitions to the standard message layout.
+### 1. `components/ChatPanel.tsx`
+#### [MODIFY] [components/ChatPanel.tsx](file:///Users/chrisbergstrom/WEBSITE/components/ChatPanel.tsx)
+- **Color Update**: Replaced all instances of the off-white `molten` color with the site's primary purple accent `mauve`.
+    - **Message Borders**: User and Assistant messages now have a purple left border (`border-mauve`).
+    - **Send Button**: The arrow button is now purple (`text-mauve`) with a purple border (`border-mauve`).
+    - **Typing Indicator**: The "EVE is thinking" box now has a purple border.
+    - **Input Focus**: Focusing the input field now triggers a purple glow (`ring-mauve/50`).
+    - **Avatar Border**: The EVE avatar inside the chat now has a subtle purple border (`border-mauve/40`).
 
 ## Verification Results
 
@@ -22,6 +19,6 @@
 
 ### Manual Verification
 - **Visual Check**:
-    - Notifications should be `90px` wide and centered over the button.
-    - **Thinking**: Should show 3 bouncing dots (no text).
-    - **Message**: Should show Icon + Title + Text after thinking.
+    - The white/off-white vertical bars next to messages should now be purple.
+    - The send button should be purple.
+    - The overall chat interface should feel more integrated with the site's purple/neon aesthetic.

@@ -10,6 +10,7 @@
     - [x] Check canonical tag in `pages/privacy.tsx` <!-- id: 7 -->
     - [x] Implement dynamic or correct static canonical tags <!-- id: 8 -->
     - [x] Verify fixes <!-- id: 9 -->
+- [x] Refine Chat Interface Colors <!-- id: 21 -->
 - [x] Fine-tune Mobile Spacing <!-- id: 14 -->
 - [x] Refine Notification UI & Processing State <!-- id: 20 -->
 - [x] Add Missing JSON-LD <!-- id: 10 -->
