@@ -34,7 +34,70 @@ export default function Projects() {
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant" />
 
         {/* Canonical URL */}
+        {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com/projects" />
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              "name": "Projects - CLB Consulting",
+              "description": "Showcase of AI and entertainment technology projects by CLB Consulting",
+              "url": "https://chrisleebergstrom.com/projects",
+              "author": {
+                "@type": "Person",
+                "@id": "https://chrisleebergstrom.com/about#person",
+                "name": "Chris Lee Bergstrom"
+              },
+              "about": {
+                "@type": "Organization",
+                "@id": "https://chrisleebergstrom.com/#organization",
+                "name": "CLB Consulting"
+              },
+              "hasPart": [
+                {
+                  "@type": "SoftwareApplication",
+                  "name": "Master Tour Venue",
+                  "applicationCategory": "BusinessApplication",
+                  "description": "The next evolution of tech pack data for venues and artists"
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  "name": "AI Powered Remote SPL",
+                  "applicationCategory": "UtilityApplication",
+                  "description": "Cloud-based SPL monitoring for events and construction"
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  "name": "EVA — Events Virtual Assistant",
+                  "applicationCategory": "BusinessApplication",
+                  "description": "Logistics, routing, and crew management AI"
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  "name": "R.Y.D.E.R.",
+                  "applicationCategory": "HealthApplication",
+                  "description": "Mental Health AI for Creatives"
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  "name": "EVE",
+                  "applicationCategory": "Bot",
+                  "description": "Conversational AI for CLB Consulting"
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  "name": "Byte",
+                  "applicationCategory": "Bot",
+                  "description": "Voice-to-Voice Semantic Research Agent"
+                }
+              ]
+            })
+          }}
+        />
       </Head>
 
       <Header />

@@ -1,26 +1,22 @@
-# Implementation Plan - Fix Canonical Tags
+# Implementation Plan - Add Missing JSON-LD
 
 ## Goal
-Fix invalid `rel=canonical` tags to ensure each page points to its own specific URL, satisfying Lighthouse best practices and improving SEO.
+Add structured data (JSON-LD) to `projects.tsx` and `index.tsx` to improve search engine understanding of the content.
 
 ## Proposed Changes
 
-### `pages/home.tsx`
-#### [MODIFY] [pages/home.tsx](file:///Users/chrisbergstrom/WEBSITE/pages/home.tsx)
-- Change `<link rel="canonical" href="https://chrisleebergstrom.com" />` to `<link rel="canonical" href="https://chrisleebergstrom.com/home" />`.
+### `pages/projects.tsx`
+#### [MODIFY] [pages/projects.tsx](file:///Users/chrisbergstrom/WEBSITE/pages/projects.tsx)
+- Add `CollectionPage` schema listing the projects (Master Tour, EVA, Ryder, etc.) as `hasPart` or `mainEntity`.
 
-### `pages/about.tsx`
-#### [MODIFY] [pages/about.tsx](file:///Users/chrisbergstrom/WEBSITE/pages/about.tsx)
-- Add `<link rel="canonical" href="https://chrisleebergstrom.com/about" />` to the `<Head>` section.
-
-### `pages/news.tsx`
-#### [MODIFY] [pages/news.tsx](file:///Users/chrisbergstrom/WEBSITE/pages/news.tsx)
-- Add `<link rel="canonical" href="https://chrisleebergstrom.com/news" />` to the `<Head>` section.
+### `pages/index.tsx`
+#### [MODIFY] [pages/index.tsx](file:///Users/chrisbergstrom/WEBSITE/pages/index.tsx)
+- Add `Organization` and `WebSite` schema (similar to `home.tsx` but simplified for the splash page) to establish the brand entity at the root domain.
 
 ## Verification Plan
 
 ### Automated Tests
-- **Build Verification**: Run `npm run build` to ensure no syntax errors.
+- **Build Verification**: Run `npm run build`.
 
 ### Manual Verification
-- **Code Review**: Verify that each file has the correct canonical URL matching its route.
+- **Code Review**: Verify the JSON-LD structure is valid.

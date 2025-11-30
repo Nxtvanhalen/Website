@@ -12,7 +12,7 @@ export default function Landing() {
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
-        
+
         {/* Favicon and App Icons */}
         <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
@@ -22,7 +22,7 @@ export default function Landing() {
         <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#000000" />
-        
+
         {/* Open Graph tags for social sharing */}
         <meta property="og:title" content="CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology Consultant" />
         <meta property="og:description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations. Grammy-nominated expertise meets cutting-edge technology." />
@@ -32,7 +32,7 @@ export default function Landing() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
         <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
-        
+
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
@@ -41,14 +41,50 @@ export default function Landing() {
         <meta name="twitter:description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
-        
+
+        {/* Canonical URL */}
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com" />
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://chrisleebergstrom.com/#organization",
+                  "name": "CLB Consulting",
+                  "url": "https://chrisleebergstrom.com",
+                  "logo": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
+                  "sameAs": [
+                    "https://www.linkedin.com/in/chris-bergstrom",
+                    "https://www.instagram.com/chrisleebergstrom",
+                    "https://www.youtube.com/@chrisleebergstrom",
+                    "https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://chrisleebergstrom.com/#website",
+                  "url": "https://chrisleebergstrom.com",
+                  "name": "CLB Consulting",
+                  "description": "AI consulting for entertainment, hospitality, and live events",
+                  "publisher": {
+                    "@id": "https://chrisleebergstrom.com/#organization"
+                  }
+                }
+              ]
+            })
+          }}
+        />
       </Head>
-      
+
       {/* Muted Parallax Background for Landing Page */}
       <div className="parallax-container">
-        <div 
+        <div
           className="parallax-bg-2"
           style={{
             position: 'absolute',
@@ -67,12 +103,12 @@ export default function Landing() {
           }}
         ></div>
       </div>
-      
-      <main 
+
+      <main
         className="min-h-screen flex flex-col items-center justify-center relative"
         role="main"
         aria-label="CLB Consulting Landing Page"
-        style={{position: 'relative', zIndex: 10}}
+        style={{ position: 'relative', zIndex: 10 }}
       >
         {/* Chris Lee Bergstrom Name */}
         <div className="text-center mb-8">
@@ -85,35 +121,35 @@ export default function Landing() {
             Chris Lee Bergstrom
           </motion.h1>
         </div>
-        
+
         {/* Large CLB Logo PNG with Glitchy Glow */}
         <div className="text-center mb-12">
-          <img 
-            src="/images/Purple Logo.png" 
-            alt="CLB Consulting Logo" 
+          <img
+            src="/images/Purple Logo.png"
+            alt="CLB Consulting Logo"
             className="w-72 md:w-96 lg:w-[32rem] h-auto mx-auto landing-logo-glow"
           />
         </div>
-        
+
         {/* Enter Button - Blurred with Pulse and Blue Edges */}
-        <Link 
+        <Link
           href="/home"
           className="px-12 py-4 bg-white/10 backdrop-blur-md text-white text-xl font-medium rounded-xl hover:bg-white/20 transition-all duration-500 focus:outline-none animate-pulse-slow landing-enter-button mb-8"
           aria-label="Enter CLB Consulting website"
         >
           Enter
         </Link>
-        
+
         {/* Contact Link */}
         <div className="text-center">
-          <a 
+          <a
             href="mailto:chrisleebergstrom@gmail.com?subject=AI Project Inquiry - Landing Page Contact"
             className="block px-8 py-3 bg-transparent border border-molten text-molten text-lg font-medium rounded hover:bg-molten/10 hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
             aria-label="Contact Chris Lee Bergstrom via email"
           >
             Contact
           </a>
-          <div className="text-sm mt-2" style={{color: '#F5F5DC', opacity: 0.7}}>chrisleebergstrom@gmail.com</div>
+          <div className="text-sm mt-2" style={{ color: '#F5F5DC', opacity: 0.7 }}>chrisleebergstrom@gmail.com</div>
         </div>
       </main>
     </div>
