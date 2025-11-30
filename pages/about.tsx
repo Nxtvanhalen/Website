@@ -49,6 +49,9 @@ export default function About() {
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
 
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://chrisleebergstrom.com/about" />
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"

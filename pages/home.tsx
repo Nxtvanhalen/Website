@@ -175,7 +175,8 @@ export default function Home() {
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://chrisleebergstrom.com" />
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://chrisleebergstrom.com/home" />
 
         {/* JSON-LD Structured Data for AI understanding */}
         <script

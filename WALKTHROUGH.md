@@ -1,12 +1,17 @@
-# Walkthrough - Add Privacy Policy Link
+# Walkthrough - Fix Canonical Tags
 
 ## Changes
 
-### `pages/home.tsx`
-
+### 1. Fixed `pages/home.tsx`
 #### [MODIFY] [pages/home.tsx](file:///Users/chrisbergstrom/WEBSITE/pages/home.tsx)
-- **Added Footer**: Inserted a footer section after the `<Contact />` component.
-- **Added Link**: Included a small, muted "Privacy Policy" link pointing to `/privacy`.
+- **Corrected Canonical URL**: Changed `href="https://chrisleebergstrom.com"` to `href="https://chrisleebergstrom.com/home"`. This ensures search engines distinguish the Home page from the Splash page.
+
+### 2. Added Missing Tags
+#### [MODIFY] [pages/about.tsx](file:///Users/chrisbergstrom/WEBSITE/pages/about.tsx)
+- **Added Canonical URL**: Added `href="https://chrisleebergstrom.com/about"`.
+
+#### [MODIFY] [pages/news.tsx](file:///Users/chrisbergstrom/WEBSITE/pages/news.tsx)
+- **Added Canonical URL**: Added `href="https://chrisleebergstrom.com/news"`.
 
 ## Verification Results
 
@@ -15,5 +20,4 @@
     - Result: `Exit code: 0`
 
 ### Manual Verification
-- **Visual Check**: The link should appear at the very bottom of the home page, centered and subtle (opacity 50%).
-- **Interaction**: Hovering over the link should increase its opacity to 100%.
+- **Code Check**: Verified that `home.tsx`, `about.tsx`, and `news.tsx` now have explicit and correct `rel="canonical"` tags.
