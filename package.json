@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "bun --bun next dev",
-    "build": "bun install && bun --bun next build",
-    "export": "bun --bun next export",
-    "start": "bun --bun next start",
+    "dev": "next dev",
+    "build": "bun install && next build",
+    "export": "next export",
+    "start": "next start",
     "postinstall": "bun pm ls typescript @types/react @types/node || bun add typescript @types/react @types/node @types/react-dom"
   },
   "dependencies": {
