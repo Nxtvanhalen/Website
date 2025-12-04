@@ -24,18 +24,22 @@ const BLOCKED_IPS = [
     '43.130.67.33',   // Spoofed Mobile UA
     '24.20.186.46',   // Spoofed Mobile UA
     '43.159.145.153', // Spoofed Mobile UA
+    // Credential hunters (Dec 2025)
+    '136.144.43.216', // wp-login.php credential hunter
+    '185.39.19.47',   // CCleaner suspicious UA
 ];
 
 // 2. THE BAD AGENTS
 const BLOCKED_USER_AGENTS = [
     'VertexWP', 'Go-http-client', 'Python/3.10', 'aiohttp',
-    'httpx', 'python-httpx', 'curl', 'wget',
+    'httpx', 'python-httpx', 'curl', 'wget', 'CCleaner',
 ];
 
 // 3. BAD PATHS (New Strategy)
 // If anyone asks for these, they are 100% a bot.
 const BLOCKED_PATHS = [
     '/wp-admin',
+    '/wp-login.php',
     '/wp-includes',
     '/wp-content',
     '/xmlrpc.php',
