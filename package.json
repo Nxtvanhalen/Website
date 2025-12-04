@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "bun --bun next dev",
-    "build": "bun install --frozen-lockfile && bun --bun next build",
+    "build": "bun install && bun --bun next build",
     "export": "bun --bun next export",
     "start": "bun --bun next start",
     "postinstall": "bun pm ls typescript @types/react @types/node || bun add typescript @types/react @types/node @types/react-dom"
