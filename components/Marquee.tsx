@@ -153,17 +153,17 @@ export default function Marquee() {
 
   const boxes = [
     {
-      title: "🔧 We rebuild broken systems — fast.",
+      title: "We rebuild broken systems — fast.",
       description: "Efficient, scalable, human-centered solutions that transform disorganized operations into cohesive, high-performing systems.",
       subject: "Systems Rebuild Inquiry"
     },
     {
-      title: "🎭 Where art meets infrastructure.",
+      title: "Where art meets infrastructure.",
       description: "From touring operations to cultural institutions, we design frameworks that let creativity thrive — blending technical precision with artistic vision.",
       subject: "Creative Infrastructure Inquiry"
     },
     {
-      title: "🚀 Future-proof your live experience.",
+      title: "Future-proof your live experience.",
       description: "AI tools, optimized workflows, sustainable tech — we help you evolve your organization before the industry leaves you behind.",
       subject: "Future-Proofing Inquiry"
     }
@@ -404,7 +404,7 @@ export default function Marquee() {
               "I build systems where art and technology work together"
             </p>
             <p>
-              I started in the deep end of live sound 🔊, chasing perfect harmony, phase, and the science of acoustics. Decades later, I've led crews 👥, built production infrastructures 🏗️, and rescued venues from chaos. Whether it's an international tour 🌍, a citywide cultural system 🏙️, or a failing arts organization 🎭, I find the signal in the noise 📡 and make it sing 🎶.
+              I started in the deep end of live sound, chasing perfect harmony, phase, and the science of acoustics. Decades later, I've led crews, built production infrastructures, and rescued venues from chaos. Whether it's an international tour, a citywide cultural system, or a failing arts organization, I find the signal in the noise and make it sing.
             </p>
 
             {/* XL4 Image Section */}
@@ -439,7 +439,7 @@ export default function Marquee() {
             </div>
 
             <p>
-              I lead under pressure ⚡, turn inefficiency into momentum 🚀, and bring harmony back to the process ☯️.
+              I lead under pressure, turn inefficiency into momentum, and bring harmony back to the process.
             </p>
 
             {/* PNW Image Section */}
@@ -474,7 +474,7 @@ export default function Marquee() {
             </div>
 
             <p>
-              If you're ready to rebuild something real 🏗️ — let's talk 💬. I don't do "culture by committee" 🚫. I do the work that makes art feel alive again ✨.
+              If you're ready to rebuild something real — let's talk. I don't do "culture by committee". I do the work that makes art feel alive again.
             </p>
           </div>
         </SectionTracker>

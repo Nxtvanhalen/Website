@@ -182,11 +182,11 @@ export default function About() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>🎭 Creative Leadership & Strategy</h3>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>Creative Leadership & Strategy</h3>
                   <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🌍 Global Tour & Production Management</span><br />Managed complex logistics and large teams across international venues and festivals</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🎨 Creative Director & Brand Strategist</span><br />Spearheaded theatrical branding for CLB Consulting and tech platforms. Expert in building "narrative systems" that align tech with culture</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🎤 Public Speaker & Writer</span><br />Known for clarity, poetic argument, and challenging cultural assumptions head-on</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Global Tour & Production Management</span><br />Managed complex logistics and large teams across international venues and festivals</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Creative Director & Brand Strategist</span><br />Spearheaded theatrical branding for CLB Consulting and tech platforms. Expert in building "narrative systems" that align tech with culture</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Public Speaker & Writer</span><br />Known for clarity, poetic argument, and challenging cultural assumptions head-on</li>
                   </ul>
                 </motion.div>
 
@@ -196,11 +196,11 @@ export default function About() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>🤖 AI & Technical Systems</h3>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>AI & Technical Systems</h3>
                   <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🧠 AI Strategy & Ethical Tech Integration</span><br />Founder of tools like EVA, Byte, and JAMES. Advocates for culturally sensitive AI that empowers rather than extracts</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🏗️ AI Systems Developer (Multi-Agent Architect)</span><br />Architect behind JAMES (multi-agent LLM symphony), Byte (voice-to-voice bot), and EVA (Events Virtual Assistant) ecosystems</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>⚙️ Technical Systems Designer</span><br />Specialist in backstage operations, automation, safety protocols, and venue sustainability</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>AI Strategy & Ethical Tech Integration</span><br />Founder of tools like EVA, Byte, and JAMES. Advocates for culturally sensitive AI that empowers rather than extracts</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>AI Systems Developer (Multi-Agent Architect)</span><br />Architect behind JAMES (multi-agent LLM symphony), Byte (voice-to-voice bot), and EVA (Events Virtual Assistant) ecosystems</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Technical Systems Designer</span><br />Specialist in backstage operations, automation, safety protocols, and venue sustainability</li>
                   </ul>
                 </motion.div>
 
@@ -210,11 +210,11 @@ export default function About() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>🎛️ Audio Engineering & Infrastructure</h3>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>Audio Engineering & Infrastructure</h3>
                   <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🔌 Professional Audio Systems</span><br />Dante Networking & Routing, Shure Wireless Systems (Axient, ULX-D), SMAART System Analysis and Training</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🎵 Sound Design & Programming</span><br />QLab Programming, Waves Plugins & Live Mixing Integration</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🔊 Advanced Audio Technologies</span><br />Spatial Audio Systems, Dolby Atmos, RF Coordination & Frequency Management</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Professional Audio Systems</span><br />Dante Networking & Routing, Shure Wireless Systems (Axient, ULX-D), SMAART System Analysis and Training</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Sound Design & Programming</span><br />QLab Programming, Waves Plugins & Live Mixing Integration</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Advanced Audio Technologies</span><br />Spatial Audio Systems, Dolby Atmos, RF Coordination & Frequency Management</li>
                   </ul>
                 </motion.div>
 
@@ -224,11 +224,11 @@ export default function About() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>🌟 Social Impact & Operations</h3>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>Social Impact & Operations</h3>
                   <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>⚖️ Equity & Labor Advocacy</span><br />Pushed for inclusive practices, backstage dignity, and systemic change in the arts sector</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>🌱 Climate & Sustainability Champion</span><br />Embedded green principles into production workflows and citywide venue strategies</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>📋 Complex Logistics Management</span><br />Touring logistics (Carnet, Visas, Advances), Emergency Planning & Safety Protocols</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Equity & Labor Advocacy</span><br />Pushed for inclusive practices, backstage dignity, and systemic change in the arts sector</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Climate & Sustainability Champion</span><br />Embedded green principles into production workflows and citywide venue strategies</li>
+                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Complex Logistics Management</span><br />Touring logistics (Carnet, Visas, Advances), Emergency Planning & Safety Protocols</li>
                   </ul>
                 </motion.div>
               </div>
@@ -257,10 +257,8 @@ export default function About() {
                       <div className="text-sm opacity-80">chrisleebergstrom@gmail.com</div>
                     </div>
                   </a>
-                  <p className="text-sm text-molten/70 flex items-center justify-center space-x-2">
-                    <span>⚡</span>
-                    <span>Let's discuss your project needs</span>
-                    <span>⚡</span>
+                  <p className="text-sm text-molten/70">
+                    Let's discuss your project needs
                   </p>
                 </div>
               </div>

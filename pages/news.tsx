@@ -167,7 +167,7 @@ export default function News() {
                 </a>
 
                 <div className="text-sm text-gray-400">
-                  🎧 Audio Interview
+                  Audio Interview
                 </div>
               </div>
             </article>
@@ -226,7 +226,7 @@ export default function News() {
                 </a>
 
                 <div className="text-sm text-gray-400">
-                  🎸 Live Performance
+                  Live Performance
                 </div>
               </div>
             </article>
@@ -378,10 +378,8 @@ export default function News() {
                       <div className="text-sm opacity-80">chrisleebergstrom@gmail.com</div>
                     </div>
                   </a>
-                  <p className="text-sm text-molten/70 flex items-center justify-center space-x-2">
-                    <span>⚡</span>
-                    <span>Let's discuss your project needs</span>
-                    <span>⚡</span>
+                  <p className="text-sm text-molten/70">
+                    Let's discuss your project needs
                   </p>
                 </div>
               </div>

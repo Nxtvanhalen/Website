@@ -185,7 +185,7 @@ export default function Projects() {
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#FF0000', textShadow: '0 0 10px rgba(255,0,0,0.5)' }}>Master Tour</h2>
                     <p className="text-base leading-relaxed opacity-90 mb-3" style={{ color: '#F5F5DC' }}>
-                      The next evolution of tech pack data for venues and artists 🎸. Beta testing and consulting on the rollout 🚀.
+                      The next evolution of tech pack data for venues and artists. Beta testing and consulting on the rollout.
                     </p>
                     <a
                       href="https://www.eventric.com/master-tour-venue/"
@@ -223,7 +223,7 @@ export default function Projects() {
                     <h2 className="text-2xl font-heading mb-1" style={{ color: '#F5F5DC' }}>AI Powered Remote SPL</h2>
                     <div className="text-sm font-normal mb-3" style={{ color: '#F5F5DC', opacity: 0.6 }}>(Sound Pressure Level)</div>
                     <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      Cloud-based SPL monitoring for events and construction 🏗️. Real-time tracking, compliance analytics, and predictive insights 🔊.
+                      Cloud-based SPL monitoring for events and construction. Real-time tracking, compliance analytics, and predictive insights.
                     </p>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
@@ -250,7 +250,7 @@ export default function Projects() {
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>EVA — Events Virtual Assistant</h2>
                     <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      The orchestration core 🧠. Managing logistics, routing, and crews for the entertainment industry 🎬. Customizable, scalable, show-ready ✨.
+                      The orchestration core. Managing logistics, routing, and crews for the entertainment industry. Customizable, scalable, show-ready.
                     </p>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
@@ -277,7 +277,7 @@ export default function Projects() {
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#00ff00', textShadow: '0 0 10px rgba(0,255,0,0.5)' }}>R.Y.D.E.R. — Mental Health AI for Creatives</h2>
                     <p className="text-base leading-relaxed opacity-90 mb-3" style={{ color: '#F5F5DC' }}>
-                      Trauma-aware AI for the industry 🖤. Anonymous, reflective, and emotionally attuned. Not therapy—a check-in with soul 🛡️.
+                      Trauma-aware AI for the industry. Anonymous, reflective, and emotionally attuned. Not therapy—a check-in with soul.
                     </p>
                     <a
                       href="https://ryder-k6er.onrender.com"
@@ -346,7 +346,7 @@ export default function Projects() {
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>Byte — Voice-to-Voice Semantic Research Agent</h2>
                     <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      Voice-native AI for deep research 🗣️. File parsing, archival search, and contextual synthesis. Speaks with clarity, thinks with nuance 🔬.
+                      Voice-native AI for deep research. File parsing, archival search, and contextual synthesis. Speaks with clarity, thinks with nuance.
                     </p>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
@@ -373,7 +373,7 @@ export default function Projects() {
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>Glytch — Retro-Futurist API Assistant</h2>
                     <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      Retro-futurist API assistant in a vintage iMac 🖥️. Channeling TARS for creative ideation and irreverent insights 👾.
+                      Retro-futurist API assistant in a vintage iMac. Channeling TARS for creative ideation and irreverent insights.
                     </p>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
@@ -400,7 +400,7 @@ export default function Projects() {
                   <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>Multi-Agent Intelligence Lab</h2>
                 </div>
                 <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                  The CLB skunkworks 🧪. Prototyping federated agents and real-time consulting flows. Future interface, real execution ⚡.
+                  The CLB skunkworks. Prototyping federated agents and real-time consulting flows. Future interface, real execution.
                 </p>
               </div>
             </SectionTracker>
@@ -415,7 +415,7 @@ export default function Projects() {
                   <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>JAMES — Core Memory & Strategic AI Backbone</h2>
                 </div>
                 <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                  The cognitive backbone 🧠. Long-term memory and multi-agent orchestration. Ensuring CLB isn't just smart—it's alive 🧬.
+                  The cognitive backbone. Long-term memory and multi-agent orchestration. Ensuring CLB isn't just smart—it's alive.
                 </p>
               </div>
             </SectionTracker>
@@ -430,7 +430,7 @@ export default function Projects() {
                   <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>AI Consulting Sandbox</h2>
                 </div>
                 <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                  Firebase-powered hospitality strategy 🍽️. Analyzing sales data to predict demand and turn noise into insight 📈.
+                  Firebase-powered hospitality strategy. Analyzing sales data to predict demand and turn noise into insight.
                 </p>
               </div>
             </SectionTracker>
@@ -453,10 +453,8 @@ export default function Projects() {
                     <div className="text-sm opacity-80" style={{ color: '#F5F5DC' }}>chrisleebergstrom@gmail.com</div>
                   </div>
                 </a>
-                <p className="text-sm flex items-center justify-center space-x-2" style={{ color: '#F5F5DC', opacity: 0.7 }}>
-                  <span>⚡</span>
-                  <span>Let's discuss your project needs</span>
-                  <span>⚡</span>
+                <p className="text-sm" style={{ color: '#F5F5DC', opacity: 0.7 }}>
+                  Let's discuss your project needs
                 </p>
               </div>
             </div>

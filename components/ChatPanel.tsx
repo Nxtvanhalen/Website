@@ -263,7 +263,7 @@ export default function ChatPanel() {
           disabled={isTyping || !input.trim()}
           className="px-6 bg-transparent text-mauve font-bold hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all border border-mauve hover:border-white hover:scale-105 active:scale-95"
         >
-          {isTyping ? '⏳' : '→'}
+          {isTyping ? '...' : '→'}
         </button>
       </form>
     </div>

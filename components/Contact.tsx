@@ -14,10 +14,8 @@ export default function Contact() {
               <div className="text-sm opacity-80" style={{color: '#F5F5DC'}}>chrisleebergstrom@gmail.com</div>
             </div>
           </a>
-          <p className="text-sm flex items-center justify-center space-x-2" style={{color: '#F5F5DC', opacity: 0.7}}>
-            <span>⚡</span>
-            <span>Or chat with EVE above for instant insights</span>
-            <span>⚡</span>
+          <p className="text-sm" style={{color: '#F5F5DC', opacity: 0.7}}>
+            Or chat with EVE above for instant insights
           </p>
         </div>
       </div>
