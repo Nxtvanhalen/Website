@@ -399,7 +399,8 @@ export default function Marquee() {
           className="relative mb-16 mx-auto max-w-4xl px-4"
           butlerMessage="Chris has lived both sides—art and tech. Ask me about his work with Black Rebel Motorcycle Club."
         >
-          <div className="text-base font-body opacity-90 leading-relaxed space-y-6" style={{ color: '#F5F5DC' }}>
+          <div className="bg-black/60 border-2 border-mauve/50 rounded-lg p-6 md:p-8 shadow-[0_0_30px_rgba(147,112,219,0.4)] hover:shadow-[0_0_40px_rgba(147,112,219,0.6)] transition-shadow duration-300">
+            <div className="text-base font-body opacity-90 leading-relaxed space-y-6" style={{ color: '#F5F5DC' }}>
             <p className="font-semibold text-lg italic">
               "I build systems where art and technology work together"
             </p>
@@ -476,6 +477,7 @@ export default function Marquee() {
             <p>
               If you're ready to rebuild something real — let's talk. I don't do "culture by committee". I do the work that makes art feel alive again.
             </p>
+            </div>
           </div>
         </SectionTracker>
 
