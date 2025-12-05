@@ -205,7 +205,7 @@ export default function Landing() {
             left: 0,
             width: '100%',
             height: '100vh',
-            backgroundImage: 'url(/images/parallax-bg2.webp)',
+            backgroundImage: 'url(/images/BackgroundHOME.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
