@@ -5,8 +5,6 @@ import Header from '../components/Header';
 import SectionTracker from '../components/SectionTracker';
 
 export default function Projects() {
-  // ... (useEffect)
-
   return (
     <>
       <Head>
@@ -155,16 +153,29 @@ export default function Projects() {
 
       <Header />
 
-      {/* Parallax Background */}
+      {/* Video Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
-        <div
-          className="projects-parallax-bg absolute inset-0 bg-center bg-cover md:bg-fixed"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          ref={(el) => { if (el) el.playbackRate = 0.5; }}
           style={{
-            backgroundImage: "url('/images/AI5.jpg')",
-            minHeight: '120vh'
+            position: 'absolute',
+            top: '-10%',
+            left: 0,
+            width: '100%',
+            height: '120vh',
+            objectFit: 'cover',
+            filter: 'brightness(0.3) saturate(1.0)',
+            opacity: 0.6,
+            transform: 'scale(1.1)'
           }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/50" />
+        >
+          <source src="/videos/theater-bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
       </div>
 
       <main className="min-h-screen bg-transparent text-white pt-52 relative z-10">
