@@ -238,14 +238,15 @@ export default function Projects() {
                     </p>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <Image
-                      src="/images/projects/Rosi.png"
-                      alt="AI Powered Remote SPL"
-                      width={96}
-                      height={96}
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="w-full h-full object-cover"
-                      quality={75}
-                    />
+                    >
+                      <source src="/videos/spl-thumb.mp4" type="video/mp4" />
+                    </video>
                   </div>
                 </div>
               </div>
