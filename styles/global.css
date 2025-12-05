@@ -581,7 +581,7 @@
 }
 
 html {
-  background-color: var(--color-bg);
+  background-color: #000000;
   color: var(--color-text);
   overflow-y: scroll;
   scrollbar-gutter: stable;
