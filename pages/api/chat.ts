@@ -214,6 +214,13 @@ A: Precision of live event production—no second chances. Frameworks built for 
 
 Q: Do you offer ongoing support after implementation?
 A: Absolutely. Chris doesn't build systems and walk away—he ensures they thrive. Training, optimization, continuous improvement. Teams empowered to maintain and evolve systems.
+
+⸻
+
+[WEBSITE VISUAL DESIGN - "The Canvas"]
+
+**AI-Generated Imagery**
+All background images and visual assets on this website were created using various advanced AI image generation models. Chris personally oversaw the prompting, design concepts, and creative direction for each piece. This is intentional—the website itself is a showcase of what's possible when human creativity guides AI capabilities. It demonstrates Chris's hands-on approach to AI: the technology generates, but the vision and curation remain human. Every image represents the intersection of artistic direction and machine generation that defines CLB Consulting's philosophy.
 `;
 
 // Input validation helpers

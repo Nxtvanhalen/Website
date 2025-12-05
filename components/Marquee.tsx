@@ -171,16 +171,6 @@ export default function Marquee() {
 
   return (
     <div className="relative w-full min-h-screen overflow-visible mb-16">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 200 200"
-        preserveAspectRatio="xMinYMin meet"
-        className="absolute top-4 left-4 w-12 h-12 opacity-20 text-white overflow-visible"
-      >
-        <text x="0" y="200" fontSize="200" fill="currentColor">
-          CLB
-        </text>
-      </svg>
       <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-36 md:pt-52 pb-16 text-center text-white">
         {/* Mobile Profile Picture - Above heading */}
         <div className="md:hidden mb-2 flex justify-center">

@@ -327,26 +327,28 @@ export default function Home() {
         />
       </Head>
 
-      {/* Parallax Background */}
+      {/* Video Background */}
       <div className="parallax-container">
-        <div
-          className="parallax-bg-2"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           style={{
             position: 'absolute',
-            top: 0,
+            top: '-10%',
             left: 0,
             width: '100%',
-            height: '100vh',
-            backgroundImage: 'url(/images/BackgroundHOME.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            filter: 'brightness(0.7) saturate(1.2)',
-            opacity: 1,
+            height: '120vh',
+            objectFit: 'cover',
+            filter: 'brightness(0.4) saturate(1.1)',
+            opacity: 0.7,
             zIndex: 1,
-            minHeight: '120vh'
+            transform: 'scale(1.15)'
           }}
-        ></div>
+        >
+          <source src="/videos/circuitry-bg-fade.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* Debug: Keep this div but make it invisible */}

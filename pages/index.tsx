@@ -195,26 +195,28 @@ export default function Landing() {
         />
       </Head>
 
-      {/* Muted Parallax Background for Landing Page */}
+      {/* Video Background for Landing Page */}
       <div className="parallax-container">
-        <div
-          className="parallax-bg-2"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           style={{
             position: 'absolute',
-            top: 0,
+            top: '-10%',
             left: 0,
             width: '100%',
-            height: '100vh',
-            backgroundImage: 'url(/images/BackgroundHOME.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
+            height: '120vh',
+            objectFit: 'cover',
             filter: 'brightness(0.3) saturate(0.8) blur(1px)',
             opacity: 0.4,
             zIndex: 1,
-            minHeight: '120vh'
+            transform: 'scale(1.15)'
           }}
-        ></div>
+        >
+          <source src="/videos/circuitry-bg-fade.mp4" type="video/mp4" />
+        </video>
       </div>
 
       <main
