@@ -209,15 +209,15 @@ export default function Projects() {
                     </a>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <Image
-                      src="/images/projects/Mastertour.jpg"
-                      alt="Master Tour"
-                      width={96}
-                      height={96}
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="w-full h-full object-cover"
-                      style={{ objectPosition: '50% 30%' }}
-                      quality={75}
-                    />
+                    >
+                      <source src="/videos/mt-thumb.mp4" type="video/mp4" />
+                    </video>
                   </div>
                 </div>
               </div>
@@ -266,14 +266,15 @@ export default function Projects() {
                     </p>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <Image
-                      src="/images/EVA2.JPG"
-                      alt="EVA - Events Virtual Assistant"
-                      width={96}
-                      height={96}
-                      className="w-full h-full object-cover object-top scale-125"
-                      quality={75}
-                    />
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    >
+                      <source src="/videos/eva-thumb.mp4" type="video/mp4" />
+                    </video>
                   </div>
                 </div>
               </div>
