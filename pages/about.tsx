@@ -147,7 +147,7 @@ export default function About() {
               <div className="flex justify-center md:absolute md:right-0 md:top-0">
                 <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50">
                   <img
-                    src="/images/profile/chris-profile.jpg"
+                    src="/images/profile/chris-profile.webp"
                     alt="Chris Lee Bergstrom Profile"
                     className="w-full h-full object-cover object-top"
                     onError={(e) => {

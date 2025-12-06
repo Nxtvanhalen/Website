@@ -132,7 +132,7 @@ export default function Header() {
           <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
             <div className="w-12 h-12 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
               <Image
-                src="/images/profile/chris-profile.jpg"
+                src="/images/profile/chris-profile.webp"
                 alt="Chris Lee Bergstrom"
                 width={48}
                 height={48}
