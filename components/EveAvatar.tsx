@@ -25,14 +25,15 @@ export default function EveAvatar({ width = 80, height = 45, className = '' }: E
     >
       <video
         ref={videoRef}
-        src="/videos/eve-avatar.mp4"
         autoPlay
         loop
         muted
         playsInline
         className="w-full h-full object-contain"
         style={{ width, height }}
-      />
+      >
+        <source src="/videos/eve-avatar.mp4" type="video/mp4" />
+      </video>
     </div>
   );
 }
