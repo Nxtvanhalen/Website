@@ -336,13 +336,13 @@ export default function Projects() {
                     </a>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <Image
-                      src="/images/projects/EVE.png"
-                      alt="EVE - Conversational AI for CLB"
-                      width={96}
-                      height={96}
-                      className="w-full h-full object-cover object-top"
-                      quality={75}
+                    <video
+                      src="/videos/eve-project-thumb.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
                     />
                   </div>
                 </div>

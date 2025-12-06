@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useChat } from '../context/ChatContext';
 import ChatPanel from './ChatPanel';
-import Image from 'next/image';
+import EveAvatar from './EveAvatar';
 
 export default function PersistentChat() {
     const { isOpen, toggleChat, setNotificationActive, setLastNotificationTime } = useChat();
@@ -45,14 +45,7 @@ export default function PersistentChat() {
                         {/* Header */}
                         <div className="p-4 border-b border-white/10 flex justify-between items-center bg-gradient-to-r from-mauve/20 to-transparent">
                             <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-full border border-mauve/50 overflow-hidden relative">
-                                    <Image
-                                        src="/images/projects/EVE.png"
-                                        alt="EVE"
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
+                                <EveAvatar width={80} height={45} className="border border-mauve/50" />
                                 <div>
                                     <h3 className="font-heading text-white text-sm tracking-wide">EVE AI</h3>
                                     <div className="flex items-center gap-1.5">
@@ -98,15 +91,7 @@ export default function PersistentChat() {
                     >
                         <div className="flex flex-col gap-2">
                             <div className="flex flex-col items-start gap-1 border-b border-white/10 pb-2">
-                                <div className="w-6 h-6 rounded-sm border border-[#9370DB]/50 overflow-hidden shrink-0">
-                                    <Image
-                                        src="/images/projects/EVE.png"
-                                        alt="EVE"
-                                        width={24}
-                                        height={24}
-                                        className="object-cover"
-                                    />
-                                </div>
+                                <EveAvatar width={64} height={36} className="border border-[#9370DB]/50" />
                                 <h4 className="text-[10px] font-bold text-[#9370DB] uppercase tracking-wider leading-tight">Incoming Transmission</h4>
                             </div>
                             <div>
@@ -126,12 +111,12 @@ export default function PersistentChat() {
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <AnimatePresence>
-                    {isHovered && !isOpen && (
+                    {!isOpen && !showNotification && (
                         <motion.div
                             initial={{ opacity: 0, y: 10, x: "-50%" }}
                             animate={{ opacity: 1, y: 0, x: "-50%" }}
                             exit={{ opacity: 0, y: 10, x: "-50%" }}
-                            className="absolute bottom-full mb-3 left-1/2 px-3 py-1.5 bg-black/80 backdrop-blur-md border border-mauve/50 rounded-lg text-white text-xs font-medium whitespace-nowrap shadow-[0_0_15px_rgba(147,112,219,0.3)]"
+                            className="absolute bottom-full mb-1.5 left-1/2 px-3 py-1.5 bg-black/80 backdrop-blur-md border border-mauve/50 rounded-lg text-white text-xs font-medium whitespace-nowrap shadow-[0_0_15px_rgba(147,112,219,0.3)]"
                         >
                             EVE AI
                         </motion.div>
@@ -146,21 +131,14 @@ export default function PersistentChat() {
                         boxShadow: ["0 0 0px rgba(147,112,219,0.4)", "0 0 35px rgba(147,112,219,1)", "0 0 0px rgba(147,112,219,0.4)"]
                     }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                    className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 border-2 ${isOpen ? 'bg-black border-mauve text-mauve' : 'bg-mauve border-mauve text-white'}`}
+                    className={`w-20 h-12 rounded-lg flex items-center justify-center transition-all duration-300 border-2 ${isOpen ? 'bg-black border-mauve/50 text-mauve' : 'bg-black/60 border-mauve/50 text-white'}`}
                 >
                     {isOpen ? (
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     ) : (
-                        <div className="relative w-full h-full rounded-full overflow-hidden">
-                            <Image
-                                src="/images/projects/EVE.png"
-                                alt="Chat with EVE"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
+                        <EveAvatar width={76} height={43} className="rounded-md" />
                     )}
                 </motion.button>
             </div>

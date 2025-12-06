@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, FormEvent } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import EveAvatar from './EveAvatar';
 
 type Message = { role: 'user' | 'assistant'; content: string };
 
@@ -218,13 +219,7 @@ export default function ChatPanel() {
             >
               {msg.role === 'assistant' && (
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-6 h-6 rounded-full border border-mauve/40 overflow-hidden flex-shrink-0">
-                    <img
-                      src="/images/projects/EVE.png"
-                      alt="EVE"
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
+                  <EveAvatar width={56} height={32} className="border border-mauve/40" />
                   <div className="text-xs font-bold opacity-70">EVE</div>
                 </div>
               )}
