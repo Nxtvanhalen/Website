@@ -29,6 +29,7 @@ const BLOCKED_IPS = [
     '185.39.19.47',   // CCleaner suspicious UA
     '202.178.119.130', // CRITICAL: wp-login.php credential hunting attack
     '43.159.143.187', // Spoofed Bot: Cloud IP impersonating iPhone
+    '43.159.139.164', // Tencent Cloud spoofing iPhone UA
 ];
 
 // 2. THE BAD AGENTS
