@@ -30,6 +30,7 @@ const BLOCKED_IPS = [
     '202.178.119.130', // CRITICAL: wp-login.php credential hunting attack
     '43.159.143.187', // Spoofed Bot: Cloud IP impersonating iPhone
     '43.159.139.164', // Tencent Cloud spoofing iPhone UA
+    // MONITOR (not blocked yet): '44.221.70.185' - High traffic volume, rapid non-cached fetching - Dec 2025
 ];
 
 // 2. THE BAD AGENTS
