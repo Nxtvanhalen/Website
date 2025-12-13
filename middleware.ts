@@ -27,6 +27,8 @@ const BLOCKED_IPS = [
     // Credential hunters (Dec 2025)
     '136.144.43.216', // wp-login.php credential hunter
     '185.39.19.47',   // CCleaner suspicious UA
+    '202.178.119.130', // CRITICAL: wp-login.php credential hunting attack
+    '43.159.143.187', // Spoofed Bot: Cloud IP impersonating iPhone
 ];
 
 // 2. THE BAD AGENTS
