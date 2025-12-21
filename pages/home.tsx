@@ -376,24 +376,9 @@ export default function Home() {
       >
         <Marquee />
         <section
-          className="pt-8 pb-8 px-6 text-center"
+          className="pt-0 pb-8 px-6 text-center"
           aria-labelledby="company-heading"
         >
-          <div className="bg-black/60 border-2 border-mauve/50 rounded-lg p-6 md:p-8 shadow-[0_0_30px_rgba(147,112,219,0.4)] hover:shadow-[0_0_40px_rgba(147,112,219,0.6)] transition-shadow duration-300 max-w-3xl mx-auto mb-6">
-            <h1
-              id="company-heading"
-              className="text-4xl font-heading mb-4 bg-gradient-to-r from-white via-molten to-white bg-clip-text text-transparent glow-subtle"
-            >
-              CLB Consulting
-            </h1>
-            <p className="text-xl mb-2 leading-relaxed" style={{ color: '#F5F5DC' }}>
-              <span className="font-bold" style={{ color: '#F5F5DC' }}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</span>
-            </p>
-            <h2 className="text-lg" style={{ color: '#F5F5DC', opacity: 0.9 }}>
-              CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom
-            </h2>
-          </div>
-
           {/* Flashing lights warning */}
           <div className="flex flex-col items-center mb-4 text-yellow-400">
             <div className="flex items-center justify-center mb-3">

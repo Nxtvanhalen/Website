@@ -429,10 +429,6 @@ export default function Marquee() {
               </p>
             </div>
 
-            <p>
-              I lead under pressure, turn inefficiency into momentum, and bring harmony back to the process.
-            </p>
-
             {/* PNW Image Section */}
             <div className="w-full max-w-sm mx-auto my-6">
               <motion.div
@@ -464,9 +460,6 @@ export default function Marquee() {
               </p>
             </div>
 
-            <p>
-              If you're ready to rebuild something real — let's talk. I don't do "culture by committee". I do the work that makes art feel alive again.
-            </p>
             </div>
           </div>
         </SectionTracker>
@@ -474,7 +467,7 @@ export default function Marquee() {
         {/* Horizontal scrolling gallery - ticker style */}
         <SectionTracker
           name="Homepage - Gallery"
-          className="mb-16 w-full max-w-6xl mx-auto px-4"
+          className="mb-2 w-full max-w-6xl mx-auto px-4"
           butlerMessage="A visual history of chaos tamed. See a project that catches your eye?"
         >
           <div
