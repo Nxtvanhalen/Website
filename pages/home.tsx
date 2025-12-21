@@ -377,7 +377,6 @@ export default function Home() {
         <Marquee />
         <section
           className="pt-0 pb-8 px-6 text-center"
-          aria-labelledby="company-heading"
         >
           {/* Flashing lights warning */}
           <div className="flex flex-col items-center mb-4 text-yellow-400">
