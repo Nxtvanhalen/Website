@@ -205,6 +205,15 @@ export default function Marquee() {
             Chris Lee Bergstrom
           </h2>
 
+          <motion.div
+            className="text-base font-body italic text-center mb-6 glow-subtle"
+            style={{ color: '#F5F5DC', opacity: 1 }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Recent Projects
+          </motion.div>
 
           {/* Three boxes layout */}
           <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
