@@ -141,7 +141,7 @@ export default function Marquee() {
         <div className="gallery-watermark">
           <Image
             src="/images/Purple Logo.png"
-            alt=""
+            alt="A stylized purple 'CLB' logo composed of bold geometric shapes. The letters incorporate circuit-like lines and nodes, blending a modern tech aesthetic with clean, minimalist typography on a white background."
             width={48}
             height={12}
             className="h-3 w-auto opacity-60"
@@ -283,7 +283,7 @@ export default function Marquee() {
                 >
                   <Image
                     src="/images/TARS.webp"
-                    alt="TARS Local AI"
+                    alt="Pic of a grumpy AI robot stuck inside an iPhone"
                     width={220}
                     height={96}
                     className="w-full h-full object-contain"
@@ -332,7 +332,7 @@ export default function Marquee() {
                 >
                   <Image
                     src="/images/CHESTER.jpeg"
-                    alt="Chester AI Chess Game"
+                    alt="Chess board mid-game showing strategic AI decision-making gameplay"
                     width={220}
                     height={128}
                     className="w-full h-full object-contain"
@@ -378,7 +378,7 @@ export default function Marquee() {
           <div className="w-24 h-24 rounded-full border-2 border-molten/50 overflow-hidden relative shadow-[0_0_15px_rgba(147,112,219,0.3)]">
             <Image
               src="/images/gallery/BRMC2.webp"
-              alt="Chris Lee Bergstrom - BRMC"
+              alt="Chris Lee Bergstrom mixing live sound for Black Rebel Motorcycle Club concert"
               width={96}
               height={96}
               className="w-full h-full object-cover"
@@ -447,7 +447,7 @@ export default function Marquee() {
               >
                 <Image
                   src="/images/PNW.webp"
-                  alt="Pacific Northwest - Chris Lee Bergstrom"
+                  alt="A person walks into shallow ocean waves on a wide, reflective beach under a clear blue sky. Small shorebirds gather along the wet sand in the foreground, while colorful kites from kite surfers float above the choppy water in the distance, creating a calm coastal scene."
                   width={256}
                   height={144}
                   className="w-full h-auto border-none rounded-none bg-transparent"
@@ -494,25 +494,25 @@ export default function Marquee() {
               aria-label="Interactive gallery of project screenshots and portfolio images"
             >
               {/* First set of items - starting with Project9 as first */}
-              <GalleryImage src="/images/gallery/Project9.webp" alt="Project 9 - CLB Consulting portfolio showcase" />
-              <GalleryImage src="/images/gallery/Project1.webp" alt="AI consulting project dashboard showing multi-modal integration interface" />
-              <GalleryImage src="/images/gallery/Project2.webp" alt="Entertainment technology setup with professional audio equipment and lighting controls" />
-              <GalleryImage src="/images/gallery/Project3.webp" alt="Strategic consulting workspace with data visualization and planning documents" />
-              <GalleryImage src="/images/gallery/BRMC2.webp?v=20250628" alt="Black Rebel Motorcycle Club live performance with dramatic stage lighting in Portugal" />
-              <GalleryImage src="/images/gallery/Project5.webp" alt="Team collaboration session showing AI-powered workflow optimization solutions" />
-              <GalleryImage src="/images/gallery/Project6.webp" alt="Live event coordination center with multiple screens showing real-time production data" />
-              <GalleryImage src="/images/gallery/Project7.webp" alt="Entertainment venue technical setup featuring advanced sound and visual systems" />
-              <GalleryImage src="/images/gallery/Project8.webp" alt="CLB Consulting client workshop demonstrating AI integration strategies" />
+              <GalleryImage src="/images/gallery/Project9.webp" alt="Pic of reflection of a long road in mirrored glasses, the 1000 mile stare" />
+              <GalleryImage src="/images/gallery/Project1.webp" alt="A wide nighttime view of an outdoor concert shows a large crowd gathered behind security barriers, facing a brightly lit main stage. Purple and pink stage lights fill the air with haze, while large video screens on both sides display the performer. A central access walkway leads from the foreground toward the stage, emphasizing the scale and energy of the live music event." />
+              <GalleryImage src="/images/gallery/Project2.webp" alt="View from a theater balcony shows a large stage framed by ornate architecture and bathed in blue and purple lighting, with a full band performing beneath a backdrop reading 'The Dandy Warhols.' In the foreground, a digital audio mixing console with colorful illuminated controls and screens is visible, emphasizing the perspective of live sound mixing during a concert in Portland, OR at the Arlene Schnitzer Concert Hall." />
+              <GalleryImage src="/images/gallery/Project3.webp" alt="Silhouetted musicians perform on a dimly lit stage, backlit by intense white light and haze. A guitarist and vocalist are visible in profile near microphones, while the audience stands close at the front of the stage, faces faintly illuminated by the glow, capturing the raw atmosphere of an intimate live concert." />
+              <GalleryImage src="/images/gallery/BRMC2.webp?v=20250628" alt="A large, packed concert audience fills a historic theater, facing a brightly lit stage beneath an ornate arched proscenium. Hundreds of people stand shoulder to shoulder with hands raised and clapping, while performers are visible onstage under warm and cool stage lights, capturing the energy of a live music performance." />
+              <GalleryImage src="/images/gallery/Project5.webp" alt="A sound engineer sits with their back to the camera at a control desk filled with laptops, audio interfaces, and multiple computer monitors displaying mixing software. The setup faces a concert stage with lighting fixtures, equipment cases, and a textured stage backdrop visible. Cables, racks of audio gear, and tools surround the workstation, conveying an active live-production environment during setup or rehearsal." />
+              <GalleryImage src="/images/gallery/Project6AI.webp" alt="International Tour Management, Pic of Chris in Chicago next to a tour bus" />
+              <GalleryImage src="/images/gallery/Project7.webp" alt="A large professional audio mixing console fills the frame in a dimly lit concert environment. Rows of faders, knobs, and illuminated buttons stretch across the surface, with a printed setlist resting near the center. Stage lighting and equipment racks glow in the background, suggesting a live music performance in progress." />
+              <GalleryImage src="/images/gallery/Project8.webp" alt="A vivid rainbow arcs across a stormy gray sky above a straight paved road. On the right, the smooth reflective side of a large vehicle mirrors the road, grassy hills, and the rainbow, creating a symmetrical reflection that emphasizes the open landscape and dramatic weather." />
               {/* Duplicate set for seamless loop */}
-              <GalleryImage src="/images/gallery/Project9.webp" alt="Project 9 - CLB Consulting portfolio showcase" />
-              <GalleryImage src="/images/gallery/Project1.webp" alt="AI consulting project dashboard showing multi-modal integration interface" />
-              <GalleryImage src="/images/gallery/Project2.webp" alt="Entertainment technology setup with professional audio equipment and lighting controls" />
-              <GalleryImage src="/images/gallery/Project3.webp" alt="Strategic consulting workspace with data visualization and planning documents" />
-              <GalleryImage src="/images/gallery/BRMC2.webp?v=20250628" alt="Black Rebel Motorcycle Club live performance with dramatic stage lighting in Portugal" />
-              <GalleryImage src="/images/gallery/Project5.webp" alt="Team collaboration session showing AI-powered workflow optimization solutions" />
-              <GalleryImage src="/images/gallery/Project6.webp" alt="Live event coordination center with multiple screens showing real-time production data" />
-              <GalleryImage src="/images/gallery/Project7.webp" alt="Entertainment venue technical setup featuring advanced sound and visual systems" />
-              <GalleryImage src="/images/gallery/Project8.webp" alt="CLB Consulting client workshop demonstrating AI integration strategies" />
+              <GalleryImage src="/images/gallery/Project9.webp" alt="Pic of reflection of a long road in mirrored glasses, the 1000 mile stare" />
+              <GalleryImage src="/images/gallery/Project1.webp" alt="A wide nighttime view of an outdoor concert shows a large crowd gathered behind security barriers, facing a brightly lit main stage. Purple and pink stage lights fill the air with haze, while large video screens on both sides display the performer. A central access walkway leads from the foreground toward the stage, emphasizing the scale and energy of the live music event." />
+              <GalleryImage src="/images/gallery/Project2.webp" alt="View from a theater balcony shows a large stage framed by ornate architecture and bathed in blue and purple lighting, with a full band performing beneath a backdrop reading 'The Dandy Warhols.' In the foreground, a digital audio mixing console with colorful illuminated controls and screens is visible, emphasizing the perspective of live sound mixing during a concert in Portland, OR at the Arlene Schnitzer Concert Hall." />
+              <GalleryImage src="/images/gallery/Project3.webp" alt="Silhouetted musicians perform on a dimly lit stage, backlit by intense white light and haze. A guitarist and vocalist are visible in profile near microphones, while the audience stands close at the front of the stage, faces faintly illuminated by the glow, capturing the raw atmosphere of an intimate live concert." />
+              <GalleryImage src="/images/gallery/BRMC2.webp?v=20250628" alt="A large, packed concert audience fills a historic theater, facing a brightly lit stage beneath an ornate arched proscenium. Hundreds of people stand shoulder to shoulder with hands raised and clapping, while performers are visible onstage under warm and cool stage lights, capturing the energy of a live music performance." />
+              <GalleryImage src="/images/gallery/Project5.webp" alt="A sound engineer sits with their back to the camera at a control desk filled with laptops, audio interfaces, and multiple computer monitors displaying mixing software. The setup faces a concert stage with lighting fixtures, equipment cases, and a textured stage backdrop visible. Cables, racks of audio gear, and tools surround the workstation, conveying an active live-production environment during setup or rehearsal." />
+              <GalleryImage src="/images/gallery/Project6AI.webp" alt="International Tour Management, Pic of Chris in Chicago next to a tour bus" />
+              <GalleryImage src="/images/gallery/Project7.webp" alt="A large professional audio mixing console fills the frame in a dimly lit concert environment. Rows of faders, knobs, and illuminated buttons stretch across the surface, with a printed setlist resting near the center. Stage lighting and equipment racks glow in the background, suggesting a live music performance in progress." />
+              <GalleryImage src="/images/gallery/Project8.webp" alt="A vivid rainbow arcs across a stormy gray sky above a straight paved road. On the right, the smooth reflective side of a large vehicle mirrors the road, grassy hills, and the rainbow, creating a symmetrical reflection that emphasizes the open landscape and dramatic weather." />
             </div>
           </div>
         </SectionTracker>
