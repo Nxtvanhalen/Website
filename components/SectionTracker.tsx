@@ -17,7 +17,7 @@ export default function SectionTracker({
     children,
     className = "",
     butlerMessage,
-    lingerDuration = 3000
+    lingerDuration = 2000
 }: SectionTrackerProps) {
     const ref = useRef(null);
     // Use margin to restrict detection to the center of the viewport
@@ -99,11 +99,11 @@ export default function SectionTracker({
     // Effect 3: Auto-hide
     useEffect(() => {
         if (showButler && !isThinking) {
-            // Auto-hide after 4 seconds
+            // Auto-hide after 5 seconds
             const timer = setTimeout(() => {
                 setShowButler(false);
                 setNotificationActive(false);
-            }, 4000);
+            }, 5000);
             return () => clearTimeout(timer);
         }
     }, [showButler, isThinking, setNotificationActive]);

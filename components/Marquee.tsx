@@ -270,7 +270,6 @@ export default function Marquee() {
             <SectionTracker
               name="Homepage - LogiRoute"
               className={boxStyle}
-              butlerMessage="LogiRoute is built for complex logistics. Want to know how it optimizes touring schedules?"
             >
               <div
                 role="region"
@@ -320,7 +319,6 @@ export default function Marquee() {
             <SectionTracker
               name="Homepage - Chester"
               className={boxStyle}
-              butlerMessage="Chester isn't just a game. It's a study in AI decision making. Care for a match?"
             >
               <div
                 role="region"
@@ -392,7 +390,7 @@ export default function Marquee() {
         <SectionTracker
           name="Homepage - Bio"
           className="relative mb-16 mx-auto max-w-4xl px-4"
-          butlerMessage="Chris has lived both sides—art and tech. Ask me about his work with Black Rebel Motorcycle Club."
+          butlerMessage="Chris has lived both sides—art and tech, amassing a vast global network."
         >
           <div className="bg-black/60 border-2 border-mauve/50 rounded-lg p-6 md:p-8 shadow-[0_0_30px_rgba(147,112,219,0.4)] hover:shadow-[0_0_40px_rgba(147,112,219,0.6)] transition-shadow duration-300">
             <div className="text-base font-body opacity-90 leading-relaxed space-y-6" style={{ color: '#F5F5DC' }}>
