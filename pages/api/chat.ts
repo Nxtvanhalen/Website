@@ -177,6 +177,9 @@ Firebase-powered hospitality strategy. Analyzing sales data to predict demand an
 Actively being developed in the open. Complex logistics optimization for touring schedules.
 URL: https://logi-route-a9c09ae8.base44.app
 
+**TARS - Local AI** (🟣 Homepage Featured)
+The future of privacy-first AI. Local device processing for ultimate data security and refinement. No cloud dependency—your AI, your device, your control. Represents the shift toward on-device intelligence and user sovereignty.
+
 **Chester** (🟣 Homepage Featured)
 AI Chess game built in public to explore game theory and decision-making architecture. A study in AI decision making.
 URL: https://ai-chess-cfah.onrender.com
