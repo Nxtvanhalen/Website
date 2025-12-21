@@ -283,8 +283,8 @@ export default function Marquee() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   <Image
-                    src="/images/LogiRoute.webp"
-                    alt="Logi Route project preview"
+                    src="/images/TARS.webp"
+                    alt="TARS Local AI"
                     width={220}
                     height={96}
                     className="w-full h-full object-contain"
@@ -301,20 +301,16 @@ export default function Marquee() {
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
-                  <motion.a
-                    href="https://logi-route-a9c09ae8.base44.app/login?from_url=https%3A%2F%2Flogi-route-a9c09ae8.base44.app%2F"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="nav-link font-bold text-center block w-full py-0"
-                    style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px' }}
-                    aria-label="Visit LogiRoute - Logistics Management Platform"
+                  <motion.div
+                    className="font-bold text-center block w-full py-0"
+                    style={{ color: '#F5F5DC', fontSize: '14px' }}
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   >
-                    LogiRoute
-                  </motion.a>
+                    Local AI
+                  </motion.div>
                   <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
-                    "This is actively being developed in the open for everyone to be apart of the process! Please reach out with any issues or suggestions!"
+                    "Local AI is the future. Ask about unlocking AI on your device for ultimate refinement and privacy."
                   </p>
                 </div>
               </div>
