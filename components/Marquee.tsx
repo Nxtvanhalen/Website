@@ -337,7 +337,7 @@ export default function Marquee() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   <Image
-                    src="/images/Chesterupdate2.jpeg"
+                    src="/images/CHESTER.jpeg"
                     alt="Chester AI Chess Game"
                     width={220}
                     height={128}
