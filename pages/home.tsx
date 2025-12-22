@@ -550,16 +550,6 @@ export default function Home() {
         </section>
 
         <Contact />
-
-        <footer className="pb-8 text-center">
-          <a
-            href="/privacy"
-            className="text-xs opacity-75 hover:opacity-100 transition-opacity duration-300"
-            style={{ color: '#F5F5DC' }}
-          >
-            Privacy Policy
-          </a>
-        </footer>
       </main>
     </>
   );
