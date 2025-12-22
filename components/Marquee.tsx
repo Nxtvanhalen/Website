@@ -262,7 +262,7 @@ export default function Marquee() {
                 >
                   Reach out!
                 </motion.a>
-                <div className="text-[9px] lg:text-[10px] text-center leading-tight break-all" style={{ color: '#F5F5DC', opacity: 0.85 }}>chrisleebergstrom@gmail.com</div>
+                <div className="text-xs text-center leading-tight break-all" style={{ color: '#F5F5DC', opacity: 0.85 }}>chrisleebergstrom@gmail.com</div>
               </div>
             </div>
 
