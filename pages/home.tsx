@@ -481,14 +481,14 @@ export default function Home() {
               loop
               playsInline
               preload="metadata"
-              aria-label="CLB Consultancy promotional video - plays automatically when scrolled into view"
-              title="CLB Consultancy Showcase Video"
+              aria-label="Silent video: The Dandy Warhols performing live in Paris, France. Shows band on stage with purple and blue stage lighting, audience energy, and professional audio engineering setup. Auto-plays when scrolled into view."
+              title="The Dandy Warhols Live in Paris - CLB Consultancy Showcase"
             >
               <source src="/videos/IMG_0279.mp4" type="video/mp4" />
               <source src="/videos/IMG_0279.mov" type="video/quicktime" />
-              <p>Your browser does not support the video tag. This video showcases CLB Consultancy's AI integration and entertainment technology work.</p>
+              <p>Your browser does not support the video tag. This silent video showcases The Dandy Warhols performing live in Paris, France. The video features stage lighting, audience engagement, and professional live sound mixing by Chris Lee Bergstrom, demonstrating CLB Consultancy's expertise in entertainment technology and live event production.</p>
             </video>
-            <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.6 }}>
+            <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.85 }}>
               The Dandy Warhols Live in Paris, France
             </p>
           </div>
@@ -507,14 +507,14 @@ export default function Home() {
               loop
               playsInline
               preload="metadata"
-              aria-label="BRMC promotional video - plays automatically when scrolled into view"
-              title="BRMC Live Performance Video"
+              aria-label="Silent video: Black Rebel Motorcycle Club performing live at Vilar de Mouros festival in Portugal. Features dramatic stage lighting, outdoor festival atmosphere, and professional sound engineering. Auto-plays when scrolled into view."
+              title="Black Rebel Motorcycle Club Live in Portugal - CLB Consultancy"
             >
               <source src="/videos/BRMC.mp4" type="video/mp4" />
               <source src="/videos/BRMC.mov" type="video/quicktime" />
-              <p>Your browser does not support the video tag. This video showcases BRMC's live performance in Portugal.</p>
+              <p>Your browser does not support the video tag. This silent video showcases Black Rebel Motorcycle Club performing live at the Vilar de Mouros festival in Portugal. The video captures the outdoor festival setting, dramatic stage lighting, crowd energy, and professional live sound mixing, highlighting CLB Consultancy's work with Grammy-nominated artists and major international music festivals.</p>
             </video>
-            <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.6 }}>
+            <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.85 }}>
               Black Rebel Motorcycle Club in Vilar de Mouros, Portugal
             </p>
           </div>
@@ -554,7 +554,7 @@ export default function Home() {
         <footer className="pb-8 text-center">
           <a
             href="/privacy"
-            className="text-xs opacity-50 hover:opacity-100 transition-opacity duration-300"
+            className="text-xs opacity-75 hover:opacity-100 transition-opacity duration-300"
             style={{ color: '#F5F5DC' }}
           >
             Privacy Policy

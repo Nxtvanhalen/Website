@@ -201,9 +201,9 @@ export default function Marquee() {
           className="w-full mb-6"
           butlerMessage="This is where it starts. Need help navigating Chris's world?"
         >
-          <h2 className={titleStyle}>
+          <h1 className={titleStyle}>
             Chris Lee Bergstrom
-          </h2>
+          </h1>
 
           <motion.div
             className="text-base font-body italic text-center mb-6 glow-subtle"

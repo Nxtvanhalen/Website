@@ -99,10 +99,14 @@ export default class MyDocument extends Document<MyDocumentProps> {
                 "type": "opt-in",
                 "content": {
                   "message": "We use cookies to enhance your experience and analyze site usage. By clicking 'Accept', you consent to our use of cookies.",
-                  "allow": "Accept",
-                  "deny": "Decline",
+                  "allow": "Accept Cookies",
+                  "deny": "Decline Cookies",
                   "link": "Cookies Policy",
                   "href": "/privacy"
+                },
+                "elements": {
+                  "allow": '<button aria-label="Accept cookies" class="cc-btn cc-allow">{{allow}}</button>',
+                  "deny": '<button aria-label="Decline cookies" class="cc-btn cc-deny">{{deny}}</button>'
                 },
                 onStatusChange: function(status, chosenBefore) {
                   if (status === 'allow') {
