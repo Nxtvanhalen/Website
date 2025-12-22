@@ -361,7 +361,7 @@ export default function Marquee() {
                   >
                     Play Chester
                   </motion.a>
-                  <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
+                  <p className="text-sm lg:text-xs leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
                     "Challenge the AI. Built in public to explore game theory and React performance."
                   </p>
                 </div>
