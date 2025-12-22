@@ -207,9 +207,9 @@ export default function Marquee() {
 
           <motion.div
             className="text-base font-body italic text-center mb-6"
-            style={{ color: '#FFFFFF', opacity: 1 }}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
+            style={{ color: '#FFFFFF' }}
+            initial={{ y: -10 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             Recent Projects
