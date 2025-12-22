@@ -262,7 +262,7 @@ export default function Marquee() {
                 >
                   Reach out!
                 </motion.a>
-                <div className="text-[9px] lg:text-[10px] text-center leading-tight break-all" style={{ color: '#F5F5DC', opacity: 0.6 }}>chrisleebergstrom@gmail.com</div>
+                <div className="text-[9px] lg:text-[10px] text-center leading-tight break-all" style={{ color: '#F5F5DC', opacity: 0.85 }}>chrisleebergstrom@gmail.com</div>
               </div>
             </div>
 
@@ -427,7 +427,7 @@ export default function Marquee() {
                   sizes="(max-width: 768px) 100vw, 256px"
                 />
               </motion.div>
-              <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.6 }}>
+              <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.85 }}>
                 Colorado State Fair mixing for Tracy Lawrence
               </p>
             </div>
@@ -458,7 +458,7 @@ export default function Marquee() {
                   sizes="(max-width: 768px) 100vw, 256px"
                 />
               </motion.div>
-              <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.6 }}>
+              <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.85 }}>
                 Pacific Northwest pic by Chris Lee Bergstrom
               </p>
             </div>
