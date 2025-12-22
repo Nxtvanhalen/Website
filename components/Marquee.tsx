@@ -251,12 +251,12 @@ export default function Marquee() {
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
-                <p className="text-xs lg:text-[11px] text-center leading-tight italic" style={{ color: '#F5F5DC', opacity: 0.9 }}>
-                  "I’d love to connect and explore how I can help you bring your next idea to life!"
+                <p className="text-xs text-center leading-tight italic" style={{ color: '#F5F5DC', opacity: 0.9 }}>
+                  "I'd love to connect and explore how I can help you bring your next idea to life!"
                 </p>
                 <motion.a
                   href="mailto:chrisleebergstrom@gmail.com?subject=Consultation Inquiry"
-                  className="block w-full py-1 px-2 bg-transparent border border-molten text-molten text-xs lg:text-[11px] rounded text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+                  className="block w-full py-1 px-2 bg-transparent border border-molten text-molten text-xs rounded text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
                   aria-label="Contact Chris for consultation"
                   whileHover={{ scale: 1.1 }}
                 >
