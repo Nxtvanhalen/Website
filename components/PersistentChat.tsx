@@ -133,6 +133,7 @@ export default function PersistentChat() {
                     }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                     className={`w-20 h-12 rounded-lg flex items-center justify-center transition-all duration-300 border-2 ${isOpen ? 'bg-black border-mauve/50 text-mauve' : 'bg-black/60 border-mauve/50 text-white'}`}
+                    aria-label={isOpen ? "Close EVE AI chat" : "Open EVE AI chat assistant"}
                 >
                     {isOpen ? (
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
