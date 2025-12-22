@@ -237,7 +237,7 @@ export default function Marquee() {
                     }}
                   >
                     <div className="text-[15px] lg:text-[13px] font-bold mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>{boxes[currentBox].title}</div>
-                    <div className="text-[13px] lg:text-[11px] leading-tight opacity-80 mb-2 lg:mb-2" style={{ color: '#F5F5DC' }}>{boxes[currentBox].description}</div>
+                    <div className="text-sm lg:text-xs leading-tight opacity-80 mb-2 lg:mb-2" style={{ color: '#F5F5DC' }}>{boxes[currentBox].description}</div>
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -308,7 +308,7 @@ export default function Marquee() {
                   >
                     Local AI
                   </motion.div>
-                  <p className="text-xs lg:text-[10px] leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
+                  <p className="text-sm lg:text-xs leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
                     "Local AI is the future. Ask about unlocking AI on your device for ultimate refinement and privacy."
                   </p>
                 </div>
