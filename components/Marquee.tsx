@@ -171,12 +171,12 @@ export default function Marquee() {
 
   return (
     <div className="relative w-full min-h-screen overflow-visible mb-16">
-      <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-36 md:pt-52 pb-16 text-center text-white">
+      <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-24 md:pt-52 pb-16 text-center text-white">
         {/* Mobile Profile Picture - Above heading */}
         <div className="md:hidden mb-2 flex justify-center">
           <div className="w-20 h-20 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
             <Image
-              src="/images/profile/chris-profile.jpg"
+              src="/images/profile/CBAI.webp"
               alt="Chris Lee Bergstrom"
               width={80}
               height={80}

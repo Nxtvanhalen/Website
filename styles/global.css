@@ -928,30 +928,6 @@ h3 {
   animation: pulse-slow 3s ease-in-out infinite;
 }
 
-/* Landing page logo glitchy glow effect */
-@keyframes logo-glitch-glow {
-
-  0%,
-  100% {
-    filter: drop-shadow(0 0 10px rgba(147, 112, 219, 0.5));
-  }
-
-  25% {
-    filter: drop-shadow(0 0 20px rgba(147, 112, 219, 0.8)) drop-shadow(0 0 30px rgba(147, 112, 219, 0.4));
-  }
-
-  50% {
-    filter: drop-shadow(0 0 15px rgba(147, 112, 219, 0.6)) drop-shadow(2px 0 5px rgba(147, 112, 219, 0.3));
-  }
-
-  75% {
-    filter: drop-shadow(-1px 0 8px rgba(147, 112, 219, 0.7)) drop-shadow(0 0 25px rgba(147, 112, 219, 0.5));
-  }
-}
-
-.landing-logo-glow {
-  animation: logo-glitch-glow 4s ease-in-out infinite;
-}
 
 /* Landing page Enter button with soft blue edges */
 .landing-enter-button {

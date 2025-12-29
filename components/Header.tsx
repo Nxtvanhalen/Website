@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -57,6 +58,8 @@ const SocialIcon = ({ type }: { type: string }) => {
 };
 
 export default function Header() {
+  const router = useRouter();
+  const isHomePage = router.pathname === '/home';
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -118,14 +121,32 @@ export default function Header() {
             className="logo z-10"
             aria-label="CLB Consulting - Return to homepage"
           >
-            <Image
-              src="/images/Purple Logo.png"
-              alt="CLB Consulting Logo"
-              width={120}
-              height={32}
-              className="h-8 w-auto"
-              priority
-            />
+            {isHomePage ? (
+              <Image
+                src="/images/Purple Logo.png"
+                alt="CLB Consulting Logo"
+                width={120}
+                height={32}
+                className="h-8 w-auto"
+                priority
+              />
+            ) : (
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="h-12 w-auto opacity-70"
+                style={{
+                  mask: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+                  maskComposite: 'intersect',
+                  WebkitMask: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+                  WebkitMaskComposite: 'source-in',
+                }}
+              >
+                <source src="/videos/animated-logo-trimmed.mp4" type="video/mp4" />
+              </video>
+            )}
           </Link>
 
           {/* Profile Picture - Center (Desktop Only) */}

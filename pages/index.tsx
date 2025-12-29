@@ -237,13 +237,23 @@ export default function Landing() {
           </motion.h1>
         </div>
 
-        {/* Large CLB Logo PNG with Glitchy Glow */}
+        {/* Animated CLB Logo */}
         <div className="text-center mb-12">
-          <img
-            src="/images/Purple Logo.png"
-            alt="CLB Consulting Logo"
-            className="w-72 md:w-96 lg:w-[32rem] h-auto mx-auto landing-logo-glow"
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-72 md:w-96 lg:w-[32rem] h-auto mx-auto opacity-70"
+            style={{
+              mask: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+              maskComposite: 'intersect',
+              WebkitMask: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+              WebkitMaskComposite: 'source-in',
+            }}
+          >
+            <source src="/videos/animated-logo-trimmed.mp4" type="video/mp4" />
+          </video>
         </div>
 
         {/* Enter Button - Blurred with Pulse and Blue Edges */}
