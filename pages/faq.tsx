@@ -161,6 +161,38 @@ export default function FAQ() {
                     "@type": "Answer",
                     "text": "Chris's core expertise spans entertainment, logistics, audio and acoustical analysis, and live events, but his systems-thinking approach translates across industries."
                   }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How do you ensure cost efficiency for clients?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chris starts with holistic analysis no matter where his clients are at, and he's honest and empathetic as he learns their goals and dreams and builds from there. It's not just about cost saving—it's about thriving into the future."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What's your background in entertainment and audio engineering?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chris Lee Bergstrom has two decades of global live and studio experience. From backstage production to strategic operations, this hands-on experience working with some of the most influential talent in the world in high-pressure environments informs every strategic decision he makes."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How do you handle project timelines and deliverables?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chris operates with the precision of live event production—where there are no second chances. His frameworks are built for velocity without sacrificing quality. Every project includes clear milestones, real-time communication, and adaptive strategies that evolve with your needs."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do you offer ongoing support after implementation?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. Chris doesn't just build systems and walk away—he ensures they thrive. His approach includes training, optimization, and continuous improvement. He leaves systems better than he found them, with your team empowered to maintain and evolve them."
+                  }
                 }
               ],
               "breadcrumb": {
