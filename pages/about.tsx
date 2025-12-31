@@ -146,19 +146,15 @@ export default function About() {
               {/* Profile Picture */}
               <div className="flex justify-center md:absolute md:right-0 md:top-0">
                 <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50">
-                  <img
-                    src="/images/profile/CBAI.webp"
-                    alt="Chris Lee Bergstrom Profile"
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="w-full h-full object-cover object-top"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                      if (fallback) fallback.style.display = 'flex';
-                    }}
-                  />
-                  <div className="w-full h-full flex items-center justify-center" style={{ display: 'none' }}>
-                    <span className="text-molten text-xs md:text-sm font-bold">PROFILE PIC</span>
-                  </div>
+                  >
+                    <source src="/videos/cbai-profile-v2.mp4" type="video/mp4" />
+                  </video>
                 </div>
               </div>
             </div>

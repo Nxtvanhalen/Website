@@ -151,19 +151,27 @@ export default function Header() {
 
           {/* Profile Picture - Center (Desktop Only) */}
           <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
-            <div className="w-12 h-12 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
-              <Image
-                src="/images/profile/CBAI.webp"
-                alt="Chris Lee Bergstrom"
-                width={48}
-                height={48}
-                className="w-full h-full object-cover object-top"
-                priority
-                onError={(e) => {
-                  const target = e.target as HTMLElement;
-                  target.style.display = 'none';
-                }}
-              />
+            <div className="w-16 h-16 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
+              {isHomePage ? (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover object-top"
+                >
+                  <source src="/videos/cbai-profile-v2.mp4" type="video/mp4" />
+                </video>
+              ) : (
+                <Image
+                  src="/images/profile/CBAI.webp"
+                  alt="Chris Lee Bergstrom"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-cover object-top"
+                  priority
+                />
+              )}
             </div>
           </div>
 

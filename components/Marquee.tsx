@@ -175,23 +175,15 @@ export default function Marquee() {
         {/* Mobile Profile Picture - Above heading */}
         <div className="md:hidden mb-2 flex justify-center">
           <div className="w-20 h-20 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
-            <Image
-              src="/images/profile/CBAI.webp"
-              alt="Chris Lee Bergstrom"
-              width={80}
-              height={80}
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full h-full object-cover object-top"
-              priority
-              onError={(e) => {
-                const target = e.target as HTMLElement;
-                target.style.display = 'none';
-                const fallback = target.nextElementSibling as HTMLElement;
-                if (fallback) fallback.style.display = 'flex';
-              }}
-            />
-            <div className="w-full h-full flex items-center justify-center absolute inset-0" style={{ display: 'none' }}>
-              <span className="text-sm font-bold" style={{ color: '#F5F5DC' }}>CB</span>
-            </div>
+            >
+              <source src="/videos/cbai-profile-v2.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
 
