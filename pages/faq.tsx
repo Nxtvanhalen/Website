@@ -231,12 +231,12 @@ export default function FAQ() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
       </div>
 
-      <main className="min-h-screen bg-transparent text-white pt-52 px-6 relative z-10">
+      <main className="min-h-screen bg-transparent text-white pt-24 md:pt-52 px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header Section */}
           <SectionTracker name="FAQ - Header">
             <div className="text-center mb-16">
-              <h1 className="text-5xl md:text-6xl font-heading mb-6 glow-subtle">
+              <h1 className="text-4xl md:text-5xl font-heading mb-6 glow-subtle">
                 Frequently Asked Questions
               </h1>
               <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: '#F5F5DC', opacity: 0.9 }}>

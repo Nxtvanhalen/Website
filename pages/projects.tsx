@@ -178,10 +178,10 @@ export default function Projects() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
       </div>
 
-      <main className="min-h-screen bg-transparent text-white pt-52 relative z-10">
+      <main className="min-h-screen bg-transparent text-white pt-24 md:pt-52 relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-5xl font-heading mb-4 glow-subtle">Current Projects</h1>
+            <h1 className="text-4xl md:text-5xl font-heading mb-4 glow-subtle">Current Projects</h1>
             <p className="text-xl font-bold" style={{ color: '#F5F5DC' }}>CLB Consulting</p>
           </div>
 

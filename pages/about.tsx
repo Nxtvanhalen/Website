@@ -132,7 +132,7 @@ export default function About() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40" />
       </div>
 
-      <main className="min-h-screen bg-transparent text-white pt-52 px-6 relative z-10">
+      <main className="min-h-screen bg-transparent text-white pt-24 md:pt-52 px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <SectionTracker
             name="About - Profile"

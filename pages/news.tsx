@@ -108,10 +108,10 @@ export default function News() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/65 to-black/75" />
       </div>
 
-      <main className="min-h-screen bg-transparent text-white pt-52 px-6 relative z-10">
+      <main className="min-h-screen bg-transparent text-white pt-24 md:pt-52 px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           <SectionTracker name="News - Header">
-            <h1 className="text-4xl font-heading mb-12 text-center">News/Press</h1>
+            <h1 className="text-4xl md:text-5xl font-heading mb-12 text-center">News/Press</h1>
           </SectionTracker>
 
           <SectionTracker
