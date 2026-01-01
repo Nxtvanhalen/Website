@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { useInView } from 'framer-motion';
+import { useInView, motion, AnimatePresence } from 'motion/react';
 import { useChat } from '../context/ChatContext';
-import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 interface SectionTrackerProps {

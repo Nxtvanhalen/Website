@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import SectionTracker from '../components/SectionTracker';
 
 import Header from '../components/Header';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 
 interface SubstackPost {

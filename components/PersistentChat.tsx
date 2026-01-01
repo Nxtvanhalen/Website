@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { useChat } from '../context/ChatContext';
 import ChatPanel from './ChatPanel';
 import EveAvatar from './EveAvatar';
