@@ -268,13 +268,14 @@ export default function Marquee() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <Image
-                    src="/images/TARS.webp"
-                    alt="Pic of a grumpy AI robot stuck inside an iPhone"
-                    width={220}
-                    height={96}
+                  <video
+                    src="/videos/robot-animation-compressed.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="w-full h-full object-contain"
-                    quality={75}
+                    aria-label="Animated robot representing local AI capabilities"
                   />
                 </motion.div>
                 <div className="w-1/2 flex flex-col justify-center items-center">
@@ -306,13 +307,14 @@ export default function Marquee() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <Image
-                    src="/images/CHESTER.jpeg"
-                    alt="Chess board mid-game showing strategic AI decision-making gameplay"
-                    width={220}
-                    height={128}
-                    className="w-full h-full object-contain"
-                    quality={75}
+                  <video
+                    src="/videos/chester-compressed.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-contain scale-[1.75]"
+                    aria-label="Chester AI chess game preview"
                   />
                 </motion.div>
                 <div className="w-1/2 flex flex-col justify-center items-center">
