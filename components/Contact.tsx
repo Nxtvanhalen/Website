@@ -15,7 +15,7 @@ export default function Contact() {
             </div>
           </a>
           <p className="text-sm" style={{color: '#F5F5DC', opacity: 0.7}}>
-            Or chat with EVE above for instant insights
+            Or chat with EVE for instant insights
           </p>
         </div>
       </div>

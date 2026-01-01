@@ -42,18 +42,9 @@ export default function Marquee() {
   /* Option 4: Purple Gradient */
   /* const titleStyle = "text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-mauve"; */
 
-  const [currentBox, setCurrentBox] = useState(0);
   const galleryRef = useRef<HTMLDivElement>(null);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
   const isUserInteractingRef = useRef(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBox(prev => (prev + 1) % 3);
-    }, 7000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   // Auto-scroll animation using setInterval for simplicity
   useEffect(() => {
@@ -151,22 +142,11 @@ export default function Marquee() {
     );
   };
 
-  const boxes = [
-    {
-      title: "We rebuild broken systems — fast.",
-      description: "Efficient, scalable, human-centered solutions that transform disorganized operations into cohesive, high-performing systems.",
-      subject: "Systems Rebuild Inquiry"
-    },
-    {
-      title: "Where art meets infrastructure.",
-      description: "From touring operations to cultural institutions, we design frameworks that let creativity thrive — blending technical precision with artistic vision.",
-      subject: "Creative Infrastructure Inquiry"
-    },
-    {
-      title: "Future-proof your live experience.",
-      description: "AI tools, optimized workflows, sustainable tech — we help you evolve your organization before the industry leaves you behind.",
-      subject: "Future-Proofing Inquiry"
-    }
+  // Sub-CTA categories for audience segments
+  const subCTAs = [
+    { label: "Creative Operations", subject: "Creative Operations Inquiry" },
+    { label: "AI for Live Systems", subject: "AI Systems Inquiry" },
+    { label: "Art + Tech Integration", subject: "Art Tech Integration Inquiry" }
   ];
 
   return (
@@ -209,52 +189,67 @@ export default function Marquee() {
 
           {/* Three boxes layout */}
           <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
-            {/* Center box - rotating content with Motion animations */}
+            {/* Center box - unified CTA */}
             <div
-              className={`${boxStyle} relative overflow-hidden`}
+              className={`${boxStyle} relative overflow-hidden flex-col !gap-2 !justify-start !pt-5`}
               role="region"
-              aria-label="Rotating consultation offers"
-              aria-live="polite"
+              aria-label="Primary call to action"
             >
-              <div className="w-1/2 flex flex-col justify-center">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={currentBox}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{
-                      duration: 0.5,
-                      ease: [0.4, 0.0, 0.2, 1] // Custom easing for smooth motion
-                    }}
+              {/* Primary headline with subtle shimmer */}
+              <motion.h2
+                className="text-[15px] lg:text-[14px] font-bold leading-tight text-center"
+                style={{
+                  color: '#F5F5DC',
+                  background: 'linear-gradient(90deg, #F5F5DC 0%, #9370DB 50%, #F5F5DC 100%)',
+                  backgroundSize: '200% 100%',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+                animate={{
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: 'linear'
+                }}
+              >
+                Let's build the future of live experience — together.
+              </motion.h2>
+
+              {/* Supporting tagline */}
+              <p className="text-xs leading-tight text-center opacity-80" style={{ color: '#F5F5DC' }}>
+                AI tools, creative infrastructure, and systems that scale with your vision.
+              </p>
+
+              {/* Main CTA button */}
+              <motion.a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="block py-2 px-4 bg-molten/20 border border-molten text-molten text-sm font-medium rounded hover:bg-molten/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+                aria-label="Scroll to contact section"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Let's Collaborate
+              </motion.a>
+
+              {/* Sub-CTA pills */}
+              <div className="flex flex-wrap justify-center gap-1.5 mt-1">
+                {subCTAs.map((cta, index) => (
+                  <motion.a
+                    key={index}
+                    href={`mailto:chrisleebergstrom@gmail.com?subject=${encodeURIComponent(cta.subject)}`}
+                    className="text-[10px] px-2 py-0.5 rounded-full border border-mauve/40 text-mauve/80 hover:border-mauve hover:text-mauve transition-colors duration-200"
+                    whileHover={{ scale: 1.05 }}
                   >
-                    <div className="text-[15px] lg:text-[13px] font-bold mb-1 lg:mb-0.5" style={{ color: '#F5F5DC' }}>{boxes[currentBox].title}</div>
-                    <div className="text-sm lg:text-xs leading-tight opacity-80 mb-2 lg:mb-2" style={{ color: '#F5F5DC' }}>{boxes[currentBox].description}</div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-              <div className="w-1/2 flex flex-col justify-start items-center gap-1 pt-4">
-                <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0">
-                  <Image
-                    src="/images/profile/chris-profile.jpg"
-                    alt="Chris Lee Bergstrom"
-                    width={56}
-                    height={56}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                <p className="text-xs text-center leading-tight italic" style={{ color: '#F5F5DC', opacity: 0.9 }}>
-                  "I'd love to connect and explore how I can help you bring your next idea to life!"
-                </p>
-                <motion.a
-                  href="mailto:chrisleebergstrom@gmail.com?subject=Consultation Inquiry"
-                  className="block w-full py-1 px-2 bg-transparent border border-molten text-molten text-xs rounded text-center focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
-                  aria-label="Contact Chris for consultation"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  Reach out!
-                </motion.a>
-                <div className="text-xs text-center leading-tight break-all" style={{ color: '#F5F5DC', opacity: 0.85 }}>chrisleebergstrom@gmail.com</div>
+                    {cta.label}
+                  </motion.a>
+                ))}
               </div>
             </div>
 
@@ -282,26 +277,15 @@ export default function Marquee() {
                     quality={75}
                   />
                 </motion.div>
-                <div className="w-1/2 flex flex-col justify-start items-center pt-4">
-                  <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0 mb-1">
-                    <Image
-                      src="/images/profile/chris-profile.jpg"
-                      alt="Chris Lee Bergstrom"
-                      width={56}
-                      height={56}
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                  <motion.div
-                    className="font-bold text-center block w-full py-0"
-                    style={{ color: '#F5F5DC', fontSize: '14px' }}
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                <div className="w-1/2 flex flex-col justify-center items-center">
+                  <div
+                    className="nav-link text-center block w-full py-0"
+                    style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px', fontWeight: 700 }}
                   >
                     Local AI
-                  </motion.div>
-                  <p className="text-sm lg:text-xs leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
-                    "Local AI is the future. Ask about unlocking AI on your device for ultimate refinement and privacy."
+                  </div>
+                  <p className="text-sm leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
+                    Local AI is the future. Ask about unlocking AI on your device for ultimate refinement and privacy.
                   </p>
                 </div>
               </div>
@@ -331,30 +315,21 @@ export default function Marquee() {
                     quality={75}
                   />
                 </motion.div>
-                <div className="w-1/2 flex flex-col justify-start items-center pt-4">
-                  <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative flex-shrink-0 mb-1">
-                    <Image
-                      src="/images/profile/chris-profile.jpg"
-                      alt="Chris Lee Bergstrom"
-                      width={56}
-                      height={56}
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
+                <div className="w-1/2 flex flex-col justify-center items-center">
                   <motion.a
                     href="https://ai-chess-cfah.onrender.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="nav-link font-bold text-center block w-full py-0"
-                    style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px' }}
+                    className="nav-link text-center block w-full py-0"
+                    style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px', fontWeight: 700 }}
                     aria-label="Play Chester - AI Chess Game"
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   >
                     Play Chester
                   </motion.a>
-                  <p className="text-sm lg:text-xs leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
-                    "Challenge the AI. Built in public to explore game theory and React performance."
+                  <p className="text-sm leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
+                    Challenge the AI. Built in public to explore game theory and React performance.
                   </p>
                 </div>
               </div>

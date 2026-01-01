@@ -33,7 +33,7 @@ export default function Privacy() {
         <link rel="canonical" href="https://chrisleebergstrom.com/privacy" />
       </Head>
 
-      <main className="min-h-screen bg-[#1E1E1E] text-white pt-32 pb-20">
+      <main className="min-h-screen bg-black text-white pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-6 md:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center">
             Privacy Policy
@@ -164,7 +164,7 @@ export default function Privacy() {
               </p>
               <div className="mt-4 p-6 border-2 border-[#9370DB] rounded-lg">
                 <p className="font-semibold">CLB Consulting</p>
-                <p>Email: <a href="mailto:chris@chrisleebergstrom.com" className="text-[#9370DB] hover:underline">chris@chrisleebergstrom.com</a></p>
+                <p>Email: <a href="mailto:chrisleebergstrom@gmail.com" className="text-[#9370DB] hover:underline">chrisleebergstrom@gmail.com</a></p>
                 <p>Website: <a href="https://chrisleebergstrom.com" className="text-[#9370DB] hover:underline">chrisleebergstrom.com</a></p>
               </div>
             </section>
