@@ -269,7 +269,7 @@ export default function Marquee() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   <video
-                    src="/videos/robot-animation-compressed.mp4"
+                    src="/videos/robot-animation-happy-compressed.mp4"
                     autoPlay
                     loop
                     muted
