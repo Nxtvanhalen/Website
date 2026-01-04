@@ -20,11 +20,11 @@ export default function PersistentChat() {
                 setLastNotificationTime(Date.now());
                 sessionStorage.setItem('eve_notification_shown_v2', 'true');
 
-                // Auto-hide after 4 seconds
+                // Auto-hide after 5 seconds
                 setTimeout(() => {
                     setShowNotification(false);
                     setNotificationActive(false);
-                }, 4000);
+                }, 5000);
             }, 1000);
 
             return () => clearTimeout(timer);

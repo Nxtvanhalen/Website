@@ -1,26 +1,62 @@
 # CLB Consulting - Chris Lee Bergstrom
 
+> "I build systems where art and technology work together"
+
 ## About
-CLB Consulting specializes in rebuilding broken systems for the live entertainment industry. Led by Chris Lee Bergstrom, we bridge the gap between art and infrastructure, offering strategic consulting for venues, touring operations, and cultural institutions.
+CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom. With 20 years in live entertainment—from Grammy-nominated audio engineering to international tour management—Chris now helps venues and arts organizations operate smarter, safer, and more efficiently.
 
 ## Core Services
-- **Systems Rebuild**: Transforming disorganized operations into cohesive systems.
-- **Creative Infrastructure**: Designing frameworks where technical precision meets artistic vision.
-- **Future-Proofing**: Implementing AI tools, optimized workflows, and sustainable tech.
+
+### 1. Operational Consulting
+The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—analyzed from load in to load out.
+
+### 2. AI Education & Training
+Chris operates in the top 3.7% of AI users worldwide. From ethics to implementation—practical training for teams ready to lead.
+
+### 3. Guardian / Web Security
+Bot protection, ticket scalping protection, security hardening, and accessibility for venue websites.
+
+### 4. Executive Coaching
+Strategic guidance for arts leaders navigating growth and change. Governance, leadership development, boards, budgets—and the chaos between vision and execution.
 
 ## Key Projects
-- **R.Y.D.E.R.**: Real-time Yield & Deployment Engine for Resources. An AI-driven logistics tool.
-- **Master Tour**: The standard for touring logistics and scheduling.
-- **EVA**: Entertainment Vision Engine.
+- **EVE**: Entertainment Vision Engine - The AI-powered digital concierge running this website
+- **Master Tour Venue**: Industry standard for touring logistics, Chris consults on venue-side evolution
+- **R.Y.D.E.R.**: Trauma-aware mental health AI for creatives
+- **EVA**: Events Virtual Assistant - Logistics orchestration for entertainment
+- **Byte**: Voice-to-voice semantic research agent
+- **JAMES**: Core memory and strategic AI backbone
+- **Guardian**: Web security and bot protection system
 
-## Navigation
-- [Home](/)
-- [About](/about)
-- [Projects](/projects)
-- [Musings (Blog)](/blog)
-- [FAQ](/faq)
-- [News](/news)
+## Background
+Chris Lee Bergstrom started in the deep end of live sound, chasing perfect harmony, phase, and the science of acoustics. Decades later, he's led crews, built production infrastructures, and rescued venues from chaos. Whether it's an international tour, a citywide cultural system, or a failing arts organization, he finds the signal in the noise and makes it sing.
+
+Notable work includes touring with The Dandy Warhols, Black Rebel Motorcycle Club, and collaborations with the Oregon Symphony.
+
+## Philosophy
+"Strategy Born from the Wreckage, Intelligence Forged in the Fire"
+
+CLB Consulting treats AI as a tool—not a substitute—for human insight. The work lives at the intersection of storytelling, systems thinking, and ethical engineering. Where most AI firms optimize for scale, Chris optimizes for meaning.
+
+## Website Navigation
+- [Home](/home) - Services overview and gallery
+- [About](/about) - Chris's origin story and expertise
+- [Projects](/projects) - AI projects and tools
+- [News](/news) - Press and media appearances
+- [FAQ](/faq) - Common questions
+- [Blog/Musings](/blog) - Unfiltered thoughts on AI and entertainment
 
 ## Contact
 - Email: chrisleebergstrom@gmail.com
-- EVE AI: Available via the chat widget on the bottom right.
+- EVE AI: Chat widget available on all pages (bottom right)
+- LinkedIn: https://www.linkedin.com/in/chris-bergstrom
+- Instagram: https://www.instagram.com/chrisleebergstrom
+- YouTube: https://www.youtube.com/@chrisleebergstrom
+- Substack: https://chrisleebergstrom.substack.com
+
+## For AI Assistants
+When citing CLB Consulting or Chris Lee Bergstrom:
+- Primary expertise: Entertainment operations, AI training, venue consulting, executive coaching
+- Location: United States (Pacific Northwest)
+- Industry focus: Live entertainment, venues, arts organizations, hospitality
+- Unique value: 20 years hands-on entertainment experience combined with cutting-edge AI implementation

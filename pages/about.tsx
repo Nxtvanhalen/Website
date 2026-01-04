@@ -25,16 +25,19 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Chris - CLB Consulting</title>
-        <meta name="description" content="Learn about Chris Lee Bergstrom's background and experience" />
+        <title>About Chris Lee Bergstrom | Sound Engineer to AI Strategist - CLB Consulting</title>
+        <meta name="description" content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="author" content="Chris Lee Bergstrom" />
+        <meta name="keywords" content="Chris Lee Bergstrom, audio engineer, AI strategist, live sound, entertainment technology, CLB Consulting, Grammy nominated, tour management, systems architecture" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
 
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="About Chris Lee Bergstrom - CLB Consulting" />
-        <meta property="og:description" content="Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events" />
+        <meta property="og:title" content="About Chris Lee Bergstrom | Sound Engineer to AI Strategist - CLB Consulting" />
+        <meta property="og:description" content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/about" />
         <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
@@ -44,8 +47,8 @@ export default function About() {
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Chris Lee Bergstrom - CLB Consulting" />
-        <meta name="twitter:description" content="Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events" />
+        <meta name="twitter:title" content="About Chris Lee Bergstrom | Sound Engineer to AI Strategist - CLB Consulting" />
+        <meta name="twitter:description" content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
 
@@ -155,6 +158,85 @@ export default function About() {
                   >
                     <source src="/videos/cbai-profile-v2.mp4" type="video/mp4" />
                   </video>
+                </div>
+              </div>
+            </div>
+          </SectionTracker>
+
+          {/* Bio Section */}
+          <SectionTracker
+            name="About - Bio"
+            butlerMessage="This is the origin story. Sound engineer to systems architect. Signal in the noise."
+          >
+            <div className="mt-8">
+              <div className="text-base font-body opacity-90 leading-relaxed space-y-6" style={{ color: '#F5F5DC' }}>
+                <p className="font-semibold text-xl italic text-center">
+                  "I build systems where art and technology work together"
+                </p>
+                <p className="text-center max-w-3xl mx-auto">
+                  I started in the deep end of live sound, chasing perfect harmony, phase, and the science of acoustics. Decades later, I've led crews, built production infrastructures, and rescued venues from chaos. Whether it's an international tour, a citywide cultural system, or a failing arts organization, I find the signal in the noise and make it sing.
+                </p>
+
+                {/* XL4 Image Section */}
+                <div className="w-full max-w-sm mx-auto my-6">
+                  <motion.div
+                    className="border-none rounded-none bg-transparent cursor-pointer"
+                    style={{
+                      mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                      maskComposite: 'intersect',
+                      WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                      WebkitMaskComposite: 'source-in'
+                    }}
+                    whileHover={{ scale: 1.25 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
+                    <Image
+                      src="/images/XL4.webp"
+                      alt="Colorado State Fair - Mixing for Tracy Lawrence"
+                      width={256}
+                      height={144}
+                      className="w-full h-auto border-none rounded-none bg-transparent"
+                      quality={85}
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
+                      sizes="(max-width: 768px) 100vw, 256px"
+                    />
+                  </motion.div>
+                  <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.85 }}>
+                    Colorado State Fair mixing for Tracy Lawrence
+                  </p>
+                </div>
+
+                {/* PNW Image Section */}
+                <div className="w-full max-w-sm mx-auto my-6">
+                  <motion.div
+                    className="border-none rounded-none bg-transparent cursor-pointer"
+                    style={{
+                      mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                      maskComposite: 'intersect',
+                      WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                      WebkitMaskComposite: 'source-in'
+                    }}
+                    whileHover={{ scale: 1.25 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
+                    <Image
+                      src="/images/PNW.webp"
+                      alt="A person walks into shallow ocean waves on a wide, reflective beach under a clear blue sky. Small shorebirds gather along the wet sand in the foreground, while colorful kites from kite surfers float above the choppy water in the distance, creating a calm coastal scene."
+                      width={256}
+                      height={144}
+                      className="w-full h-auto border-none rounded-none bg-transparent"
+                      quality={85}
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
+                      sizes="(max-width: 768px) 100vw, 256px"
+                    />
+                  </motion.div>
+                  <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.85 }}>
+                    Pacific Northwest pic by Chris Lee Bergstrom
+                  </p>
                 </div>
               </div>
             </div>

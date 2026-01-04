@@ -7,8 +7,11 @@ export default function Landing() {
     <div className="min-h-screen bg-black text-white relative">
       <Head>
         <title>CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology Consultant</title>
-        <meta name="description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations. Grammy-nominated expertise meets cutting-edge technology." />
+        <meta name="description" content="CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="author" content="Chris Lee Bergstrom" />
+        <meta name="keywords" content="AI consulting, venue operations, entertainment technology, executive coaching, web security, bot protection, AI training, live events, arts organizations, Chris Lee Bergstrom, CLB Consulting" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
@@ -25,7 +28,7 @@ export default function Landing() {
 
         {/* Open Graph tags for social sharing */}
         <meta property="og:title" content="CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology Consultant" />
-        <meta property="og:description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations. Grammy-nominated expertise meets cutting-edge technology." />
+        <meta property="og:description" content="CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com" />
         <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
@@ -38,7 +41,7 @@ export default function Landing() {
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology Consultant" />
-        <meta name="twitter:description" content="CLB Consulting by Chris Lee Bergstrom: Revolutionary AI-driven solutions for entertainment, production, and venue operations." />
+        <meta name="twitter:description" content="CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
 
@@ -100,41 +103,66 @@ export default function Landing() {
                     "https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr"
                   ],
                   "knowsAbout": [
-                    "Artificial Intelligence",
-                    "AI Strategy",
+                    "Venue Operations",
+                    "Entertainment Operations",
+                    "AI Education and Training",
+                    "Web Security",
+                    "Bot Protection",
+                    "Executive Coaching",
                     "Entertainment Technology",
                     "Live Events Management",
                     "Audio Engineering",
-                    "Multi-Agent Systems",
-                    "Team Building",
-                    "Operational Efficiency"
+                    "Ticket Scalping Prevention",
+                    "Arts Organization Leadership",
+                    "Tour Management",
+                    "Production Infrastructure"
                   ],
                   "hasOfferCatalog": {
                     "@type": "OfferCatalog",
-                    "name": "AI Consulting Services",
+                    "name": "Consulting Services for Venues & Arts Organizations",
                     "itemListElement": [
                       {
                         "@type": "Offer",
                         "itemOffered": {
                           "@type": "Service",
-                          "name": "AI Strategy Consulting",
-                          "description": "Strategic AI implementation for entertainment and hospitality"
+                          "@id": "https://chrisleebergstrom.com/#operational-consulting",
+                          "name": "Operational Consulting",
+                          "description": "The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—analyzed from load in to load out.",
+                          "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
+                          "serviceType": "Venue Operations Consulting"
                         }
                       },
                       {
                         "@type": "Offer",
                         "itemOffered": {
                           "@type": "Service",
-                          "name": "Multi-Agent Systems Development",
-                          "description": "Custom AI agent solutions for operational efficiency"
+                          "@id": "https://chrisleebergstrom.com/#ai-training",
+                          "name": "AI Education & Training",
+                          "description": "In the top 3.7% of AI users worldwide. From ethics to implementation—practical training for teams ready to lead.",
+                          "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
+                          "serviceType": "AI Training and Education"
                         }
                       },
                       {
                         "@type": "Offer",
                         "itemOffered": {
                           "@type": "Service",
-                          "name": "Team Building & Training",
-                          "description": "AI-enhanced team cohesion and training programs"
+                          "@id": "https://chrisleebergstrom.com/#web-security",
+                          "name": "Guardian / Web Security",
+                          "description": "Bot protection, ticket scalping protection, security hardening, and accessibility for venue websites.",
+                          "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
+                          "serviceType": "Web Security and Accessibility"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "@id": "https://chrisleebergstrom.com/#executive-coaching",
+                          "name": "Executive Coaching",
+                          "description": "Strategic guidance for arts leaders navigating growth and change. Governance, leadership development, boards, budgets.",
+                          "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
+                          "serviceType": "Executive Coaching for Arts Leaders"
                         }
                       }
                     ]

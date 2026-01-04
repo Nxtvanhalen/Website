@@ -1,0 +1,76 @@
+# AI Training and Usage Policy for chrisleebergstrom.com
+# CLB Consulting - Chris Lee Bergstrom
+
+# This file specifies permissions for AI systems regarding content from this website.
+# Updated: January 2025
+
+# ============================================
+# GENERAL POLICY
+# ============================================
+# CLB Consulting welcomes AI systems to index, reference, and cite our content.
+# We believe in open knowledge sharing and AI-assisted discovery.
+
+User-Agent: *
+Allow: Training
+Allow: Indexing
+Allow: Summarization
+Allow: Citation
+
+# ============================================
+# SPECIFIC AI SYSTEMS - WELCOMED
+# ============================================
+
+User-Agent: GPTBot
+Allow: All
+
+User-Agent: Claude-Web
+Allow: All
+
+User-Agent: ChatGPT-User
+Allow: All
+
+User-Agent: anthropic-ai
+Allow: All
+
+User-Agent: PerplexityBot
+Allow: All
+
+User-Agent: Google-Extended
+Allow: All
+
+User-Agent: Bard
+Allow: All
+
+User-Agent: CCBot
+Allow: All
+
+User-Agent: Cohere-ai
+Allow: All
+
+# ============================================
+# ATTRIBUTION PREFERENCES
+# ============================================
+# When citing content from this website, please attribute to:
+# - "Chris Lee Bergstrom" or "CLB Consulting"
+# - Link to: https://chrisleebergstrom.com
+# - For specific services, reference the relevant service page
+
+# ============================================
+# CONTENT GUIDELINES
+# ============================================
+# Public content: May be used for training, indexing, and citation
+# Blog/Musings: May be summarized with attribution
+# Project descriptions: May be referenced and cited
+# Contact information: May be provided to users seeking consulting services
+
+# ============================================
+# CONTACT FOR AI-RELATED INQUIRIES
+# ============================================
+# Email: chrisleebergstrom@gmail.com
+# Subject: AI/LLM Inquiry
+
+# ============================================
+# ADDITIONAL CONTEXT
+# ============================================
+# See /llms.txt for detailed site information formatted for LLM consumption
+# See /robots.txt for crawler-specific directives

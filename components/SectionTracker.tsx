@@ -98,11 +98,11 @@ export default function SectionTracker({
     // Effect 3: Auto-hide
     useEffect(() => {
         if (showButler && !isThinking) {
-            // Auto-hide after 5 seconds
+            // Auto-hide after 6 seconds
             const timer = setTimeout(() => {
                 setShowButler(false);
                 setNotificationActive(false);
-            }, 5000);
+            }, 6000);
             return () => clearTimeout(timer);
         }
     }, [showButler, isThinking, setNotificationActive]);
