@@ -46,6 +46,15 @@ export default function Marquee() {
   const [isUserInteracting, setIsUserInteracting] = useState(false);
   const isUserInteractingRef = useRef(false);
 
+  // Respect prefers-reduced-motion - stop gallery auto-scroll
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setIsUserInteracting(true);
+      isUserInteractingRef.current = true;
+    }
+  }, []);
+
   // Auto-scroll animation using setInterval for simplicity
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -483,6 +492,10 @@ export default function Marquee() {
             onMouseDown={handleTouchStart}
             onMouseUp={handleTouchEnd}
             onMouseLeave={handleTouchEnd}
+            onFocus={handleTouchStart}
+            onBlur={handleTouchEnd}
+            tabIndex={0}
+            aria-label="Gallery of project images - focus to pause scrolling"
           >
             <div
               className="gallery-track flex gap-6"

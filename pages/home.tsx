@@ -17,6 +17,14 @@ export default function Home() {
     if (brmcVideo) brmcVideo.pause();
   };
 
+  // Respect prefers-reduced-motion setting
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      handlePauseVideos();
+    }
+  }, []);
+
   useEffect(() => {
     // Force page to top immediately
     document.documentElement.scrollTop = 0;
