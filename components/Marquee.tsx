@@ -247,7 +247,7 @@ export default function Marquee() {
                   </div>
                   <p className="text-sm leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
                     The whole venue, not just the stage.<br />
-                    Booking, marketing, F&B, security, and safety.<br />
+                    <strong className="not-italic">Booking</strong>, <strong className="not-italic">marketing</strong>, <strong className="not-italic">F&B</strong>, <strong className="not-italic">security</strong>, and <strong className="not-italic">safety</strong>.<br />
                     Analyzed from load in to load out.
                   </p>
                 </div>
@@ -293,9 +293,9 @@ export default function Marquee() {
                     AI Education & Training
                   </div>
                   <p className="text-sm leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
-                    In the top 3.7% of AI users worldwide.<br />
-                    From ethics to implementation—<br />
-                    practical training for teams ready to lead.
+                    In the <strong className="not-italic">top 3.7%</strong> of AI users worldwide.<br />
+                    From <strong className="not-italic">ethics</strong> to <strong className="not-italic">implementation</strong>—<br />
+                    practical training for <strong className="not-italic">teams</strong> ready to lead.
                   </p>
                 </div>
               </div>
@@ -340,8 +340,8 @@ export default function Marquee() {
                     Guardian / Web Security
                   </div>
                   <p className="text-sm leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
-                    Protect your venue from bots and scalpers.<br />
-                    Protect your audience with accessible, compliant design.
+                    Protect your venue from <strong className="not-italic">bots</strong> and <strong className="not-italic">scalpers</strong>.<br />
+                    Protect your audience with <strong className="not-italic">accessible</strong>, <strong className="not-italic">compliant</strong> design.
                   </p>
                 </div>
               </div>
@@ -387,7 +387,7 @@ export default function Marquee() {
                   </div>
                   <p className="text-sm leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
                     Smart leaders ask for help.<br />
-                    Governance, leadership development, boards, budgets—<br />
+                    <strong className="not-italic">Governance</strong>, <strong className="not-italic">leadership development</strong>, <strong className="not-italic">boards</strong>, <strong className="not-italic">budgets</strong>—<br />
                     and the chaos between vision and execution.
                   </p>
                 </div>
