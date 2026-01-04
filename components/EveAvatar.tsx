@@ -19,21 +19,24 @@ export default function EveAvatar({ width = 80, height = 45, className = '' }: E
   }, []);
 
   return (
-    <div
-      className={`overflow-hidden flex-shrink-0 ${className}`}
-      style={{ width, height }}
+    <video
+      ref={videoRef}
+      autoPlay
+      loop
+      muted
+      playsInline
+      className={`object-contain ${className}`}
+      style={{
+        width,
+        height,
+        borderRadius: '12px',
+        mask: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+        maskComposite: 'intersect',
+        WebkitMask: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+        WebkitMaskComposite: 'source-in'
+      }}
     >
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-full h-full object-contain"
-        style={{ width, height }}
-      >
-        <source src="/videos/eve-avatar.mp4" type="video/mp4" />
-      </video>
-    </div>
+      <source src="/videos/eve-avatar.mp4" type="video/mp4" />
+    </video>
   );
 }

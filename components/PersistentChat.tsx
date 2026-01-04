@@ -117,7 +117,7 @@ export default function PersistentChat() {
                             initial={{ opacity: 0, y: 10, x: "-50%" }}
                             animate={{ opacity: 1, y: 0, x: "-50%" }}
                             exit={{ opacity: 0, y: 10, x: "-50%" }}
-                            className="absolute bottom-full mb-1.5 left-1/2 px-3 py-1.5 bg-black/80 backdrop-blur-md border border-mauve/50 rounded-lg text-white text-xs font-medium whitespace-nowrap shadow-[0_0_15px_rgba(147,112,219,0.3)]"
+                            className="absolute bottom-full mb-1.5 left-1/2 px-3 py-1.5 bg-black/80 rounded-xl text-white text-xs font-medium whitespace-nowrap"
                         >
                             EVE AI
                         </motion.div>
@@ -128,19 +128,18 @@ export default function PersistentChat() {
                     onClick={toggleChat}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    animate={{
-                        boxShadow: ["0 0 0px rgba(147,112,219,0.4)", "0 0 35px rgba(147,112,219,1)", "0 0 0px rgba(147,112,219,0.4)"]
-                    }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                    className={`w-20 h-12 rounded-lg flex items-center justify-center transition-all duration-300 border-2 ${isOpen ? 'bg-black border-mauve/50 text-mauve' : 'bg-black/60 border-mauve/50 text-white'}`}
+                    className="bg-transparent border-none p-0 cursor-pointer outline-none"
+                    style={{ background: 'none', border: 'none' }}
                     aria-label={isOpen ? "Close EVE AI chat" : "Open EVE AI chat assistant"}
                 >
                     {isOpen ? (
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
+                        <div className="w-20 h-12 rounded-lg bg-black/80 border-2 border-mauve/50 flex items-center justify-center text-mauve">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
                     ) : (
-                        <EveAvatar width={76} height={43} className="rounded-md" />
+                        <EveAvatar width={80} height={80} className="" />
                     )}
                 </motion.button>
             </div>

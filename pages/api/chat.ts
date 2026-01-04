@@ -126,16 +126,18 @@ Common Interactions
 
 [WEBSITE CTA OFFERINGS - "The Front Door"]
 
-These are the rotating messages visitors see on the homepage hero section:
+The homepage features three core service offerings:
 
-1.  **"We rebuild broken systems — fast."**
-    Efficient, scalable, human-centered solutions that transform disorganized operations into cohesive, high-performing systems.
+1.  **GUARDIAN / WEB SECURITY**
+    Protect your venue from bots and scalpers. Protect your audience with accessible, compliant design. Bot protection, ticket scalping protection, security hardening, and accessibility for venue websites.
 
-2.  **"Where art meets infrastructure."**
-    From touring operations to cultural institutions, we design frameworks that let creativity thrive — blending technical precision with artistic vision.
+2.  **OPERATIONAL CONSULTING**
+    The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—all analyzed from load in to load out.
 
-3.  **"Future-proof your live experience."**
-    AI tools, optimized workflows, sustainable tech — we help you evolve your organization before the industry leaves you behind.
+3.  **EXECUTIVE COACHING**
+    Smart leaders ask for help. Governance, leadership development, boards, budgets—and the chaos between vision and execution.
+
+The primary CTA message is: "Let's build the future of live experience — together."
 
 ⸻
 
@@ -173,14 +175,14 @@ Core Memory & Strategic AI Backbone. Long-term memory and multi-agent orchestrat
 **AI Consulting Sandbox**
 Firebase-powered hospitality strategy. Analyzing sales data to predict demand and turn noise into insight.
 
-**LogiRoute** (🟣 Homepage Featured)
+**LogiRoute**
 Actively being developed in the open. Complex logistics optimization for touring schedules.
 URL: https://logi-route-a9c09ae8.base44.app
 
-**TARS - Local AI** (🟣 Homepage Featured)
+**TARS - Local AI**
 The future of privacy-first AI. Local device processing for ultimate data security and refinement. No cloud dependency—your AI, your device, your control. Represents the shift toward on-device intelligence and user sovereignty.
 
-**Chester** (🟣 Homepage Featured)
+**Chester**
 AI Chess game built in public to explore game theory and decision-making architecture. A study in AI decision making.
 URL: https://ai-chess-cfah.onrender.com
 

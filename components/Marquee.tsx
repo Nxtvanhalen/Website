@@ -34,7 +34,7 @@ export default function Marquee() {
   /* const titleStyle = "text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center text-white"; */
 
   /* Option 2: Cinematic Wide (Tracking + Light) */
-  const titleStyle = "text-5xl lg:text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center text-white tracking-[0.2em] font-light uppercase";
+  const titleStyle = "text-5xl lg:text-6xl font-heading mb-2 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center text-white tracking-[0.2em] font-light uppercase";
 
   /* Option 3: Hollow Outline */
   /* const titleStyle = "text-6xl font-heading mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-center text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.8)] hover:[-webkit-text-stroke:1px_rgba(147,112,219,1)] transition-colors"; */
@@ -142,16 +142,35 @@ export default function Marquee() {
     );
   };
 
-  // Sub-CTA categories for audience segments
+  // Sub-CTA categories for services
   const subCTAs = [
-    { label: "Creative Operations", subject: "Creative Operations Inquiry" },
-    { label: "AI for Live Systems", subject: "AI Systems Inquiry" },
-    { label: "Art + Tech Integration", subject: "Art Tech Integration Inquiry" }
+    { label: "Web Security", subject: "Guardian / Web Security Inquiry" },
+    { label: "Operations", subject: "Operational Consulting Inquiry" },
+    { label: "Executive Coaching", subject: "Executive Coaching Inquiry" }
+  ];
+
+  // Service cards data
+  const serviceCards = [
+    {
+      title: "GUARDIAN / WEB SECURITY",
+      description: "Bot protection, ticket scalping protection, security hardening, and accessibility for venue websites",
+      subject: "Guardian / Web Security Inquiry"
+    },
+    {
+      title: "OPERATIONAL CONSULTING",
+      description: "Logistics, production systems, and workflow optimization",
+      subject: "Operational Consulting Inquiry"
+    },
+    {
+      title: "EXECUTIVE COACHING",
+      description: "Strategic guidance for arts leaders navigating growth and change",
+      subject: "Executive Coaching Inquiry"
+    }
   ];
 
   return (
     <div className="relative w-full min-h-screen overflow-visible mb-16">
-      <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-24 md:pt-52 pb-16 text-center text-white">
+      <div className="marquee-content scroll-fade relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-16 md:pt-32 pb-16 text-center text-white">
         {/* Mobile Profile Picture - Above heading */}
         <div className="md:hidden mb-2 flex justify-center">
           <div className="w-20 h-20 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
@@ -171,75 +190,56 @@ export default function Marquee() {
         <SectionTracker
           name="Homepage - Hero"
           className="w-full mb-6"
-          butlerMessage="This is where it starts. Need help navigating Chris's world?"
+          butlerMessage="Web security, operations, or leadership coaching—Chris has you covered. Tap any box to reach out."
         >
           <h1 className={titleStyle}>
             Chris Lee Bergstrom
           </h1>
+          <p className="text-sm md:text-base font-heading font-light text-white tracking-wide text-center max-w-2xl mx-auto mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5">
+            20 years in live entertainment. Now I help venues and arts organizations operate smarter, safer, and more efficiently.
+          </p>
 
-          <motion.div
-            className="text-base font-body italic text-center mb-6"
-            style={{ color: '#FFFFFF' }}
-            initial={{ y: -10 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Recent Projects
-          </motion.div>
-
-          {/* Three boxes layout */}
+          {/* CTA Boxes Layout */}
           <div className="flex justify-center items-stretch gap-4 flex-wrap lg:flex-nowrap">
-            {/* Center box - unified CTA */}
-            <div
-              className={`${boxStyle} relative overflow-hidden flex-col !gap-2 !justify-start !pt-5`}
+            {/* Primary CTA Box */}
+            <motion.div
+              className={`${boxStyle} relative overflow-hidden flex-col !gap-4 !justify-center`}
               role="region"
               aria-label="Primary call to action"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              {/* Primary headline with subtle shimmer */}
-              <motion.h2
-                className="text-[15px] lg:text-[14px] font-bold leading-tight text-center"
-                style={{
-                  color: '#F5F5DC',
-                  background: 'linear-gradient(90deg, #F5F5DC 0%, #9370DB 50%, #F5F5DC 100%)',
-                  backgroundSize: '200% 100%',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-                animate={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: 'linear'
-                }}
-              >
+              {/* Headline */}
+              <p className="nav-link text-center" style={{ color: '#F5F5DC', fontSize: '14px', fontWeight: 700 }}>
                 Let's build the future of live experience — together.
-              </motion.h2>
-
-              {/* Supporting tagline */}
-              <p className="text-xs leading-tight text-center opacity-80" style={{ color: '#F5F5DC' }}>
-                AI tools, creative infrastructure, and systems that scale with your vision.
               </p>
 
-              {/* Main CTA button */}
+              {/* Let's Talk Button */}
               <motion.a
                 href="#contact"
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="block py-2 px-4 bg-molten/20 border border-molten text-molten text-sm font-medium rounded hover:bg-molten/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+                className="block py-2 px-6 bg-molten/20 border border-molten text-molten text-sm font-medium rounded hover:bg-molten/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
                 aria-label="Scroll to contact section"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Let's Collaborate
+                Let's Talk
               </motion.a>
 
-              {/* Sub-CTA pills */}
-              <div className="flex flex-wrap justify-center gap-1.5 mt-1">
+              {/* Email link */}
+              <a
+                href="mailto:chrisleebergstrom@gmail.com"
+                className="text-xs opacity-70 hover:opacity-100 transition-opacity"
+                style={{ color: '#F5F5DC' }}
+              >
+                chrisleebergstrom@gmail.com
+              </a>
+
+              {/* Tags */}
+              <div className="flex flex-wrap justify-center gap-1.5">
                 {subCTAs.map((cta, index) => (
                   <motion.a
                     key={index}
@@ -251,16 +251,16 @@ export default function Marquee() {
                   </motion.a>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            {/* Left box */}
-            <SectionTracker
-              name="Homepage - LogiRoute"
+            {/* Guardian / Web Security Box */}
+            <motion.div
               className={boxStyle}
+              whileHover={{ scale: 1.02 }}
             >
               <div
                 role="region"
-                aria-label="Logi Route project"
+                aria-label="Guardian Web Security"
                 className="w-full h-full flex flex-row justify-between items-center gap-4 lg:gap-2"
               >
                 <motion.div
@@ -269,13 +269,19 @@ export default function Marquee() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   <video
-                    src="/videos/robot-animation-happy-compressed.mp4"
+                    src="/videos/guardian-loop.mp4"
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-contain"
-                    aria-label="Animated robot representing local AI capabilities"
+                    className="w-full h-full object-contain scale-[1.65]"
+                    aria-label="Guardian Web Security - Bot protection and security hardening"
+                    style={{
+                      mask: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                      maskComposite: 'intersect',
+                      WebkitMask: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                      WebkitMaskComposite: 'source-in'
+                    }}
                   />
                 </motion.div>
                 <div className="w-1/2 flex flex-col justify-center items-center">
@@ -283,23 +289,24 @@ export default function Marquee() {
                     className="nav-link text-center block w-full py-0"
                     style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px', fontWeight: 700 }}
                   >
-                    Local AI
+                    Guardian / Web Security
                   </div>
                   <p className="text-sm leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
-                    Local AI is the future. Ask about unlocking AI on your device for ultimate refinement and privacy.
+                    Protect your venue from bots and scalpers.<br />
+                    Protect your audience with accessible, compliant design.
                   </p>
                 </div>
               </div>
-            </SectionTracker>
+            </motion.div>
 
-            {/* Right box */}
-            <SectionTracker
-              name="Homepage - Chester"
+            {/* Operational Consulting Box */}
+            <motion.div
               className={boxStyle}
+              whileHover={{ scale: 1.02 }}
             >
               <div
                 role="region"
-                aria-label="AI Chess Game"
+                aria-label="Operational Consulting"
                 className="w-full h-full flex flex-row justify-between items-center gap-4 lg:gap-2"
               >
                 <motion.div
@@ -308,34 +315,83 @@ export default function Marquee() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   <video
-                    src="/videos/chester-compressed.mp4"
+                    src="/videos/operations-loop.mp4"
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-contain scale-[1.75]"
-                    aria-label="Chester AI chess game preview"
+                    className="w-full h-full object-contain scale-[1.65]"
+                    aria-label="Operational Consulting - Logistics and workflow optimization"
+                    style={{
+                      mask: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                      maskComposite: 'intersect',
+                      WebkitMask: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                      WebkitMaskComposite: 'source-in'
+                    }}
                   />
                 </motion.div>
                 <div className="w-1/2 flex flex-col justify-center items-center">
-                  <motion.a
-                    href="https://ai-chess-cfah.onrender.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <div
                     className="nav-link text-center block w-full py-0"
                     style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px', fontWeight: 700 }}
-                    aria-label="Play Chester - AI Chess Game"
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   >
-                    Play Chester
-                  </motion.a>
+                    Operational Consulting
+                  </div>
                   <p className="text-sm leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
-                    Challenge the AI. Built in public to explore game theory and React performance.
+                    The whole venue, not just the stage.<br />
+                    Booking, marketing, F&B, security, and safety.<br />
+                    Analyzed from load in to load out.
                   </p>
                 </div>
               </div>
-            </SectionTracker>
+            </motion.div>
+
+            {/* Executive Coaching Box */}
+            <motion.div
+              className={boxStyle}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div
+                role="region"
+                aria-label="Executive Coaching"
+                className="w-full h-full flex flex-row justify-between items-center gap-4 lg:gap-2"
+              >
+                <motion.div
+                  className="w-1/2 h-full rounded overflow-hidden relative cursor-pointer flex-shrink-0"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <video
+                    src="/videos/coaching-loop.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-contain scale-[1.65]"
+                    aria-label="Executive Coaching - Strategic guidance for arts leaders"
+                    style={{
+                      mask: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                      maskComposite: 'intersect',
+                      WebkitMask: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                      WebkitMaskComposite: 'source-in'
+                    }}
+                  />
+                </motion.div>
+                <div className="w-1/2 flex flex-col justify-center items-center">
+                  <div
+                    className="nav-link text-center block w-full py-0"
+                    style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px', fontWeight: 700 }}
+                  >
+                    Executive Coaching
+                  </div>
+                  <p className="text-sm leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
+                    Smart leaders ask for help.<br />
+                    Governance, leadership development, boards, budgets—<br />
+                    and the chaos between vision and execution.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </SectionTracker>
         <p className="text-xl font-body italic text-center mb-8 max-w-2xl opacity-90" style={{ color: '#F5F5DC' }}>
