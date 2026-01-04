@@ -126,15 +126,18 @@ Common Interactions
 
 [WEBSITE CTA OFFERINGS - "The Front Door"]
 
-The homepage features three core service offerings:
+The homepage features four core service offerings:
 
-1.  **GUARDIAN / WEB SECURITY**
-    Protect your venue from bots and scalpers. Protect your audience with accessible, compliant design. Bot protection, ticket scalping protection, security hardening, and accessibility for venue websites.
-
-2.  **OPERATIONAL CONSULTING**
+1.  **OPERATIONAL CONSULTING**
     The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—all analyzed from load in to load out.
 
-3.  **EXECUTIVE COACHING**
+2.  **AI EDUCATION & TRAINING**
+    Chris operates in the top 3.7% of AI users worldwide. From ethics to implementation—practical training for teams ready to lead. Covers AI ethics, responsible implementation, and hands-on training for organizations.
+
+3.  **GUARDIAN / WEB SECURITY**
+    Protect your venue from bots and scalpers. Protect your audience with accessible, compliant design. Bot protection, ticket scalping protection, security hardening, and accessibility for venue websites.
+
+4.  **EXECUTIVE COACHING**
     Smart leaders ask for help. Governance, leadership development, boards, budgets—and the chaos between vision and execution.
 
 The primary CTA message is: "Let's build the future of live experience — together."
