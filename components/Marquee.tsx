@@ -190,7 +190,7 @@ export default function Marquee() {
         <SectionTracker
           name="Homepage - Hero"
           className="w-full mb-6"
-          butlerMessage="Web security, operations, or leadership coaching—Chris has you covered. Tap any box to reach out."
+          butlerMessage="Web security, operations, or leadership coaching—Chris has you covered. Reach out or ask me more."
         >
           <h1 className={titleStyle}>
             Chris Lee Bergstrom
