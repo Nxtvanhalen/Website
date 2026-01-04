@@ -18,7 +18,7 @@ export default function Marquee() {
   /* const boxStyle = "bg-white/5 border border-white/10 rounded-xl p-4 w-full max-w-[340px] lg:w-[300px] h-[220px] backdrop-blur-md shadow-xl flex flex-row justify-between items-center gap-4 lg:gap-2 hover:bg-white/10 transition-colors"; */
 
   /* Option 3: Neon Molten Glow */
-  const boxStyle = "bg-black/60 !border-2 !border-mauve/50 rounded-lg p-4 w-full max-w-[340px] lg:w-[300px] h-[220px] !shadow-[0_0_30px_rgba(147,112,219,0.4)] flex flex-row justify-between items-center gap-4 lg:gap-2 hover:!shadow-[0_0_40px_rgba(147,112,219,0.6)] transition-shadow duration-300";
+  const boxStyle = "bg-black/80 !border-2 !border-mauve/50 rounded-lg p-4 w-full max-w-[340px] lg:w-[300px] h-[220px] !shadow-[0_0_30px_rgba(147,112,219,0.4)] flex flex-row justify-between items-center gap-4 lg:gap-2 hover:!shadow-[0_0_40px_rgba(147,112,219,0.6)] transition-shadow duration-300";
 
   /* Option 4: Minimal Dark (Solid) */
   /* const boxStyle = "bg-zinc-900/90 border border-zinc-800 rounded-lg p-4 w-full max-w-[340px] lg:w-[300px] h-[220px] flex flex-row justify-between items-center gap-4 lg:gap-2"; */
@@ -437,7 +437,7 @@ export default function Marquee() {
                   <motion.a
                     key={index}
                     href={`mailto:chrisleebergstrom@gmail.com?subject=${encodeURIComponent(cta.subject)}`}
-                    className="text-[10px] px-2 py-0.5 rounded-full border border-mauve/40 text-mauve/80 hover:border-mauve hover:text-mauve transition-colors duration-200"
+                    className="text-[10px] px-2 py-0.5 rounded-full border border-mauve/60 text-mauve hover:border-mauve hover:text-white transition-colors duration-200"
                     whileHover={{ scale: 1.05 }}
                   >
                     {cta.label}
