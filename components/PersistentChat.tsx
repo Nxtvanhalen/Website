@@ -93,7 +93,7 @@ export default function PersistentChat() {
                         <div className="flex flex-col gap-2">
                             <div className="flex flex-col items-start gap-1 border-b border-white/10 pb-2">
                                 <EveAvatar width={64} height={36} className="border border-[#9370DB]/50" />
-                                <h4 className="text-[10px] font-bold text-[#9370DB] uppercase tracking-wider leading-tight">Incoming Transmission</h4>
+                                <span className="text-[10px] font-bold text-[#9370DB] uppercase tracking-wider leading-tight block">Incoming Transmission</span>
                             </div>
                             <div>
                                 <p className="text-[11px] text-white/90 leading-tight">
