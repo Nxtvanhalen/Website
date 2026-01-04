@@ -9,6 +9,11 @@
     "start": "bun --bun next start",
     "postinstall": "bun pm ls typescript @types/react @types/node || bun add typescript @types/react @types/node @types/react-dom"
   },
+  "browserslist": [
+    ">0.5%",
+    "not dead",
+    "not op_mini all"
+  ],
   "dependencies": {
     "@types/node": "^20.19.0",
     "@types/react": "^18.3.23",
