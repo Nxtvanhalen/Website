@@ -5,7 +5,7 @@ import ChatPanel from './ChatPanel';
 import EveAvatar from './EveAvatar';
 
 export default function PersistentChat() {
-    const { isOpen, toggleChat, setNotificationActive, setLastNotificationTime } = useChat();
+    const { isOpen, toggleChat, isNotificationActive, setNotificationActive, setLastNotificationTime } = useChat();
     const [showNotification, setShowNotification] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -112,7 +112,7 @@ export default function PersistentChat() {
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <AnimatePresence>
-                    {!isOpen && !showNotification && (
+                    {!isOpen && !showNotification && !isNotificationActive && (
                         <motion.div
                             initial={{ opacity: 0, y: 10, x: "-50%" }}
                             animate={{ opacity: 1, y: 0, x: "-50%" }}

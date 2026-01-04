@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useInView, motion, AnimatePresence } from 'motion/react';
 import { useChat } from '../context/ChatContext';
-import Image from 'next/image';
+import EveAvatar from './EveAvatar';
 
 interface SectionTrackerProps {
     name: string;
@@ -118,7 +118,7 @@ export default function SectionTracker({
                         initial={{ opacity: 0, y: 10, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                        className="fixed bottom-24 right-[2px] z-[90] mb-4 mr-2 bg-black/80 backdrop-blur-md border border-[#9370DB]/50 p-2 rounded-2xl rounded-br-none shadow-[0_0_20px_rgba(147,112,219,0.3)] max-w-[90px]"
+                        className="fixed bottom-[104px] right-[3px] z-[101] bg-black/80 backdrop-blur-md border border-[#9370DB]/50 p-2 rounded-2xl rounded-br-none shadow-[0_0_20px_rgba(147,112,219,0.3)] max-w-[90px]"
                     >
                         {isThinking ? (
                             <div className="flex items-center justify-center h-full min-h-[40px] w-full">
@@ -143,15 +143,7 @@ export default function SectionTracker({
                         ) : (
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-col items-start gap-1 border-b border-white/10 pb-2">
-                                    <div className="w-6 h-6 rounded-sm border border-[#9370DB]/50 overflow-hidden shrink-0 relative">
-                                        <Image
-                                            src="/images/projects/EVE.png"
-                                            alt="EVE"
-                                            width={24}
-                                            height={24}
-                                            className="object-cover"
-                                        />
-                                    </div>
+                                    <EveAvatar width={64} height={36} className="border border-[#9370DB]/50" />
                                     <h4 className="text-[10px] font-bold text-[#9370DB] uppercase tracking-wider leading-tight">
                                         Observation
                                     </h4>
