@@ -44,7 +44,7 @@ CLB Consulting treats AI as a tool—not a substitute—for human insight. The w
 - [About](/about) - Chris's origin story and expertise
 - [Projects](/projects) - AI projects and tools
 - [News](/news) - Press and media appearances
-- [FAQ](/faq) - Common questions
+- [FAQ](/faq) - Common questions about operations, AI training, security, and leadership coaching
 - [Blog/Musings](/blog) - Unfiltered thoughts on AI and entertainment
 
 ## Contact

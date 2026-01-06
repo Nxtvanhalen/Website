@@ -84,7 +84,7 @@ export default function OperationsConsulting() {
         <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="Operations Consulting | Venue & Entertainment Operations - CLB Consulting" />
+        <meta property="og:title" content="Operations Consulting | CLB Consulting" />
         <meta property="og:description" content="Expert operations consulting for venues and live entertainment. Find hidden losses, fix labor inefficiencies, prevent safety issues, and optimize your bottom line." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/operations-consulting" />
@@ -97,7 +97,7 @@ export default function OperationsConsulting() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="Operations Consulting | Venue & Entertainment Operations - CLB Consulting" />
+        <meta name="twitter:title" content="Operations Consulting | CLB Consulting" />
         <meta name="twitter:description" content="Expert operations consulting for venues and live entertainment. Find hidden losses, fix labor inefficiencies, prevent safety issues, and optimize your bottom line." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/operational.webp" />
         <meta name="twitter:image:alt" content="Operations Consulting - CLB Consulting by Chris Lee Bergstrom" />

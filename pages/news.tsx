@@ -32,7 +32,7 @@ export default function News() {
         <link rel="apple-touch-icon" href="/icon-192.png" />
 
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="News/Press - CLB Consulting" />
+        <meta property="og:title" content="News | CLB Consulting" />
         <meta property="og:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/news" />
@@ -45,7 +45,7 @@ export default function News() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="News/Press - CLB Consulting" />
+        <meta name="twitter:title" content="News | CLB Consulting" />
         <meta name="twitter:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting" />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />

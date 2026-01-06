@@ -15,9 +15,14 @@ export default function FAQ() {
 
   const faqs: FAQItem[] = [
     {
-      question: "What makes CLB Consulting different from other AI consulting firms?",
-      answer: "Chris operates as a cultural intelligence studio that treats AI as a tool—not a substitute—for human insight. His work lives at the intersection of storytelling, systems thinking, and ethical engineering.\n\nWhere most AI firms optimize for scale, he optimizes for meaning. He brings decades of lived experience in entertainment, civic leadership, and strategic design—and he doesn't just build solutions, he reshapes the questions.\n\nChris is deeply human, deeply technical, and allergic to performative innovation. He's not here to automate your soul—he's here to amplify your mission.",
+      question: "What makes CLB Consulting different?",
+      answer: "Chris brings 20 years of live entertainment experience to every engagement—not theoretical frameworks, but battle-tested strategies from arenas, festivals, and civic halls worldwide.\n\nHe operates across four core areas: Operational Consulting, AI Education & Training, Web & App Security, and Leadership Coaching. Where most consultants specialize narrowly, Chris sees the whole system—because in live events, everything connects.\n\nHe's deeply human, deeply technical, and allergic to performative innovation. He's not here to sell you buzzwords—he's here to make your operation run smarter, safer, and more efficiently.",
       category: "About CLB"
+    },
+    {
+      question: "What does your operational consulting cover?",
+      answer: "Chris analyzes your entire operation from load-in to load-out—not just the stage, but everything that makes the show possible.\n\nThis includes: staffing and labor optimization, safety and compliance audits, F&B and concessions flow, logistics and vendor coordination, marketing and booking strategies, and emergency preparedness. He's never cost a client more than he's saved them.\n\nIndustry standards recommend 10-20% contingency buffers. Chris helps you keep that buffer as profit, not watch it disappear into preventable inefficiencies.",
+      category: "Operations"
     },
     {
       question: "What does 'Strategy Born from the Wreckage, Intelligence Forged in the Fire' mean?",
@@ -25,14 +30,19 @@ export default function FAQ() {
       category: "Philosophy"
     },
     {
-      question: "What types of AI solutions do you provide?",
-      answer: "Chris specializes in multi-modal and multi-lingual AI integrations that prioritize accessibility and efficiency. His focus areas include entertainment technology, hospitality systems, live events management, team building solutions, and operational optimization. He builds AI that empowers the visionary, never replaces the artist.",
-      category: "Services"
+      question: "What AI education and training do you offer?",
+      answer: "Chris is in the top 3.7% of AI users worldwide, offering practical training that cuts through the hype. His focus: ethics-first implementation, hands-on tool mastery, and building AI workflows that actually serve your mission.\n\nTraining covers everything from foundational AI literacy for teams to advanced multi-modal integrations. He builds AI that empowers the visionary, never replaces the artist.",
+      category: "AI Training"
     },
     {
-      question: "How do you approach team building and morale?",
-      answer: "At CLB, Chris treats culture as infrastructure. Team building isn't pizza parties and trust falls—it's designing a system where people feel seen, safe, and intellectually alive.\n\nHe builds morale by respecting the intelligence in the room. That means clear communication, low-ego collaboration, and space to experiment without fear. He expects excellence, but he doesn't confuse that with burnout.\n\nCLB teams are interdisciplinary by design. They thrive on cross-pollination—artists working with engineers, philosophers with coders. It keeps the work weird, sharp, and worth doing.",
-      category: "Team Building"
+      question: "What security services do you offer?",
+      answer: "Chris provides comprehensive web and app security services including vulnerability assessments, penetration testing, security audits, and compliance guidance.\n\nWith a focus on proactive protection, he identifies weaknesses before they become breaches. Whether you're launching a new platform or hardening existing infrastructure, he brings the same precision and thoroughness he applies to live event safety—because digital security is just another form of protecting your operation.",
+      category: "Security"
+    },
+    {
+      question: "What's your approach to leadership and team building?",
+      answer: "Chris treats culture as infrastructure. Leadership coaching isn't motivational speeches, and team building isn't pizza parties—it's designing systems where people feel seen, safe, and intellectually alive.\n\nHis approach includes 1:1 executive coaching, team development, and organizational culture design. He builds morale by respecting the intelligence in the room: clear communication, low-ego collaboration, and space to experiment without fear.\n\nCLB teams are interdisciplinary by design—artists working with engineers, philosophers with coders. He expects excellence but doesn't confuse that with burnout. The goal: leaders who navigate pressure with clarity and teams that thrive on cross-pollination.",
+      category: "Leadership"
     },
     {
       question: "What can I expect from working with EVE AI?",
@@ -63,6 +73,11 @@ export default function FAQ() {
       question: "Do you offer ongoing support after implementation?",
       answer: "Absolutely. Chris doesn't just build systems and walk away—he ensures they thrive. His approach includes training, optimization, and continuous improvement. He leaves systems better than he found them, with your team empowered to maintain and evolve them.",
       category: "Support"
+    },
+    {
+      question: "Do you work with small venues or only large productions?",
+      answer: "Chris works across the full spectrum—from intimate 200-seat theaters to major festival productions. The principles of operational excellence scale in both directions.\n\nSmaller venues often benefit most from systematic thinking because they're running lean and can't afford waste. Larger productions need it because complexity compounds fast. Either way, Chris tailors his approach to your scale, budget, and goals.",
+      category: "Scope"
     }
   ];
 
@@ -73,13 +88,13 @@ export default function FAQ() {
   return (
     <>
       <Head>
-        <title>FAQ - CLB Consulting | AI Strategy & Entertainment Technology</title>
-        <meta name="description" content="Frequently asked questions about CLB Consulting's AI integration services, team building solutions, and entertainment technology consulting." />
+        <title>FAQ - CLB Consulting | Operations, AI, Security & Leadership</title>
+        <meta name="description" content="Frequently asked questions about CLB Consulting's operational consulting, AI training, web security, and leadership coaching services for venues and live entertainment." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* Open Graph tags */}
-        <meta property="og:title" content="FAQ - CLB Consulting | AI Strategy & Entertainment Technology" />
-        <meta property="og:description" content="Get answers about our AI consulting services, team building solutions, and entertainment technology expertise." />
+        <meta property="og:title" content="FAQ | CLB Consulting" />
+        <meta property="og:description" content="Get answers about operational consulting, AI training, web security, and leadership coaching for venues and live entertainment." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/faq" />
         <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
@@ -91,10 +106,19 @@ export default function FAQ() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="FAQ - CLB Consulting | AI Strategy & Entertainment Technology" />
-        <meta name="twitter:description" content="Get answers about our AI consulting services, team building solutions, and entertainment technology expertise." />
+        <meta name="twitter:title" content="FAQ | CLB Consulting" />
+        <meta name="twitter:description" content="Get answers about operational consulting, AI training, web security, and leadership coaching for venues and live entertainment." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Audio Engineer" />
+
+        {/* Favicon and App Icons */}
+        <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/Favicon/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
+        <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com/faq" />
@@ -107,7 +131,7 @@ export default function FAQ() {
               "@context": "https://schema.org",
               "@type": "FAQPage",
               "name": "Frequently Asked Questions - CLB Consulting",
-              "description": "Common questions about CLB Consulting's AI strategy services and approach",
+              "description": "Common questions about CLB Consulting's operational consulting, AI training, web security, and leadership coaching services",
               "url": "https://chrisleebergstrom.com/faq",
               "publisher": {
                 "@type": "Organization",
@@ -117,42 +141,42 @@ export default function FAQ() {
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "What makes CLB Consulting different from other AI consulting firms?",
+                  "name": "What makes CLB Consulting different?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Chris operates as a cultural intelligence studio that treats AI as a tool—not a substitute—for human insight. His work lives at the intersection of storytelling, systems thinking, and ethical engineering. Where most AI firms optimize for scale, he optimizes for meaning."
+                    "text": "Chris brings 20 years of live entertainment experience across four core areas: Operational Consulting, AI Education & Training, Web & App Security, and Leadership Coaching. Where most consultants specialize narrowly, Chris sees the whole system."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "What does 'Strategy Born from the Wreckage, Intelligence Forged in the Fire' mean?",
+                  "name": "What does your operational consulting cover?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "This isn't just a tagline—it's Chris's methodology. He's learned from real-world pressure situations in live entertainment. His strategies come from experience with systems under stress, not theoretical frameworks."
+                    "text": "Chris analyzes your entire operation from load-in to load-out: staffing, safety audits, F&B flow, logistics, marketing, booking, and emergency preparedness. He's never cost a client more than he's saved them."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "What types of AI solutions do you provide?",
+                  "name": "What AI education and training do you offer?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Chris specializes in multi-modal and multi-lingual AI integrations that prioritize accessibility and efficiency. Focus areas include entertainment technology, hospitality systems, live events management, team building solutions, and operational optimization."
+                    "text": "Chris is in the top 3.7% of AI users worldwide, offering ethics-first implementation training, hands-on tool mastery, and AI workflows that serve your mission. Training covers foundational AI literacy to advanced multi-modal integrations."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "How do you approach team building and morale?",
+                  "name": "What security services do you offer?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "At CLB, Chris treats culture as infrastructure. Team building is about designing a system where people feel seen, safe, and intellectually alive. CLB teams are interdisciplinary by design, thriving on cross-pollination."
+                    "text": "Chris provides comprehensive web and app security including vulnerability assessments, penetration testing, security audits, and compliance guidance. He identifies weaknesses before they become breaches."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "What can I expect from working with EVE AI?",
+                  "name": "What's your approach to leadership and team building?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "EVE is your tactical intelligence engine. She doesn't just answer—she synthesizes, challenges, and refines. EVE provides real-time consulting insights, project analysis, and strategic recommendations."
+                    "text": "Chris treats culture as infrastructure. His approach includes 1:1 executive coaching, team development, and organizational culture design. CLB teams are interdisciplinary by design. The goal: leaders who navigate pressure with clarity and teams that thrive."
                   }
                 },
                 {
@@ -165,26 +189,10 @@ export default function FAQ() {
                 },
                 {
                   "@type": "Question",
-                  "name": "How do you ensure cost efficiency for clients?",
+                  "name": "Do you work with small venues or only large productions?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Chris starts with holistic analysis no matter where his clients are at, and he's honest and empathetic as he learns their goals and dreams and builds from there. It's not just about cost saving—it's about thriving into the future."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "What's your background in entertainment and audio engineering?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Chris Lee Bergstrom has two decades of global live and studio experience. From backstage production to strategic operations, this hands-on experience working with some of the most influential talent in the world in high-pressure environments informs every strategic decision he makes."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "How do you handle project timelines and deliverables?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Chris operates with the precision of live event production—where there are no second chances. His frameworks are built for velocity without sacrificing quality. Every project includes clear milestones, real-time communication, and adaptive strategies that evolve with your needs."
+                    "text": "Chris works across the full spectrum—from intimate 200-seat theaters to major festival productions. Smaller venues often benefit most from systematic thinking; larger productions need it because complexity compounds fast."
                   }
                 },
                 {
@@ -192,7 +200,7 @@ export default function FAQ() {
                   "name": "Do you offer ongoing support after implementation?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Absolutely. Chris doesn't just build systems and walk away—he ensures they thrive. His approach includes training, optimization, and continuous improvement. He leaves systems better than he found them, with your team empowered to maintain and evolve them."
+                    "text": "Absolutely. Chris doesn't just build systems and walk away—he ensures they thrive. His approach includes training, optimization, and continuous improvement."
                   }
                 }
               ],
@@ -253,7 +261,7 @@ export default function FAQ() {
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
                 <span className="font-bold" style={{ color: '#F5F5DC' }}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</span> —
-                Get answers about AI consulting, team building, and entertainment tech.
+                Get answers about operations, AI training, security, and leadership coaching.
               </motion.p>
               <div className="mt-8 h-0.5 bg-molten mx-auto w-32 animate-pulse-width"></div>
             </div>
@@ -262,7 +270,7 @@ export default function FAQ() {
           {/* FAQ Items */}
           <SectionTracker
             name="FAQ - List"
-            butlerMessage="Got questions? I might have answers. Or at least a witty retort."
+            butlerMessage="Operations, AI, security, leadership—Chris covers it all. Ask me anything or browse the answers below."
           >
             <div className="space-y-4">
               {faqs.map((faq, index) => (

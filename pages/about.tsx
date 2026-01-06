@@ -47,7 +47,7 @@ export default function About() {
         <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="About Chris Lee Bergstrom | Sound Engineer to AI Strategist - CLB Consulting" />
+        <meta property="og:title" content="About | CLB Consulting" />
         <meta property="og:description" content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/about" />
@@ -60,7 +60,7 @@ export default function About() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="About Chris Lee Bergstrom | Sound Engineer to AI Strategist - CLB Consulting" />
+        <meta name="twitter:title" content="About | CLB Consulting" />
         <meta name="twitter:description" content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
@@ -198,7 +198,7 @@ export default function About() {
             >
               <div className="text-base font-body opacity-90 leading-relaxed space-y-6" style={{ color: '#F5F5DC' }}>
                 <p className="font-semibold text-xl italic text-center">
-                  "I build systems where art and technology work together"
+                  &ldquo;I build systems where art and technology work together&rdquo;
                 </p>
                 <p className="text-center max-w-3xl mx-auto">
                   I started in the deep end of live sound, chasing perfect harmony, phase, and the science of acoustics. Decades later, I've led crews, built production infrastructures, and rescued venues from chaos. Whether it's an international tour, a citywide cultural system, or a failing arts organization, I find the signal in the noise and make it sing.

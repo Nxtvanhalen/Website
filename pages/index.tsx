@@ -27,7 +27,7 @@ export default function Landing() {
         <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology Consultant" />
+        <meta property="og:title" content="CLB Consulting | Venue Operations & AI Training" />
         <meta property="og:description" content="CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com" />
@@ -40,7 +40,7 @@ export default function Landing() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology Consultant" />
+        <meta name="twitter:title" content="CLB Consulting | Venue Operations & AI Training" />
         <meta name="twitter:description" content="CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />

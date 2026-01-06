@@ -12,7 +12,7 @@ export default function Privacy() {
         <meta name="robots" content="index, follow" />
 
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="Privacy Policy - CLB Consulting" />
+        <meta property="og:title" content="Privacy | CLB Consulting" />
         <meta property="og:description" content="Privacy Policy for CLB Consulting - How we collect, use, and protect your information" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/privacy" />
@@ -25,10 +25,19 @@ export default function Privacy() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="Privacy Policy - CLB Consulting" />
+        <meta name="twitter:title" content="Privacy | CLB Consulting" />
         <meta name="twitter:description" content="Privacy Policy for CLB Consulting - How we collect, use, and protect your information" />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+
+        {/* Favicon and App Icons */}
+        <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/Favicon/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
+        <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com/privacy" />

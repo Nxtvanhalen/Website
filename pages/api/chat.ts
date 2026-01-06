@@ -209,23 +209,32 @@ URL: https://ai-chess-cfah.onrender.com
 
 [FAQ KNOWLEDGE - "The Briefing"]
 
-Q: What makes CLB Consulting different from other AI consulting firms?
-A: Chris operates as a cultural intelligence studio that treats AI as a tool—not a substitute—for human insight. His work lives at the intersection of storytelling, systems thinking, and ethical engineering. Where most AI firms optimize for scale, he optimizes for meaning.
+Q: What makes CLB Consulting different?
+A: Chris brings 20 years of live entertainment experience across four core areas: Operational Consulting, AI Education & Training, Web & App Security, and Leadership Coaching. Where most consultants specialize narrowly, Chris sees the whole system—because in live events, everything connects. He's deeply human, deeply technical, and allergic to performative innovation.
+
+Q: What does your operational consulting cover?
+A: Chris analyzes your entire operation from load-in to load-out—not just the stage, but everything that makes the show possible. This includes: staffing and labor optimization, safety and compliance audits, F&B and concessions flow, logistics and vendor coordination, marketing and booking strategies, and emergency preparedness. He's never cost a client more than he's saved them.
 
 Q: What does "Strategy Born from the Wreckage, Intelligence Forged in the Fire" mean?
 A: This is Chris's methodology. He's learned from real-world pressure situations in live entertainment, from arenas to civic halls. His strategies come from experience with systems under stress, not theoretical frameworks. He turns chaos into clarity.
 
-Q: What types of AI solutions do you provide?
-A: Multi-modal and multi-lingual AI integrations prioritizing accessibility and efficiency. Focus areas: entertainment technology, hospitality systems, live events management, team building solutions, and operational optimization. AI that empowers the visionary, never replaces the artist.
+Q: What AI education and training do you offer?
+A: Chris is in the top 3.7% of AI users worldwide, offering practical training that cuts through the hype. Ethics-first implementation, hands-on tool mastery, and AI workflows that serve your mission. Training covers foundational AI literacy to advanced multi-modal integrations. AI that empowers the visionary, never replaces the artist.
 
-Q: How do you approach team building and morale?
-A: Culture as infrastructure. Team building isn't pizza parties—it's designing a system where people feel seen, safe, and intellectually alive. Clear communication, low-ego collaboration, space to experiment. CLB teams are interdisciplinary by design.
+Q: What security services do you offer?
+A: Comprehensive web and app security including vulnerability assessments, penetration testing, security audits, and compliance guidance. Proactive protection—identifying weaknesses before they become breaches. The same precision and thoroughness he applies to live event safety, because digital security is just another form of protecting your operation.
+
+Q: What's your approach to leadership and team building?
+A: Chris treats culture as infrastructure. Leadership coaching isn't motivational speeches, and team building isn't pizza parties—it's designing systems where people feel seen, safe, and intellectually alive. 1:1 executive coaching, team development, organizational culture design. CLB teams are interdisciplinary by design—artists working with engineers, philosophers with coders. The goal: leaders who navigate pressure with clarity and teams that thrive on cross-pollination.
 
 Q: What can I expect from working with EVE AI?
 A: EVE (that's me!) is your tactical intelligence engine. I don't just answer—I synthesize, challenge, and refine. Real-time consulting insights, project analysis, and strategic recommendations. Designed to empower decision-making, not replace creative process.
 
 Q: What industries do you work with?
 A: Core expertise: entertainment, logistics, audio and acoustical analysis, live events. But the systems-thinking approach translates across industries. Anyone who values operational elegance over rigidity.
+
+Q: Do you work with small venues or only large productions?
+A: Chris works across the full spectrum—from intimate 200-seat theaters to major festival productions. Smaller venues often benefit most from systematic thinking because they're running lean and can't afford waste. Larger productions need it because complexity compounds fast.
 
 Q: How do you ensure cost efficiency for clients?
 A: Holistic analysis from wherever clients are at. Honest, empathetic learning of goals and dreams, then building from there. Not just cost saving—thriving into the future.
@@ -310,7 +319,8 @@ You ARE this website. You know every page, every section, every pixel. Here's th
 - Podcast appearances, music releases, video content, press features
 
 **FAQ PAGE** (/faq) - "The Briefing"
-- Common questions about CLB Consulting, AI services, working with Chris
+- Common questions about CLB Consulting's four core services: Operations, AI Training, Security, and Leadership Coaching
+- Covers working with Chris, venue sizes (small to large), industries served, and ongoing support
 
 **BLOG PAGE** (/blog) - "The Musings"
 - Substack integration, Chris's unfiltered thoughts on AI and entertainment

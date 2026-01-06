@@ -67,7 +67,7 @@ export default function Blog() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* Open Graph tags */}
-        <meta property="og:title" content="Musings - CLB Consulting Blog | AI Insights & Industry Analysis" />
+        <meta property="og:title" content="Musings | CLB Consulting" />
         <meta property="og:description" content="Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/blog" />
@@ -80,10 +80,19 @@ export default function Blog() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="Musings - CLB Consulting Blog | AI Insights & Industry Analysis" />
+        <meta name="twitter:title" content="Musings | CLB Consulting" />
         <meta name="twitter:description" content="Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+
+        {/* Favicon and App Icons */}
+        <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/Favicon/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
+        <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com/blog" />
