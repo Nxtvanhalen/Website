@@ -261,7 +261,7 @@
 }
 
 .hamburger-btn:focus {
-  outline: 2px solid var(--deep-orange) !important;
+  outline: 2px solid #F5F5DC !important;
   outline-offset: 2px;
 }
 
@@ -387,7 +387,7 @@
 }
 
 .menu-link:focus {
-  outline: 2px solid var(--deep-orange) !important;
+  outline: 2px solid #F5F5DC !important;
   outline-offset: 2px;
 }
 
@@ -494,7 +494,7 @@
 }
 
 .menu-social-icon:focus {
-  outline: 2px solid var(--deep-orange) !important;
+  outline: 2px solid #F5F5DC !important;
   outline-offset: 2px;
 }
 
@@ -1075,21 +1075,21 @@ input:focus,
 textarea:focus,
 select:focus,
 [tabindex]:focus {
-  outline: 2px solid var(--deep-orange);
+  outline: 2px solid #F5F5DC;
   outline-offset: 2px;
   border-radius: 4px;
 }
 
 /* High contrast focus for dark backgrounds */
 .nav-link:focus {
-  outline: 2px solid var(--deep-orange);
+  outline: 2px solid #F5F5DC;
   outline-offset: 2px;
   background-color: rgba(255, 111, 0, 0.1);
 }
 
 /* Focus styles for social icons */
 .social-icon:focus {
-  outline: 2px solid var(--deep-orange);
+  outline: 2px solid #F5F5DC;
   outline-offset: 2px;
   transform: translateY(-2px);
 }
@@ -1142,7 +1142,7 @@ input:focus,
 textarea:focus,
 select:focus,
 [tabindex]:focus {
-  outline: 2px solid var(--deep-orange) !important;
+  outline: 2px solid #F5F5DC !important;
   outline-offset: 2px;
   border-radius: 4px;
 }

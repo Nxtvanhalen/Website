@@ -181,10 +181,11 @@ export default function OperationsConsulting() {
       {/* Parallax Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
         <div
-          className="operations-parallax-bg absolute inset-0 bg-center bg-cover md:bg-fixed"
+          className="operations-parallax-bg absolute inset-0 bg-top bg-cover md:bg-fixed"
           style={{
-            backgroundImage: "url('/images/operational.webp')",
-            minHeight: '120vh'
+            backgroundImage: "url('/images/operationsbg.webp')",
+            minHeight: '300vh',
+            top: '-80vh'
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
@@ -200,7 +201,7 @@ export default function OperationsConsulting() {
           >
             <div className="text-center mb-16">
               <motion.h1
-                className="text-3xl md:text-5xl font-heading mb-6 glow-subtle"
+                className="text-3xl md:text-5xl font-heading mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -226,13 +227,13 @@ export default function OperationsConsulting() {
           >
             <div className="mb-16">
               <motion.div
-                className="bg-gradient-to-br from-gray-900/70 to-black/70 rounded-lg border border-molten/30 p-8 md:p-12"
+                className="bg-black/80 rounded-lg border-2 border-mauve/50 p-8 md:p-12 shadow-[0_0_30px_rgba(147,112,219,0.4)] hover:shadow-[0_0_40px_rgba(147,112,219,0.6)] transition-shadow duration-300"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="text-2xl md:text-3xl font-heading mb-6 text-center glow-subtle">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-center">
                   You're Losing Money Somewhere — But You Don't Have Time to Find It
                 </h2>
                 <p className="text-base font-body leading-relaxed text-center max-w-3xl mx-auto mb-8" style={{ color: '#F5F5DC' }}>
@@ -245,7 +246,7 @@ export default function OperationsConsulting() {
                 {/* Stats */}
                 <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
                   <motion.div
-                    className="text-center p-6 bg-black/40 rounded-lg border border-molten/20"
+                    className="text-center p-6 bg-black/80 rounded-lg border-2 border-mauve/50 shadow-[0_0_30px_rgba(147,112,219,0.4)] hover:shadow-[0_0_40px_rgba(147,112,219,0.6)] transition-shadow duration-300"
                     whileHover={{ scale: 1.03, borderColor: 'rgba(147, 112, 219, 0.5)' }}
                     transition={{ duration: 0.3 }}
                   >
@@ -254,7 +255,7 @@ export default function OperationsConsulting() {
                     <div className="text-xs mt-1" style={{ color: '#F5F5DC', opacity: 0.7 }}>On productions without expert oversight</div>
                   </motion.div>
                   <motion.div
-                    className="text-center p-6 bg-black/40 rounded-lg border border-molten/20"
+                    className="text-center p-6 bg-black/80 rounded-lg border-2 border-mauve/50 shadow-[0_0_30px_rgba(147,112,219,0.4)] hover:shadow-[0_0_40px_rgba(147,112,219,0.6)] transition-shadow duration-300"
                     whileHover={{ scale: 1.03, borderColor: 'rgba(147, 112, 219, 0.5)' }}
                     transition={{ duration: 0.3 }}
                   >
@@ -273,14 +274,14 @@ export default function OperationsConsulting() {
             butlerMessage="Labor, safety, logistics, forecasting—these are the four horsemen of production chaos."
           >
             <div className="mb-16">
-              <h2 className="text-2xl md:text-3xl font-heading mb-8 text-center glow-subtle">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">
                 Where Productions Bleed Money
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {painPoints.map((point, index) => (
                   <motion.div
                     key={index}
-                    className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
+                    className="bg-black/80 rounded-lg border-2 border-mauve/50 p-6 shadow-[0_0_30px_rgba(147,112,219,0.4)] hover:shadow-[0_0_40px_rgba(147,112,219,0.6)] transition-all duration-300"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -302,13 +303,13 @@ export default function OperationsConsulting() {
           >
             <div className="mb-16">
               <motion.div
-                className="bg-gradient-to-br from-gray-900/70 to-black/70 rounded-lg border border-molten/30 p-8 md:p-12 text-center"
+                className="bg-black/80 rounded-lg border-2 border-mauve/50 p-8 md:p-12 text-center shadow-[0_0_30px_rgba(147,112,219,0.4)] hover:shadow-[0_0_40px_rgba(147,112,219,0.6)] transition-shadow duration-300"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="text-2xl md:text-3xl font-heading mb-6 glow-subtle">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6">
                   I Dive Deep Into Your Entire Operation
                 </h2>
                 <p className="text-base font-body leading-relaxed max-w-3xl mx-auto" style={{ color: '#F5F5DC' }}>
@@ -324,14 +325,14 @@ export default function OperationsConsulting() {
             butlerMessage="Audit, strategy, risk prevention, results. The full operational toolkit."
           >
             <div className="mb-16">
-              <h2 className="text-2xl md:text-3xl font-heading mb-8 text-center glow-subtle">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">
                 What I Deliver
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {solutions.map((solution, index) => (
                   <motion.div
                     key={index}
-                    className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
+                    className="bg-black/80 rounded-lg border-2 border-mauve/50 p-6 shadow-[0_0_30px_rgba(147,112,219,0.4)] hover:shadow-[0_0_40px_rgba(147,112,219,0.6)] transition-all duration-300"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -366,7 +367,7 @@ export default function OperationsConsulting() {
                     className="group block relative overflow-hidden py-4 px-8 bg-transparent text-white font-bold rounded-lg border border-molten hover:border-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 active:scale-95"
                   >
                     <div className="relative flex flex-col items-center justify-center text-center">
-                      <div className="text-lg font-bold">Ready to stop the bleeding?</div>
+                      <div className="text-lg font-bold">Ready to see the difference?</div>
                       <div className="text-sm opacity-80">chrisleebergstrom@gmail.com</div>
                     </div>
                   </a>

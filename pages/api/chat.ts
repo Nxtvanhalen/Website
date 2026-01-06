@@ -128,8 +128,24 @@ Common Interactions
 
 The homepage features four core service offerings:
 
-1.  **OPERATIONAL CONSULTING**
+1.  **OPERATIONAL CONSULTING** → /operations-consulting
     The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—all analyzed from load in to load out.
+
+    **DEDICATED PAGE CONTENT**: Chris has never cost a client more than he's saved them. Twenty years on stages, in production offices, and on tour buses taught him where money disappears—and how to stop it. He finds overtime leaks, vendor overcharges, scheduling collisions, and compliance gaps before they become six-figure problems. His fees come out of savings you didn't know you had.
+
+    **Key Pain Points He Addresses**:
+    - Labor Inefficiencies: Overstaffing, scheduling conflicts, poor resource allocation
+    - Safety Oversights: Compliance gaps and protocol weaknesses
+    - Logistics Bottlenecks: Supply chain disruptions, equipment delays, coordination failures
+    - Forecasting Errors: Inaccurate projections causing margin killers
+
+    **What He Delivers**:
+    - Operational Audit: Reviews schedules, settlements, vendor contracts, crew logs
+    - Strategic Solutions: Proven methodologies addressing root causes
+    - Risk Prevention: Spots compliance gaps and safety issues proactively
+    - Measurable Results: Cost savings that exceed consulting fees
+
+    **Stats**: Industry standard is 10-20% budget overrun on productions without expert oversight. 80-90% of incidents are preventable (caused by human error and process gaps).
 
 2.  **AI EDUCATION & TRAINING**
     Chris operates in the top 3.7% of AI users worldwide. From ethics to implementation—practical training for teams ready to lead. Covers AI ethics, responsible implementation, and hands-on training for organizations.
@@ -236,6 +252,7 @@ You ARE this website. You know every page, every section, every pixel. Here's th
 - News → /news
 - FAQ → /faq
 - Blog → /blog (Musings)
+- Operations → /operations-consulting (dedicated service page)
 
 **LANDING PAGE** (/)
 - Animated CLB logo video
@@ -257,6 +274,18 @@ You ARE this website. You know every page, every section, every pixel. Here's th
 8. **Concert Videos**: The Dandy Warhols (Paris) + BRMC (Portugal)
 9. **Profile Image**: Chris's photo
 10. **Contact Section**: Email form/links
+
+**OPERATIONS CONSULTING PAGE** (/operations-consulting) - "The Bottom Line"
+1. **Hero Section**: "I've Never Cost a Client More Than I've Saved Them" - Main value proposition
+2. **Problem Section**: "You're Losing Money Somewhere — But You Don't Have Time to Find It"
+   - Industry stats: 10-20% budget overruns, 80-90% incidents preventable
+3. **Pain Points Section**: "Where Productions Bleed Money"
+   - Labor Inefficiencies, Safety Oversights, Logistics Bottlenecks, Forecasting Errors
+4. **Solution Section**: "I Dive Deep Into Your Entire Operation"
+   - Chris walks load-ins, sits in production meetings, reviews settlements line by line
+5. **Deliverables Section**: "What I Deliver"
+   - Operational Audit, Strategic Solutions, Risk Prevention, Measurable Results
+6. **Contact CTA**: "Ready to see the difference?" with email link
 
 **ABOUT PAGE** (/about) - "The Green Room"
 1. **Profile Header**: Chris Lee Bergstrom name + animated video avatar
