@@ -73,7 +73,15 @@ export default function OperationsConsulting() {
         <meta name="keywords" content="operations consulting, venue operations, entertainment consulting, labor efficiency, safety compliance, logistics optimization, production management, venue management, live events consulting, Chris Lee Bergstrom, CLB Consulting" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
-        <link rel="apple-touch-icon" href="/icon-192.png" />
+
+        {/* Favicon and App Icons */}
+        <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/Favicon/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
+        <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Open Graph tags for social sharing */}
         <meta property="og:title" content="Operations Consulting | Venue & Entertainment Operations - CLB Consulting" />
@@ -87,6 +95,8 @@ export default function OperationsConsulting() {
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@chrisleebergstrom" />
+        <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="Operations Consulting | Venue & Entertainment Operations - CLB Consulting" />
         <meta name="twitter:description" content="Expert operations consulting for venues and live entertainment. Find hidden losses, fix labor inefficiencies, prevent safety issues, and optimize your bottom line." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/operational.webp" />
