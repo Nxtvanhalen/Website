@@ -271,7 +271,7 @@ export default function Marquee() {
                     >
                       Operational Consulting
                     </div>
-                    <p className="text-sm leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
+                    <p className="text-[13px] leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
                       The whole venue, not just the stage.<br />
                       <strong className="not-italic">Booking</strong>, <strong className="not-italic">marketing</strong>, <strong className="not-italic">F&B</strong>, <strong className="not-italic">security</strong>, and <strong className="not-italic">safety</strong>.<br />
                       Analyzed from load in to load out.
@@ -423,7 +423,7 @@ export default function Marquee() {
 
             {/* Primary CTA Box */}
             <motion.div
-              className={`${boxStyle} relative overflow-hidden flex-col !gap-4 !justify-center basis-full max-w-[280px]`}
+              className={`${boxStyle} relative overflow-hidden flex-col !gap-4 !justify-center basis-full max-w-[280px] !border-4 !shadow-[0_0_50px_rgba(147,112,219,0.8)] hover:!shadow-[0_0_70px_rgba(147,112,219,0.95)]`}
               role="region"
               aria-label="Primary call to action"
               whileHover={{ scale: 1.02 }}
@@ -441,8 +441,10 @@ export default function Marquee() {
                   e.preventDefault();
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="block py-2 px-6 bg-molten/20 border border-molten text-molten text-sm font-medium rounded hover:bg-molten/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
+                className="block py-2 px-6 bg-black border border-molten text-molten text-sm font-medium rounded hover:bg-black/80 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
                 aria-label="Scroll to contact section"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >

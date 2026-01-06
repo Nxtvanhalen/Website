@@ -247,7 +247,7 @@ export default function OperationsConsulting() {
                   You're Losing Money Somewhere — But You Don't Have Time to Find It
                 </h2>
                 <p className="text-base font-body leading-relaxed text-center max-w-3xl mx-auto mb-8" style={{ color: '#F5F5DC' }}>
-                  Hidden losses lurk in labor inefficiencies, safety oversights, logistics bottlenecks, and forecasting errors. Industry standards recommend 10-20% contingency buffers—but without proper systems, that buffer becomes a floor, not a ceiling.
+                  Hidden losses lurk in labor inefficiencies, safety oversights, logistics bottlenecks, and forecasting errors. Industry standards recommend 10-20% contingency buffers—but without proper systems, that buffer becomes wishful thinking.
                 </p>
                 <p className="text-base font-body leading-relaxed text-center max-w-3xl mx-auto mb-10" style={{ color: '#F5F5DC', opacity: 0.85 }}>
                   These gaps quietly drain your bottom line, often unnoticed until it's too late—eating away at margins, threatening production timelines, and exposing your operation to costly compliance risks.

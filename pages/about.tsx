@@ -139,11 +139,12 @@ export default function About() {
       {/* Parallax Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
         <div
-          className="about-parallax-bg absolute inset-0 bg-top bg-cover md:bg-fixed"
+          className="about-parallax-bg absolute inset-0 bg-top bg-cover md:bg-fixed animate-fade-in"
           style={{
             backgroundImage: "url('/images/Hopper.jpg')",
             minHeight: '150vh',
-            top: '-60vh'
+            top: '-60vh',
+            animation: 'fade-in 1s ease-out forwards'
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40" />
