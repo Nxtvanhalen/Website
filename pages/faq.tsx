@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import Header from '../components/Header';
+import { motion } from 'motion/react';
 import SectionTracker from '../components/SectionTracker';
 
 interface FAQItem {
@@ -236,13 +237,24 @@ export default function FAQ() {
           {/* Header Section */}
           <SectionTracker name="FAQ - Header">
             <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-heading mb-6 glow-subtle">
+              <motion.h1
+                className="text-4xl md:text-5xl font-heading mb-6 glow-subtle"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
                 Frequently Asked Questions
-              </h1>
-              <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: '#F5F5DC', opacity: 0.9 }}>
+              </motion.h1>
+              <motion.p
+                className="text-xl max-w-3xl mx-auto leading-relaxed"
+                style={{ color: '#F5F5DC', opacity: 0.9 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
                 <span className="font-bold" style={{ color: '#F5F5DC' }}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</span> —
                 Get answers about AI consulting, team building, and entertainment tech.
-              </p>
+              </motion.p>
               <div className="mt-8 h-0.5 bg-molten mx-auto w-32 animate-pulse-width"></div>
             </div>
           </SectionTracker>
@@ -254,9 +266,13 @@ export default function FAQ() {
           >
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div
+                <motion.div
                   key={index}
                   className="bg-black/40 border border-molten/30 rounded-lg overflow-hidden backdrop-blur-sm hover:border-molten/50 transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
                 >
                   <button
                     onClick={() => toggleFAQ(index)}
@@ -289,7 +305,7 @@ export default function FAQ() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </SectionTracker>

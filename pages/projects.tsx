@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import Image from 'next/image';
 import Header from '../components/Header';
+import { motion } from 'motion/react';
 import SectionTracker from '../components/SectionTracker';
 
 export default function Projects() {
@@ -181,8 +182,23 @@ export default function Projects() {
       <main className="min-h-screen bg-transparent text-white pt-24 md:pt-52 relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-heading mb-4 glow-subtle">Current Projects</h1>
-            <p className="text-xl font-bold" style={{ color: '#F5F5DC' }}>CLB Consulting</p>
+            <motion.h1
+              className="text-4xl md:text-5xl font-heading mb-4 glow-subtle"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              Current Projects
+            </motion.h1>
+            <motion.p
+              className="text-xl font-bold"
+              style={{ color: '#F5F5DC' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              CLB Consulting
+            </motion.p>
           </div>
 
           <div className="grid gap-8 md:gap-12">
@@ -191,7 +207,14 @@ export default function Projects() {
               name="Projects - Master Tour"
               butlerMessage="Master Tour is the industry standard. Chris is helping shape its venue-side evolution."
             >
-              <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-[#FF0000]/50 p-8 hover:border-[#FF0000] transition-all duration-300 shadow-[0_0_15px_rgba(255,0,0,0.1)] hover:shadow-[0_0_25px_rgba(255,0,0,0.2)]">
+              <motion.div
+                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-[#FF0000]/50 p-8 hover:border-[#FF0000] transition-all duration-300 shadow-[0_0_15px_rgba(255,0,0,0.1)] hover:shadow-[0_0_25px_rgba(255,0,0,0.2)]"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+              >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#FF0000', textShadow: '0 0 10px rgba(255,0,0,0.5)' }}>Master Tour</h2>
@@ -220,7 +243,7 @@ export default function Projects() {
                     </video>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </SectionTracker>
 
             {/* Project 2 */}
@@ -228,7 +251,14 @@ export default function Projects() {
               name="Projects - Remote SPL"
               butlerMessage="Sound levels matter. We're using AI to monitor them remotely. Keeps the neighbors happy."
             >
-              <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
+              <motion.div
+                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+              >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-1" style={{ color: '#F5F5DC' }}>AI Powered Remote SPL</h2>
@@ -249,15 +279,22 @@ export default function Projects() {
                     </video>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </SectionTracker>
 
-            {/* Project 2 */}
+            {/* Project 3 */}
             <SectionTracker
               name="Projects - EVA"
               butlerMessage="EVA is the logistics brain. She handles the details so humans can handle the show."
             >
-              <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
+              <motion.div
+                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+              >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>EVA — Events Virtual Assistant</h2>
@@ -277,15 +314,22 @@ export default function Projects() {
                     </video>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </SectionTracker>
 
-            {/* Project 3 */}
+            {/* Project 4 */}
             <SectionTracker
               name="Projects - Ryder"
               butlerMessage="Ryder is special. A safe space for creatives to check in. Want to try a session?"
             >
-              <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-[#00ff00]/50 p-8 hover:border-[#00ff00] transition-all duration-300 shadow-[0_0_15px_rgba(0,255,0,0.1)] hover:shadow-[0_0_25px_rgba(0,255,0,0.2)]">
+              <motion.div
+                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-[#00ff00]/50 p-8 hover:border-[#00ff00] transition-all duration-300 shadow-[0_0_15px_rgba(0,255,0,0.1)] hover:shadow-[0_0_25px_rgba(0,255,0,0.2)]"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+              >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#00ff00', textShadow: '0 0 10px rgba(0,255,0,0.5)' }}>R.Y.D.E.R. — Mental Health AI for Creatives</h2>
@@ -313,15 +357,22 @@ export default function Projects() {
                     />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </SectionTracker>
 
-            {/* Project 4 */}
+            {/* Project 5 */}
             <SectionTracker
               name="Projects - EVE"
               butlerMessage="That's me. I'm the front-of-house. The others run the back-of-house."
             >
-              <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
+              <motion.div
+                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+              >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>EVE — Conversational AI for CLB</h2>
@@ -346,15 +397,22 @@ export default function Projects() {
                     />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </SectionTracker>
 
-            {/* Project 5 */}
+            {/* Project 6 */}
             <SectionTracker
               name="Projects - Byte"
               butlerMessage="Byte is a research beast. It listens, reads, and synthesizes. Like a super-librarian."
             >
-              <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
+              <motion.div
+                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+              >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>Byte — Voice-to-Voice Semantic Research Agent</h2>
@@ -373,15 +431,22 @@ export default function Projects() {
                     />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </SectionTracker>
 
-            {/* Project 6 */}
+            {/* Project 7 */}
             <SectionTracker
               name="Projects - Glytch"
               butlerMessage="Glytch is... unique. A retro-futurist interface for creative sparks. Sometimes it has an attitude."
             >
-              <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
+              <motion.div
+                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+              >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>Glytch — Retro-Futurist API Assistant</h2>
@@ -400,52 +465,73 @@ export default function Projects() {
                     />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </SectionTracker>
 
-            {/* Project 7 */}
+            {/* Project 8 */}
             <SectionTracker
               name="Projects - Multi-Agent Lab"
               butlerMessage="This is where we experiment. Agents talking to agents. It gets wild."
             >
-              <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
+              <motion.div
+                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+              >
                 <div className="mb-4">
                   <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>Multi-Agent Intelligence Lab</h2>
                 </div>
                 <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
                   The CLB skunkworks. Prototyping federated agents and real-time consulting flows. Future interface, real execution.
                 </p>
-              </div>
+              </motion.div>
             </SectionTracker>
 
-            {/* Project 8 */}
+            {/* Project 9 */}
             <SectionTracker
               name="Projects - JAMES"
               butlerMessage="JAMES is the memory. The backbone. He remembers everything so we don't have to."
             >
-              <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
+              <motion.div
+                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+              >
                 <div className="mb-4">
                   <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>JAMES — Core Memory & Strategic AI Backbone</h2>
                 </div>
                 <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
                   The cognitive backbone. Long-term memory and multi-agent orchestration. Ensuring CLB isn't just smart—it's alive.
                 </p>
-              </div>
+              </motion.div>
             </SectionTracker>
 
-            {/* Project 9 */}
+            {/* Project 10 */}
             <SectionTracker
               name="Projects - Sandbox"
               butlerMessage="Testing ground for hospitality AI. Real data, real insights."
             >
-              <div className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300">
+              <motion.div
+                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+              >
                 <div className="mb-4">
                   <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>AI Consulting Sandbox</h2>
                 </div>
                 <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
                   Firebase-powered hospitality strategy. Analyzing sales data to predict demand and turn noise into insight.
                 </p>
-              </div>
+              </motion.div>
             </SectionTracker>
           </div>
 

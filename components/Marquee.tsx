@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { AnimatePresence, motion } from 'motion/react';
 import { useChat } from '../context/ChatContext';
 import SectionTracker from './SectionTracker';
@@ -207,61 +208,78 @@ export default function Marquee() {
           className="w-full mb-6"
           butlerMessage="Operations, AI training, web security, or leadership coaching—Chris has you covered. Reach out or ask me more."
         >
-          <h1 className={titleStyle}>
+          <motion.h1
+            className={titleStyle}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             Chris Lee Bergstrom
-          </h1>
-          <p className="text-sm md:text-base font-heading font-light text-white tracking-wide text-center max-w-2xl mx-auto mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5">
+          </motion.h1>
+          <motion.p
+            className="text-sm md:text-base font-heading font-light text-white tracking-wide text-center max-w-2xl mx-auto mb-6 transition-transform duration-200 ease-out hover:-translate-y-0.5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
             20 years in live entertainment. Now I help venues and arts organizations operate smarter, safer, and more efficiently.
-          </p>
+          </motion.p>
 
           {/* CTA Boxes Layout */}
-          <div className="flex justify-center items-stretch gap-4 flex-wrap">
-            {/* Operational Consulting Box */}
-            <motion.div
-              className={boxStyle}
-              whileHover={{ scale: 1.02 }}
-            >
-              <div
-                role="region"
-                aria-label="Operational Consulting"
-                className="w-full h-full flex flex-row justify-between items-center gap-4 lg:gap-2"
+          <motion.div
+            className="flex justify-center items-stretch gap-4 flex-wrap"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            {/* Operational Consulting Box - Links to dedicated page */}
+            <Link href="/operations-consulting" className="block">
+              <motion.div
+                className={boxStyle}
+                whileHover={{ scale: 1.02 }}
               >
-                <motion.div
-                  className="w-1/2 h-full rounded overflow-hidden relative cursor-pointer flex-shrink-0"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                <div
+                  role="region"
+                  aria-label="Operational Consulting - Click to learn more"
+                  className="w-full h-full flex flex-row justify-between items-center gap-4 lg:gap-2"
                 >
-                  <video
-                    src="/videos/operations-loop.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-contain scale-[1.65] opacity-50"
-                    aria-label="Operational Consulting - Logistics, production systems, and workflow optimization"
-                    style={{
-                      mask: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-                      maskComposite: 'intersect',
-                      WebkitMask: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-                      WebkitMaskComposite: 'source-in'
-                    }}
-                  />
-                </motion.div>
-                <div className="w-1/2 flex flex-col justify-center items-center">
-                  <div
-                    className="nav-link text-center block w-full py-0"
-                    style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px', fontWeight: 700 }}
+                  <motion.div
+                    className="w-1/2 h-full rounded overflow-hidden relative cursor-pointer flex-shrink-0"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
                   >
-                    Operational Consulting
+                    <video
+                      src="/videos/operations-loop.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-contain scale-[1.65] opacity-50"
+                      aria-label="Operational Consulting - Logistics, production systems, and workflow optimization"
+                      style={{
+                        mask: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                        maskComposite: 'intersect',
+                        WebkitMask: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                        WebkitMaskComposite: 'source-in'
+                      }}
+                    />
+                  </motion.div>
+                  <div className="w-1/2 flex flex-col justify-center items-center">
+                    <div
+                      className="nav-link text-center block w-full py-0 glow-subtle"
+                      style={{ color: '#F5F5DC', textDecoration: 'none', fontSize: '14px', fontWeight: 700 }}
+                    >
+                      Operational Consulting
+                    </div>
+                    <p className="text-sm leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
+                      The whole venue, not just the stage.<br />
+                      <strong className="not-italic">Booking</strong>, <strong className="not-italic">marketing</strong>, <strong className="not-italic">F&B</strong>, <strong className="not-italic">security</strong>, and <strong className="not-italic">safety</strong>.<br />
+                      Analyzed from load in to load out.
+                    </p>
                   </div>
-                  <p className="text-sm leading-tight text-center mt-1 opacity-80 italic" style={{ color: '#F5F5DC' }}>
-                    The whole venue, not just the stage.<br />
-                    <strong className="not-italic">Booking</strong>, <strong className="not-italic">marketing</strong>, <strong className="not-italic">F&B</strong>, <strong className="not-italic">security</strong>, and <strong className="not-italic">safety</strong>.<br />
-                    Analyzed from load in to load out.
-                  </p>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
 
             {/* AI Education and Training Box */}
             <motion.div
@@ -454,11 +472,17 @@ export default function Marquee() {
                 ))}
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         </SectionTracker>
-        <p className="text-xl font-body italic text-center mb-8 max-w-2xl opacity-90" style={{ color: '#F5F5DC' }}>
+        <motion.p
+          className="text-xl font-body italic text-center mb-8 max-w-2xl opacity-90"
+          style={{ color: '#F5F5DC' }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.9 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
           "The advancement of the arts is directly related to the advancement of a society"
-        </p>
+        </motion.p>
 
         {/* BRMC2 Circular Image */}
         <div className="flex justify-center mb-8">

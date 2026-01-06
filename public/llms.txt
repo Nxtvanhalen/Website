@@ -8,7 +8,7 @@ CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom. With
 ## Core Services
 
 ### 1. Operational Consulting
-The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—analyzed from load in to load out.
+The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—analyzed from load in to load out. Twenty years on stages, in production offices, and on tour buses identifying overtime leaks, vendor overcharges, scheduling collisions, and compliance gaps. Services include operational audits, strategic solutions, risk prevention, and measurable cost savings.
 
 ### 2. AI Education & Training
 Chris operates in the top 3.7% of AI users worldwide. From ethics to implementation—practical training for teams ready to lead.
@@ -40,6 +40,7 @@ CLB Consulting treats AI as a tool—not a substitute—for human insight. The w
 
 ## Website Navigation
 - [Home](/home) - Services overview and gallery
+- [Operations Consulting](/operations-consulting) - Venue and entertainment operations consulting
 - [About](/about) - Chris's origin story and expertise
 - [Projects](/projects) - AI projects and tools
 - [News](/news) - Press and media appearances

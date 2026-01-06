@@ -143,7 +143,14 @@ export default function About() {
           >
             <div className="relative mb-16">
               <div className="text-center">
-                <h1 className="text-4xl md:text-5xl font-heading mb-4 glow-subtle">Chris Lee Bergstrom</h1>
+                <motion.h1
+                  className="text-4xl md:text-5xl font-heading mb-4 glow-subtle"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  Chris Lee Bergstrom
+                </motion.h1>
               </div>
 
               {/* Profile Picture */}
@@ -168,7 +175,12 @@ export default function About() {
             name="About - Bio"
             butlerMessage="This is the origin story. Sound engineer to systems architect. Signal in the noise."
           >
-            <div className="mt-8">
+            <motion.div
+              className="mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <div className="text-base font-body opacity-90 leading-relaxed space-y-6" style={{ color: '#F5F5DC' }}>
                 <p className="font-semibold text-xl italic text-center">
                   "I build systems where art and technology work together"
@@ -239,7 +251,7 @@ export default function About() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </SectionTracker>
 
           {/* Skills Section */}
@@ -257,8 +269,11 @@ export default function About() {
                 {/* Creative Leadership & Strategy */}
                 <motion.div
                   className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4, delay: 0 }}
                 >
                   <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>Creative Leadership & Strategy</h3>
                   <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
@@ -271,8 +286,11 @@ export default function About() {
                 {/* AI & Technical Systems */}
                 <motion.div
                   className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
                 >
                   <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>AI & Technical Systems</h3>
                   <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
@@ -285,8 +303,11 @@ export default function About() {
                 {/* Audio Engineering & Infrastructure */}
                 <motion.div
                   className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
                 >
                   <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>Audio Engineering & Infrastructure</h3>
                   <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
@@ -299,8 +320,11 @@ export default function About() {
                 {/* Social Impact & Operations */}
                 <motion.div
                   className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
                 >
                   <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>Social Impact & Operations</h3>
                   <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>

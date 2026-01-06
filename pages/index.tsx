@@ -128,6 +128,7 @@ export default function Landing() {
                           "@id": "https://chrisleebergstrom.com/#operational-consulting",
                           "name": "Operational Consulting",
                           "description": "The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—analyzed from load in to load out.",
+                          "url": "https://chrisleebergstrom.com/operations-consulting",
                           "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
                           "serviceType": "Venue Operations Consulting"
                         }
@@ -266,7 +267,12 @@ export default function Landing() {
         </div>
 
         {/* Animated CLB Logo */}
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
           <video
             autoPlay
             loop
@@ -282,19 +288,30 @@ export default function Landing() {
           >
             <source src="/videos/animated-logo-trimmed.mp4" type="video/mp4" />
           </video>
-        </div>
+        </motion.div>
 
         {/* Enter Button - Blurred with Pulse and Blue Edges */}
-        <Link
-          href="/home"
-          className="px-12 py-4 bg-white/10 backdrop-blur-md text-white text-xl font-medium rounded-xl hover:bg-white/20 transition-all duration-500 focus:outline-none animate-pulse-slow landing-enter-button mb-8"
-          aria-label="Enter CLB Consulting website"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
         >
-          Enter
-        </Link>
+          <Link
+            href="/home"
+            className="px-12 py-4 bg-white/10 backdrop-blur-md text-white text-xl font-medium rounded-xl hover:bg-white/20 transition-all duration-500 focus:outline-none animate-pulse-slow landing-enter-button mb-8"
+            aria-label="Enter CLB Consulting website"
+          >
+            Enter
+          </Link>
+        </motion.div>
 
         {/* Contact Link */}
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.5 }}
+        >
           <a
             href="mailto:chrisleebergstrom@gmail.com?subject=AI Project Inquiry - Landing Page Contact"
             className="block px-8 py-3 bg-transparent border border-molten text-molten text-lg font-medium rounded hover:bg-molten/10 hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-molten focus:ring-offset-2 focus:ring-offset-black"
@@ -303,7 +320,7 @@ export default function Landing() {
             Contact
           </a>
           <div className="text-sm mt-2" style={{ color: '#F5F5DC', opacity: 0.7 }}>chrisleebergstrom@gmail.com</div>
-        </div>
+        </motion.div>
       </main>
     </div>
   );

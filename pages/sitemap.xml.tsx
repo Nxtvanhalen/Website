@@ -17,8 +17,13 @@ function generateSiteMap() {
       priority: '0.9'
     },
     {
+      url: '/operations-consulting',
+      changefreq: 'monthly',
+      priority: '0.9'
+    },
+    {
       url: '/about',
-      changefreq: 'monthly', 
+      changefreq: 'monthly',
       priority: '0.8'
     },
     {

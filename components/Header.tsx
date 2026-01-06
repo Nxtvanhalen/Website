@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'motion/react';
 
 // Navigation links configuration
 const NAV_LINKS = [
+  { href: '/operations-consulting', label: 'Operations', description: 'Venue consulting' },
   { href: '/about', label: 'About Chris', description: 'Background and expertise' },
   { href: '/projects', label: 'Projects', description: 'Portfolio and gallery' },
   { href: '/news', label: 'News/Press', description: 'Latest coverage' },
@@ -60,6 +61,7 @@ const SocialIcon = ({ type }: { type: string }) => {
 export default function Header() {
   const router = useRouter();
   const isHomePage = router.pathname === '/home';
+  const isAboutPage = router.pathname === '/about';
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -152,7 +154,7 @@ export default function Header() {
           {/* Profile Picture - Center (Desktop Only) */}
           <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
             <div className="w-16 h-16 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
-              {isHomePage ? (
+              {!isAboutPage ? (
                 <video
                   autoPlay
                   loop

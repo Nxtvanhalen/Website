@@ -268,6 +268,7 @@ export default function Home() {
                           "@id": "https://chrisleebergstrom.com/#operational-consulting",
                           "name": "Operational Consulting",
                           "description": "The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—analyzed from load in to load out.",
+                          "url": "https://chrisleebergstrom.com/operations-consulting",
                           "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
                           "serviceType": "Venue Operations Consulting"
                         }

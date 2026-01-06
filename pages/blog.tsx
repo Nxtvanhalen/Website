@@ -156,12 +156,23 @@ export default function Blog() {
             butlerMessage="Welcome to the Musings. Here, Chris drops the corporate filter and speaks his mind."
           >
             <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-heading mb-2 glow-subtle">
+              <motion.h1
+                className="text-4xl md:text-5xl font-heading mb-2 glow-subtle"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
                 Musings
-              </h1>
-              <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-4" style={{ color: '#F5F5DC', opacity: 0.9 }}>
+              </motion.h1>
+              <motion.p
+                className="text-xl max-w-3xl mx-auto leading-relaxed mb-4"
+                style={{ color: '#F5F5DC', opacity: 0.9 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
                 A more raw and unfiltered forum
-              </p>
+              </motion.p>
               <div className="flex items-center justify-center gap-4">
                 <motion.a
                   href="https://chrisleebergstrom.substack.com"

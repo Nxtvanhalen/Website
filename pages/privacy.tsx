@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { motion } from 'motion/react';
 
 export default function Privacy() {
   return (
@@ -35,9 +36,14 @@ export default function Privacy() {
 
       <main className="min-h-screen bg-black text-white pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-6 md:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center">
+          <motion.h1
+            className="text-4xl md:text-5xl font-bold mb-8 text-center glow-subtle"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             Privacy Policy
-          </h1>
+          </motion.h1>
           
           <div className="prose prose-invert prose-lg max-w-none space-y-8">
             <section>
