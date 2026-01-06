@@ -18,6 +18,9 @@ export default function About() {
       }
     };
 
+    // Run once on mount to set initial position
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -33,7 +36,15 @@ export default function About() {
         <meta name="keywords" content="Chris Lee Bergstrom, audio engineer, AI strategist, live sound, entertainment technology, CLB Consulting, Grammy nominated, tour management, systems architecture" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
-        <link rel="apple-touch-icon" href="/icon-192.png" />
+
+        {/* Favicon and App Icons */}
+        <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/Favicon/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
+        <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Open Graph tags for social sharing */}
         <meta property="og:title" content="About Chris Lee Bergstrom | Sound Engineer to AI Strategist - CLB Consulting" />
@@ -47,6 +58,8 @@ export default function About() {
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@chrisleebergstrom" />
+        <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="About Chris Lee Bergstrom | Sound Engineer to AI Strategist - CLB Consulting" />
         <meta name="twitter:description" content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting." />
         <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
@@ -126,16 +139,17 @@ export default function About() {
       {/* Parallax Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
         <div
-          className="about-parallax-bg absolute inset-0 bg-center bg-cover md:bg-fixed"
+          className="about-parallax-bg absolute inset-0 bg-top bg-cover md:bg-fixed"
           style={{
             backgroundImage: "url('/images/Hopper.jpg')",
-            minHeight: '120vh'
+            minHeight: '150vh',
+            top: '-60vh'
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40" />
       </div>
 
-      <main className="min-h-screen bg-transparent text-white pt-24 md:pt-52 px-6 relative z-10">
+      <main className="min-h-screen bg-transparent text-white pt-20 md:pt-36 px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <SectionTracker
             name="About - Profile"
@@ -144,7 +158,7 @@ export default function About() {
             <div className="relative mb-16">
               <div className="text-center">
                 <motion.h1
-                  className="text-4xl md:text-5xl font-heading mb-4 glow-subtle"
+                  className="text-4xl md:text-5xl font-heading mb-4"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
@@ -189,67 +203,45 @@ export default function About() {
                   I started in the deep end of live sound, chasing perfect harmony, phase, and the science of acoustics. Decades later, I've led crews, built production infrastructures, and rescued venues from chaos. Whether it's an international tour, a citywide cultural system, or a failing arts organization, I find the signal in the noise and make it sing.
                 </p>
 
-                {/* XL4 Image Section */}
-                <div className="w-full max-w-sm mx-auto my-6">
-                  <motion.div
-                    className="border-none rounded-none bg-transparent cursor-pointer"
-                    style={{
-                      mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-                      maskComposite: 'intersect',
-                      WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-                      WebkitMaskComposite: 'source-in'
-                    }}
-                    whileHover={{ scale: 1.25 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  >
-                    <Image
-                      src="/images/XL4.webp"
-                      alt="Colorado State Fair - Mixing for Tracy Lawrence"
-                      width={256}
-                      height={144}
-                      className="w-full h-auto border-none rounded-none bg-transparent"
-                      quality={85}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
-                      sizes="(max-width: 768px) 100vw, 256px"
-                    />
-                  </motion.div>
-                  <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.85 }}>
-                    Colorado State Fair mixing for Tracy Lawrence
+                {/* Photo Grid Section */}
+                <div className="w-full max-w-xl mx-auto my-6">
+                  <div className="grid grid-cols-4 gap-2">
+                    {[
+                      { src: '/images/XL4.webp', alt: 'Midas XL4 console at the Colorado State Fair' },
+                      { src: '/images/oz.webp', alt: 'The Dandy Warhols live in Australia' },
+                      { src: '/images/southern.webp', alt: 'Recording console at a Nashville studio' },
+                      { src: '/images/summer.webp', alt: 'Black Rebel Motorcycle Club at Summerfest' },
+                      { src: '/images/midas.webp', alt: 'The Dandy Warhols with the Oregon Symphony' },
+                      { src: '/images/pete.webp', alt: 'The Dandy Warhols in Liverpool' },
+                      { src: '/images/tdw.webp', alt: 'The Dandy Warhols 25th Anniversary Tour' },
+                      { src: '/images/crystal.webp', alt: 'The Dandy Warhols at the Crystal Ballroom' }
+                    ].map((img, index) => (
+                      <motion.div
+                        key={index}
+                        className="border-none rounded-lg overflow-hidden bg-transparent cursor-pointer"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: index * 0.1, ease: "easeOut" }}
+                        whileHover={{ scale: 1.08 }}
+                      >
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          width={128}
+                          height={128}
+                          className="w-full h-auto object-cover aspect-video"
+                          quality={85}
+                          loading="lazy"
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                  <p className="text-center text-sm italic mt-3" style={{ color: '#F5F5DC', opacity: 0.85 }}>
+                    Two decades on stages around the world
                   </p>
                 </div>
 
-                {/* PNW Image Section */}
-                <div className="w-full max-w-sm mx-auto my-6">
-                  <motion.div
-                    className="border-none rounded-none bg-transparent cursor-pointer"
-                    style={{
-                      mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-                      maskComposite: 'intersect',
-                      WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-                      WebkitMaskComposite: 'source-in'
-                    }}
-                    whileHover={{ scale: 1.25 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  >
-                    <Image
-                      src="/images/PNW.webp"
-                      alt="A person walks into shallow ocean waves on a wide, reflective beach under a clear blue sky. Small shorebirds gather along the wet sand in the foreground, while colorful kites from kite surfers float above the choppy water in the distance, creating a calm coastal scene."
-                      width={256}
-                      height={144}
-                      className="w-full h-auto border-none rounded-none bg-transparent"
-                      quality={85}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
-                      sizes="(max-width: 768px) 100vw, 256px"
-                    />
-                  </motion.div>
-                  <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.85 }}>
-                    Pacific Northwest pic by Chris Lee Bergstrom
-                  </p>
-                </div>
               </div>
             </motion.div>
           </SectionTracker>
