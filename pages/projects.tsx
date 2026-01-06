@@ -140,19 +140,19 @@ export default function Projects() {
                     "price": "0",
                     "priceCurrency": "USD"
                   },
-                  "description": "Conversational AI for CLB Consulting"
+                  "description": "Conversational AI for CLB Consulting - knows every page, service, and project"
                 },
                 {
                   "@type": "SoftwareApplication",
-                  "name": "Byte",
+                  "name": "Glytch",
                   "applicationCategory": "Bot",
-                  "operatingSystem": "Web Browser",
+                  "operatingSystem": "Local/Offline",
                   "offers": {
                     "@type": "Offer",
                     "price": "0",
                     "priceCurrency": "USD"
                   },
-                  "description": "Voice-to-Voice Semantic Research Agent"
+                  "description": "Local AI experiment - offline, unhinged, testing the limits"
                 }
               ]
             })
@@ -213,7 +213,7 @@ export default function Projects() {
             {/* Project 1 */}
             <SectionTracker
               name="Projects - Master Tour"
-              butlerMessage="Master Tour is the industry standard. Chris is helping shape its venue-side evolution."
+              butlerMessage="Master Tour Venue is revolutionizing how touring teams and venues share production data. No more spreadsheet chaos."
             >
               <motion.div
                 className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-[#FF0000]/50 p-8 hover:border-[#FF0000] transition-all duration-300 shadow-[0_0_15px_rgba(255,0,0,0.1)] hover:shadow-[0_0_25px_rgba(255,0,0,0.2)]"
@@ -225,9 +225,15 @@ export default function Projects() {
               >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#FF0000', textShadow: '0 0 10px rgba(255,0,0,0.5)' }}>Master Tour</h2>
-                    <p className="text-base leading-relaxed opacity-90 mb-3" style={{ color: '#F5F5DC' }}>
-                      The next evolution of tech pack data for venues and artists. Beta testing and consulting on the rollout.
+                    <h2 className="text-2xl font-heading mb-2" style={{ color: '#FF0000', textShadow: '0 0 10px rgba(255,0,0,0.5)' }}>Master Tour Venue</h2>
+                    <p className="text-sm font-semibold mb-3" style={{ color: '#FF0000', opacity: 0.9 }}>
+                      Industry-leading event production data standards revolutionizing venue collaboration.
+                    </p>
+                    <p className="text-sm leading-relaxed opacity-80 mb-2" style={{ color: '#F5F5DC' }}>
+                      <strong>The Problem:</strong> Outdated workflows, endless emails, spreadsheet chaos causing costly event mistakes.
+                    </p>
+                    <p className="text-sm leading-relaxed opacity-90 mb-3" style={{ color: '#F5F5DC' }}>
+                      <strong>The Solution:</strong> Shared source-of-truth production data connecting touring teams with venues seamlessly.
                     </p>
                     <a
                       href="https://www.eventric.com/master-tour-venue/"
@@ -257,7 +263,7 @@ export default function Projects() {
             {/* Project 2 */}
             <SectionTracker
               name="Projects - Remote SPL"
-              butlerMessage="Sound levels matter. We're using AI to monitor them remotely. Keeps the neighbors happy."
+              butlerMessage="SPL exposure affects staff and patrons alike. Effective monitoring, logging, and analysis keeps everyone safe and compliant."
             >
               <motion.div
                 className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
@@ -271,8 +277,11 @@ export default function Projects() {
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-1" style={{ color: '#F5F5DC' }}>AI Powered Remote SPL</h2>
                     <div className="text-sm font-normal mb-3" style={{ color: '#F5F5DC', opacity: 0.6 }}>(Sound Pressure Level)</div>
-                    <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      Cloud-based SPL monitoring for events and construction. Real-time tracking, compliance analytics, and predictive insights.
+                    <p className="text-sm leading-relaxed opacity-80 mb-2" style={{ color: '#F5F5DC' }}>
+                      Controlling SPL exposure for both patrons and staff isn't optional—it's essential for safety and compliance.
+                    </p>
+                    <p className="text-sm leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
+                      Cloud-based monitoring with effective logging, real-time analysis, and predictive insights. Protect your people, meet regulations, keep the neighbors happy.
                     </p>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
@@ -293,7 +302,7 @@ export default function Projects() {
             {/* Project 3 */}
             <SectionTracker
               name="Projects - EVA"
-              butlerMessage="EVA is the logistics brain. She handles the details so humans can handle the show."
+              butlerMessage="EVA doesn't replace your crew—she reduces their cognitive load. Humans run the show, AI handles the overhead."
             >
               <motion.div
                 className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
@@ -306,8 +315,11 @@ export default function Projects() {
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>EVA — Events Virtual Assistant</h2>
-                    <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      The orchestration core. Managing logistics, routing, and crews for the entertainment industry. Customizable, scalable, show-ready.
+                    <p className="text-sm leading-relaxed opacity-80 mb-2" style={{ color: '#F5F5DC' }}>
+                      EVA doesn't replace crew—she reduces cognitive stress. Let humans focus on the show while AI handles the logistics overhead.
+                    </p>
+                    <p className="text-sm leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
+                      The orchestration core for routing, scheduling, and crew management. Customizable, scalable, show-ready.
                     </p>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
@@ -371,7 +383,7 @@ export default function Projects() {
             {/* Project 5 */}
             <SectionTracker
               name="Projects - EVE"
-              butlerMessage="That's me. I'm the front-of-house. The others run the back-of-house."
+              butlerMessage="That's me! I know this entire website inside and out. Ask me anything—I'm here to help."
             >
               <motion.div
                 className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
@@ -384,8 +396,11 @@ export default function Projects() {
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
                     <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>EVE — Conversational AI for CLB</h2>
-                    <p className="text-base leading-relaxed opacity-90 mb-3" style={{ color: '#F5F5DC' }}>
-                      Velvet rope meets sharp strategy 🍸. Guides visitors, sparks insights, and converts interest. Part concierge, part co-pilot 🚁.
+                    <p className="text-sm leading-relaxed opacity-80 mb-2" style={{ color: '#F5F5DC' }}>
+                      EVE runs this website. She knows every page, every service, every project—and she's ready to help you navigate it all.
+                    </p>
+                    <p className="text-sm leading-relaxed opacity-90 mb-3" style={{ color: '#F5F5DC' }}>
+                      Your front-of-house concierge with full backstage access. Ask her anything about operations consulting, AI training, security, leadership coaching—or maybe even some tales from the road.
                     </p>
                     <a
                       href="/#eve-chat"
@@ -396,7 +411,7 @@ export default function Projects() {
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
                     <video
-                      src="/videos/eve-project-thumb.mp4"
+                      src="/videos/eve-avatar.mp4"
                       autoPlay
                       loop
                       muted
@@ -410,8 +425,8 @@ export default function Projects() {
 
             {/* Project 6 */}
             <SectionTracker
-              name="Projects - Byte"
-              butlerMessage="Byte is a research beast. It listens, reads, and synthesizes. Like a super-librarian."
+              name="Projects - Glytch"
+              butlerMessage="Glytch is the wild one. Local, offline, no guardrails. We're testing the limits."
             >
               <motion.div
                 className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
@@ -423,19 +438,19 @@ export default function Projects() {
               >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>Byte — Voice-to-Voice Semantic Research Agent</h2>
-                    <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      Voice-native AI for deep research. File parsing, archival search, and contextual synthesis. Speaks with clarity, thinks with nuance.
+                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>Glytch — Local AI Experiment</h2>
+                    <p className="text-sm leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
+                      Glytch is the experiment. Local AI, fully offline, unhinged and sarcastic—an ongoing test to see what can be achieved when you take the guardrails off.
                     </p>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <Image
-                      src="/images/projects/Byte.png"
-                      alt="Byte - Voice-to-Voice Semantic Research Agent"
-                      width={96}
-                      height={96}
-                      className="w-full h-full object-cover object-top"
-                      quality={75}
+                    <video
+                      src="/videos/robot-animation-compressed.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
                     />
                   </div>
                 </div>
@@ -443,40 +458,6 @@ export default function Projects() {
             </SectionTracker>
 
             {/* Project 7 */}
-            <SectionTracker
-              name="Projects - Glytch"
-              butlerMessage="Glytch is... unique. A retro-futurist interface for creative sparks. Sometimes it has an attitude."
-            >
-              <motion.div
-                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="flex items-start gap-6 mb-4">
-                  <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>Glytch — Retro-Futurist API Assistant</h2>
-                    <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      Retro-futurist API assistant in a vintage iMac. Channeling TARS for creative ideation and irreverent insights.
-                    </p>
-                  </div>
-                  <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <Image
-                      src="/images/projects/Glytch.png"
-                      alt="Glytch - Retro-Futurist API Assistant"
-                      width={96}
-                      height={96}
-                      className="w-full h-full object-cover object-top"
-                      quality={75}
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            </SectionTracker>
-
-            {/* Project 8 */}
             <SectionTracker
               name="Projects - Multi-Agent Lab"
               butlerMessage="This is where we experiment. Agents talking to agents. It gets wild."
