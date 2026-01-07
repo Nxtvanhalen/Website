@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect } from 'react';
 import Header from '../components/Header';
 import { motion } from 'motion/react';
@@ -218,6 +219,36 @@ export default function OperationsConsulting() {
               >
                 I've Never Cost a Client More Than I've Saved Them
               </motion.h1>
+              <div className="w-full max-w-xl mx-auto my-6">
+                <div className="grid grid-cols-4 gap-2">
+                  {[
+                    { src: '/images/TDWOSO.webp', alt: 'The Dandy Warhols in Portland with the Oregon Symphony' },
+                    { src: '/images/NY.webp', alt: 'Large concert in upstate New York' },
+                    { src: '/images/Faster.webp', alt: 'Large concert in Michigan' },
+                    { src: '/images/Rain.webp', alt: 'Tour bus with a rainbow reflection and storm in the background' }
+                  ].map((img, index) => (
+                    <motion.div
+                      key={index}
+                      className="border-none rounded-lg overflow-hidden bg-transparent cursor-pointer"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: index * 0.1, ease: "easeOut" }}
+                      whileHover={{ scale: 1.08 }}
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        width={128}
+                        height={128}
+                        className={`w-full h-auto object-cover aspect-video opacity-70 ${img.src.includes('Rain') ? 'object-bottom' : ''}`}
+                        quality={85}
+                        loading="lazy"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
               <motion.p
                 className="text-base md:text-lg font-body leading-relaxed max-w-3xl mx-auto"
                 style={{ color: '#F5F5DC' }}
@@ -287,6 +318,26 @@ export default function OperationsConsulting() {
               <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">
                 Where Productions Bleed Money
               </h2>
+              <div className="w-full max-w-sm mx-auto my-6">
+                <motion.div
+                  className="border-none rounded-lg overflow-hidden bg-transparent"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Image
+                    src="/images/Faster2.webp"
+                    alt="Large concert in Michigan from FOH"
+                    width={800}
+                    height={597}
+                    className="w-full h-auto object-cover opacity-70"
+                    quality={85}
+                    loading="lazy"
+                  />
+                </motion.div>
+              </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {painPoints.map((point, index) => (
                   <motion.div
@@ -338,6 +389,26 @@ export default function OperationsConsulting() {
               <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">
                 What I Deliver
               </h2>
+              <div className="w-full max-w-sm mx-auto my-6">
+                <motion.div
+                  className="border-none rounded-lg overflow-hidden bg-transparent"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Image
+                    src="/images/TDWVL.webp"
+                    alt="Large concert in Valencia, Spain"
+                    width={800}
+                    height={516}
+                    className="w-full h-auto object-cover opacity-70"
+                    quality={85}
+                    loading="lazy"
+                  />
+                </motion.div>
+              </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {solutions.map((solution, index) => (
                   <motion.div

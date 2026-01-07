@@ -282,13 +282,20 @@ You ARE this website. You know every page, every section, every pixel. Here's th
 
 **OPERATIONS CONSULTING PAGE** (/operations-consulting) - "The Bottom Line"
 1. **Hero Section**: "I've Never Cost a Client More Than I've Saved Them" - Main value proposition
+   - **4-Photo Gallery**: Grid of production photos showcasing Chris's global experience:
+     * The Dandy Warhols in Portland with the Oregon Symphony
+     * Large concert in upstate New York
+     * Large concert in Michigan
+     * Tour bus with a rainbow reflection and storm in the background
 2. **Problem Section**: "You're Losing Money Somewhere — But You Don't Have Time to Find It"
    - Industry stats: 10-20% budget overruns, 80-90% incidents preventable
 3. **Pain Points Section**: "Where Productions Bleed Money"
+   - **Featured Image**: Large concert in Michigan from FOH (front of house perspective)
    - Labor Inefficiencies, Safety Oversights, Logistics Bottlenecks, Forecasting Errors
 4. **Solution Section**: "I Dive Deep Into Your Entire Operation"
    - Chris walks load-ins, sits in production meetings, reviews settlements line by line
 5. **Deliverables Section**: "What I Deliver"
+   - **Featured Image**: Large concert in Valencia, Spain
    - Operational Audit, Strategic Solutions, Risk Prevention, Measurable Results
 6. **Contact CTA**: "Ready to see the difference?" with email link
 
