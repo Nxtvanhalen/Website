@@ -316,7 +316,7 @@ export default function OperationsConsulting() {
           >
             <div className="mb-16">
               <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">
-                Where Productions Bleed Money
+                Where Productions Lose Money
               </h2>
               <div className="w-full max-w-sm mx-auto my-6">
                 <motion.div
@@ -328,10 +328,10 @@ export default function OperationsConsulting() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <Image
-                    src="/images/Faster2.webp"
-                    alt="Large concert in Michigan from FOH"
+                    src="/images/crystal.webp"
+                    alt="Concert at the Crystal Ballroom in Portland, OR"
                     width={800}
-                    height={597}
+                    height={600}
                     className="w-full h-auto object-cover opacity-70"
                     quality={85}
                     loading="lazy"
