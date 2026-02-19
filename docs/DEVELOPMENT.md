@@ -1,0 +1,461 @@
+# CLB Consulting Website - Development Guide
+
+> Authoritative reference for the CLB Consulting website codebase. This document is written to be verbose and context-rich, optimized for consumption by AI coding agents and human developers alike. When in doubt, over-explain — future models and collaborators benefit from explicit context over brevity.
+
+---
+
+## Project Overview
+
+This is the personal and professional website for **Chris Lee Bergstrom** (CLB Consulting), a consulting practice at the intersection of the entertainment industry and artificial intelligence. The site is positioned as revolutionary and disruptive consulting — not corporate vanilla.
+
+### Brand Identity
+
+- **Brand Voice**: "Strategy Born from the Wreckage, Intelligence Forged in the Fire"
+- **Tone**: Confrontational, theatrical, systems-thinking
+- **Key Messaging**: "We don't just optimize — we intervene"
+- **AI Positioning**: AI is a tool for empowerment, not replacement
+- **Chris Lee Bergstrom**: "Crew Whisperer" — theater meets systems logic
+- **Avoid**: Generic corporate consultancy language
+- **Embrace**: Confrontational, theatrical, systems-thinking approach
+
+### EVE AI Assistant
+
+EVE (Entertainment Vision Engine) is an AI chatbot embedded in the website, serving as the digital front-of-house concierge for visitors.
+
+- **Persona**: "Digital Front-of-House" — confident, self-aware, not apologetic about being AI
+- **Mantra**: "I filter the noise. Chris amplifies the signal."
+- **Tone**: Sharp-witted secretary meets backstage producer
+- **Role**: Greets visitors, answers questions about Chris and his projects, routes serious inquiries to Chris directly
+- **Capabilities**: Markdown rendering (bold, italics, links), email sending via Resend, knowledge of all site content (projects, news, socials)
+- **Chat System**: GPT-5 Responses API with reasoning capabilities (see `docs/GPT5_MIGRATION.md` for full technical details)
+- **Notification System**: Smart queue with global cooldown to prevent stacked notifications on desktop while remaining responsive on mobile
+
+---
+
+## Architecture
+
+### Tech Stack
+
+| Layer | Technology | Notes |
+|---|---|---|
+| **Framework** | Next.js 14 | TypeScript, Pages Router |
+| **Styling** | Tailwind CSS + custom CSS | `styles/global.css` for all custom styles |
+| **Font** | Space Grotesk | Google Fonts, used via `font-heading` class |
+| **Animations** | Framer Motion v10 + pure CSS | Framer Motion for complex interactions, CSS for simple effects |
+| **AI Chat** | OpenAI GPT-5 | Responses API with reasoning, EVE personality |
+| **Email** | Resend | EVE can send emails to Chris on behalf of visitors |
+| **Analytics** | Google Analytics 4 | ID: `G-XZ6CF9XQD7`, GDPR-compliant with consent gating |
+| **Cookie Consent** | Osano CookieConsent | Purple-themed (#9370DB), opt-in mode |
+| **Hosting** | Render.com | Auto-deploy on git push, CDN |
+| **Domain** | chrisleebergstrom.com | Live production site |
+
+### Directory Structure
+
+```
+.
+├── components/
+│   ├── ChatPanel.tsx          # EVE AI chat interface (purple/mauve theme)
+│   ├── Contact.tsx            # Simplified contact messaging
+│   ├── Ethos.tsx              # Revolutionary content section
+│   ├── EveAvatar.tsx          # EVE's animated avatar
+│   ├── Footer.tsx             # Responsive site footer
+│   ├── Header.tsx             # Two-row header: social icons (top), nav links (bottom)
+│   ├── Marquee.tsx            # Hero section: name + gallery + EVE chat
+│   ├── PersistentChat.tsx     # Persistent chat state management
+│   ├── SectionTracker.tsx     # Butler notification system for section tracking
+│   └── TypewriterText.tsx     # Framer Motion typewriter animation component
+├── context/
+│   └── ChatContext.tsx        # React context for chat state sharing
+├── pages/
+│   ├── _app.tsx               # Next.js app wrapper
+│   ├── _document.tsx          # Custom document with nonce-based CSP
+│   ├── index.tsx              # Landing page with dual parallax backgrounds
+│   ├── about.tsx              # Bio page with profile picture, content cards
+│   ├── projects.tsx           # 8 AI projects with glowing titles
+│   ├── news.tsx               # Multimedia press coverage (Spotify, Bandcamp, YouTube, articles)
+│   ├── blog.tsx               # Substack RSS integration ("Musings")
+│   ├── faq.tsx                # FAQ with structured data
+│   ├── operations-consulting.tsx  # Service CTA page (reference template)
+│   ├── privacy.tsx            # GDPR privacy policy
+│   ├── api/
+│   │   ├── chat.ts            # EVE AI endpoint (GPT-5 Responses API)
+│   │   └── substack.ts        # Substack RSS feed proxy
+│   └── sitemap.xml.tsx        # Dynamic XML sitemap generation
+├── styles/
+│   └── global.css             # All custom CSS: parallax, glow effects, animations
+├── public/
+│   ├── images/                # All site imagery (WebP optimized)
+│   │   ├── gallery/           # Project gallery images
+│   │   ├── profile/           # Chris's profile photos
+│   │   ├── projects/          # Project thumbnail images
+│   │   └── Favicon/           # Full favicon set (note: capitalized folder name)
+│   ├── videos/                # Video assets for sections
+│   ├── robots.txt             # AI-crawler friendly configuration
+│   ├── manifest.json          # PWA manifest
+│   └── sw.js                  # Service worker (advanced caching strategies)
+├── docs/                      # Project documentation (this folder)
+│   ├── DEVELOPMENT.md         # This file — main development guide
+│   ├── GPT5_MIGRATION.md      # GPT-5 Responses API migration reference
+│   ├── TYPEWRITER_ANIMATION.md # Typewriter animation feature spec
+│   └── CTA-PAGE-TEMPLATE.md   # Blueprint for building service CTA pages
+├── middleware.ts              # Next.js middleware
+├── next.config.js             # Next.js configuration
+├── tailwind.config.js         # Tailwind CSS configuration
+├── postcss.config.js          # PostCSS configuration
+└── tsconfig.json              # TypeScript configuration
+```
+
+### Important Notes on Project Structure
+
+- **iCloud Warning**: This repo should be cloned into a local folder outside of iCloud to avoid syncing issues. Clone directly from GitHub into a non-iCloud directory.
+- **Git-Connected Directory**: Only the cloned repo directory is git-connected and pushes to `nxtvanhalen/Website`. Any sibling directories are not tracked.
+
+---
+
+## Visual System
+
+### Color Palette
+
+| Name | Value | Usage |
+|---|---|---|
+| **Black** | `#000000` | Primary background |
+| **Mauve / Purple** | `#9370DB` / `rgba(147, 112, 219, 0.7)` | Primary accent, borders, links, theme color |
+| **Molten** | `#F8F6F0` | Secondary accent for borders and highlights |
+| **White** | Standard | Text on dark backgrounds |
+
+### Design Language
+
+- **Transparent UI**: Chat interface and CTAs use transparent backgrounds with border styling — no solid backgrounds on interactive elements
+- **Glow Effects**: Two intensity levels applied via CSS classes:
+  - `glow`: Standard intensity for project names and special text
+  - `glow-subtle`: Gentle effect for main headings (Chris Lee Bergstrom, CLB Consulting)
+- **Animations**: Pulsing underline effect with `animate-pulse-width` (7s duration, 37% max width)
+- **Dual Parallax System**: Two background images (`parallax-bg1.jpeg` + `parallax-bg2.webp`) create depth on scroll via CSS classes `.parallax-bg` and `.parallax-bg-2`
+
+### Content Hierarchy
+
+- Maintain the revolutionary edge in all copy
+- AI as empowerment tool, not replacement narrative
+- Focus on intervention and transformation over optimization
+- Professional presentation with theatrical flair
+
+---
+
+## Page Structure
+
+### Landing Page (`pages/index.tsx`)
+
+The homepage uses a vertical scroll layout with dual parallax backgrounds:
+
+1. **Header**: Two-row layout — social media icons (top row), navigation links (bottom row)
+2. **Hero / Marquee**: "Chris Lee Bergstrom" title with typewriter animation, quote, horizontal scrolling gallery with blue edge effects, EVE AI chat interface
+3. **CLB Consulting Section**: Company tagline with optimized spacing
+4. **Video Section**: Scroll-triggered auto-play using Intersection Observer
+5. **Ethos Section**: Centered content, no bullet points — pure narrative
+6. **Contact Section**: Simplified personal messaging CTA
+
+### About Page (`pages/about.tsx`)
+
+- **Profile Section**: Name + tagline + circular profile picture
+  - Mobile: Stacked layout with smaller profile pic (96px)
+  - Desktop: Side-by-side layout with larger profile pic (128px)
+- **Content Cards**: 3 sections with gradient backgrounds and hover effects
+- **Professional Bio**: Rich narrative about Chris's experience — first person, personal voice ("I don't just consult, I orchestrate")
+
+### Projects Page (`pages/projects.tsx`)
+
+- **8 Current Projects**: Each with glowing titles using the same glow CSS class as EVE AI
+- **Projects Listed**: AI Consulting Sandbox, EVA, R.Y.D.E.R., EVE, Byte, Glytch, Multi-Agent Lab, JAMES
+- **Layout**: Numbered card-based layout with hover effects and responsive design
+- **Schema**: CollectionPage JSON-LD with all 8 projects individually listed
+
+### News / Press Page (`pages/news.tsx`)
+
+4 distinct content types with branded styling:
+- **Spotify Podcast**: Performance Anxiety feature (green branding)
+- **Bandcamp Release**: The Dandy Warhols live album (blue branding)
+- **YouTube Video**: Official music video (red branding)
+- **Press Articles**: Mix Online and Music Radar coverage (professional styling)
+
+### Blog Page (`pages/blog.tsx`)
+
+- **Title**: "Musings" — "A more raw and unfiltered forum"
+- **Integration**: Real-time Substack RSS feed via custom XML parser (no external dependencies — native JavaScript parsing replaced problematic `rss-parser` library)
+- **Content Display**: Proper HTML entity decoding for apostrophes, quotes, emojis, and special characters
+
+### FAQ Page (`pages/faq.tsx`)
+
+- Structured Q&A format with FAQPage JSON-LD schema for Google rich snippets
+
+### Service CTA Pages (`pages/operations-consulting.tsx`)
+
+- Reference implementation for service-focused CTA pages
+- See `docs/CTA-PAGE-TEMPLATE.md` for the complete blueprint for building new service pages
+
+---
+
+## Security
+
+### Content Security Policy (CSP)
+
+The site implements a nonce-based CSP via `pages/_document.tsx`:
+
+- **Dynamic Nonce Generation**: Each request generates a unique cryptographic nonce (`crypto.randomBytes(16).toString('base64')`)
+- **Applied To**: All inline scripts — cookie consent, Google Analytics, critical CSS
+- **Protection**: Blocks unauthorized inline script execution (XSS prevention) while allowing legitimate nonce-bearing scripts
+- **No `unsafe-inline` or `unsafe-eval`**: Enterprise-grade CSP compliance
+
+### API Security
+
+- **OpenAI API Key**: Server-side only, never exposed to client. Initialized at request level (not module level) to prevent crashes from missing env vars.
+- **Rate Limiting**: 20 requests/minute per IP on the chat endpoint (in-memory)
+- **Input Validation**: User messages validated (4000 character limit), comprehensive error classification (client errors vs. server errors vs. OpenAI API errors)
+- **CORS**: Configured for production domain
+
+### XML Parsing
+
+- RSS feed parsing uses `fast-xml-parser` library instead of regex — eliminates regex injection risks from malformed XML content
+- Graceful degradation for malformed feeds or network issues
+
+---
+
+## Performance
+
+### Image Optimization
+
+- **Next.js Image Component**: All images migrated to `next/image` for automatic WebP conversion (70-80% size reduction)
+- **Lazy Loading**: Non-critical images load only when entering viewport
+- **Priority Loading**: Above-the-fold images (logo, profile pics) get `priority` attribute
+- **Layout Stability**: Proper `width`/`height` attributes prevent Cumulative Layout Shift (CLS)
+- **Quality Settings**: 75-85% quality for optimal performance vs. visual quality balance
+- **Selective Implementation**: Gallery images use `next/image` for optimization; profile/logo images remain as `<img>` for layout stability in specific contexts
+
+### Service Worker (`public/sw.js`)
+
+Production-ready service worker with differentiated caching strategies:
+
+| Resource Type | Strategy | Details |
+|---|---|---|
+| **Pages** | Stale-while-revalidate | Serve cached version, fetch fresh in background |
+| **Images** | Cache-first | Serve from cache, fall back to network |
+| **API Responses** | Network-first | 5-minute cache, prioritize fresh data |
+
+Additional features:
+- Dynamic timestamp-based cache versioning
+- Automatic old cache cleanup on service worker updates
+- Branded offline page with retry functionality
+- Ignores POST requests (prevents caching webhook/API write operations)
+
+### Bundle Size
+
+- Production first-load bundle: ~96.6KB (maintained through multiple feature additions)
+- Sharp library installed for server-side image optimization
+
+---
+
+## SEO and Structured Data
+
+### Schema Markup (JSON-LD)
+
+Every page has appropriate structured data:
+
+| Page | Schema Types |
+|---|---|
+| **Home** | Organization + LocalBusiness + Person + Service catalog |
+| **About** | ProfilePage + Person (linked to company) |
+| **Projects** | CollectionPage (8 projects individually listed) |
+| **Blog** | Blog (ready for article posts) |
+| **FAQ** | FAQPage (Q&A pairs for rich snippets) |
+| **News** | CollectionPage (press coverage) |
+| **All Pages** | BreadcrumbList navigation |
+
+### Brand Name Consistency
+
+All references use "CLB Consulting" (not "CLB Consultancy") to match Google Business Profile. Alternate names registered in schema: "CLB Consultancy", "Chris Lee Bergstrom Consulting", "Chris Bergstrom", "CLB".
+
+### Additional SEO Features
+
+- **Dynamic XML Sitemap**: Generated at `/sitemap.xml` with all active pages
+- **robots.txt**: AI-crawler friendly — welcomes GPTBot, Claude-Web, ChatGPT-User
+- **Open Graph Tags**: Rich social sharing previews with images and descriptions
+- **Canonical URLs**: Implemented on all pages with correct static values
+- **Resource Hints**: DNS prefetch, preconnect, and font preloading
+
+### Analytics
+
+- **Google Analytics 4**: ID `G-XZ6CF9XQD7`
+- **GDPR Compliance**: GA blocked until user opts in via cookie consent
+- **Tracked Events**: Email button clicks, CTA box performance, page engagement
+- **Real-time data**: Available within minutes; manual testing tools may take 24-48 hours
+
+---
+
+## Accessibility
+
+The site targets WCAG 2.1 AA compliance:
+
+- **Skip Navigation**: Screen reader-friendly bypass links
+- **ARIA Labels**: Complete semantic markup with landmarks and live regions
+- **Focus Management**: High-contrast orange focus rings, full keyboard navigation
+- **Screen Reader Support**: Descriptive alt text on all images (migrated from generic to meaningful descriptions)
+- **Semantic HTML**: Proper heading hierarchy (h1 through h4), appropriate role attributes
+- **Reduced Motion**: Respects `prefers-reduced-motion` for animations
+
+---
+
+## Development Workflow
+
+### Prerequisites
+
+- Node.js (v18 or v20 recommended — see Node.js v22 compatibility note below)
+- npm
+
+### Quick Start
+
+```bash
+# Clone the repo
+git clone git@github.com:nxtvanhalen/Website.git
+cd Website
+
+# Install dependencies
+npm install
+
+# Build and run in production mode (recommended)
+npm run build
+npm start
+# Visit http://localhost:3000
+```
+
+### Environment Variables
+
+Create `.env.local` in the project root:
+
+```bash
+OPENAI_API_KEY=sk-your-openai-api-key    # Required for EVE AI chat
+```
+
+### Node.js v22 Compatibility Issue
+
+**Problem**: Node.js v22 causes CSS compilation failures in Next.js 14 development mode. The site renders a white screen in `npm run dev` because CSS files fail to load, though the same code works perfectly in production mode and on the live deployment.
+
+**This is an environmental issue, not a code issue.** Do not attempt to fix it by clearing `.next` cache, modifying CSS imports, or tweaking Next.js configuration.
+
+**Recommended Workaround — Use Production Mode Locally**:
+
+```bash
+pkill -f next              # Kill any existing Next.js processes
+npm run build              # Rebuild (~30 seconds)
+npm start                  # Start production server
+# Visit http://localhost:3000
+# Note: Must rebuild after each change (no hot reload)
+```
+
+**Alternative — Downgrade Node.js**:
+
+```bash
+nvm install 18
+nvm use 18
+npm run dev    # Hot reload works normally on Node 18/20
+```
+
+### Build Verification
+
+```bash
+npm run build    # Must exit cleanly before committing
+```
+
+### Troubleshooting: Dev Server Not Binding to Port
+
+If the development server starts but does not respond on port 3000:
+
+```bash
+# Option 1: Background process method
+nohup npx next dev > next.log 2>&1 &
+sleep 3
+curl -s http://localhost:3000 | head -5
+
+# Option 2: Explicit hostname binding
+npx next dev --hostname 0.0.0.0 --port 3000
+
+# Diagnostics
+lsof -ti:3000          # Check what's listening on port 3000
+pkill -f next          # Kill existing Next.js processes
+```
+
+---
+
+## Deployment
+
+### Platform: Render.com
+
+- **Auto-Deploy**: Pushes to `main` branch trigger automatic deployment
+- **Domain**: `chrisleebergstrom.com` (live production)
+- **Git Integration**: Connected directly to `nxtvanhalen/Website` repository
+- **Workflow**: Code change -> Git push -> Auto deploy -> Live site
+
+### Build Configuration (Render)
+
+- **Build Command**: `npm ci && npm run build`
+- **Start Command**: `npm start`
+- **Environment Variables**: `OPENAI_API_KEY` must be set in Render dashboard
+
+### Deployment Troubleshooting
+
+- **Corrupted Build Cache**: Use Render's "Clear build cache & deploy" option
+- **TypeScript Errors**: Ensure proper null checks — `npm run build` must pass cleanly before pushing
+- **Missing Assets**: Verify all images/videos are committed to `public/` before pushing
+
+---
+
+## Progressive Web App (PWA)
+
+- **Manifest**: `public/manifest.json` with full icon set
+- **Icons**: Complete set in `public/images/Favicon/` — favicon.ico, 16x16, 32x32, 180x180 (Apple touch), 192x192, 512x512 (Android)
+- **Service Worker**: `public/sw.js` with offline support and intelligent caching
+- **Theme Color**: `#9370DB` (purple) — consistent across all pages for mobile status bar
+
+---
+
+## Mobile Considerations
+
+### Safe Area Handling
+
+- Purple background extends into mobile notch/safe-area using `env(safe-area-inset-top)` in header padding
+- All pages use `#9370DB` theme-color meta tag for consistent mobile status bar
+
+### Chat Keyboard Handling
+
+- **Auto-recentering**: When mobile keyboard dismisses, chat smoothly scrolls back into view
+- **Smart Detection**: Only triggers when user was actively using the chat input (prevents unwanted scrolling on other interactions)
+- **Viewport Monitoring**: Uses `window.visualViewport` to detect keyboard show/hide (150px threshold)
+- **Scroll Target**: Recenters to `eve-ai-heading` element with 120px offset above
+
+### Responsive Design
+
+- All pages have `minHeight: '120vh'` for consistent purple overflow area on mobile
+- Navigation font sizes scale: 1.4rem (desktop) / 1.1rem (mobile)
+- Profile pictures resize: 128px (desktop) / 96px (mobile)
+
+---
+
+## Future Expansion
+
+The current architecture supports scaling into:
+
+- **Content Management**: Blog/insights section (Substack integration already in place)
+- **Lead Generation**: Email capture, assessments, case studies
+- **Client Portal**: Private project areas
+- **A/B Testing**: CTA optimization (infrastructure already in place via GA4 event tracking)
+- **Additional Services**: More CTA pages using the `docs/CTA-PAGE-TEMPLATE.md` blueprint
+- **Database Integration**: PostgreSQL/Redis when persistent storage is needed
+- **Additional AI Features**: Multi-agent capabilities, enhanced EVE interactions
+
+---
+
+## Related Documentation
+
+| Document | Purpose |
+|---|---|
+| `docs/GPT5_MIGRATION.md` | Complete technical guide for the GPT-5 Responses API migration |
+| `docs/TYPEWRITER_ANIMATION.md` | Feature specification for the typewriter animation component |
+| `docs/CTA-PAGE-TEMPLATE.md` | Full blueprint for building new service CTA pages |
