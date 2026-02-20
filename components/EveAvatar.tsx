@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface EveAvatarProps {
   width?: number;
@@ -32,8 +32,9 @@ export default function EveAvatar({ width = 80, height = 45, className = '' }: E
         borderRadius: '12px',
         mask: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
         maskComposite: 'intersect',
-        WebkitMask: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
-        WebkitMaskComposite: 'source-in'
+        WebkitMask:
+          'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+        WebkitMaskComposite: 'source-in',
       }}
     >
       <source src="/videos/eve-avatar.mp4" type="video/mp4" />

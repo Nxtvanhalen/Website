@@ -1,7 +1,11 @@
 // Social links configuration
 const SOCIAL_LINKS = [
   { href: 'https://www.instagram.com/chrisleebergstrom', label: 'Instagram', icon: 'instagram' },
-  { href: 'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr', label: 'Facebook', icon: 'facebook' },
+  {
+    href: 'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr',
+    label: 'Facebook',
+    icon: 'facebook',
+  },
   { href: 'https://www.linkedin.com/in/chris-bergstrom', label: 'LinkedIn', icon: 'linkedin' },
   { href: 'https://www.youtube.com/@chrisleebergstrom', label: 'YouTube', icon: 'youtube' },
   { href: 'https://github.com/Nxtvanhalen', label: 'GitHub', icon: 'github' },
@@ -39,11 +43,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-logo">
-          <img
-            src="/images/Purple Logo.png"
-            alt="CLB Consulting Logo"
-            className="h-8 w-auto"
-          />
+          <img src="/images/Purple Logo.png" alt="CLB Consulting Logo" className="h-8 w-auto" />
         </div>
         <div className="flex justify-center gap-4 mt-4">
           {SOCIAL_LINKS.map((social) => (
@@ -60,7 +60,12 @@ export default function Footer() {
           ))}
         </div>
         <div className="footer-bottom">
-          <p className="!text-white">&copy; {new Date().getFullYear()} CLB Brand. All rights reserved. | <a href="/privacy" className="!text-white hover:text-[#9370DB] transition-colors">Privacy Policy</a></p>
+          <p className="!text-white">
+            &copy; {new Date().getFullYear()} CLB Brand. All rights reserved. |{' '}
+            <a href="/privacy" className="!text-white hover:text-[#9370DB] transition-colors">
+              Privacy Policy
+            </a>
+          </p>
         </div>
       </div>
     </footer>

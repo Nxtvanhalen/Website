@@ -4,6 +4,8 @@
 
 Live: [chrisleebergstrom.com](https://chrisleebergstrom.com)
 
+[![CI](https://github.com/Nxtvanhalen/Website/actions/workflows/ci.yml/badge.svg)](https://github.com/Nxtvanhalen/Website/actions/workflows/ci.yml)
+
 ---
 
 ## Production Metrics
@@ -59,6 +61,8 @@ EVE is not a chatbot bolted onto a website. She's a demonstration of what happen
 | **Accessibility** | WCAG 2.1 AA — skip nav, ARIA landmarks, keyboard navigation, screen reader support |
 | **Performance** | Service worker with tiered caching, next/image optimization, ~97KB first load |
 | **PWA** | Full manifest, offline support, installable |
+| **Linting** | Biome (lint + format) |
+| **CI/CD** | GitHub Actions (lint + build on every push and PR) |
 | **Hosting** | Render.com with auto-deploy on push |
 
 ---
@@ -138,7 +142,7 @@ The `docs/` folder contains the full development knowledge base:
 ```bash
 git clone git@github.com:nxtvanhalen/Website.git
 cd Website
-npm install
+bun install
 ```
 
 Create `.env.local`:
@@ -147,7 +151,7 @@ OPENAI_API_KEY=sk-your-openai-api-key
 ```
 
 ```bash
-npm run build && npm start
+bun run build && bun start
 # Visit http://localhost:3000
 ```
 

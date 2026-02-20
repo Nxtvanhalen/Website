@@ -1,16 +1,15 @@
 import '../styles/global.css';
 import type { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
-import Script from 'next/script';
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { ChatProvider } from '../context/ChatContext';
+import Header from '../components/Header';
 import PersistentChat from '../components/PersistentChat';
+import { ChatProvider } from '../context/ChatContext';
 
 // Google Analytics tracking ID
-const GA_TRACKING_ID = 'G-XZ6CF9XQD7';
+const _GA_TRACKING_ID = 'G-XZ6CF9XQD7';
 
 // Declare gtag function for TypeScript
 declare global {
@@ -29,7 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
     // Track email clicks for conversion analytics
     const trackEmailClicks = () => {
-      document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+      document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
         // Skip if already has a handler
         if (emailClickHandlers.has(link)) return;
 
@@ -38,7 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
             window.gtag('event', 'email_click', {
               event_category: 'engagement',
               event_label: link.getAttribute('href') || 'unknown',
-              value: 1
+              value: 1,
             });
           }
         };
@@ -51,7 +50,7 @@ export default function App({ Component, pageProps }: AppProps) {
     // Track CTA button clicks specifically
     const trackCTAClicks = () => {
       // Track rotating CTA box clicks
-      document.querySelectorAll('a[href*="subject=AI Project Inquiry"]').forEach(link => {
+      document.querySelectorAll('a[href*="subject=AI Project Inquiry"]').forEach((link) => {
         // Skip if already has a handler
         if (ctaClickHandlers.has(link)) return;
 
@@ -61,7 +60,7 @@ export default function App({ Component, pageProps }: AppProps) {
             window.gtag('event', 'cta_click', {
               event_category: 'conversion',
               event_label: decodeURIComponent(subject),
-              value: 1
+              value: 1,
             });
           }
         };
@@ -83,7 +82,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
     observer.observe(document.body, {
       childList: true,
-      subtree: true
+      subtree: true,
     });
 
     return () => {
@@ -103,12 +102,21 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/Favicon/android-chrome-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/images/Favicon/android-chrome-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href="/images/Favicon/android-chrome-512x512.png"
+        />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" content="#000000" />
-
       </Head>
       <ChatProvider>
         {!isLandingPage && <Header />}

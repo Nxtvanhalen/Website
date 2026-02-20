@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, FormEvent } from 'react';
+import { type FormEvent, useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import EveAvatar from './EveAvatar';
@@ -10,12 +10,16 @@ import { useChat } from '../context/ChatContext';
 export default function ChatPanel() {
   const { currentContext } = useChat();
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Welcome to CLB Consulting! I\'m EVE, your AI assistant. How can I help you with your project needs today?' }
+    {
+      role: 'assistant',
+      content:
+        "Welcome to CLB Consulting! I'm EVE, your AI assistant. How can I help you with your project needs today?",
+    },
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [responseId, setResponseId] = useState<string | null>(
-    typeof window !== 'undefined' ? localStorage.getItem('responseId') : null
+    typeof window !== 'undefined' ? localStorage.getItem('responseId') : null,
   );
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -39,7 +43,8 @@ export default function ChatPanel() {
 
   // Save messages to LocalStorage whenever they change
   useEffect(() => {
-    if (messages.length > 1) { // Don't save if it's just the initial welcome message
+    if (messages.length > 1) {
+      // Don't save if it's just the initial welcome message
       localStorage.setItem('eve_chat_history', JSON.stringify(messages));
     }
 
@@ -47,7 +52,7 @@ export default function ChatPanel() {
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
-  }, [messages, isTyping]);
+  }, [messages]);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -98,7 +103,7 @@ export default function ChatPanel() {
             // Scroll 120px higher than center to ensure more of input area is visible
             window.scrollTo({
               top: offsetTop - 120,
-              behavior: 'smooth'
+              behavior: 'smooth',
             });
           }
           // Reset interaction flag after recentering
@@ -154,12 +159,16 @@ export default function ChatPanel() {
 
     try {
       // Add realistic delay for typing effect
-      await new Promise(resolve => setTimeout(resolve, 800 + Math.random() * 1200));
+      await new Promise((resolve) => setTimeout(resolve, 800 + Math.random() * 1200));
 
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: content, previousResponseId: responseId, context: currentContext })
+        body: JSON.stringify({
+          prompt: content,
+          previousResponseId: responseId,
+          context: currentContext,
+        }),
       });
 
       if (!res.ok) {
@@ -169,7 +178,8 @@ export default function ChatPanel() {
       const data = await res.json();
       const assistantMsg: Message = {
         role: 'assistant',
-        content: data.reply || 'I apologize, but I couldn\'t process that request. Please try again.'
+        content:
+          data.reply || "I apologize, but I couldn't process that request. Please try again.",
       };
 
       setMessages((prev) => [...prev, assistantMsg]);
@@ -177,10 +187,11 @@ export default function ChatPanel() {
         setResponseId(data.responseId);
         localStorage.setItem('responseId', data.responseId);
       }
-    } catch (err) {
+    } catch (_err) {
       const errorMsg: Message = {
         role: 'assistant',
-        content: 'I\'m experiencing some technical difficulties. Please try again in a moment, or feel free to email me directly!'
+        content:
+          "I'm experiencing some technical difficulties. Please try again in a moment, or feel free to email me directly!",
       };
       setMessages((prev) => [...prev, errorMsg]);
     } finally {
@@ -212,10 +223,11 @@ export default function ChatPanel() {
           {messages.map((msg, idx) => (
             <div
               key={idx}
-              className={`max-w-[85%] px-4 py-3 rounded-lg shadow-lg animate-fade-in ${msg.role === 'user'
-                ? 'bg-transparent text-white self-end ml-auto border-l-4 border-mauve'
-                : 'bg-transparent text-white self-start mr-auto border-l-4 border-mauve'
-                }`}
+              className={`max-w-[85%] px-4 py-3 rounded-lg shadow-lg animate-fade-in ${
+                msg.role === 'user'
+                  ? 'bg-transparent text-white self-end ml-auto border-l-4 border-mauve'
+                  : 'bg-transparent text-white self-start mr-auto border-l-4 border-mauve'
+              }`}
             >
               {msg.role === 'assistant' && (
                 <div className="flex items-center gap-2 mb-2">
@@ -228,12 +240,21 @@ export default function ChatPanel() {
                   remarkPlugins={[remarkGfm]}
                   components={{
                     a: ({ node, ...props }: any) => (
-                      <a {...props} target="_blank" rel="noopener noreferrer" className="text-mauve underline hover:text-white transition-colors" />
+                      <a
+                        {...props}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-mauve underline hover:text-white transition-colors"
+                      />
                     ),
                     p: ({ node, ...props }: any) => <p {...props} className="mb-2 last:mb-0" />,
-                    ul: ({ node, ...props }: any) => <ul {...props} className="list-disc ml-4 mb-2" />,
-                    ol: ({ node, ...props }: any) => <ol {...props} className="list-decimal ml-4 mb-2" />,
-                    li: ({ node, ...props }: any) => <li {...props} className="mb-1" />
+                    ul: ({ node, ...props }: any) => (
+                      <ul {...props} className="list-disc ml-4 mb-2" />
+                    ),
+                    ol: ({ node, ...props }: any) => (
+                      <ol {...props} className="list-decimal ml-4 mb-2" />
+                    ),
+                    li: ({ node, ...props }: any) => <li {...props} className="mb-1" />,
                   }}
                 >
                   {msg.content}
@@ -250,7 +271,11 @@ export default function ChatPanel() {
           className="chat-input flex-1 p-4 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-mauve/50 rounded-none"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder={isTyping ? "EVE is thinking..." : "Ask me anything about AI, consulting, or development..."}
+          placeholder={
+            isTyping
+              ? 'EVE is thinking...'
+              : 'Ask me anything about AI, consulting, or development...'
+          }
           disabled={isTyping}
         />
         <button

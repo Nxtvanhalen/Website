@@ -1,42 +1,73 @@
+import { motion } from 'motion/react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { motion } from 'motion/react';
 
 export default function Privacy() {
   return (
     <>
       <Head>
         <title>Privacy Policy - CLB Consulting</title>
-        <meta name="description" content="Privacy Policy for CLB Consulting - How we collect, use, and protect your information" />
+        <meta
+          name="description"
+          content="Privacy Policy for CLB Consulting - How we collect, use, and protect your information"
+        />
         <meta name="theme-color" content="#9370DB" />
         <meta name="robots" content="index, follow" />
 
         {/* Open Graph tags for social sharing */}
         <meta property="og:title" content="Privacy | CLB Consulting" />
-        <meta property="og:description" content="Privacy Policy for CLB Consulting - How we collect, use, and protect your information" />
+        <meta
+          property="og:description"
+          content="Privacy Policy for CLB Consulting - How we collect, use, and protect your information"
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/privacy" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
+        <meta
+          property="og:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
-        <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
-        
+        <meta
+          property="og:image:alt"
+          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+        />
+
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="Privacy | CLB Consulting" />
-        <meta name="twitter:description" content="Privacy Policy for CLB Consulting - How we collect, use, and protect your information" />
-        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
-        <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta
+          name="twitter:description"
+          content="Privacy Policy for CLB Consulting - How we collect, use, and protect your information"
+        />
+        <meta
+          name="twitter:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+        />
 
         {/* Favicon and App Icons */}
         <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/Favicon/android-chrome-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/images/Favicon/android-chrome-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href="/images/Favicon/android-chrome-512x512.png"
+        />
         <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Canonical URL */}
@@ -53,23 +84,28 @@ export default function Privacy() {
           >
             Privacy Policy
           </motion.h1>
-          
+
           <div className="prose prose-invert prose-lg max-w-none space-y-8">
             <section>
               <p className="text-xl text-gray-300 mb-8">
-                Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                Last updated:{' '}
+                {new Date().toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
               </p>
-              
+
               <p>
-                At CLB Consulting ("we," "our," or "us"), we respect your privacy and are committed to protecting your personal data. 
-                This privacy policy explains how we collect, use, and safeguard your information when you visit our website 
-                chrisleebergstrom.com.
+                At CLB Consulting ("we," "our," or "us"), we respect your privacy and are committed
+                to protecting your personal data. This privacy policy explains how we collect, use,
+                and safeguard your information when you visit our website chrisleebergstrom.com.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Information We Collect</h2>
-              
+
               <h3 className="text-xl font-semibold mb-2">Information You Provide</h3>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Contact information when you reach out via email</li>
@@ -77,7 +113,9 @@ export default function Privacy() {
                 <li>Professional information shared during consultations</li>
               </ul>
 
-              <h3 className="text-xl font-semibold mb-2 mt-6">Information Collected Automatically</h3>
+              <h3 className="text-xl font-semibold mb-2 mt-6">
+                Information Collected Automatically
+              </h3>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Browser type and version</li>
                 <li>Device information</li>
@@ -90,20 +128,31 @@ export default function Privacy() {
             <section>
               <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Cookies and Tracking</h2>
               <p>
-                We use cookies and similar tracking technologies to improve your experience on our site. These include:
+                We use cookies and similar tracking technologies to improve your experience on our
+                site. These include:
               </p>
               <ul className="list-disc pl-6 space-y-2 mt-4">
-                <li><strong>Essential Cookies:</strong> Required for the website to function properly</li>
-                <li><strong>Analytics Cookies:</strong> Help us understand how visitors use our site (Google Analytics)</li>
-                <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
+                <li>
+                  <strong>Essential Cookies:</strong> Required for the website to function properly
+                </li>
+                <li>
+                  <strong>Analytics Cookies:</strong> Help us understand how visitors use our site
+                  (Google Analytics)
+                </li>
+                <li>
+                  <strong>Preference Cookies:</strong> Remember your settings and preferences
+                </li>
               </ul>
               <p className="mt-4">
-                You can control cookie preferences through our cookie consent banner when you first visit our site.
+                You can control cookie preferences through our cookie consent banner when you first
+                visit our site.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">How We Use Your Information</h2>
+              <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">
+                How We Use Your Information
+              </h2>
               <ul className="list-disc pl-6 space-y-2">
                 <li>To provide and improve our consulting services</li>
                 <li>To respond to your inquiries and communications</li>
@@ -114,12 +163,18 @@ export default function Privacy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Data Sharing and Third Parties</h2>
+              <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">
+                Data Sharing and Third Parties
+              </h2>
               <p>
-                We do not sell, trade, or rent your personal information to third parties. We may share your information only:
+                We do not sell, trade, or rent your personal information to third parties. We may
+                share your information only:
               </p>
               <ul className="list-disc pl-6 space-y-2 mt-4">
-                <li>With service providers who assist in operating our website (under strict confidentiality agreements)</li>
+                <li>
+                  With service providers who assist in operating our website (under strict
+                  confidentiality agreements)
+                </li>
                 <li>When required by law or to protect our rights</li>
                 <li>With your explicit consent</li>
               </ul>
@@ -128,9 +183,9 @@ export default function Privacy() {
             <section>
               <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Data Security</h2>
               <p>
-                We implement appropriate technical and organizational measures to protect your personal data against 
-                unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over 
-                the internet is 100% secure.
+                We implement appropriate technical and organizational measures to protect your
+                personal data against unauthorized access, alteration, disclosure, or destruction.
+                However, no method of transmission over the internet is 100% secure.
               </p>
             </section>
 
@@ -150,37 +205,54 @@ export default function Privacy() {
             <section>
               <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">AI Assistant (EVE)</h2>
               <p>
-                Our AI assistant EVE processes conversations in real-time to provide helpful responses. 
-                Conversations may be logged for quality improvement but are not linked to personal identifiers 
-                unless you explicitly provide such information.
+                Our AI assistant EVE processes conversations in real-time to provide helpful
+                responses. Conversations may be logged for quality improvement but are not linked to
+                personal identifiers unless you explicitly provide such information.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Children's Privacy</h2>
               <p>
-                Our services are not directed to individuals under 16. We do not knowingly collect personal 
-                information from children under 16.
+                Our services are not directed to individuals under 16. We do not knowingly collect
+                personal information from children under 16.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Changes to This Policy</h2>
               <p>
-                We may update this privacy policy from time to time. We will notify you of any changes by 
-                posting the new policy on this page and updating the "Last updated" date.
+                We may update this privacy policy from time to time. We will notify you of any
+                changes by posting the new policy on this page and updating the "Last updated" date.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Contact Us</h2>
               <p>
-                If you have questions about this privacy policy or your personal data, please contact us at:
+                If you have questions about this privacy policy or your personal data, please
+                contact us at:
               </p>
               <div className="mt-4 p-6 border-2 border-[#9370DB] rounded-lg">
                 <p className="font-semibold">CLB Consulting</p>
-                <p>Email: <a href="mailto:chrisleebergstrom@gmail.com" className="text-[#9370DB] hover:underline">chrisleebergstrom@gmail.com</a></p>
-                <p>Website: <a href="https://chrisleebergstrom.com" className="text-[#9370DB] hover:underline">chrisleebergstrom.com</a></p>
+                <p>
+                  Email:{' '}
+                  <a
+                    href="mailto:chrisleebergstrom@gmail.com"
+                    className="text-[#9370DB] hover:underline"
+                  >
+                    chrisleebergstrom@gmail.com
+                  </a>
+                </p>
+                <p>
+                  Website:{' '}
+                  <a
+                    href="https://chrisleebergstrom.com"
+                    className="text-[#9370DB] hover:underline"
+                  >
+                    chrisleebergstrom.com
+                  </a>
+                </p>
               </div>
             </section>
 

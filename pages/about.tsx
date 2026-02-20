@@ -1,8 +1,8 @@
+import { motion } from 'motion/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import Header from '../components/Header';
-import { motion } from 'motion/react';
 import SectionTracker from '../components/SectionTracker';
 
 export default function About() {
@@ -29,11 +29,20 @@ export default function About() {
     <>
       <Head>
         <title>About Chris Lee Bergstrom | Sound Engineer to AI Strategist - CLB Consulting</title>
-        <meta name="description" content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting." />
+        <meta
+          name="description"
+          content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
         <meta name="author" content="Chris Lee Bergstrom" />
-        <meta name="keywords" content="Chris Lee Bergstrom, audio engineer, AI strategist, live sound, entertainment technology, CLB Consulting, Grammy nominated, tour management, systems architecture" />
+        <meta
+          name="keywords"
+          content="Chris Lee Bergstrom, audio engineer, AI strategist, live sound, entertainment technology, CLB Consulting, Grammy nominated, tour management, systems architecture"
+        />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
 
@@ -42,28 +51,56 @@ export default function About() {
         <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/Favicon/android-chrome-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/images/Favicon/android-chrome-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href="/images/Favicon/android-chrome-512x512.png"
+        />
         <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Open Graph tags for social sharing */}
         <meta property="og:title" content="About | CLB Consulting" />
-        <meta property="og:description" content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting." />
+        <meta
+          property="og:description"
+          content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/about" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
+        <meta
+          property="og:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
-        <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta
+          property="og:image:alt"
+          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+        />
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="About | CLB Consulting" />
-        <meta name="twitter:description" content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting." />
-        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
-        <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta
+          name="twitter:description"
+          content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting."
+        />
+        <meta
+          name="twitter:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+        />
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com/about" />
@@ -73,63 +110,64 @@ export default function About() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfilePage",
-              "mainEntity": {
-                "@type": "Person",
-                "@id": "https://chrisleebergstrom.com/about#person",
-                "name": "Chris Lee Bergstrom",
-                "alternateName": ["Chris Bergstrom", "CLB"],
-                "jobTitle": "AI Strategy Consultant & Founder of CLB Consulting",
-                "description": "Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events. Founder and principal consultant at CLB Consulting.",
-                "image": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
-                "email": "chrisleebergstrom@gmail.com",
-                "worksFor": {
-                  "@type": "Organization",
-                  "@id": "https://chrisleebergstrom.com/#organization",
-                  "name": "CLB Consulting"
+              '@context': 'https://schema.org',
+              '@type': 'ProfilePage',
+              mainEntity: {
+                '@type': 'Person',
+                '@id': 'https://chrisleebergstrom.com/about#person',
+                name: 'Chris Lee Bergstrom',
+                alternateName: ['Chris Bergstrom', 'CLB'],
+                jobTitle: 'AI Strategy Consultant & Founder of CLB Consulting',
+                description:
+                  'Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events. Founder and principal consultant at CLB Consulting.',
+                image: 'https://chrisleebergstrom.com/images/profile/chris-profile.jpg',
+                email: 'chrisleebergstrom@gmail.com',
+                worksFor: {
+                  '@type': 'Organization',
+                  '@id': 'https://chrisleebergstrom.com/#organization',
+                  name: 'CLB Consulting',
                 },
-                "founder": {
-                  "@type": "Organization",
-                  "@id": "https://chrisleebergstrom.com/#organization",
-                  "name": "CLB Consulting"
+                founder: {
+                  '@type': 'Organization',
+                  '@id': 'https://chrisleebergstrom.com/#organization',
+                  name: 'CLB Consulting',
                 },
-                "hasCredential": "Grammy-nominated Audio Engineer",
-                "knowsAbout": [
-                  "AI Implementation",
-                  "Entertainment Industry",
-                  "Audio Engineering",
-                  "Live Sound Production",
-                  "Tour Management",
-                  "Multi-Modal AI Systems",
-                  "Team Cohesion Strategies",
-                  "SMAART System Analysis and Training"
+                hasCredential: 'Grammy-nominated Audio Engineer',
+                knowsAbout: [
+                  'AI Implementation',
+                  'Entertainment Industry',
+                  'Audio Engineering',
+                  'Live Sound Production',
+                  'Tour Management',
+                  'Multi-Modal AI Systems',
+                  'Team Cohesion Strategies',
+                  'SMAART System Analysis and Training',
                 ],
-                "sameAs": [
-                  "https://www.linkedin.com/in/chris-bergstrom",
-                  "https://www.instagram.com/chrisleebergstrom",
-                  "https://www.youtube.com/@chrisleebergstrom",
-                  "https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr"
-                ]
+                sameAs: [
+                  'https://www.linkedin.com/in/chris-bergstrom',
+                  'https://www.instagram.com/chrisleebergstrom',
+                  'https://www.youtube.com/@chrisleebergstrom',
+                  'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr',
+                ],
               },
-              "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
+              breadcrumb: {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
                   {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://chrisleebergstrom.com"
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://chrisleebergstrom.com',
                   },
                   {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "About",
-                    "item": "https://chrisleebergstrom.com/about"
-                  }
-                ]
-              }
-            })
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'About',
+                    item: 'https://chrisleebergstrom.com/about',
+                  },
+                ],
+              },
+            }),
           }}
         />
       </Head>
@@ -144,7 +182,7 @@ export default function About() {
             backgroundImage: "url('/images/Hopper.jpg')",
             minHeight: '150vh',
             top: '-60vh',
-            animation: 'fade-in 1s ease-out forwards'
+            animation: 'fade-in 1s ease-out forwards',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40" />
@@ -196,26 +234,48 @@ export default function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="text-base font-body opacity-90 leading-relaxed space-y-6" style={{ color: '#F5F5DC' }}>
+              <div
+                className="text-base font-body opacity-90 leading-relaxed space-y-6"
+                style={{ color: '#F5F5DC' }}
+              >
                 <p className="font-semibold text-xl italic text-center">
                   &ldquo;I build systems where art and technology work together&rdquo;
                 </p>
                 <p className="text-center max-w-3xl mx-auto">
-                  I started in the deep end of live sound, chasing perfect harmony, phase, and the science of acoustics. Decades later, I've led crews, built production infrastructures, and rescued venues from chaos. Whether it's an international tour, a citywide cultural system, or a failing arts organization, I find the signal in the noise and make it sing.
+                  I started in the deep end of live sound, chasing perfect harmony, phase, and the
+                  science of acoustics. Decades later, I've led crews, built production
+                  infrastructures, and rescued venues from chaos. Whether it's an international
+                  tour, a citywide cultural system, or a failing arts organization, I find the
+                  signal in the noise and make it sing.
                 </p>
 
                 {/* Photo Grid Section */}
                 <div className="w-full max-w-xl mx-auto my-6">
                   <div className="grid grid-cols-4 gap-2">
                     {[
-                      { src: '/images/XL4.webp', alt: 'Midas XL4 console at the Colorado State Fair' },
+                      {
+                        src: '/images/XL4.webp',
+                        alt: 'Midas XL4 console at the Colorado State Fair',
+                      },
                       { src: '/images/oz.webp', alt: 'The Dandy Warhols live in Australia' },
-                      { src: '/images/southern.webp', alt: 'Recording console at a Nashville studio' },
-                      { src: '/images/summer.webp', alt: 'Black Rebel Motorcycle Club at Summerfest' },
-                      { src: '/images/midas.webp', alt: 'The Dandy Warhols with the Oregon Symphony' },
+                      {
+                        src: '/images/southern.webp',
+                        alt: 'Recording console at a Nashville studio',
+                      },
+                      {
+                        src: '/images/summer.webp',
+                        alt: 'Black Rebel Motorcycle Club at Summerfest',
+                      },
+                      {
+                        src: '/images/midas.webp',
+                        alt: 'The Dandy Warhols with the Oregon Symphony',
+                      },
                       { src: '/images/pete.webp', alt: 'The Dandy Warhols in Liverpool' },
                       { src: '/images/tdw.webp', alt: 'The Dandy Warhols 25th Anniversary Tour' },
-                      { src: '/images/crystal.webp', alt: 'The Dandy Warhols at the Crystal Ballroom' }
+                      {
+                        src: '/images/crystal.webp',
+                        alt: 'The Dandy Warhols at the Crystal Ballroom',
+                      },
                     ].map((img, index) => (
                       <motion.div
                         key={index}
@@ -223,7 +283,7 @@ export default function About() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: index * 0.1, ease: "easeOut" }}
+                        transition={{ duration: 0.3, delay: index * 0.1, ease: 'easeOut' }}
                         whileHover={{ scale: 1.08 }}
                       >
                         <Image
@@ -238,11 +298,13 @@ export default function About() {
                       </motion.div>
                     ))}
                   </div>
-                  <p className="text-center text-sm italic mt-3" style={{ color: '#F5F5DC', opacity: 0.85 }}>
+                  <p
+                    className="text-center text-sm italic mt-3"
+                    style={{ color: '#F5F5DC', opacity: 0.85 }}
+                  >
                     Two decades on stages around the world
                   </p>
                 </div>
-
               </div>
             </motion.div>
           </SectionTracker>
@@ -254,8 +316,13 @@ export default function About() {
           >
             <div className="mt-16">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-heading mb-4 glow-subtle">Core Expertise</h2>
-                <p className="text-lg max-w-2xl mx-auto" style={{ color: '#F5F5DC' }}>Two decades of experience spanning live entertainment, AI systems, and cultural transformation</p>
+                <h2 className="text-3xl md:text-4xl font-heading mb-4 glow-subtle">
+                  Core Expertise
+                </h2>
+                <p className="text-lg max-w-2xl mx-auto" style={{ color: '#F5F5DC' }}>
+                  Two decades of experience spanning live entertainment, AI systems, and cultural
+                  transformation
+                </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
@@ -268,11 +335,34 @@ export default function About() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4, delay: 0 }}
                 >
-                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>Creative Leadership & Strategy</h3>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>
+                    Creative Leadership & Strategy
+                  </h3>
                   <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Global Tour & Production Management</span><br />Managed complex logistics and large teams across international venues and festivals</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Creative Director & Brand Strategist</span><br />Spearheaded theatrical branding for CLB Consulting and tech platforms. Expert in building "narrative systems" that align tech with culture</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Public Speaker & Writer</span><br />Known for clarity, poetic argument, and challenging cultural assumptions head-on</li>
+                    <li>
+                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
+                        Global Tour & Production Management
+                      </span>
+                      <br />
+                      Managed complex logistics and large teams across international venues and
+                      festivals
+                    </li>
+                    <li>
+                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
+                        Creative Director & Brand Strategist
+                      </span>
+                      <br />
+                      Spearheaded theatrical branding for CLB Consulting and tech platforms. Expert
+                      in building "narrative systems" that align tech with culture
+                    </li>
+                    <li>
+                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
+                        Public Speaker & Writer
+                      </span>
+                      <br />
+                      Known for clarity, poetic argument, and challenging cultural assumptions
+                      head-on
+                    </li>
                   </ul>
                 </motion.div>
 
@@ -285,11 +375,34 @@ export default function About() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4, delay: 0.1 }}
                 >
-                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>AI & Technical Systems</h3>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>
+                    AI & Technical Systems
+                  </h3>
                   <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>AI Strategy & Ethical Tech Integration</span><br />Founder of tools like EVA, Byte, and JAMES. Advocates for culturally sensitive AI that empowers rather than extracts</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>AI Systems Developer (Multi-Agent Architect)</span><br />Architect behind JAMES (multi-agent LLM symphony), Byte (voice-to-voice bot), and EVA (Events Virtual Assistant) ecosystems</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Technical Systems Designer</span><br />Specialist in backstage operations, automation, safety protocols, and venue sustainability</li>
+                    <li>
+                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
+                        AI Strategy & Ethical Tech Integration
+                      </span>
+                      <br />
+                      Founder of tools like EVA, Byte, and JAMES. Advocates for culturally sensitive
+                      AI that empowers rather than extracts
+                    </li>
+                    <li>
+                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
+                        AI Systems Developer (Multi-Agent Architect)
+                      </span>
+                      <br />
+                      Architect behind JAMES (multi-agent LLM symphony), Byte (voice-to-voice bot),
+                      and EVA (Events Virtual Assistant) ecosystems
+                    </li>
+                    <li>
+                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
+                        Technical Systems Designer
+                      </span>
+                      <br />
+                      Specialist in backstage operations, automation, safety protocols, and venue
+                      sustainability
+                    </li>
                   </ul>
                 </motion.div>
 
@@ -302,11 +415,32 @@ export default function About() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4, delay: 0.2 }}
                 >
-                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>Audio Engineering & Infrastructure</h3>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>
+                    Audio Engineering & Infrastructure
+                  </h3>
                   <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Professional Audio Systems</span><br />Dante Networking & Routing, Shure Wireless Systems (Axient, ULX-D), SMAART System Analysis and Training</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Sound Design & Programming</span><br />QLab Programming, Waves Plugins & Live Mixing Integration</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Advanced Audio Technologies</span><br />Spatial Audio Systems, Dolby Atmos, RF Coordination & Frequency Management</li>
+                    <li>
+                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
+                        Professional Audio Systems
+                      </span>
+                      <br />
+                      Dante Networking & Routing, Shure Wireless Systems (Axient, ULX-D), SMAART
+                      System Analysis and Training
+                    </li>
+                    <li>
+                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
+                        Sound Design & Programming
+                      </span>
+                      <br />
+                      QLab Programming, Waves Plugins & Live Mixing Integration
+                    </li>
+                    <li>
+                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
+                        Advanced Audio Technologies
+                      </span>
+                      <br />
+                      Spatial Audio Systems, Dolby Atmos, RF Coordination & Frequency Management
+                    </li>
                   </ul>
                 </motion.div>
 
@@ -319,20 +453,44 @@ export default function About() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4, delay: 0.3 }}
                 >
-                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>Social Impact & Operations</h3>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>
+                    Social Impact & Operations
+                  </h3>
                   <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Equity & Labor Advocacy</span><br />Pushed for inclusive practices, backstage dignity, and systemic change in the arts sector</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Climate & Sustainability Champion</span><br />Embedded green principles into production workflows and citywide venue strategies</li>
-                    <li><span className="font-bold" style={{ color: '#F5F5DC' }}>Complex Logistics Management</span><br />Touring logistics (Carnet, Visas, Advances), Emergency Planning & Safety Protocols</li>
+                    <li>
+                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
+                        Equity & Labor Advocacy
+                      </span>
+                      <br />
+                      Pushed for inclusive practices, backstage dignity, and systemic change in the
+                      arts sector
+                    </li>
+                    <li>
+                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
+                        Climate & Sustainability Champion
+                      </span>
+                      <br />
+                      Embedded green principles into production workflows and citywide venue
+                      strategies
+                    </li>
+                    <li>
+                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
+                        Complex Logistics Management
+                      </span>
+                      <br />
+                      Touring logistics (Carnet, Visas, Advances), Emergency Planning & Safety
+                      Protocols
+                    </li>
                   </ul>
                 </motion.div>
               </div>
             </div>
           </SectionTracker>
 
-
           <div className="text-center py-16 mt-16">
-            <p className="text-xl italic font-heading" style={{ color: '#F5F5DC', opacity: 0.8 }}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</p>
+            <p className="text-xl italic font-heading" style={{ color: '#F5F5DC', opacity: 0.8 }}>
+              Strategy Born from the Wreckage, Intelligence Forged in the Fire
+            </p>
             <div className="mt-8">
               <span className="block h-0.5 bg-molten w-32 mx-auto animate-pulse-width"></span>
             </div>
@@ -352,9 +510,7 @@ export default function About() {
                       <div className="text-sm opacity-80">chrisleebergstrom@gmail.com</div>
                     </div>
                   </a>
-                  <p className="text-sm text-molten/70">
-                    Let's discuss your project needs
-                  </p>
+                  <p className="text-sm text-molten/70">Let's discuss your project needs</p>
                 </div>
               </div>
             </section>

@@ -1,7 +1,7 @@
+import { motion } from 'motion/react';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import Header from '../components/Header';
-import { motion } from 'motion/react';
 import SectionTracker from '../components/SectionTracker';
 
 export default function News() {
@@ -25,7 +25,10 @@ export default function News() {
     <>
       <Head>
         <title>News/Press - CLB Consulting</title>
-        <meta name="description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting" />
+        <meta
+          name="description"
+          content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
@@ -33,22 +36,40 @@ export default function News() {
 
         {/* Open Graph tags for social sharing */}
         <meta property="og:title" content="News | CLB Consulting" />
-        <meta property="og:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting" />
+        <meta
+          property="og:description"
+          content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting"
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/news" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
+        <meta
+          property="og:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
-        <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta
+          property="og:image:alt"
+          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+        />
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="News | CLB Consulting" />
-        <meta name="twitter:description" content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting" />
-        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
-        <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta
+          name="twitter:description"
+          content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting"
+        />
+        <meta
+          name="twitter:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+        />
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://chrisleebergstrom.com/news" />
@@ -58,39 +79,40 @@ export default function News() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "CollectionPage",
-              "name": "News & Press - CLB Consulting",
-              "description": "Latest news, press coverage, and media appearances featuring Chris Lee Bergstrom",
-              "url": "https://chrisleebergstrom.com/news",
-              "author": {
-                "@type": "Person",
-                "@id": "https://chrisleebergstrom.com/about#person",
-                "name": "Chris Lee Bergstrom"
+              '@context': 'https://schema.org',
+              '@type': 'CollectionPage',
+              name: 'News & Press - CLB Consulting',
+              description:
+                'Latest news, press coverage, and media appearances featuring Chris Lee Bergstrom',
+              url: 'https://chrisleebergstrom.com/news',
+              author: {
+                '@type': 'Person',
+                '@id': 'https://chrisleebergstrom.com/about#person',
+                name: 'Chris Lee Bergstrom',
               },
-              "about": {
-                "@type": "Organization",
-                "@id": "https://chrisleebergstrom.com/#organization",
-                "name": "CLB Consulting"
+              about: {
+                '@type': 'Organization',
+                '@id': 'https://chrisleebergstrom.com/#organization',
+                name: 'CLB Consulting',
               },
-              "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
+              breadcrumb: {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
                   {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://chrisleebergstrom.com"
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://chrisleebergstrom.com',
                   },
                   {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "News/Press",
-                    "item": "https://chrisleebergstrom.com/news"
-                  }
-                ]
-              }
-            })
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'News/Press',
+                    item: 'https://chrisleebergstrom.com/news',
+                  },
+                ],
+              },
+            }),
           }}
         />
       </Head>
@@ -103,7 +125,7 @@ export default function News() {
           className="news-parallax-bg absolute inset-0 bg-center bg-cover md:bg-fixed"
           style={{
             backgroundImage: "url('/images/AI4.webp')",
-            minHeight: '120vh'
+            minHeight: '120vh',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/65 to-black/75" />
@@ -142,7 +164,9 @@ export default function News() {
               </div>
 
               <div className="mb-4">
-                <span className="text-green-400 text-sm font-bold uppercase tracking-wide">Podcast Feature</span>
+                <span className="text-green-400 text-sm font-bold uppercase tracking-wide">
+                  Podcast Feature
+                </span>
                 <span className="text-gray-400 text-sm ml-4">Spotify</span>
               </div>
 
@@ -152,19 +176,31 @@ export default function News() {
 
               <div className="prose prose-invert max-w-none mb-6">
                 <p className="text-base leading-relaxed mb-4 opacity-90">
-                  "If you listen to this podcast, you're most likely a fan of music. And chances are, you've seen a live concert. Have you ever wondered what goes into getting a band from one show to the next? What kind of preplanning is needed? And how much more goes into an overseas tour?"
+                  "If you listen to this podcast, you're most likely a fan of music. And chances
+                  are, you've seen a live concert. Have you ever wondered what goes into getting a
+                  band from one show to the next? What kind of preplanning is needed? And how much
+                  more goes into an overseas tour?"
                 </p>
 
                 <p className="text-base leading-relaxed mb-4 opacity-90">
-                  "Well my guest and friend Chris Bergstrom joins me to give us all a taste of what it takes to make a tour successful and how it has changed over the years. He's worked with some incredible acts, like Black Rebel Motorcycle Club and The Dandy Warhols. But he's also worked with acts I wasn't expecting, like The Oregon Symphony Orchestra and country music star Tracy Lawrence."
+                  "Well my guest and friend Chris Bergstrom joins me to give us all a taste of what
+                  it takes to make a tour successful and how it has changed over the years. He's
+                  worked with some incredible acts, like Black Rebel Motorcycle Club and The Dandy
+                  Warhols. But he's also worked with acts I wasn't expecting, like The Oregon
+                  Symphony Orchestra and country music star Tracy Lawrence."
                 </p>
 
                 <p className="text-base leading-relaxed mb-4 opacity-90">
-                  "He's done everything from load-ins & load-outs to Front of house, to tour management. He's got great behind the scenes stories as well as a collection of live recordings that I would kill for! But it's not all sex, drugs, & rock & roll. In fact, that stereotype has changed so much over the years. But for many, the hardest part is still acclimating to post-tour (or normal) life."
+                  "He's done everything from load-ins & load-outs to Front of house, to tour
+                  management. He's got great behind the scenes stories as well as a collection of
+                  live recordings that I would kill for! But it's not all sex, drugs, & rock & roll.
+                  In fact, that stereotype has changed so much over the years. But for many, the
+                  hardest part is still acclimating to post-tour (or normal) life."
                 </p>
 
                 <p className="text-base leading-relaxed opacity-90">
-                  "Chris is candid about all of it. So if you want to follow his touring exploits, check him out @blackeyedprod on Instagram."
+                  "Chris is candid about all of it. So if you want to follow his touring exploits,
+                  check him out @blackeyedprod on Instagram."
                 </p>
               </div>
 
@@ -181,9 +217,7 @@ export default function News() {
                   Listen on Spotify
                 </a>
 
-                <div className="text-sm text-gray-400">
-                  Audio Interview
-                </div>
+                <div className="text-sm text-gray-400">Audio Interview</div>
               </div>
             </motion.article>
 
@@ -203,7 +237,9 @@ export default function News() {
               </div>
 
               <div className="mb-4">
-                <span className="text-blue-400 text-sm font-bold uppercase tracking-wide">Live Recording</span>
+                <span className="text-blue-400 text-sm font-bold uppercase tracking-wide">
+                  Live Recording
+                </span>
                 <span className="text-gray-400 text-sm ml-4">Bandcamp Release</span>
               </div>
 
@@ -213,7 +249,10 @@ export default function News() {
 
               <div className="prose prose-invert max-w-none mb-6">
                 <p className="text-lg leading-relaxed mb-4 opacity-90">
-                  Welcome to Warhol Wednesday! We're stoked to be releasing a never-ending LIVE album for a one-time fee of $10. Come be a part of the club where every Wednesday you'll receive an exclusive download to a new live song from a past performance in a different city.
+                  Welcome to Warhol Wednesday! We're stoked to be releasing a never-ending LIVE
+                  album for a one-time fee of $10. Come be a part of the club where every Wednesday
+                  you'll receive an exclusive download to a new live song from a past performance in
+                  a different city.
                 </p>
 
                 <p className="leading-relaxed mb-4 opacity-90">
@@ -225,11 +264,15 @@ export default function News() {
                     <strong>Released:</strong> September 9, 2020
                   </p>
                   <p className="text-sm leading-relaxed mb-2 opacity-80">
-                    <strong>Band:</strong> Courtney Taylor Taylor, Peter Holmström, Zia McCabe, Brent DeBoer
+                    <strong>Band:</strong> Courtney Taylor Taylor, Peter Holmström, Zia McCabe,
+                    Brent DeBoer
                   </p>
                   <p className="text-sm leading-relaxed opacity-90">
-                    <strong>Recorded Live by Chris Bergstrom<br />
-                      Mixed and Mastered by Chris Bergstrom</strong>
+                    <strong>
+                      Recorded Live by Chris Bergstrom
+                      <br />
+                      Mixed and Mastered by Chris Bergstrom
+                    </strong>
                   </p>
                 </div>
               </div>
@@ -247,9 +290,7 @@ export default function News() {
                   Listen on Bandcamp
                 </a>
 
-                <div className="text-sm text-gray-400">
-                  Live Performance
-                </div>
+                <div className="text-sm text-gray-400">Live Performance</div>
               </div>
             </motion.article>
 
@@ -269,7 +310,9 @@ export default function News() {
               </div>
 
               <div className="mb-4">
-                <span className="text-red-400 text-sm font-bold uppercase tracking-wide">Music Video</span>
+                <span className="text-red-400 text-sm font-bold uppercase tracking-wide">
+                  Music Video
+                </span>
                 <span className="text-gray-400 text-sm ml-4">Official Release</span>
               </div>
 
@@ -304,9 +347,7 @@ export default function News() {
                   Watch on YouTube
                 </a>
 
-                <div className="text-sm text-gray-400">
-                  🎥 Video Content
-                </div>
+                <div className="text-sm text-gray-400">🎥 Video Content</div>
               </div>
             </motion.article>
 
@@ -320,7 +361,9 @@ export default function News() {
               transition={{ duration: 0.4 }}
             >
               <div className="mb-4">
-                <span className="text-molten text-sm font-bold uppercase tracking-wide">Mix Online</span>
+                <span className="text-molten text-sm font-bold uppercase tracking-wide">
+                  Mix Online
+                </span>
                 <span className="text-gray-400 text-sm ml-4">January 21, 2022</span>
               </div>
 
@@ -330,19 +373,27 @@ export default function News() {
 
               <div className="prose prose-invert max-w-none">
                 <p className="text-lg leading-relaxed mb-4 opacity-90">
-                  Sound engineer with nearly 20 years of experience, Chris Bergstrom mixes live sound for The Dandy Warhols and Oregon Symphony, utilizing Campfire Audio in-ear monitors for consistent monitoring across diverse performance environments.
+                  Sound engineer with nearly 20 years of experience, Chris Bergstrom mixes live
+                  sound for The Dandy Warhols and Oregon Symphony, utilizing Campfire Audio in-ear
+                  monitors for consistent monitoring across diverse performance environments.
                 </p>
 
                 <blockquote className="border-l-4 border-molten pl-6 my-6 italic text-lg opacity-80">
-                  "I don't believe audio engineers should insert much of themselves in the project. Accurate audio is what I need."
+                  "I don't believe audio engineers should insert much of themselves in the project.
+                  Accurate audio is what I need."
                 </blockquote>
 
                 <p className="leading-relaxed mb-4 opacity-90">
-                  Bergstrom's approach emphasizes close collaboration with artists to achieve their sound vision, using virtual playback methods during soundchecks and preferring Campfire Audio Solstice and Equinox IEMs for different mixing scenarios.
+                  Bergstrom's approach emphasizes close collaboration with artists to achieve their
+                  sound vision, using virtual playback methods during soundchecks and preferring
+                  Campfire Audio Solstice and Equinox IEMs for different mixing scenarios.
                 </p>
 
                 <p className="leading-relaxed opacity-90">
-                  The engineer values precision and accuracy in audio reproduction, having shifted to using IEMs over speakers in studio work during quarantine. He appreciates Campfire Audio for their "Hi-Fi origins and durability" and considers them essential to his professional toolkit.
+                  The engineer values precision and accuracy in audio reproduction, having shifted
+                  to using IEMs over speakers in studio work during quarantine. He appreciates
+                  Campfire Audio for their "Hi-Fi origins and durability" and considers them
+                  essential to his professional toolkit.
                 </p>
               </div>
 
@@ -368,7 +419,9 @@ export default function News() {
               transition={{ duration: 0.4 }}
             >
               <div className="mb-4">
-                <span className="text-molten text-sm font-bold uppercase tracking-wide">Music Radar</span>
+                <span className="text-molten text-sm font-bold uppercase tracking-wide">
+                  Music Radar
+                </span>
                 <span className="text-gray-400 text-sm ml-4">June 24, 2021</span>
               </div>
 
@@ -378,15 +431,21 @@ export default function News() {
 
               <div className="prose prose-invert max-w-none">
                 <p className="text-lg leading-relaxed mb-4 opacity-90">
-                  Professional audio engineer Chris Bergstrom shares insights from his extensive career mixing live sound for major acts including The Dandy Warhols and Oregon Symphony, offering practical advice for aspiring sound engineers.
+                  Professional audio engineer Chris Bergstrom shares insights from his extensive
+                  career mixing live sound for major acts including The Dandy Warhols and Oregon
+                  Symphony, offering practical advice for aspiring sound engineers.
                 </p>
 
                 <p className="leading-relaxed mb-4 opacity-90">
-                  Drawing from decades of experience in both live and studio environments, Bergstrom discusses the evolution of mixing techniques, the importance of accurate monitoring, and the collaborative process between engineers and artists.
+                  Drawing from decades of experience in both live and studio environments, Bergstrom
+                  discusses the evolution of mixing techniques, the importance of accurate
+                  monitoring, and the collaborative process between engineers and artists.
                 </p>
 
                 <p className="leading-relaxed opacity-90">
-                  The article explores his professional philosophy on sound engineering, technical expertise with cutting-edge audio equipment, and the critical skills needed to succeed in today's competitive audio industry.
+                  The article explores his professional philosophy on sound engineering, technical
+                  expertise with cutting-edge audio equipment, and the critical skills needed to
+                  succeed in today's competitive audio industry.
                 </p>
               </div>
 
@@ -421,9 +480,7 @@ export default function News() {
                       <div className="text-sm opacity-80">chrisleebergstrom@gmail.com</div>
                     </div>
                   </a>
-                  <p className="text-sm text-molten/70">
-                    Let's discuss your project needs
-                  </p>
+                  <p className="text-sm text-molten/70">Let's discuss your project needs</p>
                 </div>
               </div>
             </section>

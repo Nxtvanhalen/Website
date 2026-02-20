@@ -1,8 +1,7 @@
+import { motion } from 'motion/react';
 import Head from 'next/head';
-import { useEffect } from 'react';
 import Image from 'next/image';
 import Header from '../components/Header';
-import { motion } from 'motion/react';
 import SectionTracker from '../components/SectionTracker';
 
 export default function Projects() {
@@ -10,15 +9,24 @@ export default function Projects() {
     <>
       <Head>
         <title>Projects - CLB Consulting | AI & Entertainment Tech</title>
-        <meta name="description" content="Explore CLB Consulting's projects in AI, entertainment technology, and system architecture. Featuring Master Tour, EVA, Ryder, and more." />
+        <meta
+          name="description"
+          content="Explore CLB Consulting's projects in AI, entertainment technology, and system architecture. Featuring Master Tour, EVA, Ryder, and more."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* Open Graph tags */}
         <meta property="og:title" content="Projects | CLB Consulting" />
-        <meta property="og:description" content="Explore CLB Consulting's projects in AI, entertainment technology, and system architecture. Featuring Master Tour, EVA, Ryder, and more." />
+        <meta
+          property="og:description"
+          content="Explore CLB Consulting's projects in AI, entertainment technology, and system architecture. Featuring Master Tour, EVA, Ryder, and more."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/projects" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
+        <meta
+          property="og:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
         <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant" />
@@ -28,8 +36,14 @@ export default function Projects() {
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="Projects | CLB Consulting" />
-        <meta name="twitter:description" content="Explore CLB Consulting's projects in AI, entertainment technology, and system architecture. Featuring Master Tour, EVA, Ryder, and more." />
-        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
+        <meta
+          name="twitter:description"
+          content="Explore CLB Consulting's projects in AI, entertainment technology, and system architecture. Featuring Master Tour, EVA, Ryder, and more."
+        />
+        <meta
+          name="twitter:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
         <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant" />
 
         {/* Favicon and App Icons */}
@@ -37,8 +51,18 @@ export default function Projects() {
         <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/Favicon/android-chrome-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/images/Favicon/android-chrome-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href="/images/Favicon/android-chrome-512x512.png"
+        />
         <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Canonical URL */}
@@ -49,113 +73,114 @@ export default function Projects() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "CollectionPage",
-              "name": "Projects - CLB Consulting",
-              "description": "Showcase of AI and entertainment technology projects by CLB Consulting",
-              "url": "https://chrisleebergstrom.com/projects",
-              "author": {
-                "@type": "Person",
-                "@id": "https://chrisleebergstrom.com/about#person",
-                "name": "Chris Lee Bergstrom"
+              '@context': 'https://schema.org',
+              '@type': 'CollectionPage',
+              name: 'Projects - CLB Consulting',
+              description: 'Showcase of AI and entertainment technology projects by CLB Consulting',
+              url: 'https://chrisleebergstrom.com/projects',
+              author: {
+                '@type': 'Person',
+                '@id': 'https://chrisleebergstrom.com/about#person',
+                name: 'Chris Lee Bergstrom',
               },
-              "about": {
-                "@type": "Organization",
-                "@id": "https://chrisleebergstrom.com/#organization",
-                "name": "CLB Consulting"
+              about: {
+                '@type': 'Organization',
+                '@id': 'https://chrisleebergstrom.com/#organization',
+                name: 'CLB Consulting',
               },
-              "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
+              breadcrumb: {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
                   {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://chrisleebergstrom.com"
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://chrisleebergstrom.com',
                   },
                   {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Projects",
-                    "item": "https://chrisleebergstrom.com/projects"
-                  }
-                ]
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'Projects',
+                    item: 'https://chrisleebergstrom.com/projects',
+                  },
+                ],
               },
-              "hasPart": [
+              hasPart: [
                 {
-                  "@type": "SoftwareApplication",
-                  "name": "Master Tour Venue",
-                  "applicationCategory": "BusinessApplication",
-                  "operatingSystem": "Web Browser, iOS, Android",
-                  "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
+                  '@type': 'SoftwareApplication',
+                  name: 'Master Tour Venue',
+                  applicationCategory: 'BusinessApplication',
+                  operatingSystem: 'Web Browser, iOS, Android',
+                  offers: {
+                    '@type': 'Offer',
+                    price: '0',
+                    priceCurrency: 'USD',
                   },
-                  "description": "The next evolution of tech pack data for venues and artists"
+                  description: 'The next evolution of tech pack data for venues and artists',
                 },
                 {
-                  "@type": "SoftwareApplication",
-                  "name": "AI Powered Remote SPL",
-                  "applicationCategory": "UtilityApplication",
-                  "operatingSystem": "Web Browser",
-                  "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
+                  '@type': 'SoftwareApplication',
+                  name: 'AI Powered Remote SPL',
+                  applicationCategory: 'UtilityApplication',
+                  operatingSystem: 'Web Browser',
+                  offers: {
+                    '@type': 'Offer',
+                    price: '0',
+                    priceCurrency: 'USD',
                   },
-                  "description": "Cloud-based SPL monitoring for events and construction"
+                  description: 'Cloud-based SPL monitoring for events and construction',
                 },
                 {
-                  "@type": "SoftwareApplication",
-                  "name": "EVA — Events Virtual Assistant",
-                  "applicationCategory": "BusinessApplication",
-                  "operatingSystem": "Web Browser",
-                  "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
+                  '@type': 'SoftwareApplication',
+                  name: 'EVA — Events Virtual Assistant',
+                  applicationCategory: 'BusinessApplication',
+                  operatingSystem: 'Web Browser',
+                  offers: {
+                    '@type': 'Offer',
+                    price: '0',
+                    priceCurrency: 'USD',
                   },
-                  "description": "Logistics, routing, and crew management AI"
+                  description: 'Logistics, routing, and crew management AI',
                 },
                 {
-                  "@type": "SoftwareApplication",
-                  "name": "R.Y.D.E.R.",
-                  "applicationCategory": "HealthApplication",
-                  "operatingSystem": "Web Browser",
-                  "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
+                  '@type': 'SoftwareApplication',
+                  name: 'R.Y.D.E.R.',
+                  applicationCategory: 'HealthApplication',
+                  operatingSystem: 'Web Browser',
+                  offers: {
+                    '@type': 'Offer',
+                    price: '0',
+                    priceCurrency: 'USD',
                   },
-                  "description": "Mental Health AI for Creatives"
+                  description: 'Mental Health AI for Creatives',
                 },
                 {
-                  "@type": "SoftwareApplication",
-                  "name": "EVE",
-                  "applicationCategory": "Bot",
-                  "operatingSystem": "Web Browser",
-                  "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
+                  '@type': 'SoftwareApplication',
+                  name: 'EVE',
+                  applicationCategory: 'Bot',
+                  operatingSystem: 'Web Browser',
+                  offers: {
+                    '@type': 'Offer',
+                    price: '0',
+                    priceCurrency: 'USD',
                   },
-                  "description": "Conversational AI for CLB Consulting - knows every page, service, and project"
+                  description:
+                    'Conversational AI for CLB Consulting - knows every page, service, and project',
                 },
                 {
-                  "@type": "SoftwareApplication",
-                  "name": "Glytch",
-                  "applicationCategory": "Bot",
-                  "operatingSystem": "Local/Offline",
-                  "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
+                  '@type': 'SoftwareApplication',
+                  name: 'Glytch',
+                  applicationCategory: 'Bot',
+                  operatingSystem: 'Local/Offline',
+                  offers: {
+                    '@type': 'Offer',
+                    price: '0',
+                    priceCurrency: 'USD',
                   },
-                  "description": "Local AI experiment - offline, unhinged, testing the limits"
-                }
-              ]
-            })
+                  description: 'Local AI experiment - offline, unhinged, testing the limits',
+                },
+              ],
+            }),
           }}
         />
       </Head>
@@ -169,7 +194,9 @@ export default function Projects() {
           loop
           muted
           playsInline
-          ref={(el) => { if (el) el.playbackRate = 0.5; }}
+          ref={(el) => {
+            if (el) el.playbackRate = 0.5;
+          }}
           style={{
             position: 'absolute',
             top: '-10%',
@@ -179,7 +206,7 @@ export default function Projects() {
             objectFit: 'cover',
             filter: 'brightness(0.3) saturate(1.0)',
             opacity: 0.6,
-            transform: 'scale(1.1)'
+            transform: 'scale(1.1)',
           }}
         >
           <source src="/videos/theater-bg.mp4" type="video/mp4" />
@@ -225,15 +252,32 @@ export default function Projects() {
               >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-2" style={{ color: '#FF0000', textShadow: '0 0 10px rgba(255,0,0,0.5)' }}>Master Tour Venue</h2>
-                    <p className="text-sm font-semibold mb-3" style={{ color: '#FF0000', opacity: 0.9 }}>
-                      Industry-leading event production data standards revolutionizing venue collaboration.
+                    <h2
+                      className="text-2xl font-heading mb-2"
+                      style={{ color: '#FF0000', textShadow: '0 0 10px rgba(255,0,0,0.5)' }}
+                    >
+                      Master Tour Venue
+                    </h2>
+                    <p
+                      className="text-sm font-semibold mb-3"
+                      style={{ color: '#FF0000', opacity: 0.9 }}
+                    >
+                      Industry-leading event production data standards revolutionizing venue
+                      collaboration.
                     </p>
-                    <p className="text-sm leading-relaxed opacity-80 mb-2" style={{ color: '#F5F5DC' }}>
-                      <strong>The Problem:</strong> Outdated workflows, endless emails, spreadsheet chaos causing costly event mistakes.
+                    <p
+                      className="text-sm leading-relaxed opacity-80 mb-2"
+                      style={{ color: '#F5F5DC' }}
+                    >
+                      <strong>The Problem:</strong> Outdated workflows, endless emails, spreadsheet
+                      chaos causing costly event mistakes.
                     </p>
-                    <p className="text-sm leading-relaxed opacity-90 mb-3" style={{ color: '#F5F5DC' }}>
-                      <strong>The Solution:</strong> Shared source-of-truth production data connecting touring teams with venues seamlessly.
+                    <p
+                      className="text-sm leading-relaxed opacity-90 mb-3"
+                      style={{ color: '#F5F5DC' }}
+                    >
+                      <strong>The Solution:</strong> Shared source-of-truth production data
+                      connecting touring teams with venues seamlessly.
                     </p>
                     <a
                       href="https://www.eventric.com/master-tour-venue/"
@@ -246,13 +290,7 @@ export default function Projects() {
                     </a>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                    >
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                       <source src="/videos/mt-thumb.mp4" type="video/mp4" />
                     </video>
                   </div>
@@ -275,23 +313,30 @@ export default function Projects() {
               >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-1" style={{ color: '#F5F5DC' }}>AI Powered Remote SPL</h2>
-                    <div className="text-sm font-normal mb-3" style={{ color: '#F5F5DC', opacity: 0.6 }}>(Sound Pressure Level)</div>
-                    <p className="text-sm leading-relaxed opacity-80 mb-2" style={{ color: '#F5F5DC' }}>
-                      Controlling SPL exposure for both patrons and staff isn't optional—it's essential for safety and compliance.
+                    <h2 className="text-2xl font-heading mb-1" style={{ color: '#F5F5DC' }}>
+                      AI Powered Remote SPL
+                    </h2>
+                    <div
+                      className="text-sm font-normal mb-3"
+                      style={{ color: '#F5F5DC', opacity: 0.6 }}
+                    >
+                      (Sound Pressure Level)
+                    </div>
+                    <p
+                      className="text-sm leading-relaxed opacity-80 mb-2"
+                      style={{ color: '#F5F5DC' }}
+                    >
+                      Controlling SPL exposure for both patrons and staff isn't optional—it's
+                      essential for safety and compliance.
                     </p>
                     <p className="text-sm leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      Cloud-based monitoring with effective logging, real-time analysis, and predictive insights. Protect your people, meet regulations, keep the neighbors happy.
+                      Cloud-based monitoring with effective logging, real-time analysis, and
+                      predictive insights. Protect your people, meet regulations, keep the neighbors
+                      happy.
                     </p>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                    >
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                       <source src="/videos/spl-thumb.mp4" type="video/mp4" />
                     </video>
                   </div>
@@ -314,22 +359,23 @@ export default function Projects() {
               >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>EVA — Events Virtual Assistant</h2>
-                    <p className="text-sm leading-relaxed opacity-80 mb-2" style={{ color: '#F5F5DC' }}>
-                      EVA doesn't replace crew—she reduces cognitive stress. Let humans focus on the show while AI handles the logistics overhead.
+                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>
+                      EVA — Events Virtual Assistant
+                    </h2>
+                    <p
+                      className="text-sm leading-relaxed opacity-80 mb-2"
+                      style={{ color: '#F5F5DC' }}
+                    >
+                      EVA doesn't replace crew—she reduces cognitive stress. Let humans focus on the
+                      show while AI handles the logistics overhead.
                     </p>
                     <p className="text-sm leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      The orchestration core for routing, scheduling, and crew management. Customizable, scalable, show-ready.
+                      The orchestration core for routing, scheduling, and crew management.
+                      Customizable, scalable, show-ready.
                     </p>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                    >
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                       <source src="/videos/eva-thumb.mp4" type="video/mp4" />
                     </video>
                   </div>
@@ -352,9 +398,18 @@ export default function Projects() {
               >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#00ff00', textShadow: '0 0 10px rgba(0,255,0,0.5)' }}>R.Y.D.E.R. — Mental Health AI for Creatives</h2>
-                    <p className="text-base leading-relaxed opacity-90 mb-3" style={{ color: '#F5F5DC' }}>
-                      Trauma-aware AI for the industry. Anonymous, reflective, and emotionally attuned. Not therapy—a check-in with soul.
+                    <h2
+                      className="text-2xl font-heading mb-3"
+                      style={{ color: '#00ff00', textShadow: '0 0 10px rgba(0,255,0,0.5)' }}
+                    >
+                      R.Y.D.E.R. — Mental Health AI for Creatives
+                    </h2>
+                    <p
+                      className="text-base leading-relaxed opacity-90 mb-3"
+                      style={{ color: '#F5F5DC' }}
+                    >
+                      Trauma-aware AI for the industry. Anonymous, reflective, and emotionally
+                      attuned. Not therapy—a check-in with soul.
                     </p>
                     <a
                       href="https://ryder-k6er.onrender.com"
@@ -395,12 +450,23 @@ export default function Projects() {
               >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>EVE — Conversational AI for CLB</h2>
-                    <p className="text-sm leading-relaxed opacity-80 mb-2" style={{ color: '#F5F5DC' }}>
-                      EVE runs this website. She knows every page, every service, every project—and she's ready to help you navigate it all.
+                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>
+                      EVE — Conversational AI for CLB
+                    </h2>
+                    <p
+                      className="text-sm leading-relaxed opacity-80 mb-2"
+                      style={{ color: '#F5F5DC' }}
+                    >
+                      EVE runs this website. She knows every page, every service, every project—and
+                      she's ready to help you navigate it all.
                     </p>
-                    <p className="text-sm leading-relaxed opacity-90 mb-3" style={{ color: '#F5F5DC' }}>
-                      Your front-of-house concierge with full backstage access. Ask her anything about operations consulting, AI training, security, leadership coaching—or maybe even some tales from the road.
+                    <p
+                      className="text-sm leading-relaxed opacity-90 mb-3"
+                      style={{ color: '#F5F5DC' }}
+                    >
+                      Your front-of-house concierge with full backstage access. Ask her anything
+                      about operations consulting, AI training, security, leadership coaching—or
+                      maybe even some tales from the road.
                     </p>
                     <a
                       href="/#eve-chat"
@@ -438,9 +504,12 @@ export default function Projects() {
               >
                 <div className="flex items-start gap-6 mb-4">
                   <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>Glytch — Local AI Experiment</h2>
+                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>
+                      Glytch — Local AI Experiment
+                    </h2>
                     <p className="text-sm leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      Glytch is the experiment. Local AI, fully offline, unhinged and sarcastic—an ongoing test to see what can be achieved when you take the guardrails off.
+                      Glytch is the experiment. Local AI, fully offline, unhinged and sarcastic—an
+                      ongoing test to see what can be achieved when you take the guardrails off.
                     </p>
                   </div>
                   <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
@@ -471,10 +540,13 @@ export default function Projects() {
                 transition={{ duration: 0.4 }}
               >
                 <div className="mb-4">
-                  <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>Multi-Agent Intelligence Lab</h2>
+                  <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>
+                    Multi-Agent Intelligence Lab
+                  </h2>
                 </div>
                 <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                  The CLB skunkworks. Prototyping federated agents and real-time consulting flows. Future interface, real execution.
+                  The CLB skunkworks. Prototyping federated agents and real-time consulting flows.
+                  Future interface, real execution.
                 </p>
               </motion.div>
             </SectionTracker>
@@ -493,10 +565,13 @@ export default function Projects() {
                 transition={{ duration: 0.4 }}
               >
                 <div className="mb-4">
-                  <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>JAMES — Core Memory & Strategic AI Backbone</h2>
+                  <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>
+                    JAMES — Core Memory & Strategic AI Backbone
+                  </h2>
                 </div>
                 <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                  The cognitive backbone. Long-term memory and multi-agent orchestration. Ensuring CLB isn't just smart—it's alive.
+                  The cognitive backbone. Long-term memory and multi-agent orchestration. Ensuring
+                  CLB isn't just smart—it's alive.
                 </p>
               </motion.div>
             </SectionTracker>
@@ -515,17 +590,22 @@ export default function Projects() {
                 transition={{ duration: 0.4 }}
               >
                 <div className="mb-4">
-                  <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>AI Consulting Sandbox</h2>
+                  <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>
+                    AI Consulting Sandbox
+                  </h2>
                 </div>
                 <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                  Firebase-powered hospitality strategy. Analyzing sales data to predict demand and turn noise into insight.
+                  Firebase-powered hospitality strategy. Analyzing sales data to predict demand and
+                  turn noise into insight.
                 </p>
               </motion.div>
             </SectionTracker>
           </div>
 
           <div className="text-center py-12 mt-16">
-            <p className="text-lg opacity-70 italic" style={{ color: '#F5F5DC' }}>Strategy Born from the Wreckage, Intelligence Forged in the Fire</p>
+            <p className="text-lg opacity-70 italic" style={{ color: '#F5F5DC' }}>
+              Strategy Born from the Wreckage, Intelligence Forged in the Fire
+            </p>
           </div>
 
           {/* Contact Section */}
@@ -537,8 +617,12 @@ export default function Projects() {
                   className="group block relative overflow-hidden py-4 px-8 bg-transparent text-white font-bold rounded-lg border border-molten hover:border-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 active:scale-95"
                 >
                   <div className="relative flex flex-col items-center justify-center text-center">
-                    <div className="text-lg font-bold" style={{ color: '#F5F5DC' }}>Ready to go?</div>
-                    <div className="text-sm opacity-80" style={{ color: '#F5F5DC' }}>chrisleebergstrom@gmail.com</div>
+                    <div className="text-lg font-bold" style={{ color: '#F5F5DC' }}>
+                      Ready to go?
+                    </div>
+                    <div className="text-sm opacity-80" style={{ color: '#F5F5DC' }}>
+                      chrisleebergstrom@gmail.com
+                    </div>
                   </div>
                 </a>
                 <p className="text-sm" style={{ color: '#F5F5DC', opacity: 0.7 }}>

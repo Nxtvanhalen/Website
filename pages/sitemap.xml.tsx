@@ -1,56 +1,56 @@
-import { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from 'next';
 
 function generateSiteMap() {
   const baseUrl = 'https://chrisleebergstrom.com';
   const currentDate = new Date().toISOString().split('T')[0];
-  
+
   // Static pages
   const staticPages = [
     {
       url: '',
       changefreq: 'weekly',
-      priority: '1.0'
+      priority: '1.0',
     },
     {
       url: '/home',
       changefreq: 'weekly',
-      priority: '0.9'
+      priority: '0.9',
     },
     {
       url: '/operations-consulting',
       changefreq: 'monthly',
-      priority: '0.9'
+      priority: '0.9',
     },
     {
       url: '/about',
       changefreq: 'monthly',
-      priority: '0.8'
+      priority: '0.8',
     },
     {
       url: '/projects',
       changefreq: 'monthly',
-      priority: '0.8'
+      priority: '0.8',
     },
     {
       url: '/blog',
       changefreq: 'weekly',
-      priority: '0.7'
+      priority: '0.7',
     },
     {
       url: '/news',
       changefreq: 'weekly',
-      priority: '0.7'
+      priority: '0.7',
     },
     {
       url: '/faq',
       changefreq: 'monthly',
-      priority: '0.6'
+      priority: '0.6',
     },
     {
       url: '/privacy',
       changefreq: 'yearly',
-      priority: '0.3'
-    }
+      priority: '0.3',
+    },
   ];
 
   return `<?xml version="1.0" encoding="UTF-8"?>

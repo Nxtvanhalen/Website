@@ -1,33 +1,40 @@
-import Document, { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps } from 'next/document'
-import crypto from 'crypto'
+import crypto from 'node:crypto';
+import Document, {
+  type DocumentContext,
+  type DocumentInitialProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
 
 interface MyDocumentProps extends DocumentInitialProps {
-  nonce: string
+  nonce: string;
 }
 
 export default class MyDocument extends Document<MyDocumentProps> {
   static async getInitialProps(ctx: DocumentContext): Promise<MyDocumentProps> {
-    const initialProps = await Document.getInitialProps(ctx)
+    const initialProps = await Document.getInitialProps(ctx);
 
     // Generate a unique nonce for this request
-    const nonce = crypto.randomBytes(16).toString('base64')
+    const nonce = crypto.randomBytes(16).toString('base64');
 
     // Construct the CSP header with the nonce (updated for Framer Motion support)
-    const cspString = `default-src 'self'; script-src 'self' 'unsafe-eval' 'nonce-${nonce}' www.googletagmanager.com cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' 'nonce-${nonce}' fonts.googleapis.com cdn.jsdelivr.net; font-src 'self' fonts.gstatic.com; img-src 'self' data: www.googletagmanager.com; connect-src 'self' www.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self'`
+    const cspString = `default-src 'self'; script-src 'self' 'unsafe-eval' 'nonce-${nonce}' www.googletagmanager.com cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' 'nonce-${nonce}' fonts.googleapis.com cdn.jsdelivr.net; font-src 'self' fonts.gstatic.com; img-src 'self' data: www.googletagmanager.com; connect-src 'self' www.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self'`;
 
     // Set the CSP header on the response
     if (ctx.res) {
-      ctx.res.setHeader('Content-Security-Policy', cspString)
+      ctx.res.setHeader('Content-Security-Policy', cspString);
     }
 
     return {
       ...initialProps,
-      nonce
-    }
+      nonce,
+    };
   }
 
   render() {
-    const { nonce } = this.props
+    const { nonce } = this.props;
 
     return (
       <Html lang="en">
@@ -48,7 +55,7 @@ export default class MyDocument extends Document<MyDocumentProps> {
                 /* Cookie Consent Overrides */
                 .cc-window { z-index: 999999 !important; }
                 .cc-link { cursor: pointer !important; text-decoration: underline !important; }
-              `
+              `,
             }}
           />
           {/* Google tag (gtag.js) - Modified to respect cookie consent */}
@@ -60,16 +67,8 @@ export default class MyDocument extends Document<MyDocumentProps> {
           />
 
           {/* Osano CookieConsent - Loaded locally to avoid ad-blockers */}
-          <link
-            rel="stylesheet"
-            href="/static/cookieconsent.css"
-          />
-          <script
-            nonce={nonce}
-            src="/static/cookieconsent.js"
-            data-cfasync="false"
-            defer
-          ></script>
+          <link rel="stylesheet" href="/static/cookieconsent.css" />
+          <script nonce={nonce} src="/static/cookieconsent.js" data-cfasync="false" defer></script>
 
           {/* Initialize Cookie Consent with purple theme */}
           <script
@@ -149,6 +148,6 @@ export default class MyDocument extends Document<MyDocumentProps> {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }

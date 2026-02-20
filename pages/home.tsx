@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import { useEffect, useState, useRef } from 'react';
-import Marquee from '../components/Marquee';
+import { useEffect, useRef, useState } from 'react';
 import Contact from '../components/Contact';
+import Marquee from '../components/Marquee';
 
 export default function Home() {
   const [videosDisabled, setVideosDisabled] = useState(false);
@@ -23,7 +23,7 @@ export default function Home() {
     if (prefersReducedMotion) {
       handlePauseVideos();
     }
-  }, []);
+  }, [handlePauseVideos]);
 
   useEffect(() => {
     // Force page to top immediately
@@ -54,16 +54,25 @@ export default function Home() {
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              console.log('Video 1 intersection:', entry.isIntersecting, 'Ratio:', entry.intersectionRatio);
+              console.log(
+                'Video 1 intersection:',
+                entry.isIntersecting,
+                'Ratio:',
+                entry.intersectionRatio,
+              );
               if (!videosDisabledRef.current && entry.isIntersecting) {
                 console.log('Playing video 1');
                 video.muted = true; // Ensure muted for autoplay
                 video.play().catch((error) => {
                   console.log('Video 1 play failed:', error);
                   // Fallback: try to play after user interaction
-                  document.addEventListener('click', () => {
-                    video.play().catch(console.log);
-                  }, { once: true });
+                  document.addEventListener(
+                    'click',
+                    () => {
+                      video.play().catch(console.log);
+                    },
+                    { once: true },
+                  );
                 });
               } else {
                 console.log('Pausing video 1');
@@ -71,7 +80,7 @@ export default function Home() {
               }
             });
           },
-          { threshold: [0, 0.1, 0.25], rootMargin: '50% 0px 50% 0px' }
+          { threshold: [0, 0.1, 0.25], rootMargin: '50% 0px 50% 0px' },
         );
         observer.observe(video);
       }
@@ -80,16 +89,25 @@ export default function Home() {
         const brmcObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              console.log('Video 2 intersection:', entry.isIntersecting, 'Ratio:', entry.intersectionRatio);
+              console.log(
+                'Video 2 intersection:',
+                entry.isIntersecting,
+                'Ratio:',
+                entry.intersectionRatio,
+              );
               if (!videosDisabledRef.current && entry.isIntersecting) {
                 console.log('Playing video 2');
                 brmcVideo.muted = true; // Ensure muted for autoplay
                 brmcVideo.play().catch((error) => {
                   console.log('Video 2 play failed:', error);
                   // Fallback: try to play after user interaction
-                  document.addEventListener('click', () => {
-                    brmcVideo.play().catch(console.log);
-                  }, { once: true });
+                  document.addEventListener(
+                    'click',
+                    () => {
+                      brmcVideo.play().catch(console.log);
+                    },
+                    { once: true },
+                  );
                 });
               } else {
                 console.log('Pausing video 2');
@@ -97,16 +115,15 @@ export default function Home() {
               }
             });
           },
-          { threshold: [0, 0.1, 0.25], rootMargin: '50% 0px 50% 0px' }
+          { threshold: [0, 0.1, 0.25], rootMargin: '50% 0px 50% 0px' },
         );
         brmcObserver.observe(brmcVideo);
       }
     };
 
-
     // Simple scroll fade - disabled temporarily
     const setupSimpleScrollFade = () => {
-      return () => { }; // No-op cleanup function
+      return () => {}; // No-op cleanup function
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -157,33 +174,60 @@ export default function Home() {
     <>
       <Head>
         <title>CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology</title>
-        <meta name="description" content="Operations consulting, AI training, web security, and executive coaching for venues and arts organizations. 20 years of live entertainment expertise from Chris Lee Bergstrom." />
+        <meta
+          name="description"
+          content="Operations consulting, AI training, web security, and executive coaching for venues and arts organizations. 20 years of live entertainment expertise from Chris Lee Bergstrom."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
         <meta name="author" content="Chris Lee Bergstrom" />
-        <meta name="keywords" content="AI consulting, venue operations, entertainment technology, executive coaching, web security, bot protection, AI training, live events, arts organizations, Chris Lee Bergstrom, CLB Consulting" />
+        <meta
+          name="keywords"
+          content="AI consulting, venue operations, entertainment technology, executive coaching, web security, bot protection, AI training, live events, arts organizations, Chris Lee Bergstrom, CLB Consulting"
+        />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
 
         {/* Open Graph tags for social sharing */}
         <meta property="og:title" content="CLB Consulting | Venue Operations & AI Training" />
-        <meta property="og:description" content="Operations consulting, AI training, web security, and executive coaching for venues and arts organizations. 20 years of live entertainment expertise from Chris Lee Bergstrom." />
+        <meta
+          property="og:description"
+          content="Operations consulting, AI training, web security, and executive coaching for venues and arts organizations. 20 years of live entertainment expertise from Chris Lee Bergstrom."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
+        <meta
+          property="og:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
-        <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta
+          property="og:image:alt"
+          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+        />
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="CLB Consulting | Venue Operations & AI Training" />
-        <meta name="twitter:description" content="Operations consulting, AI training, web security, and executive coaching for venues and arts organizations. 20 years of live entertainment expertise from Chris Lee Bergstrom." />
-        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
-        <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta
+          name="twitter:description"
+          content="Operations consulting, AI training, web security, and executive coaching for venues and arts organizations. 20 years of live entertainment expertise from Chris Lee Bergstrom."
+        />
+        <meta
+          name="twitter:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+        />
 
         {/* Canonical URL */}
         {/* Canonical URL */}
@@ -194,172 +238,178 @@ export default function Home() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
+              '@context': 'https://schema.org',
+              '@graph': [
                 {
-                  "@type": ["Organization", "LocalBusiness"],
-                  "@id": "https://chrisleebergstrom.com/#organization",
-                  "name": "CLB Consulting",
-                  "alternateName": ["CLB Consultancy", "Chris Lee Bergstrom Consulting"],
-                  "url": "https://chrisleebergstrom.com",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg"
+                  '@type': ['Organization', 'LocalBusiness'],
+                  '@id': 'https://chrisleebergstrom.com/#organization',
+                  name: 'CLB Consulting',
+                  alternateName: ['CLB Consultancy', 'Chris Lee Bergstrom Consulting'],
+                  url: 'https://chrisleebergstrom.com',
+                  logo: {
+                    '@type': 'ImageObject',
+                    url: 'https://chrisleebergstrom.com/images/profile/chris-profile.jpg',
                   },
-                  "image": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
-                  "description": "CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom, specializing in AI-driven solutions for entertainment, hospitality, and live events industry",
-                  "slogan": "Strategy Born from the Wreckage, Intelligence Forged in the Fire",
-                  "founder": {
-                    "@type": "Person",
-                    "@id": "https://chrisleebergstrom.com/about#person",
-                    "name": "Chris Lee Bergstrom"
+                  image: 'https://chrisleebergstrom.com/images/profile/chris-profile.jpg',
+                  description:
+                    'CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom, specializing in AI-driven solutions for entertainment, hospitality, and live events industry',
+                  slogan: 'Strategy Born from the Wreckage, Intelligence Forged in the Fire',
+                  founder: {
+                    '@type': 'Person',
+                    '@id': 'https://chrisleebergstrom.com/about#person',
+                    name: 'Chris Lee Bergstrom',
                   },
-                  "owner": {
-                    "@type": "Person",
-                    "@id": "https://chrisleebergstrom.com/about#person",
-                    "name": "Chris Lee Bergstrom"
+                  owner: {
+                    '@type': 'Person',
+                    '@id': 'https://chrisleebergstrom.com/about#person',
+                    name: 'Chris Lee Bergstrom',
                   },
-                  "contactPoint": {
-                    "@type": "ContactPoint",
-                    "email": "chrisleebergstrom@gmail.com",
-                    "contactType": "Business Inquiries",
-                    "availableLanguage": "English"
+                  contactPoint: {
+                    '@type': 'ContactPoint',
+                    email: 'chrisleebergstrom@gmail.com',
+                    contactType: 'Business Inquiries',
+                    availableLanguage: 'English',
                   },
-                  "address": {
-                    "@type": "PostalAddress",
-                    "addressCountry": "US"
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressCountry: 'US',
                   },
-                  "priceRange": "$$$",
-                  "openingHoursSpecification": {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                    "opens": "09:00",
-                    "closes": "18:00"
+                  priceRange: '$$$',
+                  openingHoursSpecification: {
+                    '@type': 'OpeningHoursSpecification',
+                    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                    opens: '09:00',
+                    closes: '18:00',
                   },
-                  "sameAs": [
-                    "https://www.linkedin.com/in/chris-bergstrom",
-                    "https://www.instagram.com/chrisleebergstrom",
-                    "https://www.youtube.com/@chrisleebergstrom",
-                    "https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr"
+                  sameAs: [
+                    'https://www.linkedin.com/in/chris-bergstrom',
+                    'https://www.instagram.com/chrisleebergstrom',
+                    'https://www.youtube.com/@chrisleebergstrom',
+                    'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr',
                   ],
-                  "knowsAbout": [
-                    "Venue Operations",
-                    "Entertainment Operations",
-                    "AI Education and Training",
-                    "Web Security",
-                    "Bot Protection",
-                    "Executive Coaching",
-                    "Entertainment Technology",
-                    "Live Events Management",
-                    "Audio Engineering",
-                    "Ticket Scalping Prevention",
-                    "Arts Organization Leadership",
-                    "Tour Management",
-                    "Production Infrastructure"
+                  knowsAbout: [
+                    'Venue Operations',
+                    'Entertainment Operations',
+                    'AI Education and Training',
+                    'Web Security',
+                    'Bot Protection',
+                    'Executive Coaching',
+                    'Entertainment Technology',
+                    'Live Events Management',
+                    'Audio Engineering',
+                    'Ticket Scalping Prevention',
+                    'Arts Organization Leadership',
+                    'Tour Management',
+                    'Production Infrastructure',
                   ],
-                  "hasOfferCatalog": {
-                    "@type": "OfferCatalog",
-                    "name": "Consulting Services for Venues & Arts Organizations",
-                    "itemListElement": [
+                  hasOfferCatalog: {
+                    '@type': 'OfferCatalog',
+                    name: 'Consulting Services for Venues & Arts Organizations',
+                    itemListElement: [
                       {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "@id": "https://chrisleebergstrom.com/#operational-consulting",
-                          "name": "Operational Consulting",
-                          "description": "The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—analyzed from load in to load out.",
-                          "url": "https://chrisleebergstrom.com/operations-consulting",
-                          "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
-                          "serviceType": "Venue Operations Consulting"
-                        }
+                        '@type': 'Offer',
+                        itemOffered: {
+                          '@type': 'Service',
+                          '@id': 'https://chrisleebergstrom.com/#operational-consulting',
+                          name: 'Operational Consulting',
+                          description:
+                            'The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—analyzed from load in to load out.',
+                          url: 'https://chrisleebergstrom.com/operations-consulting',
+                          provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
+                          serviceType: 'Venue Operations Consulting',
+                        },
                       },
                       {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "@id": "https://chrisleebergstrom.com/#ai-training",
-                          "name": "AI Education & Training",
-                          "description": "In the top 3.7% of AI users worldwide. From ethics to implementation—practical training for teams ready to lead.",
-                          "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
-                          "serviceType": "AI Training and Education"
-                        }
+                        '@type': 'Offer',
+                        itemOffered: {
+                          '@type': 'Service',
+                          '@id': 'https://chrisleebergstrom.com/#ai-training',
+                          name: 'AI Education & Training',
+                          description:
+                            'In the top 3.7% of AI users worldwide. From ethics to implementation—practical training for teams ready to lead.',
+                          provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
+                          serviceType: 'AI Training and Education',
+                        },
                       },
                       {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "@id": "https://chrisleebergstrom.com/#web-security",
-                          "name": "Guardian / Web Security",
-                          "description": "Bot protection, ticket scalping protection, security hardening, and accessibility for venue websites.",
-                          "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
-                          "serviceType": "Web Security and Accessibility"
-                        }
+                        '@type': 'Offer',
+                        itemOffered: {
+                          '@type': 'Service',
+                          '@id': 'https://chrisleebergstrom.com/#web-security',
+                          name: 'Guardian / Web Security',
+                          description:
+                            'Bot protection, ticket scalping protection, security hardening, and accessibility for venue websites.',
+                          provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
+                          serviceType: 'Web Security and Accessibility',
+                        },
                       },
                       {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "@id": "https://chrisleebergstrom.com/#executive-coaching",
-                          "name": "Executive Coaching",
-                          "description": "Strategic guidance for arts leaders navigating growth and change. Governance, leadership development, boards, budgets.",
-                          "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
-                          "serviceType": "Executive Coaching for Arts Leaders"
-                        }
-                      }
-                    ]
-                  }
+                        '@type': 'Offer',
+                        itemOffered: {
+                          '@type': 'Service',
+                          '@id': 'https://chrisleebergstrom.com/#executive-coaching',
+                          name: 'Executive Coaching',
+                          description:
+                            'Strategic guidance for arts leaders navigating growth and change. Governance, leadership development, boards, budgets.',
+                          provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
+                          serviceType: 'Executive Coaching for Arts Leaders',
+                        },
+                      },
+                    ],
+                  },
                 },
                 {
-                  "@type": "Person",
-                  "@id": "https://chrisleebergstrom.com/about#person",
-                  "name": "Chris Lee Bergstrom",
-                  "alternateName": ["Chris Bergstrom", "CLB"],
-                  "jobTitle": "AI Strategy Consultant & Founder",
-                  "description": "Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events. Founder and principal consultant at CLB Consulting.",
-                  "url": "https://chrisleebergstrom.com/about",
-                  "image": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
-                  "worksFor": {
-                    "@id": "https://chrisleebergstrom.com/#organization"
+                  '@type': 'Person',
+                  '@id': 'https://chrisleebergstrom.com/about#person',
+                  name: 'Chris Lee Bergstrom',
+                  alternateName: ['Chris Bergstrom', 'CLB'],
+                  jobTitle: 'AI Strategy Consultant & Founder',
+                  description:
+                    'Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events. Founder and principal consultant at CLB Consulting.',
+                  url: 'https://chrisleebergstrom.com/about',
+                  image: 'https://chrisleebergstrom.com/images/profile/chris-profile.jpg',
+                  worksFor: {
+                    '@id': 'https://chrisleebergstrom.com/#organization',
                   },
-                  "owns": {
-                    "@id": "https://chrisleebergstrom.com/#organization"
+                  owns: {
+                    '@id': 'https://chrisleebergstrom.com/#organization',
                   },
-                  "hasCredential": "Grammy-nominated Audio Engineer",
-                  "alumniOf": {
-                    "@type": "CollegeOrUniversity",
-                    "name": "Professional Audio Engineering Background"
+                  hasCredential: 'Grammy-nominated Audio Engineer',
+                  alumniOf: {
+                    '@type': 'CollegeOrUniversity',
+                    name: 'Professional Audio Engineering Background',
                   },
-                  "knowsAbout": [
-                    "AI Implementation",
-                    "Entertainment Industry",
-                    "Audio Engineering",
-                    "Live Sound Production",
-                    "Tour Management",
-                    "Multi-Modal AI Systems",
-                    "Team Cohesion Strategies",
-                    "SMAART System Analysis and Training"
+                  knowsAbout: [
+                    'AI Implementation',
+                    'Entertainment Industry',
+                    'Audio Engineering',
+                    'Live Sound Production',
+                    'Tour Management',
+                    'Multi-Modal AI Systems',
+                    'Team Cohesion Strategies',
+                    'SMAART System Analysis and Training',
                   ],
-                  "sameAs": [
-                    "https://www.linkedin.com/in/chris-bergstrom",
-                    "https://www.instagram.com/chrisleebergstrom",
-                    "https://www.youtube.com/@chrisleebergstrom",
-                    "https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr"
+                  sameAs: [
+                    'https://www.linkedin.com/in/chris-bergstrom',
+                    'https://www.instagram.com/chrisleebergstrom',
+                    'https://www.youtube.com/@chrisleebergstrom',
+                    'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr',
                   ],
-                  "email": "chrisleebergstrom@gmail.com"
+                  email: 'chrisleebergstrom@gmail.com',
                 },
                 {
-                  "@type": "WebSite",
-                  "@id": "https://chrisleebergstrom.com/#website",
-                  "url": "https://chrisleebergstrom.com",
-                  "name": "CLB Consulting",
-                  "description": "AI consulting for entertainment, hospitality, and live events",
-                  "publisher": {
-                    "@id": "https://chrisleebergstrom.com/#organization"
+                  '@type': 'WebSite',
+                  '@id': 'https://chrisleebergstrom.com/#website',
+                  url: 'https://chrisleebergstrom.com',
+                  name: 'CLB Consulting',
+                  description: 'AI consulting for entertainment, hospitality, and live events',
+                  publisher: {
+                    '@id': 'https://chrisleebergstrom.com/#organization',
                   },
-                  "inLanguage": "en-US"
-                }
-              ]
-            })
+                  inLanguage: 'en-US',
+                },
+              ],
+            }),
           }}
         />
       </Head>
@@ -381,7 +431,7 @@ export default function Home() {
             filter: 'brightness(0.4) saturate(1.1)',
             opacity: 0.7,
             zIndex: 1,
-            transform: 'scale(1.15)'
+            transform: 'scale(1.15)',
           }}
         >
           <source src="/videos/circuitry-bg-fade.mp4" type="video/mp4" />
@@ -389,39 +439,49 @@ export default function Home() {
       </div>
 
       {/* Debug: Keep this div but make it invisible */}
-      <div style={{
-        position: 'fixed',
-        top: '10px',
-        right: '10px',
-        width: '200px',
-        height: '100px',
-        backgroundImage: 'url(/images/BackgroundHOME.webp)',
-        backgroundSize: 'cover',
-        border: '2px solid red',
-        zIndex: 9999,
-        display: 'none'
-      }}>
+      <div
+        style={{
+          position: 'fixed',
+          top: '10px',
+          right: '10px',
+          width: '200px',
+          height: '100px',
+          backgroundImage: 'url(/images/BackgroundHOME.webp)',
+          backgroundSize: 'cover',
+          border: '2px solid red',
+          zIndex: 9999,
+          display: 'none',
+        }}
+      >
         <span style={{ color: 'white', background: 'black' }}>Test Image 2</span>
       </div>
 
       <main
         id="main-content"
         className="min-h-screen text-white relative"
-        role="main"
         aria-label="Main content area"
         style={{ position: 'relative', zIndex: 10 }}
       >
         <Marquee />
-        <section
-          className="pt-0 pb-8 px-6 text-center"
-        >
+        <section className="pt-0 pb-8 px-6 text-center">
           {/* Flashing lights warning */}
           <div className="flex flex-col items-center mb-4 text-yellow-400">
             <div className="flex items-center justify-center mb-3">
-              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+              <svg
+                className="w-5 h-5 mr-2"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z"
+                  clipRule="evenodd"
+                />
               </svg>
-              <span className="text-sm font-medium">These videos below contain flashing lights</span>
+              <span className="text-sm font-medium">
+                These videos below contain flashing lights
+              </span>
             </div>
             {!videosDisabled && (
               <button
@@ -444,66 +504,125 @@ export default function Home() {
             {/* Row 1: 5 arrows */}
             <div className="flex items-center justify-center space-x-4 mb-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
             </div>
             {/* Row 2: 4 arrows */}
             <div className="flex items-center justify-center space-x-4 mb-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
             </div>
             {/* Row 3: 3 arrows */}
             <div className="flex items-center justify-center space-x-4 mb-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
             </div>
             {/* Row 4: 2 arrows */}
             <div className="flex items-center justify-center space-x-4 mb-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
             </div>
             {/* Row 5: 1 arrow */}
             <div className="flex items-center justify-center mb-4">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
               </svg>
             </div>
           </div>
         </section>
-
 
         {/* Scroll-triggered video section */}
         <section
@@ -523,19 +642,25 @@ export default function Home() {
             >
               <source src="/videos/IMG_0279.mp4" type="video/mp4" />
               <source src="/videos/IMG_0279.mov" type="video/quicktime" />
-              <p>Your browser does not support the video tag. This silent video showcases The Dandy Warhols performing live in Paris, France. The video features stage lighting, audience engagement, and professional live sound mixing by Chris Lee Bergstrom, demonstrating CLB Consultancy's expertise in entertainment technology and live event production.</p>
+              <p>
+                Your browser does not support the video tag. This silent video showcases The Dandy
+                Warhols performing live in Paris, France. The video features stage lighting,
+                audience engagement, and professional live sound mixing by Chris Lee Bergstrom,
+                demonstrating CLB Consultancy's expertise in entertainment technology and live event
+                production.
+              </p>
             </video>
-            <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.85 }}>
+            <p
+              className="text-center text-sm italic mt-2"
+              style={{ color: '#F5F5DC', opacity: 0.85 }}
+            >
               The Dandy Warhols Live in Paris, France
             </p>
           </div>
         </section>
 
         {/* Second video section - BRMC */}
-        <section
-          className="py-12 px-6"
-          aria-label="BRMC promotional video showcase"
-        >
+        <section className="py-12 px-6" aria-label="BRMC promotional video showcase">
           <div className="max-w-4xl mx-auto">
             <video
               id="brmc-video"
@@ -549,26 +674,36 @@ export default function Home() {
             >
               <source src="/videos/BRMC.mp4" type="video/mp4" />
               <source src="/videos/BRMC.mov" type="video/quicktime" />
-              <p>Your browser does not support the video tag. This silent video showcases Black Rebel Motorcycle Club performing live at the Vilar de Mouros festival in Portugal. The video captures the outdoor festival setting, dramatic stage lighting, crowd energy, and professional live sound mixing, highlighting CLB Consultancy's work with Grammy-nominated artists and major international music festivals.</p>
+              <p>
+                Your browser does not support the video tag. This silent video showcases Black Rebel
+                Motorcycle Club performing live at the Vilar de Mouros festival in Portugal. The
+                video captures the outdoor festival setting, dramatic stage lighting, crowd energy,
+                and professional live sound mixing, highlighting CLB Consultancy's work with
+                Grammy-nominated artists and major international music festivals.
+              </p>
             </video>
-            <p className="text-center text-sm italic mt-2" style={{ color: '#F5F5DC', opacity: 0.85 }}>
+            <p
+              className="text-center text-sm italic mt-2"
+              style={{ color: '#F5F5DC', opacity: 0.85 }}
+            >
               Black Rebel Motorcycle Club in Vilar de Mouros, Portugal
             </p>
           </div>
         </section>
 
         {/* Profile Image Section */}
-        <section
-          className="py-12 px-6"
-          aria-label="Chris Lee Bergstrom profile image"
-        >
+        <section className="py-12 px-6" aria-label="Chris Lee Bergstrom profile image">
           <div className="max-w-4xl mx-auto flex justify-center">
-            <div className="w-80 h-96 rounded-lg overflow-hidden bg-black/20" style={{
-              mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-              maskComposite: 'intersect',
-              WebkitMask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-              WebkitMaskComposite: 'source-in'
-            }}>
+            <div
+              className="w-80 h-96 rounded-lg overflow-hidden bg-black/20"
+              style={{
+                mask: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                maskComposite: 'intersect',
+                WebkitMask:
+                  'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent), linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                WebkitMaskComposite: 'source-in',
+              }}
+            >
               <img
                 src="/images/profile/chris-profile.jpg"
                 alt="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
@@ -579,8 +714,13 @@ export default function Home() {
                   if (fallback) fallback.style.display = 'flex';
                 }}
               />
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-molten/30 to-gray-700/50" style={{ display: 'none' }}>
-                <span className="text-2xl font-bold" style={{ color: '#F5F5DC' }}>CLB</span>
+              <div
+                className="w-full h-full flex items-center justify-center bg-gradient-to-br from-molten/30 to-gray-700/50"
+                style={{ display: 'none' }}
+              >
+                <span className="text-2xl font-bold" style={{ color: '#F5F5DC' }}>
+                  CLB
+                </span>
               </div>
             </div>
           </div>

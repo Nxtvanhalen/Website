@@ -371,7 +371,7 @@ function cleanupRateLimitMap() {
         entriesToDelete.push(ip);
       }
     });
-    entriesToDelete.forEach(ip => rateLimitMap.delete(ip));
+    entriesToDelete.forEach((ip) => rateLimitMap.delete(ip));
     lastCleanup = now;
   }
 
@@ -405,7 +405,10 @@ function checkRateLimit(ip: string): boolean {
 
 // Custom error class for client errors
 class ClientError extends Error {
-  constructor(message: string, public statusCode: number = 400) {
+  constructor(
+    message: string,
+    public statusCode: number = 400,
+  ) {
     super(message);
     this.name = 'ClientError';
   }
@@ -424,7 +427,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.setHeader('Allow', ['POST']);
     return res.status(405).json({
       error: 'Method Not Allowed',
-      details: 'This endpoint only accepts POST requests'
+      details: 'This endpoint only accepts POST requests',
     });
   }
 
@@ -433,7 +436,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     // Rate limiting
-    const clientIP = (req.headers['x-forwarded-for'] as string)?.split(',')[0] ||
+    const clientIP =
+      (req.headers['x-forwarded-for'] as string)?.split(',')[0] ||
       req.connection?.remoteAddress ||
       req.socket?.remoteAddress ||
       'unknown';
@@ -452,8 +456,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     // Initialize OpenAI client
-    const openai = new OpenAI({
-      apiKey: apiKey
+    const _openai = new OpenAI({
+      apiKey: apiKey,
     });
 
     // Validate user message
@@ -479,8 +483,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       input: userMessage.trim(),
       instructions: systemPrompt,
       reasoning: {
-        effort: 'minimal'
-      }
+        effort: 'minimal',
+      },
     };
 
     if (previousResponseId) {
@@ -490,10 +494,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const apiResponse = await fetch('https://api.openai.com/v1/responses', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(requestBody)
+      body: JSON.stringify(requestBody),
     });
 
     if (!apiResponse.ok) {
@@ -504,21 +508,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log('GPT-5 Response:', JSON.stringify(response, null, 2));
 
     // Extract response content and ID from Responses API
-    let reply = 'I\'m experiencing some technical difficulties. Please try again in a moment, or feel free to email me directly!';
+    let reply =
+      "I'm experiencing some technical difficulties. Please try again in a moment, or feel free to email me directly!";
     let responseId = null;
 
-    if (response && response.output && Array.isArray(response.output)) {
+    if (response?.output && Array.isArray(response.output)) {
       // Find the message output in the response array
       const messageOutput = response.output.find((item: any) => item.type === 'message');
-      if (messageOutput && messageOutput.content && Array.isArray(messageOutput.content)) {
-        const textContent = messageOutput.content.find((content: any) => content.type === 'output_text');
-        if (textContent && textContent.text) {
+      if (messageOutput?.content && Array.isArray(messageOutput.content)) {
+        const textContent = messageOutput.content.find(
+          (content: any) => content.type === 'output_text',
+        );
+        if (textContent?.text) {
           reply = textContent.text;
         }
       }
     }
 
-    if (response && response.id) {
+    if (response?.id) {
       responseId = response.id;
     }
 
@@ -545,13 +552,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           html: `<p><strong>Incoming transmission from EVE:</strong></p>
                  <p>${emailData.body}</p>
                  <hr/>
-                 <p><small>Sent via EVE AI on chrisleebergstrom.com</small></p>`
+                 <p><small>Sent via EVE AI on chrisleebergstrom.com</small></p>`,
         });
 
         if (error) {
           console.error('Resend Error:', error);
-          // Don't tell the user it failed if we can avoid breaking the immersion, 
-          // or maybe append a small error note? 
+          // Don't tell the user it failed if we can avoid breaking the immersion,
+          // or maybe append a small error note?
           // For now, EVE thinks she sent it.
         } else {
           console.log('Email sent successfully:', data);
@@ -564,15 +571,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (!reply) {
           reply = "I've sent that transmission to Chris. 📨";
         }
-
       } catch (e) {
         console.error('Failed to process email tool:', e);
-        reply += "\n\n(System Note: Failed to send email. Please try again later.)";
+        reply += '\n\n(System Note: Failed to send email. Please try again later.)';
       }
     } else if (match && !resendApiKey) {
       console.warn('EVE tried to send email but RESEND_API_KEY is missing.');
       reply = reply.replace(match[0], '').trim();
-      reply += "\n\n(System Note: Email capability is currently disabled/unconfigured.)";
+      reply += '\n\n(System Note: Email capability is currently disabled/unconfigured.)';
     }
     // ------------------------
 
@@ -581,9 +587,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(200).json({
       reply,
       responseId,
-      success: true
+      success: true,
     });
-
   } catch (error: any) {
     console.error('Chat API error:', error);
 
@@ -591,7 +596,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (error instanceof ClientError) {
       return res.status(error.statusCode).json({
         error: error.message,
-        success: false
+        success: false,
       });
     }
 
@@ -618,14 +623,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       return res.status(statusCode >= 500 ? 503 : statusCode).json({
         error: errorMessage,
-        success: false
+        success: false,
       });
     }
 
     // Generic server error
     return res.status(500).json({
       error: 'Internal server error. Please try again later',
-      success: false
+      success: false,
     });
   }
 }

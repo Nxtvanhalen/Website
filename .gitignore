@@ -16,6 +16,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Package manager lock (using bun)
+package-lock.json
+
 # IDE
 .vscode/
 .idea/

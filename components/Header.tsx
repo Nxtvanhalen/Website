@@ -1,8 +1,8 @@
+import { AnimatePresence, motion } from 'motion/react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState, useCallback } from 'react';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'motion/react';
+import { useCallback, useEffect, useState } from 'react';
 
 // Navigation links configuration
 const NAV_LINKS = [
@@ -25,7 +25,11 @@ const EXTERNAL_LINK = {
 // Social links configuration
 const SOCIAL_LINKS = [
   { href: 'https://www.instagram.com/chrisleebergstrom', label: 'Instagram', icon: 'instagram' },
-  { href: 'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr', label: 'Facebook', icon: 'facebook' },
+  {
+    href: 'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr',
+    label: 'Facebook',
+    icon: 'facebook',
+  },
   { href: 'https://www.linkedin.com/in/chris-bergstrom', label: 'LinkedIn', icon: 'linkedin' },
   { href: 'https://www.youtube.com/@chrisleebergstrom', label: 'YouTube', icon: 'youtube' },
   { href: 'https://github.com/Nxtvanhalen', label: 'GitHub', icon: 'github' },
@@ -93,7 +97,7 @@ export default function Header() {
   }, [menuOpen]);
 
   const toggleMenu = useCallback(() => {
-    setMenuOpen(prev => !prev);
+    setMenuOpen((prev) => !prev);
   }, []);
 
   const closeMenu = useCallback(() => {
@@ -111,18 +115,10 @@ export default function Header() {
         Skip to main content
       </a>
 
-      <header
-        className={`header ${scrolled ? 'scrolled' : ''}`}
-        role="banner"
-        aria-label="Site header"
-      >
+      <header className={`header ${scrolled ? 'scrolled' : ''}`} aria-label="Site header">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
-          <Link
-            href="/home"
-            className="logo z-10"
-            aria-label="CLB Consulting - Return to homepage"
-          >
+          <Link href="/home" className="logo z-10" aria-label="CLB Consulting - Return to homepage">
             {isHomePage ? (
               <Image
                 src="/images/Purple Logo.png"
@@ -142,7 +138,8 @@ export default function Header() {
                 style={{
                   mask: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
                   maskComposite: 'intersect',
-                  WebkitMask: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+                  WebkitMask:
+                    'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
                   WebkitMaskComposite: 'source-in',
                 }}
               >
@@ -233,12 +230,17 @@ export default function Header() {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             >
               {/* Close Button */}
-              <button
-                onClick={closeMenu}
-                className="menu-close-btn"
-                aria-label="Close menu"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <button onClick={closeMenu} className="menu-close-btn" aria-label="Close menu">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <line x1="18" y1="6" x2="6" y2="18"></line>
                   <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
@@ -274,7 +276,13 @@ export default function Header() {
                   >
                     <span className="menu-link-label">{EXTERNAL_LINK.label}</span>
                     <span className="menu-link-desc">{EXTERNAL_LINK.description}</span>
-                    <svg className="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="external-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
                     </svg>
                   </motion.a>

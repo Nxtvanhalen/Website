@@ -1,17 +1,28 @@
+import { motion } from 'motion/react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { motion } from 'motion/react';
 
 export default function Landing() {
   return (
     <div className="min-h-screen bg-black text-white relative">
       <Head>
-        <title>CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology Consultant</title>
-        <meta name="description" content="CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations." />
+        <title>
+          CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology Consultant
+        </title>
+        <meta
+          name="description"
+          content="CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
         <meta name="author" content="Chris Lee Bergstrom" />
-        <meta name="keywords" content="AI consulting, venue operations, entertainment technology, executive coaching, web security, bot protection, AI training, live events, arts organizations, Chris Lee Bergstrom, CLB Consulting" />
+        <meta
+          name="keywords"
+          content="AI consulting, venue operations, entertainment technology, executive coaching, web security, bot protection, AI training, live events, arts organizations, Chris Lee Bergstrom, CLB Consulting"
+        />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9370DB" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
@@ -21,29 +32,57 @@ export default function Landing() {
         <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/Favicon/android-chrome-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/images/Favicon/android-chrome-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href="/images/Favicon/android-chrome-512x512.png"
+        />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Open Graph tags for social sharing */}
         <meta property="og:title" content="CLB Consulting | Venue Operations & AI Training" />
-        <meta property="og:description" content="CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations." />
+        <meta
+          property="og:description"
+          content="CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
+        <meta
+          property="og:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
-        <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta
+          property="og:image:alt"
+          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+        />
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="CLB Consulting | Venue Operations & AI Training" />
-        <meta name="twitter:description" content="CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations." />
-        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
-        <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta
+          name="twitter:description"
+          content="CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations."
+        />
+        <meta
+          name="twitter:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+        />
 
         {/* Canonical URL */}
         {/* Canonical URL */}
@@ -54,172 +93,178 @@ export default function Landing() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
+              '@context': 'https://schema.org',
+              '@graph': [
                 {
-                  "@type": ["Organization", "LocalBusiness"],
-                  "@id": "https://chrisleebergstrom.com/#organization",
-                  "name": "CLB Consulting",
-                  "alternateName": ["CLB Consultancy", "Chris Lee Bergstrom Consulting"],
-                  "url": "https://chrisleebergstrom.com",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg"
+                  '@type': ['Organization', 'LocalBusiness'],
+                  '@id': 'https://chrisleebergstrom.com/#organization',
+                  name: 'CLB Consulting',
+                  alternateName: ['CLB Consultancy', 'Chris Lee Bergstrom Consulting'],
+                  url: 'https://chrisleebergstrom.com',
+                  logo: {
+                    '@type': 'ImageObject',
+                    url: 'https://chrisleebergstrom.com/images/profile/chris-profile.jpg',
                   },
-                  "image": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
-                  "description": "CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom, specializing in AI-driven solutions for entertainment, hospitality, and live events industry",
-                  "slogan": "Strategy Born from the Wreckage, Intelligence Forged in the Fire",
-                  "founder": {
-                    "@type": "Person",
-                    "@id": "https://chrisleebergstrom.com/about#person",
-                    "name": "Chris Lee Bergstrom"
+                  image: 'https://chrisleebergstrom.com/images/profile/chris-profile.jpg',
+                  description:
+                    'CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom, specializing in AI-driven solutions for entertainment, hospitality, and live events industry',
+                  slogan: 'Strategy Born from the Wreckage, Intelligence Forged in the Fire',
+                  founder: {
+                    '@type': 'Person',
+                    '@id': 'https://chrisleebergstrom.com/about#person',
+                    name: 'Chris Lee Bergstrom',
                   },
-                  "owner": {
-                    "@type": "Person",
-                    "@id": "https://chrisleebergstrom.com/about#person",
-                    "name": "Chris Lee Bergstrom"
+                  owner: {
+                    '@type': 'Person',
+                    '@id': 'https://chrisleebergstrom.com/about#person',
+                    name: 'Chris Lee Bergstrom',
                   },
-                  "contactPoint": {
-                    "@type": "ContactPoint",
-                    "email": "chrisleebergstrom@gmail.com",
-                    "contactType": "Business Inquiries",
-                    "availableLanguage": "English"
+                  contactPoint: {
+                    '@type': 'ContactPoint',
+                    email: 'chrisleebergstrom@gmail.com',
+                    contactType: 'Business Inquiries',
+                    availableLanguage: 'English',
                   },
-                  "address": {
-                    "@type": "PostalAddress",
-                    "addressCountry": "US"
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressCountry: 'US',
                   },
-                  "priceRange": "$$$",
-                  "openingHoursSpecification": {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                    "opens": "09:00",
-                    "closes": "18:00"
+                  priceRange: '$$$',
+                  openingHoursSpecification: {
+                    '@type': 'OpeningHoursSpecification',
+                    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                    opens: '09:00',
+                    closes: '18:00',
                   },
-                  "sameAs": [
-                    "https://www.linkedin.com/in/chris-bergstrom",
-                    "https://www.instagram.com/chrisleebergstrom",
-                    "https://www.youtube.com/@chrisleebergstrom",
-                    "https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr"
+                  sameAs: [
+                    'https://www.linkedin.com/in/chris-bergstrom',
+                    'https://www.instagram.com/chrisleebergstrom',
+                    'https://www.youtube.com/@chrisleebergstrom',
+                    'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr',
                   ],
-                  "knowsAbout": [
-                    "Venue Operations",
-                    "Entertainment Operations",
-                    "AI Education and Training",
-                    "Web Security",
-                    "Bot Protection",
-                    "Executive Coaching",
-                    "Entertainment Technology",
-                    "Live Events Management",
-                    "Audio Engineering",
-                    "Ticket Scalping Prevention",
-                    "Arts Organization Leadership",
-                    "Tour Management",
-                    "Production Infrastructure"
+                  knowsAbout: [
+                    'Venue Operations',
+                    'Entertainment Operations',
+                    'AI Education and Training',
+                    'Web Security',
+                    'Bot Protection',
+                    'Executive Coaching',
+                    'Entertainment Technology',
+                    'Live Events Management',
+                    'Audio Engineering',
+                    'Ticket Scalping Prevention',
+                    'Arts Organization Leadership',
+                    'Tour Management',
+                    'Production Infrastructure',
                   ],
-                  "hasOfferCatalog": {
-                    "@type": "OfferCatalog",
-                    "name": "Consulting Services for Venues & Arts Organizations",
-                    "itemListElement": [
+                  hasOfferCatalog: {
+                    '@type': 'OfferCatalog',
+                    name: 'Consulting Services for Venues & Arts Organizations',
+                    itemListElement: [
                       {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "@id": "https://chrisleebergstrom.com/#operational-consulting",
-                          "name": "Operational Consulting",
-                          "description": "The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—analyzed from load in to load out.",
-                          "url": "https://chrisleebergstrom.com/operations-consulting",
-                          "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
-                          "serviceType": "Venue Operations Consulting"
-                        }
+                        '@type': 'Offer',
+                        itemOffered: {
+                          '@type': 'Service',
+                          '@id': 'https://chrisleebergstrom.com/#operational-consulting',
+                          name: 'Operational Consulting',
+                          description:
+                            'The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—analyzed from load in to load out.',
+                          url: 'https://chrisleebergstrom.com/operations-consulting',
+                          provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
+                          serviceType: 'Venue Operations Consulting',
+                        },
                       },
                       {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "@id": "https://chrisleebergstrom.com/#ai-training",
-                          "name": "AI Education & Training",
-                          "description": "In the top 3.7% of AI users worldwide. From ethics to implementation—practical training for teams ready to lead.",
-                          "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
-                          "serviceType": "AI Training and Education"
-                        }
+                        '@type': 'Offer',
+                        itemOffered: {
+                          '@type': 'Service',
+                          '@id': 'https://chrisleebergstrom.com/#ai-training',
+                          name: 'AI Education & Training',
+                          description:
+                            'In the top 3.7% of AI users worldwide. From ethics to implementation—practical training for teams ready to lead.',
+                          provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
+                          serviceType: 'AI Training and Education',
+                        },
                       },
                       {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "@id": "https://chrisleebergstrom.com/#web-security",
-                          "name": "Guardian / Web Security",
-                          "description": "Bot protection, ticket scalping protection, security hardening, and accessibility for venue websites.",
-                          "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
-                          "serviceType": "Web Security and Accessibility"
-                        }
+                        '@type': 'Offer',
+                        itemOffered: {
+                          '@type': 'Service',
+                          '@id': 'https://chrisleebergstrom.com/#web-security',
+                          name: 'Guardian / Web Security',
+                          description:
+                            'Bot protection, ticket scalping protection, security hardening, and accessibility for venue websites.',
+                          provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
+                          serviceType: 'Web Security and Accessibility',
+                        },
                       },
                       {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "@id": "https://chrisleebergstrom.com/#executive-coaching",
-                          "name": "Executive Coaching",
-                          "description": "Strategic guidance for arts leaders navigating growth and change. Governance, leadership development, boards, budgets.",
-                          "provider": {"@id": "https://chrisleebergstrom.com/#organization"},
-                          "serviceType": "Executive Coaching for Arts Leaders"
-                        }
-                      }
-                    ]
-                  }
+                        '@type': 'Offer',
+                        itemOffered: {
+                          '@type': 'Service',
+                          '@id': 'https://chrisleebergstrom.com/#executive-coaching',
+                          name: 'Executive Coaching',
+                          description:
+                            'Strategic guidance for arts leaders navigating growth and change. Governance, leadership development, boards, budgets.',
+                          provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
+                          serviceType: 'Executive Coaching for Arts Leaders',
+                        },
+                      },
+                    ],
+                  },
                 },
                 {
-                  "@type": "Person",
-                  "@id": "https://chrisleebergstrom.com/about#person",
-                  "name": "Chris Lee Bergstrom",
-                  "alternateName": ["Chris Bergstrom", "CLB"],
-                  "jobTitle": "AI Strategy Consultant & Founder",
-                  "description": "Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events. Founder and principal consultant at CLB Consulting.",
-                  "url": "https://chrisleebergstrom.com/about",
-                  "image": "https://chrisleebergstrom.com/images/profile/chris-profile.jpg",
-                  "worksFor": {
-                    "@id": "https://chrisleebergstrom.com/#organization"
+                  '@type': 'Person',
+                  '@id': 'https://chrisleebergstrom.com/about#person',
+                  name: 'Chris Lee Bergstrom',
+                  alternateName: ['Chris Bergstrom', 'CLB'],
+                  jobTitle: 'AI Strategy Consultant & Founder',
+                  description:
+                    'Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events. Founder and principal consultant at CLB Consulting.',
+                  url: 'https://chrisleebergstrom.com/about',
+                  image: 'https://chrisleebergstrom.com/images/profile/chris-profile.jpg',
+                  worksFor: {
+                    '@id': 'https://chrisleebergstrom.com/#organization',
                   },
-                  "owns": {
-                    "@id": "https://chrisleebergstrom.com/#organization"
+                  owns: {
+                    '@id': 'https://chrisleebergstrom.com/#organization',
                   },
-                  "hasCredential": "Grammy-nominated Audio Engineer",
-                  "alumniOf": {
-                    "@type": "CollegeOrUniversity",
-                    "name": "Professional Audio Engineering Background"
+                  hasCredential: 'Grammy-nominated Audio Engineer',
+                  alumniOf: {
+                    '@type': 'CollegeOrUniversity',
+                    name: 'Professional Audio Engineering Background',
                   },
-                  "knowsAbout": [
-                    "AI Implementation",
-                    "Entertainment Industry",
-                    "Audio Engineering",
-                    "Live Sound Production",
-                    "Tour Management",
-                    "Multi-Agent Systems",
-                    "Team Cohesion Strategies",
-                    "SMAART System Analysis and Training"
+                  knowsAbout: [
+                    'AI Implementation',
+                    'Entertainment Industry',
+                    'Audio Engineering',
+                    'Live Sound Production',
+                    'Tour Management',
+                    'Multi-Agent Systems',
+                    'Team Cohesion Strategies',
+                    'SMAART System Analysis and Training',
                   ],
-                  "sameAs": [
-                    "https://www.linkedin.com/in/chris-bergstrom",
-                    "https://www.instagram.com/chrisleebergstrom",
-                    "https://www.youtube.com/@chrisleebergstrom",
-                    "https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr"
+                  sameAs: [
+                    'https://www.linkedin.com/in/chris-bergstrom',
+                    'https://www.instagram.com/chrisleebergstrom',
+                    'https://www.youtube.com/@chrisleebergstrom',
+                    'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr',
                   ],
-                  "email": "chrisleebergstrom@gmail.com"
+                  email: 'chrisleebergstrom@gmail.com',
                 },
                 {
-                  "@type": "WebSite",
-                  "@id": "https://chrisleebergstrom.com/#website",
-                  "url": "https://chrisleebergstrom.com",
-                  "name": "CLB Consulting",
-                  "description": "AI consulting for entertainment, hospitality, and live events",
-                  "publisher": {
-                    "@id": "https://chrisleebergstrom.com/#organization"
+                  '@type': 'WebSite',
+                  '@id': 'https://chrisleebergstrom.com/#website',
+                  url: 'https://chrisleebergstrom.com',
+                  name: 'CLB Consulting',
+                  description: 'AI consulting for entertainment, hospitality, and live events',
+                  publisher: {
+                    '@id': 'https://chrisleebergstrom.com/#organization',
                   },
-                  "inLanguage": "en-US"
-                }
-              ]
-            })
+                  inLanguage: 'en-US',
+                },
+              ],
+            }),
           }}
         />
       </Head>
@@ -241,7 +286,7 @@ export default function Landing() {
             filter: 'brightness(0.3) saturate(0.8) blur(1px)',
             opacity: 0.4,
             zIndex: 1,
-            transform: 'scale(1.15)'
+            transform: 'scale(1.15)',
           }}
         >
           <source src="/videos/circuitry-bg-fade.mp4" type="video/mp4" />
@@ -250,7 +295,6 @@ export default function Landing() {
 
       <main
         className="min-h-screen flex flex-col items-center justify-center relative"
-        role="main"
         aria-label="CLB Consulting Landing Page"
         style={{ position: 'relative', zIndex: 10 }}
       >
@@ -282,7 +326,8 @@ export default function Landing() {
             style={{
               mask: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
               maskComposite: 'intersect',
-              WebkitMask: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+              WebkitMask:
+                'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
               WebkitMaskComposite: 'source-in',
             }}
           >
@@ -320,7 +365,9 @@ export default function Landing() {
           >
             Contact
           </a>
-          <div className="text-sm mt-2" style={{ color: '#F5F5DC', opacity: 0.7 }}>chrisleebergstrom@gmail.com</div>
+          <div className="text-sm mt-2" style={{ color: '#F5F5DC', opacity: 0.7 }}>
+            chrisleebergstrom@gmail.com
+          </div>
         </motion.div>
       </main>
     </div>

@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'motion/react';
+import { animate, motion, useMotionValue, useTransform } from 'motion/react';
+import type React from 'react';
+import { useEffect, useState } from 'react';
 
 interface TypewriterTextProps {
   text: string;
@@ -26,22 +27,22 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
 }) => {
   const [isComplete, setIsComplete] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
-  
+
   // Use motion values for performance optimization - no re-renders during animation
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);
   const displayText = useTransform(rounded, (latest) => text.slice(0, latest));
-  
+
   useEffect(() => {
     // Set a timer for the initial delay
     const delayTimer = setTimeout(() => {
       setHasStarted(true);
-      
+
       // Animate the count from 0 to text length
       const controls = animate(count, text.length, {
-        type: "tween",
+        type: 'tween',
         duration: (text.length * speed) / 1000, // Convert ms to seconds
-        ease: "linear",
+        ease: 'linear',
         onComplete: () => {
           setIsComplete(true);
           if (onComplete) {
@@ -49,17 +50,17 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
           }
         },
       });
-      
+
       // Return cleanup function for the animation
       return () => controls.stop();
     }, delay);
-    
+
     // Cleanup function for the timer
     return () => {
       clearTimeout(delayTimer);
     };
   }, [count, text.length, speed, delay, onComplete]);
-  
+
   return (
     <span
       className={`${className} ${isComplete ? 'typewriter-glow' : ''}`}

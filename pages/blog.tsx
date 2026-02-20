@@ -1,10 +1,8 @@
-import Head from 'next/head';
-import { useState, useEffect } from 'react';
-import SectionTracker from '../components/SectionTracker';
-
-import Header from '../components/Header';
 import { motion } from 'motion/react';
-import Image from 'next/image';
+import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import Header from '../components/Header';
+import SectionTracker from '../components/SectionTracker';
 
 interface SubstackPost {
   title: string;
@@ -55,7 +53,7 @@ export default function Blog() {
     return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     });
   };
 
@@ -63,35 +61,66 @@ export default function Blog() {
     <>
       <Head>
         <title>Musings - CLB Consulting Blog | AI Insights & Industry Analysis</title>
-        <meta name="description" content="Strategic insights, AI analysis, and industry musings from CLB Consulting. Explore our thoughts on entertainment technology, team dynamics, and systems thinking." />
+        <meta
+          name="description"
+          content="Strategic insights, AI analysis, and industry musings from CLB Consulting. Explore our thoughts on entertainment technology, team dynamics, and systems thinking."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* Open Graph tags */}
         <meta property="og:title" content="Musings | CLB Consulting" />
-        <meta property="og:description" content="Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom." />
+        <meta
+          property="og:description"
+          content="Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://chrisleebergstrom.com/blog" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
+        <meta
+          property="og:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
-        <meta property="og:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta
+          property="og:image:alt"
+          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+        />
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chrisleebergstrom" />
         <meta name="twitter:creator" content="@chrisleebergstrom" />
         <meta name="twitter:title" content="Musings | CLB Consulting" />
-        <meta name="twitter:description" content="Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom." />
-        <meta name="twitter:image" content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg" />
-        <meta name="twitter:image:alt" content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer" />
+        <meta
+          name="twitter:description"
+          content="Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom."
+        />
+        <meta
+          name="twitter:image"
+          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+        />
 
         {/* Favicon and App Icons */}
         <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/Favicon/android-chrome-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/images/Favicon/android-chrome-512x512.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/images/Favicon/android-chrome-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href="/images/Favicon/android-chrome-512x512.png"
+        />
         <meta name="msapplication-TileColor" content="#000000" />
 
         {/* Canonical URL */}
@@ -102,40 +131,41 @@ export default function Blog() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Blog",
-              "name": "Musings - CLB Consulting Blog",
-              "description": "Strategic insights on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom",
-              "url": "https://chrisleebergstrom.com/blog",
-              "publisher": {
-                "@type": "Organization",
-                "@id": "https://chrisleebergstrom.com/#organization",
-                "name": "CLB Consulting"
+              '@context': 'https://schema.org',
+              '@type': 'Blog',
+              name: 'Musings - CLB Consulting Blog',
+              description:
+                'Strategic insights on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom',
+              url: 'https://chrisleebergstrom.com/blog',
+              publisher: {
+                '@type': 'Organization',
+                '@id': 'https://chrisleebergstrom.com/#organization',
+                name: 'CLB Consulting',
               },
-              "author": {
-                "@type": "Person",
-                "@id": "https://chrisleebergstrom.com/about#person",
-                "name": "Chris Lee Bergstrom"
+              author: {
+                '@type': 'Person',
+                '@id': 'https://chrisleebergstrom.com/about#person',
+                name: 'Chris Lee Bergstrom',
               },
-              "blogPost": [],
-              "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
+              blogPost: [],
+              breadcrumb: {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
                   {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://chrisleebergstrom.com"
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://chrisleebergstrom.com',
                   },
                   {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Blog",
-                    "item": "https://chrisleebergstrom.com/blog"
-                  }
-                ]
-              }
-            })
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'Blog',
+                    item: 'https://chrisleebergstrom.com/blog',
+                  },
+                ],
+              },
+            }),
           }}
         />
       </Head>
@@ -151,7 +181,7 @@ export default function Blog() {
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             transform: 'translateY(100px)',
-            minHeight: '120vh'
+            minHeight: '120vh',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
@@ -192,9 +222,14 @@ export default function Blog() {
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
                   animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                 >
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg
+                    className="w-6 h-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                     <defs>
                       <linearGradient id="rainbow_gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#FF0000" />
@@ -205,7 +240,10 @@ export default function Blog() {
                         <stop offset="100%" stopColor="#8B00FF" />
                       </linearGradient>
                     </defs>
-                    <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" fill="url(#rainbow_gradient)" />
+                    <path
+                      d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"
+                      fill="url(#rainbow_gradient)"
+                    />
                   </svg>
                 </motion.a>
                 <motion.a
@@ -216,7 +254,7 @@ export default function Blog() {
                   whileHover={{ scale: 1.05, x: 5 }}
                   whileTap={{ scale: 0.95 }}
                   animate={{ scale: [1, 1.02, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                 >
                   Check out the Stack! →
                 </motion.a>
@@ -230,11 +268,12 @@ export default function Blog() {
             butlerMessage="Chris's musings can be... intense. But always insightful. Want me to summarize the latest?"
           >
             <div className="mb-16">
-
               {loading && (
                 <div className="text-center py-12">
                   <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-molten"></div>
-                  <p className="mt-4" style={{ color: '#F5F5DC', opacity: 0.6 }}>Loading latest posts...</p>
+                  <p className="mt-4" style={{ color: '#F5F5DC', opacity: 0.6 }}>
+                    Loading latest posts...
+                  </p>
                 </div>
               )}
 
@@ -257,18 +296,30 @@ export default function Blog() {
                 <>
                   <div className="space-y-6 mb-12">
                     {substackPosts.map((post, index) => (
-                      <article key={index} className="bg-black/40 border border-molten/30 rounded-lg p-6 backdrop-blur-sm hover:border-molten/50 transition-all duration-300">
+                      <article
+                        key={index}
+                        className="bg-black/40 border border-molten/30 rounded-lg p-6 backdrop-blur-sm hover:border-molten/50 transition-all duration-300"
+                      >
                         <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                          <h3 className="text-xl font-semibold mb-2 md:mb-0 md:pr-4 leading-tight" style={{ color: '#F5F5DC' }}>
+                          <h3
+                            className="text-xl font-semibold mb-2 md:mb-0 md:pr-4 leading-tight"
+                            style={{ color: '#F5F5DC' }}
+                          >
                             {post.title}
                           </h3>
-                          <time className="text-sm whitespace-nowrap" style={{ color: '#F5F5DC', opacity: 0.6 }}>
+                          <time
+                            className="text-sm whitespace-nowrap"
+                            style={{ color: '#F5F5DC', opacity: 0.6 }}
+                          >
                             {formatDate(post.pubDate)}
                           </time>
                         </div>
 
                         {post.contentSnippet && (
-                          <p className="leading-relaxed mb-4" style={{ color: '#F5F5DC', opacity: 0.9 }}>
+                          <p
+                            className="leading-relaxed mb-4"
+                            style={{ color: '#F5F5DC', opacity: 0.9 }}
+                          >
                             {post.contentSnippet}
                           </p>
                         )}
@@ -307,7 +358,9 @@ export default function Blog() {
 
               {!loading && !error && substackPosts.length === 0 && (
                 <div className="text-center py-12">
-                  <p className="mb-6" style={{ color: '#F5F5DC', opacity: 0.6 }}>New posts coming soon!</p>
+                  <p className="mb-6" style={{ color: '#F5F5DC', opacity: 0.6 }}>
+                    New posts coming soon!
+                  </p>
                   <a
                     href="https://chrisleebergstrom.substack.com"
                     target="_blank"
@@ -332,17 +385,23 @@ export default function Blog() {
                 <h2 className="text-3xl font-heading mb-6" style={{ color: '#F5F5DC' }}>
                   Subscribe to Musings
                 </h2>
-                <p className="text-lg mb-8 max-w-2xl mx-auto leading-relaxed" style={{ color: '#F5F5DC', opacity: 0.9 }}>
-                  Get exclusive insights on AI strategy, entertainment technology, and systems thinking delivered directly to your inbox.
-                  No corporate fluff—just raw intelligence from the trenches.
+                <p
+                  className="text-lg mb-8 max-w-2xl mx-auto leading-relaxed"
+                  style={{ color: '#F5F5DC', opacity: 0.9 }}
+                >
+                  Get exclusive insights on AI strategy, entertainment technology, and systems
+                  thinking delivered directly to your inbox. No corporate fluff—just raw
+                  intelligence from the trenches.
                 </p>
 
                 {/* Substack Embed/Link */}
                 <div className="bg-black/60 border border-molten/20 rounded-lg p-6 mb-6">
-                  <h3 className="text-xl font-semibold mb-4" style={{ color: '#F5F5DC' }}>Ready for Strategy Born from the Wreckage?</h3>
+                  <h3 className="text-xl font-semibold mb-4" style={{ color: '#F5F5DC' }}>
+                    Ready for Strategy Born from the Wreckage?
+                  </h3>
                   <p className="mb-6" style={{ color: '#F5F5DC', opacity: 0.8 }}>
-                    Join the conversation where theatrical meets tactical, where entertainment industry wisdom
-                    collides with cutting-edge AI strategy.
+                    Join the conversation where theatrical meets tactical, where entertainment
+                    industry wisdom collides with cutting-edge AI strategy.
                   </p>
 
                   <a
@@ -369,10 +428,15 @@ export default function Blog() {
             butlerMessage="Inspired? Disagreed? Let's talk about it."
           >
             <div className="text-center bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm mb-24">
-              <h2 className="text-3xl font-heading mb-4" style={{ color: '#F5F5DC' }}>Want to Discuss These Ideas?</h2>
-              <p className="text-lg mb-6 max-w-2xl mx-auto" style={{ color: '#F5F5DC', opacity: 0.9 }}>
-                Have thoughts on a piece? Questions about implementation?
-                Let's start a conversation that goes beyond surface-level consulting.
+              <h2 className="text-3xl font-heading mb-4" style={{ color: '#F5F5DC' }}>
+                Want to Discuss These Ideas?
+              </h2>
+              <p
+                className="text-lg mb-6 max-w-2xl mx-auto"
+                style={{ color: '#F5F5DC', opacity: 0.9 }}
+              >
+                Have thoughts on a piece? Questions about implementation? Let's start a conversation
+                that goes beyond surface-level consulting.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
