@@ -6,6 +6,25 @@ Live: [chrisleebergstrom.com](https://chrisleebergstrom.com)
 
 ---
 
+## Production Metrics
+
+| Category | Metric | Score |
+|----------|--------|-------|
+| **Lighthouse** | Performance | 96 |
+| | Accessibility | 95 |
+| | Best Practices | 100 |
+| | SEO | 100 |
+| **SSL/TLS** | SSL Labs Grade | A+ |
+| **Security Headers** | HSTS, CSP, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy | 6/6 |
+| **Protocol** | HTTP/2 + HTTP/3 | Active |
+| **Response** | Time to First Byte | 78ms |
+| **Compression** | Brotli | Active |
+| **HTTPS** | Enforcement | 301 + HSTS preload |
+
+All scores verified via Lighthouse (incognito), SSL Labs, and production header inspection.
+
+---
+
 ## What This Is
 
 This is the production website for Chris Lee Bergstrom's consulting practice, but it's also something more: a working example of an **AI-first codebase** — a project designed from the ground up to be developed, maintained, and extended by AI coding agents with human direction.
