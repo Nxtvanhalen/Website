@@ -1,6 +1,34 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
+// 0. THE WHITELIST: Known Good Bots & AI Crawlers
+// These bypass ALL security checks - let them in immediately
+const ALLOWED_USER_AGENTS = [
+  'Googlebot',           // Google Search
+  'Bingbot',             // Bing Search
+  'GPTBot',              // OpenAI ChatGPT crawler
+  'Claude-Web',          // Anthropic Claude crawler
+  'ChatGPT-User',        // OpenAI user-directed requests
+  'anthropic-ai',        // Anthropic AI
+  'PerplexityBot',       // Perplexity AI
+  'CCBot',               // Common Crawl (used by many AI systems)
+  'Google-Extended',     // Google's AI training crawler
+  'Applebot',            // Apple Search
+  'DuckDuckBot',         // DuckDuckGo
+  'Slackbot',            // Slack
+  'facebookexternalhit', // Facebook/Meta
+  'LinkedInBot',         // LinkedIn
+  'TwitterBot',          // Twitter/X
+  'Twitterbot',          // Twitter/X (alt)
+  'Bard',                // Google Bard
+  'YouBot',              // You.com search
+  'Cohere-ai',           // Cohere AI
+  'SemrushBot',          // SEO tool
+  'AhrefsBot',           // SEO tool
+  'Baiduspider',         // Baidu search
+  'YandexBot',           // Yandex search
+];
+
 // 1. THE BLACKLIST: Known Bad IPs
 const BLOCKED_IPS = [
   '45.148.10.205', // The "Env File" Hacker (Original Attacker)
@@ -84,6 +112,13 @@ export function middleware(request: NextRequest) {
   const ip = request.headers.get('x-forwarded-for') || request.ip || 'unknown';
   const userAgent = request.headers.get('user-agent') || '';
   const url = request.nextUrl.pathname;
+
+  // --- CHECK 0: WHITELIST - Known Good Bots (Bypass all security) ---
+  // If it's a legitimate crawler/AI bot, let them through immediately
+  if (ALLOWED_USER_AGENTS.some((allowedUA) => userAgent.includes(allowedUA))) {
+    console.log(`[ALLOWED] Good bot detected: ${userAgent.substring(0, 50)} from ${ip}`);
+    return NextResponse.next();
+  }
 
   // --- CHECK 1: Explicit IP Blocks ---
   if (BLOCKED_IPS.includes(ip)) {
