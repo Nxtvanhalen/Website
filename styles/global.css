@@ -1181,3 +1181,38 @@ select:focus,
   font-weight: 500;
   margin-left: 2px;
 }
+
+/* Critical base + gallery rules — moved out of pages/_document.tsx inline <style> so
+   style-src-elem in our CSP can drop 'unsafe-inline'. */
+html {
+  background-color: #000000;
+  color: #ffffff;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+}
+.gallery-item {
+  width: 320px;
+  height: 240px;
+  flex-shrink: 0;
+}
+.gallery-track-ticker {
+  display: flex;
+  animation: gallery-scroll 45s linear infinite;
+}
+@keyframes gallery-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-320px * 9 - 1.5rem * 8));
+  }
+}
+.cc-window {
+  z-index: 999999 !important;
+}
+.cc-link {
+  cursor: pointer !important;
+  text-decoration: underline !important;
+}

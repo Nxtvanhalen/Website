@@ -198,9 +198,12 @@ The homepage uses a vertical scroll layout with dual parallax backgrounds:
 
 CSP is set as a response header in `next.config.js` (function `headers()`):
 
-- **External origin allowlists**: scripts limited to `https://www.googletagmanager.com` and `https://www.google-analytics.com`; styles to `https://fonts.googleapis.com`; fonts to `https://fonts.gstatic.com`; images and connections scoped to GA / Google Tag Manager domains
+- **External origin allowlists**: scripts limited to `https://www.googletagmanager.com` and `https://www.google-analytics.com`; element styles to `https://fonts.googleapis.com`; fonts to `https://fonts.gstatic.com`; images and connections scoped to GA / Google Tag Manager domains
 - **Strict non-script directives**: `object-src 'none'`, `frame-ancestors 'none'`, `base-uri 'self'`, `form-action 'self'`
-- **`'unsafe-inline'` and `'unsafe-eval'` in `script-src`**: required because pages are statically pre-rendered at build time, so Next.js's hydration scripts (and our inline cookie-consent / JSON-LD blocks) cannot be tagged with a per-request nonce. Moving to nonce-based CSP would require either edge HTML rewriting, switching to per-request SSR, or an App Router migration
+- **Split style policy**: `style-src-elem 'self' https://fonts.googleapis.com` (no `'unsafe-inline'` — no inline `<style>` elements in our code) plus `style-src-attr 'unsafe-inline'` (still allowed for React's runtime `style={{}}` props, which are required for parallax transforms, Framer Motion bindings, and other dynamic values)
+- **No inline executable scripts of our own**: cookie consent bootstrap is in `public/static/cookieconsent-init.js` (covered by `script-src 'self'`); critical CSS is in `styles/global.css` (covered by `style-src-elem 'self'`). The only inline `<script>` blocks left in shipped HTML are Next.js's `<script id="__NEXT_DATA__">` hydration blob and per-page JSON-LD structured data — both are `type="application/json"`/`application/ld+json` (browser parses them as data, never executes), but CSP still enforces script-src on them, which is why `script-src 'unsafe-inline'` is retained
+- **`'unsafe-eval'`**: kept for Framer Motion and Next.js framework code paths that use eval-style evaluation
+- **Path to a stricter script-src**: removing `'unsafe-inline'` from script-src requires either edge HTML rewriting, switching to per-request SSR, or an App Router migration (App Router has first-class nonce support that threads through the framework's injected scripts)
 - **Per-request bot and IP blocking**: handled in `middleware.ts` (allowlist for known good crawlers, blocklist for known bad IPs/UAs/paths, fake-mobile-from-datacenter detector)
 
 ### API Security
