@@ -62,13 +62,12 @@ EVE (Entertainment Vision Engine) is an AI chatbot embedded in the website, serv
 │   ├── Header.tsx             # Two-row header: social icons (top), nav links (bottom)
 │   ├── Marquee.tsx            # Hero section: name + gallery + EVE chat
 │   ├── PersistentChat.tsx     # Persistent chat state management
-│   ├── SectionTracker.tsx     # Butler notification system for section tracking
-│   └── TypewriterText.tsx     # Framer Motion typewriter animation component
+│   └── SectionTracker.tsx     # Butler notification system for section tracking
 ├── context/
 │   └── ChatContext.tsx        # React context for chat state sharing
 ├── pages/
 │   ├── _app.tsx               # Next.js app wrapper
-│   ├── _document.tsx          # Custom document with nonce-based CSP
+│   ├── _document.tsx          # Custom document with inline critical CSS and cookie-consent bootstrap
 │   ├── index.tsx              # Landing page with dual parallax backgrounds
 │   ├── about.tsx              # Bio page with profile picture, content cards
 │   ├── projects.tsx           # 8 AI projects with glowing titles
@@ -96,7 +95,6 @@ EVE (Entertainment Vision Engine) is an AI chatbot embedded in the website, serv
 ├── docs/                      # Project documentation (this folder)
 │   ├── DEVELOPMENT.md         # This file — main development guide
 │   ├── GPT5_MIGRATION.md      # GPT-5 Responses API migration reference
-│   ├── TYPEWRITER_ANIMATION.md # Typewriter animation feature spec
 │   └── CTA-PAGE-TEMPLATE.md   # Blueprint for building service CTA pages
 ├── middleware.ts              # Next.js middleware
 ├── next.config.js             # Next.js configuration
@@ -148,7 +146,7 @@ EVE (Entertainment Vision Engine) is an AI chatbot embedded in the website, serv
 The homepage uses a vertical scroll layout with dual parallax backgrounds:
 
 1. **Header**: Two-row layout — social media icons (top row), navigation links (bottom row)
-2. **Hero / Marquee**: "Chris Lee Bergstrom" title with typewriter animation, quote, horizontal scrolling gallery with blue edge effects, EVE AI chat interface
+2. **Hero / Marquee**: "Chris Lee Bergstrom" title, quote, horizontal scrolling gallery with blue edge effects, EVE AI chat interface
 3. **CLB Consulting Section**: Company tagline with optimized spacing
 4. **Video Section**: Scroll-triggered auto-play using Intersection Observer
 5. **Ethos Section**: Centered content, no bullet points — pure narrative
@@ -198,12 +196,12 @@ The homepage uses a vertical scroll layout with dual parallax backgrounds:
 
 ### Content Security Policy (CSP)
 
-The site implements a nonce-based CSP via `pages/_document.tsx`:
+CSP is set as a response header in `next.config.js` (function `headers()`):
 
-- **Dynamic Nonce Generation**: Each request generates a unique cryptographic nonce (`crypto.randomBytes(16).toString('base64')`)
-- **Applied To**: All inline scripts — cookie consent, Google Analytics, critical CSS
-- **Protection**: Blocks unauthorized inline script execution (XSS prevention) while allowing legitimate nonce-bearing scripts
-- **No `unsafe-inline` or `unsafe-eval`**: Enterprise-grade CSP compliance
+- **External origin allowlists**: scripts limited to `https://www.googletagmanager.com` and `https://www.google-analytics.com`; styles to `https://fonts.googleapis.com`; fonts to `https://fonts.gstatic.com`; images and connections scoped to GA / Google Tag Manager domains
+- **Strict non-script directives**: `object-src 'none'`, `frame-ancestors 'none'`, `base-uri 'self'`, `form-action 'self'`
+- **`'unsafe-inline'` and `'unsafe-eval'` in `script-src`**: required because pages are statically pre-rendered at build time, so Next.js's hydration scripts (and our inline cookie-consent / JSON-LD blocks) cannot be tagged with a per-request nonce. Moving to nonce-based CSP would require either edge HTML rewriting, switching to per-request SSR, or an App Router migration
+- **Per-request bot and IP blocking**: handled in `middleware.ts` (allowlist for known good crawlers, blocklist for known bad IPs/UAs/paths, fake-mobile-from-datacenter detector)
 
 ### API Security
 
@@ -457,5 +455,4 @@ The current architecture supports scaling into:
 | Document | Purpose |
 |---|---|
 | `docs/GPT5_MIGRATION.md` | Complete technical guide for the GPT-5 Responses API migration |
-| `docs/TYPEWRITER_ANIMATION.md` | Feature specification for the typewriter animation component |
 | `docs/CTA-PAGE-TEMPLATE.md` | Full blueprint for building new service CTA pages |
