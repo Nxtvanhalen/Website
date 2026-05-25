@@ -115,7 +115,7 @@ export default function Header() {
         Skip to main content
       </a>
 
-      <header className={`header ${scrolled ? 'scrolled' : ''}`} aria-label="Site header">
+      <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <Link href="/home" className="logo z-10" aria-label="CLB Consulting - Return to homepage">

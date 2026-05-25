@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Contact from '../components/Contact';
 import Marquee from '../components/Marquee';
 
@@ -7,7 +7,7 @@ export default function Home() {
   const [videosDisabled, setVideosDisabled] = useState(false);
   const videosDisabledRef = useRef(false);
 
-  const handlePauseVideos = () => {
+  const handlePauseVideos = useCallback(() => {
     setVideosDisabled(true);
     videosDisabledRef.current = true;
     // Immediately pause any currently playing videos
@@ -15,7 +15,7 @@ export default function Home() {
     const brmcVideo = document.getElementById('brmc-video') as HTMLVideoElement;
     if (video) video.pause();
     if (brmcVideo) brmcVideo.pause();
-  };
+  }, []);
 
   // Respect prefers-reduced-motion setting
   useEffect(() => {
