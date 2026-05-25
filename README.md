@@ -56,7 +56,7 @@ EVE is not a chatbot bolted onto a website. She's a demonstration of what happen
 | **AI Chat** | OpenAI GPT-5 Responses API with configurable reasoning effort |
 | **Email** | Resend (EVE sends visitor inquiries to Chris) |
 | **Analytics** | Google Analytics 4 with GDPR-compliant consent gating (Osano) |
-| **Security** | Nonce-based Content Security Policy, input validation, IP rate limiting |
+| **Security** | Strict CSP with allowlisted external origins, edge middleware bot/IP blocking, input validation |
 | **SEO** | JSON-LD structured data on every page, dynamic sitemap, Open Graph |
 | **Accessibility** | WCAG 2.1 AA — skip nav, ARIA landmarks, keyboard navigation, screen reader support |
 | **Performance** | Service worker with tiered caching, next/image optimization, ~97KB first load |
