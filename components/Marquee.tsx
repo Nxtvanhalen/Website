@@ -240,8 +240,7 @@ export default function Marquee() {
             {/* Operational Consulting Box - Links to dedicated page */}
             <Link href="/operations-consulting" className="block">
               <motion.div className={boxStyle} whileHover={{ scale: 1.02 }}>
-                <div
-                  role="region"
+                <section
                   aria-label="Operational Consulting - Click to learn more"
                   className="w-full h-full flex flex-row justify-between items-center gap-4 lg:gap-2"
                 >
@@ -293,14 +292,13 @@ export default function Marquee() {
                       Analyzed from load in to load out.
                     </p>
                   </div>
-                </div>
+                </section>
               </motion.div>
             </Link>
 
             {/* AI Education and Training Box */}
             <motion.div className={boxStyle} whileHover={{ scale: 1.02 }}>
-              <div
-                role="region"
+              <section
                 aria-label="AI Education and Training"
                 className="w-full h-full flex flex-row justify-between items-center gap-4 lg:gap-2"
               >
@@ -350,13 +348,12 @@ export default function Marquee() {
                     lead.
                   </p>
                 </div>
-              </div>
+              </section>
             </motion.div>
 
             {/* Guardian / Web Security Box */}
             <motion.div className={boxStyle} whileHover={{ scale: 1.02 }}>
-              <div
-                role="region"
+              <section
                 aria-label="Guardian Web Security"
                 className="w-full h-full flex flex-row justify-between items-center gap-4 lg:gap-2"
               >
@@ -404,13 +401,12 @@ export default function Marquee() {
                     <strong className="not-italic">compliant</strong> design.
                   </p>
                 </div>
-              </div>
+              </section>
             </motion.div>
 
             {/* Executive Coaching Box */}
             <motion.div className={boxStyle} whileHover={{ scale: 1.02 }}>
-              <div
-                role="region"
+              <section
                 aria-label="Executive Coaching"
                 className="w-full h-full flex flex-row justify-between items-center gap-4 lg:gap-2"
               >
@@ -461,7 +457,7 @@ export default function Marquee() {
                     and the chaos between vision and execution.
                   </p>
                 </div>
-              </div>
+              </section>
             </motion.div>
 
             {/* Primary CTA Box */}
@@ -551,7 +547,7 @@ export default function Marquee() {
           className="mb-2 w-full max-w-6xl mx-auto px-4"
           butlerMessage="A visual history of chaos tamed. See a project that catches your eye?"
         >
-          <div
+          <section
             ref={galleryRef}
             className="gallery-container overflow-x-scroll overflow-y-hidden"
             style={{
@@ -649,7 +645,7 @@ export default function Marquee() {
                 alt="A vivid rainbow arcs across a stormy gray sky above a straight paved road. On the right, the smooth reflective side of a large vehicle mirrors the road, grassy hills, and the rainbow, creating a symmetrical reflection that emphasizes the open landscape and dramatic weather."
               />
             </div>
-          </div>
+          </section>
         </SectionTracker>
       </div>
     </div>
