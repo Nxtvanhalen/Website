@@ -78,7 +78,6 @@ EVE is not a chatbot bolted onto a website. She's a demonstration of what happen
 
 ### Web Platform
 - **Dual parallax backgrounds** with smooth scroll transitions
-- **Typewriter animation** on hero text (Framer Motion, zero re-renders via `useMotionValue`)
 - **Horizontal scrolling gallery** with edge fade effects
 - **Scroll-triggered video** via Intersection Observer
 - **Mobile-optimized chat** with smart keyboard recentering on dismiss
@@ -109,7 +108,6 @@ The `docs/` folder contains the full development knowledge base:
 |---|---|
 | [`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md) | Authoritative development guide — architecture, visual system, deployment, troubleshooting |
 | [`docs/GPT5_MIGRATION.md`](docs/GPT5_MIGRATION.md) | Complete GPT-5 Responses API migration reference with code patterns |
-| [`docs/TYPEWRITER_ANIMATION.md`](docs/TYPEWRITER_ANIMATION.md) | Feature specification for the hero typewriter animation |
 | [`docs/CTA-PAGE-TEMPLATE.md`](docs/CTA-PAGE-TEMPLATE.md) | Full blueprint for building new service CTA pages |
 
 ---
@@ -118,7 +116,7 @@ The `docs/` folder contains the full development knowledge base:
 
 ```
 .
-├── components/          # React components (ChatPanel, Header, Marquee, TypewriterText, etc.)
+├── components/          # React components (ChatPanel, Header, Marquee, etc.)
 ├── context/             # React context (ChatContext for shared chat state)
 ├── pages/               # Next.js pages + API routes
 │   ├── api/chat.ts      # GPT-5 endpoint with rate limiting
