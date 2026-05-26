@@ -1,5 +1,8 @@
 // Dynamic cache versioning with timestamp
-const CACHE_VERSION = 'v2.0.0';
+// v3.0.0 invalidates all v2 caches — required because per-request CSP nonces mean
+// any previously cached HTML now ships with a stale nonce that won't match the
+// current response's CSP header, causing the browser to block every framework script.
+const CACHE_VERSION = 'v3.0.0';
 const CACHE_NAME = `clb-consultancy-${CACHE_VERSION}-${Date.now()}`;
 
 // Different cache names for different content types
@@ -10,17 +13,10 @@ const CACHES = {
   api: `${CACHE_NAME}-api`
 };
 
-// Essential URLs to cache immediately
+// Page HTML is never cached (see CACHE_VERSION comment). Pre-cache only non-HTML
+// assets the site needs to function offline (manifest, etc).
 const STATIC_CACHE_URLS = [
-  '/',
-  '/manifest.json',
-  '/home',
-  '/about',
-  '/projects',
-  '/news',
-  '/blog',
-  '/faq',
-  '/privacy'
+  '/manifest.json'
 ];
 
 // Cache strategies for different URL patterns
@@ -182,32 +178,16 @@ async function handleStaticAssetRequest(request) {
   }
 }
 
-// Page caching strategy - stale while revalidate
+// Page caching strategy — network-only.
+// Pages carry per-request CSP nonces baked into framework <script nonce="..."> tags.
+// Caching the HTML would mean the next visitor sees stale nonces that don't match
+// the current response's CSP header → all framework scripts blocked by 'strict-dynamic'.
+// Network failure falls back to the synthesized offline page (also un-cached).
 async function handlePageRequest(request) {
   try {
-    const cache = await caches.open(CACHES.pages);
-    const cached = await cache.match(request);
-
-    // Fetch fresh version in background
-    const fetchPromise = fetch(request).then(response => {
-      if (response.status === 200) {
-        cache.put(request, response.clone());
-      }
-      return response;
-    }).catch(error => {
-      console.error('[SW] Failed to fetch fresh page:', error);
-      return cached;
-    });
-
-    // Return cached version immediately if available
-    if (cached) {
-      return cached;
-    }
-
-    // If no cache, wait for network
-    return fetchPromise;
+    return await fetch(request);
   } catch (error) {
-    console.error('[SW] Page request failed:', error);
+    console.log('[SW] Network failed for page request, serving offline page');
     return getOfflinePage();
   }
 }

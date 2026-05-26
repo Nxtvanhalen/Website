@@ -1,10 +1,10 @@
-import { motion } from 'motion/react';
-import Head from 'next/head';
-import { useEffect } from 'react';
-import Header from '../components/Header';
-import SectionTracker from '../components/SectionTracker';
+'use client';
 
-export default function News() {
+import { motion } from 'motion/react';
+import { useEffect } from 'react';
+import SectionTracker from '../../components/SectionTracker';
+
+export default function NewsClient() {
   useEffect(() => {
     // Parallax scroll effect for News/Press page
     const handleScroll = () => {
@@ -23,104 +23,8 @@ export default function News() {
 
   return (
     <>
-      <Head>
-        <title>News/Press - CLB Consulting</title>
-        <meta
-          name="description"
-          content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#9370DB" />
-        <link rel="apple-touch-icon" href="/icon-192.png" />
-
-        {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="News | CLB Consulting" />
-        <meta
-          property="og:description"
-          content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://chrisleebergstrom.com/news" />
-        <meta
-          property="og:image"
-          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="1200" />
-        <meta
-          property="og:image:alt"
-          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
-        />
-
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@chrisleebergstrom" />
-        <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="News | CLB Consulting" />
-        <meta
-          name="twitter:description"
-          content="Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting"
-        />
-        <meta
-          name="twitter:image"
-          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
-        />
-
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://chrisleebergstrom.com/news" />
-
-        {/* JSON-LD Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'CollectionPage',
-              name: 'News & Press - CLB Consulting',
-              description:
-                'Latest news, press coverage, and media appearances featuring Chris Lee Bergstrom',
-              url: 'https://chrisleebergstrom.com/news',
-              author: {
-                '@type': 'Person',
-                '@id': 'https://chrisleebergstrom.com/about#person',
-                name: 'Chris Lee Bergstrom',
-              },
-              about: {
-                '@type': 'Organization',
-                '@id': 'https://chrisleebergstrom.com/#organization',
-                name: 'CLB Consulting',
-              },
-              breadcrumb: {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  {
-                    '@type': 'ListItem',
-                    position: 1,
-                    name: 'Home',
-                    item: 'https://chrisleebergstrom.com',
-                  },
-                  {
-                    '@type': 'ListItem',
-                    position: 2,
-                    name: 'News/Press',
-                    item: 'https://chrisleebergstrom.com/news',
-                  },
-                ],
-              },
-            }),
-          }}
-        />
-      </Head>
-
-      <Header />
-
       {/* Parallax Background */}
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
+      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-0">
         <div
           className="news-parallax-bg absolute inset-0 bg-center bg-cover md:bg-fixed"
           style={{

@@ -53,13 +53,13 @@
   },
   "files": {
     "includes": [
-      "pages/**/*.ts",
-      "pages/**/*.tsx",
+      "app/**/*.ts",
+      "app/**/*.tsx",
       "components/**/*.ts",
       "components/**/*.tsx",
       "context/**/*.ts",
       "context/**/*.tsx",
-      "middleware.ts"
+      "proxy.ts"
     ]
   }
 }

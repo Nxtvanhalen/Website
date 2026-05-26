@@ -1,34 +1,32 @@
 import { XMLParser } from 'fast-xml-parser';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 
-// Simple in-memory cache
 let cachedData: {
   posts: any[];
   feedTitle: string;
   feedDescription: string;
   timestamp: number;
 } | null = null;
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+const CACHE_DURATION = 5 * 60 * 1000;
 
-export default async function handler(_req: NextApiRequest, res: NextApiResponse) {
-  // Set cache headers for client-side caching
-  res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+const cacheHeaders = { 'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600' };
 
+export async function GET() {
   try {
-    // Check cache first
     if (cachedData && Date.now() - cachedData.timestamp < CACHE_DURATION) {
-      return res.status(200).json({
-        success: true,
-        posts: cachedData.posts,
-        feedTitle: cachedData.feedTitle,
-        feedDescription: cachedData.feedDescription,
-        cached: true,
-      });
+      return NextResponse.json(
+        {
+          success: true,
+          posts: cachedData.posts,
+          feedTitle: cachedData.feedTitle,
+          feedDescription: cachedData.feedDescription,
+          cached: true,
+        },
+        { status: 200, headers: cacheHeaders },
+      );
     }
-    // Substack RSS feed URL
-    const substackFeedUrl = 'https://chrisleebergstrom.substack.com/feed';
 
-    // Fetch the RSS feed
+    const substackFeedUrl = 'https://chrisleebergstrom.substack.com/feed';
     const response = await fetch(substackFeedUrl);
 
     if (!response.ok) {
@@ -37,7 +35,6 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
 
     const feedData = await response.text();
 
-    // Configure the XML parser
     const parser = new XMLParser({
       ignoreAttributes: false,
       attributeNamePrefix: '@_',
@@ -48,7 +45,6 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
       htmlEntities: true,
     });
 
-    // Parse the XML
     const parsedData = parser.parse(feedData);
     const channel = parsedData?.rss?.channel;
 
@@ -56,16 +52,12 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
       throw new Error('Invalid RSS feed structure');
     }
 
-    // Extract feed metadata
     const feedTitle = channel.title || 'Chris Lee Bergstrom';
     const feedDescription = channel.description || 'Entertainment industry and AI insights';
 
-    // Ensure items is an array (could be a single item)
     const items = Array.isArray(channel.item) ? channel.item : channel.item ? [channel.item] : [];
 
-    // Transform the feed data to include only what we need (max 5 items)
     const posts = items.slice(0, 5).map((item: any) => {
-      // Handle text content (including CDATA which is automatically parsed)
       const getTextContent = (field: any): string => {
         if (!field) return '';
         let content = '';
@@ -73,7 +65,6 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
         else if (typeof field === 'object' && field['#text']) content = field['#text'];
         else return '';
 
-        // Decode HTML entities
         return content
           .replace(/&#8217;/g, "'")
           .replace(/&#8220;/g, '"')
@@ -105,13 +96,11 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
       const pubDate = getTextContent(item.pubDate);
       const author = getTextContent(item['dc:creator']) || 'Chris Lee Bergstrom';
 
-      // Get content from content:encoded or description
       let fullContent = getTextContent(item['content:encoded']);
       if (!fullContent) {
         fullContent = getTextContent(item.description);
       }
 
-      // Create content snippet (first 200 chars of text content)
       const textContent = fullContent.replace(/<[^>]*>/g, '').trim();
       const contentSnippet =
         textContent.length > 200 ? textContent.substring(0, 200) + '...' : textContent;
@@ -126,7 +115,6 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
       };
     });
 
-    // Cache the data
     cachedData = {
       posts,
       feedTitle,
@@ -134,18 +122,24 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
       timestamp: Date.now(),
     };
 
-    res.status(200).json({
-      success: true,
-      posts: posts,
-      feedTitle: feedTitle,
-      feedDescription: feedDescription,
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        posts,
+        feedTitle,
+        feedDescription,
+      },
+      { status: 200, headers: cacheHeaders },
+    );
   } catch (error) {
     console.error('Error fetching Substack feed:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Failed to fetch Substack feed',
-      posts: [],
-    });
+    return NextResponse.json(
+      {
+        success: false,
+        error: 'Failed to fetch Substack feed',
+        posts: [],
+      },
+      { status: 500, headers: cacheHeaders },
+    );
   }
 }

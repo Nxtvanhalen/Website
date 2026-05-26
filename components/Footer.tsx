@@ -1,3 +1,5 @@
+import type { JSX } from 'react';
+
 // Social links configuration
 const SOCIAL_LINKS = [
   { href: 'https://www.instagram.com/chrisleebergstrom', label: 'Instagram', icon: 'instagram' },

@@ -1,11 +1,11 @@
+'use client';
+
 import { motion } from 'motion/react';
-import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
-import Header from '../components/Header';
-import SectionTracker from '../components/SectionTracker';
+import SectionTracker from '../../components/SectionTracker';
 
-export default function OperationsConsulting() {
+export default function OperationsConsultingClient() {
   useEffect(() => {
     // Parallax scroll effect for Operations page
     const handleScroll = () => {
@@ -72,170 +72,8 @@ export default function OperationsConsulting() {
 
   return (
     <>
-      <Head>
-        <title>Operations Consulting | Venue & Entertainment Operations - CLB Consulting</title>
-        <meta
-          name="description"
-          content="Expert operations consulting for venues and live entertainment. Find hidden losses, fix labor inefficiencies, prevent safety issues, and optimize your bottom line. 20 years of hands-on experience."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          name="robots"
-          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-        />
-        <meta name="author" content="Chris Lee Bergstrom" />
-        <meta
-          name="keywords"
-          content="operations consulting, venue operations, entertainment consulting, labor efficiency, safety compliance, logistics optimization, production management, venue management, live events consulting, Chris Lee Bergstrom, CLB Consulting"
-        />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#9370DB" />
-
-        {/* Favicon and App Icons */}
-        <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="192x192"
-          href="/images/Favicon/android-chrome-192x192.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="512x512"
-          href="/images/Favicon/android-chrome-512x512.png"
-        />
-        <meta name="msapplication-TileColor" content="#000000" />
-
-        {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="Operations Consulting | CLB Consulting" />
-        <meta
-          property="og:description"
-          content="Expert operations consulting for venues and live entertainment. Find hidden losses, fix labor inefficiencies, prevent safety issues, and optimize your bottom line."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://chrisleebergstrom.com/operations-consulting" />
-        <meta property="og:image" content="https://chrisleebergstrom.com/images/operational.webp" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:image:alt"
-          content="Operations Consulting - CLB Consulting by Chris Lee Bergstrom"
-        />
-
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@chrisleebergstrom" />
-        <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="Operations Consulting | CLB Consulting" />
-        <meta
-          name="twitter:description"
-          content="Expert operations consulting for venues and live entertainment. Find hidden losses, fix labor inefficiencies, prevent safety issues, and optimize your bottom line."
-        />
-        <meta
-          name="twitter:image"
-          content="https://chrisleebergstrom.com/images/operational.webp"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Operations Consulting - CLB Consulting by Chris Lee Bergstrom"
-        />
-
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://chrisleebergstrom.com/operations-consulting" />
-
-        {/* JSON-LD Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Service',
-              '@id': 'https://chrisleebergstrom.com/operations-consulting#service',
-              name: 'Operations Consulting',
-              description:
-                'Expert operations consulting for venues and live entertainment. Comprehensive audits, strategic solutions, risk prevention, and measurable cost savings.',
-              provider: {
-                '@type': 'Organization',
-                '@id': 'https://chrisleebergstrom.com/#organization',
-                name: 'CLB Consulting',
-              },
-              serviceType: 'Venue Operations Consulting',
-              areaServed: 'Worldwide',
-              audience: {
-                '@type': 'Audience',
-                audienceType: 'Venues, Arts Organizations, Live Entertainment Companies',
-              },
-              hasOfferCatalog: {
-                '@type': 'OfferCatalog',
-                name: 'Operations Consulting Services',
-                itemListElement: [
-                  {
-                    '@type': 'Offer',
-                    itemOffered: {
-                      '@type': 'Service',
-                      name: 'Operational Audit',
-                      description:
-                        'Review schedules, settlements, vendor contracts, and crew logs to identify cost leaks',
-                    },
-                  },
-                  {
-                    '@type': 'Offer',
-                    itemOffered: {
-                      '@type': 'Service',
-                      name: 'Strategic Solutions',
-                      description:
-                        'Proven methodologies addressing root causes of operational inefficiencies',
-                    },
-                  },
-                  {
-                    '@type': 'Offer',
-                    itemOffered: {
-                      '@type': 'Service',
-                      name: 'Risk Prevention',
-                      description:
-                        'Identify compliance gaps and safety issues before they become costly problems',
-                    },
-                  },
-                  {
-                    '@type': 'Offer',
-                    itemOffered: {
-                      '@type': 'Service',
-                      name: 'Measurable Results',
-                      description: 'Cost savings that consistently exceed consulting fees',
-                    },
-                  },
-                ],
-              },
-              breadcrumb: {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  {
-                    '@type': 'ListItem',
-                    position: 1,
-                    name: 'Home',
-                    item: 'https://chrisleebergstrom.com',
-                  },
-                  {
-                    '@type': 'ListItem',
-                    position: 2,
-                    name: 'Operations Consulting',
-                    item: 'https://chrisleebergstrom.com/operations-consulting',
-                  },
-                ],
-              },
-            }),
-          }}
-        />
-      </Head>
-
-      <Header />
-
       {/* Parallax Background */}
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
+      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-0">
         <div
           className="operations-parallax-bg absolute inset-0 bg-top bg-cover md:bg-fixed"
           style={{
