@@ -5,30 +5,30 @@
   "scripts": {
     "dev": "bun --bun next dev",
     "build": "bun --bun next build",
-    "export": "bun --bun next export",
     "start": "bun --bun next start",
-    "lint": "biome lint pages components context middleware.ts",
-    "lint:fix": "biome check --write pages components context middleware.ts",
-    "format": "biome format --write pages components context middleware.ts"
+    "lint": "biome lint app components context proxy.ts",
+    "lint:fix": "biome check --write app components context proxy.ts",
+    "format": "biome format --write app components context proxy.ts"
   },
   "dependencies": {
     "@types/node": "^20.19.41",
-    "@types/react": "^18.3.29",
-    "@types/react-dom": "^18.3.7",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
     "autoprefixer": "^10.5.0",
     "fast-xml-parser": "^5.8.0",
     "motion": "^12.40.0",
-    "next": "^14.2.35",
+    "next": "^16.2.6",
     "openai": "^5.23.2",
     "postcss": "^8.5.15",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
     "resend": "^6.12.4",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.19",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vanilla-cookieconsent": "^3.1.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.15"

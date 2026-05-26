@@ -1,11 +1,11 @@
+'use client';
+
 import { motion } from 'motion/react';
-import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
-import Header from '../components/Header';
-import SectionTracker from '../components/SectionTracker';
+import SectionTracker from '../../components/SectionTracker';
 
-export default function About() {
+export default function AboutClient() {
   useEffect(() => {
     // Parallax scroll effect for About page
     const handleScroll = () => {
@@ -27,155 +27,8 @@ export default function About() {
 
   return (
     <>
-      <Head>
-        <title>About Chris Lee Bergstrom | Sound Engineer to AI Strategist - CLB Consulting</title>
-        <meta
-          name="description"
-          content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          name="robots"
-          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-        />
-        <meta name="author" content="Chris Lee Bergstrom" />
-        <meta
-          name="keywords"
-          content="Chris Lee Bergstrom, audio engineer, AI strategist, live sound, entertainment technology, CLB Consulting, Grammy nominated, tour management, systems architecture"
-        />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#9370DB" />
-
-        {/* Favicon and App Icons */}
-        <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="192x192"
-          href="/images/Favicon/android-chrome-192x192.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="512x512"
-          href="/images/Favicon/android-chrome-512x512.png"
-        />
-        <meta name="msapplication-TileColor" content="#000000" />
-
-        {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="About | CLB Consulting" />
-        <meta
-          property="og:description"
-          content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://chrisleebergstrom.com/about" />
-        <meta
-          property="og:image"
-          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="1200" />
-        <meta
-          property="og:image:alt"
-          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
-        />
-
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@chrisleebergstrom" />
-        <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="About | CLB Consulting" />
-        <meta
-          name="twitter:description"
-          content="From live sound engineering to AI systems architecture. Two decades of global entertainment experience. The origin story behind CLB Consulting."
-        />
-        <meta
-          name="twitter:image"
-          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
-        />
-
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://chrisleebergstrom.com/about" />
-
-        {/* JSON-LD Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'ProfilePage',
-              mainEntity: {
-                '@type': 'Person',
-                '@id': 'https://chrisleebergstrom.com/about#person',
-                name: 'Chris Lee Bergstrom',
-                alternateName: ['Chris Bergstrom', 'CLB'],
-                jobTitle: 'AI Strategy Consultant & Founder of CLB Consulting',
-                description:
-                  'Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events. Founder and principal consultant at CLB Consulting.',
-                image: 'https://chrisleebergstrom.com/images/profile/chris-profile.jpg',
-                email: 'chrisleebergstrom@gmail.com',
-                worksFor: {
-                  '@type': 'Organization',
-                  '@id': 'https://chrisleebergstrom.com/#organization',
-                  name: 'CLB Consulting',
-                },
-                founder: {
-                  '@type': 'Organization',
-                  '@id': 'https://chrisleebergstrom.com/#organization',
-                  name: 'CLB Consulting',
-                },
-                hasCredential: 'Grammy-nominated Audio Engineer',
-                knowsAbout: [
-                  'AI Implementation',
-                  'Entertainment Industry',
-                  'Audio Engineering',
-                  'Live Sound Production',
-                  'Tour Management',
-                  'Multi-Modal AI Systems',
-                  'Team Cohesion Strategies',
-                  'SMAART System Analysis and Training',
-                ],
-                sameAs: [
-                  'https://www.linkedin.com/in/chris-bergstrom',
-                  'https://www.instagram.com/chrisleebergstrom',
-                  'https://www.youtube.com/@chrisleebergstrom',
-                  'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr',
-                ],
-              },
-              breadcrumb: {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  {
-                    '@type': 'ListItem',
-                    position: 1,
-                    name: 'Home',
-                    item: 'https://chrisleebergstrom.com',
-                  },
-                  {
-                    '@type': 'ListItem',
-                    position: 2,
-                    name: 'About',
-                    item: 'https://chrisleebergstrom.com/about',
-                  },
-                ],
-              },
-            }),
-          }}
-        />
-      </Head>
-
-      <Header />
-
       {/* Parallax Background */}
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
+      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-0">
         <div
           className="about-parallax-bg absolute inset-0 bg-top bg-cover md:bg-fixed animate-fade-in"
           style={{

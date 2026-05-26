@@ -43,22 +43,8 @@ const nextConfig = {
           {
             key: "Permissions-Policy",
             value: "geolocation=(), microphone=(), camera=()"
-          },
-          {
-            // 'unsafe-inline' is retained in both script-src and style-src because:
-            // - script-src: Next.js injects <script id="__NEXT_DATA__"> inline on every
-            //   statically pre-rendered page (per-page, per-build content — can't be hashed
-            //   or nonced without App Router migration). JSON-LD blocks are also inline.
-            // - style-src: the cookieconsent library dynamically creates <style> elements at
-            //   runtime to inject its theme CSS, and Next.js also emits inline FOUC styles
-            //   in production builds. Neither can be hashed (dynamic) or nonced (static).
-            // All scripts WE author are loaded from 'self' or whitelisted origins; cookie
-            // consent bootstrap is in public/static/cookieconsent-init.js; critical CSS is
-            // in styles/global.css. Removing 'unsafe-inline' from either directive requires
-            // App Router migration.
-            key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"
           }
+          // Content-Security-Policy moved to proxy.ts (per-request nonce generation).
         ]
       }
     ]

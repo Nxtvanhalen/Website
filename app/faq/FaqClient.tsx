@@ -1,8 +1,8 @@
+'use client';
+
 import { motion } from 'motion/react';
-import Head from 'next/head';
 import { useState } from 'react';
-import Header from '../components/Header';
-import SectionTracker from '../components/SectionTracker';
+import SectionTracker from '../../components/SectionTracker';
 
 interface FAQItem {
   question: string;
@@ -10,7 +10,7 @@ interface FAQItem {
   category?: string;
 }
 
-export default function FAQ() {
+export default function FaqClient() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs: FAQItem[] = [
@@ -101,181 +101,8 @@ export default function FAQ() {
 
   return (
     <>
-      <Head>
-        <title>FAQ - CLB Consulting | Operations, AI, Security & Leadership</title>
-        <meta
-          name="description"
-          content="Frequently asked questions about CLB Consulting's operational consulting, AI training, web security, and leadership coaching services for venues and live entertainment."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* Open Graph tags */}
-        <meta property="og:title" content="FAQ | CLB Consulting" />
-        <meta
-          property="og:description"
-          content="Get answers about operational consulting, AI training, web security, and leadership coaching for venues and live entertainment."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://chrisleebergstrom.com/faq" />
-        <meta
-          property="og:image"
-          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="1200" />
-        <meta
-          property="og:image:alt"
-          content="Chris Lee Bergstrom - AI Strategy Consultant and Audio Engineer"
-        />
-
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@chrisleebergstrom" />
-        <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="FAQ | CLB Consulting" />
-        <meta
-          name="twitter:description"
-          content="Get answers about operational consulting, AI training, web security, and leadership coaching for venues and live entertainment."
-        />
-        <meta
-          name="twitter:image"
-          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Chris Lee Bergstrom - AI Strategy Consultant and Audio Engineer"
-        />
-
-        {/* Favicon and App Icons */}
-        <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="192x192"
-          href="/images/Favicon/android-chrome-192x192.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="512x512"
-          href="/images/Favicon/android-chrome-512x512.png"
-        />
-        <meta name="msapplication-TileColor" content="#000000" />
-
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://chrisleebergstrom.com/faq" />
-
-        {/* JSON-LD Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              name: 'Frequently Asked Questions - CLB Consulting',
-              description:
-                "Common questions about CLB Consulting's operational consulting, AI training, web security, and leadership coaching services",
-              url: 'https://chrisleebergstrom.com/faq',
-              publisher: {
-                '@type': 'Organization',
-                '@id': 'https://chrisleebergstrom.com/#organization',
-                name: 'CLB Consulting',
-              },
-              mainEntity: [
-                {
-                  '@type': 'Question',
-                  name: 'What makes CLB Consulting different?',
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: 'Chris brings 20 years of live entertainment experience across four core areas: Operational Consulting, AI Education & Training, Web & App Security, and Leadership Coaching. Where most consultants specialize narrowly, Chris sees the whole system.',
-                  },
-                },
-                {
-                  '@type': 'Question',
-                  name: 'What does your operational consulting cover?',
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: "Chris analyzes your entire operation from load-in to load-out: staffing, safety audits, F&B flow, logistics, marketing, booking, and emergency preparedness. He's never cost a client more than he's saved them.",
-                  },
-                },
-                {
-                  '@type': 'Question',
-                  name: 'What AI education and training do you offer?',
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: 'Chris is in the top 3.7% of AI users worldwide, offering ethics-first implementation training, hands-on tool mastery, and AI workflows that serve your mission. Training covers foundational AI literacy to advanced multi-modal integrations.',
-                  },
-                },
-                {
-                  '@type': 'Question',
-                  name: 'What security services do you offer?',
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: 'Chris provides comprehensive web and app security including vulnerability assessments, penetration testing, security audits, and compliance guidance. He identifies weaknesses before they become breaches.',
-                  },
-                },
-                {
-                  '@type': 'Question',
-                  name: "What's your approach to leadership and team building?",
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: 'Chris treats culture as infrastructure. His approach includes 1:1 executive coaching, team development, and organizational culture design. CLB teams are interdisciplinary by design. The goal: leaders who navigate pressure with clarity and teams that thrive.',
-                  },
-                },
-                {
-                  '@type': 'Question',
-                  name: 'What industries do you work with?',
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: "Chris's core expertise spans entertainment, logistics, audio and acoustical analysis, and live events, but his systems-thinking approach translates across industries.",
-                  },
-                },
-                {
-                  '@type': 'Question',
-                  name: 'Do you work with small venues or only large productions?',
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: 'Chris works across the full spectrum—from intimate 200-seat theaters to major festival productions. Smaller venues often benefit most from systematic thinking; larger productions need it because complexity compounds fast.',
-                  },
-                },
-                {
-                  '@type': 'Question',
-                  name: 'Do you offer ongoing support after implementation?',
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: "Absolutely. Chris doesn't just build systems and walk away—he ensures they thrive. His approach includes training, optimization, and continuous improvement.",
-                  },
-                },
-              ],
-              breadcrumb: {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  {
-                    '@type': 'ListItem',
-                    position: 1,
-                    name: 'Home',
-                    item: 'https://chrisleebergstrom.com',
-                  },
-                  {
-                    '@type': 'ListItem',
-                    position: 2,
-                    name: 'FAQ',
-                    item: 'https://chrisleebergstrom.com/faq',
-                  },
-                ],
-              },
-            }),
-          }}
-        />
-      </Head>
-
-      <Header />
-
       {/* Background */}
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
+      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-0">
         <div
           className="absolute inset-0 bg-center bg-cover md:bg-fixed"
           style={{

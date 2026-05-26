@@ -1,8 +1,8 @@
+'use client';
+
 import { motion } from 'motion/react';
-import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import Header from '../components/Header';
-import SectionTracker from '../components/SectionTracker';
+import SectionTracker from '../../components/SectionTracker';
 
 interface SubstackPost {
   title: string;
@@ -21,7 +21,7 @@ interface SubstackFeed {
   error?: string;
 }
 
-export default function Blog() {
+export default function BlogClient() {
   const [substackPosts, setSubstackPosts] = useState<SubstackPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -59,121 +59,8 @@ export default function Blog() {
 
   return (
     <>
-      <Head>
-        <title>Musings - CLB Consulting Blog | AI Insights & Industry Analysis</title>
-        <meta
-          name="description"
-          content="Strategic insights, AI analysis, and industry musings from CLB Consulting. Explore our thoughts on entertainment technology, team dynamics, and systems thinking."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* Open Graph tags */}
-        <meta property="og:title" content="Musings | CLB Consulting" />
-        <meta
-          property="og:description"
-          content="Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://chrisleebergstrom.com/blog" />
-        <meta
-          property="og:image"
-          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="1200" />
-        <meta
-          property="og:image:alt"
-          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
-        />
-
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@chrisleebergstrom" />
-        <meta name="twitter:creator" content="@chrisleebergstrom" />
-        <meta name="twitter:title" content="Musings | CLB Consulting" />
-        <meta
-          name="twitter:description"
-          content="Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom."
-        />
-        <meta
-          name="twitter:image"
-          content="https://chrisleebergstrom.com/images/profile/chris-profile-square-2.jpg"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
-        />
-
-        {/* Favicon and App Icons */}
-        <link rel="icon" type="image/x-icon" href="/images/Favicon/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="192x192"
-          href="/images/Favicon/android-chrome-192x192.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="512x512"
-          href="/images/Favicon/android-chrome-512x512.png"
-        />
-        <meta name="msapplication-TileColor" content="#000000" />
-
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://chrisleebergstrom.com/blog" />
-
-        {/* JSON-LD Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Blog',
-              name: 'Musings - CLB Consulting Blog',
-              description:
-                'Strategic insights on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom',
-              url: 'https://chrisleebergstrom.com/blog',
-              publisher: {
-                '@type': 'Organization',
-                '@id': 'https://chrisleebergstrom.com/#organization',
-                name: 'CLB Consulting',
-              },
-              author: {
-                '@type': 'Person',
-                '@id': 'https://chrisleebergstrom.com/about#person',
-                name: 'Chris Lee Bergstrom',
-              },
-              blogPost: [],
-              breadcrumb: {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  {
-                    '@type': 'ListItem',
-                    position: 1,
-                    name: 'Home',
-                    item: 'https://chrisleebergstrom.com',
-                  },
-                  {
-                    '@type': 'ListItem',
-                    position: 2,
-                    name: 'Blog',
-                    item: 'https://chrisleebergstrom.com/blog',
-                  },
-                ],
-              },
-            }),
-          }}
-        />
-      </Head>
-
-      <Header />
-
       {/* Background */}
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-10]">
+      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-0">
         <div
           className="absolute inset-0"
           style={{

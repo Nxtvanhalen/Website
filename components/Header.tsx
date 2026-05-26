@@ -1,8 +1,10 @@
+'use client';
+
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useCallback, useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { type JSX, useCallback, useEffect, useState } from 'react';
 
 // Navigation links configuration
 const NAV_LINKS = [
@@ -63,9 +65,9 @@ const SocialIcon = ({ type }: { type: string }) => {
 };
 
 export default function Header() {
-  const router = useRouter();
-  const isHomePage = router.pathname === '/home';
-  const isAboutPage = router.pathname === '/about';
+  const pathname = usePathname();
+  const isHomePage = pathname === '/home';
+  const isAboutPage = pathname === '/about';
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -107,45 +109,48 @@ export default function Header() {
   return (
     <>
       {/* Skip Navigation Links for Screen Readers */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-molten focus:text-black focus:rounded focus:font-bold"
-        tabIndex={0}
-      >
+      {/* Screen-reader-only skip nav. Stays sr-only on focus too so Next's post-navigation
+          auto-focus heuristic can't trip focus-visible and pop the link visually. Screen
+          readers still announce + activate it normally. */}
+      <a href="#main-content" className="sr-only">
         Skip to main content
       </a>
 
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="flex items-center justify-between w-full">
-          {/* Logo */}
-          <Link href="/home" className="logo z-10" aria-label="CLB Consulting - Return to homepage">
-            {isHomePage ? (
-              <Image
-                src="/images/Purple Logo.png"
-                alt="CLB Consulting Logo"
-                width={120}
-                height={32}
-                className="h-8 w-auto"
-                priority
-              />
-            ) : (
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="h-12 w-auto opacity-70"
-                style={{
-                  mask: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
-                  maskComposite: 'intersect',
-                  WebkitMask:
-                    'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
-                  WebkitMaskComposite: 'source-in',
-                }}
-              >
-                <source src="/videos/animated-logo-trimmed.mp4" type="video/mp4" />
-              </video>
-            )}
+          {/* Logo — both Image and video stay mounted; visibility toggled by CSS.
+              Prevents the white-frame flash that occurred when client-side navigation
+              re-mounted a fresh video element between pages. */}
+          <Link href="/home" className="logo z-10" aria-label="CLB Consulting - Return to homepage" style={{ background: '#000' }}>
+            <Image
+              src="/images/Purple Logo.png"
+              alt="CLB Consulting Logo"
+              width={120}
+              height={32}
+              className={`h-8 w-auto ${isHomePage ? '' : 'hidden'}`}
+              priority
+            />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              width={180}
+              height={48}
+              poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYGD4DwABBAEAfbLI3wAAAABJRU5ErkJggg=="
+              className={`h-12 w-auto opacity-70 ${isHomePage ? 'hidden' : ''}`}
+              style={{
+                background: '#000',
+                mask: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+                maskComposite: 'intersect',
+                WebkitMask:
+                  'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+                WebkitMaskComposite: 'source-in',
+              }}
+            >
+              <source src="/videos/animated-logo-trimmed.mp4" type="video/mp4" />
+            </video>
           </Link>
 
           {/* Profile Picture - Center (Desktop Only) */}

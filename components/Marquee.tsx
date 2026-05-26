@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -588,7 +590,7 @@ export default function Marquee() {
                 alt="Silhouetted musicians perform on a dimly lit stage, backlit by intense white light and haze. A guitarist and vocalist are visible in profile near microphones, while the audience stands close at the front of the stage, faces faintly illuminated by the glow, capturing the raw atmosphere of an intimate live concert."
               />
               <GalleryImage
-                src="/images/gallery/BRMC2.webp?v=20250628"
+                src="/images/gallery/BRMC2.webp"
                 alt="A large, packed concert audience fills a historic theater, facing a brightly lit stage beneath an ornate arched proscenium. Hundreds of people stand shoulder to shoulder with hands raised and clapping, while performers are visible onstage under warm and cool stage lights, capturing the energy of a live music performance."
               />
               <GalleryImage
@@ -625,7 +627,7 @@ export default function Marquee() {
                 alt="Silhouetted musicians perform on a dimly lit stage, backlit by intense white light and haze. A guitarist and vocalist are visible in profile near microphones, while the audience stands close at the front of the stage, faces faintly illuminated by the glow, capturing the raw atmosphere of an intimate live concert."
               />
               <GalleryImage
-                src="/images/gallery/BRMC2.webp?v=20250628"
+                src="/images/gallery/BRMC2.webp"
                 alt="A large, packed concert audience fills a historic theater, facing a brightly lit stage beneath an ornate arched proscenium. Hundreds of people stand shoulder to shoulder with hands raised and clapping, while performers are visible onstage under warm and cool stage lights, capturing the energy of a live music performance."
               />
               <GalleryImage

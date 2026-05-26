@@ -1,3 +1,5 @@
+'use client';
+
 import { AnimatePresence, motion, useInView } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { useChat } from '../context/ChatContext';
