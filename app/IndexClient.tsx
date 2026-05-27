@@ -7,6 +7,7 @@ import History from '../components/History';
 import Method from '../components/Method';
 import OffTheClock from '../components/OffTheClock';
 import SelectedWork from '../components/SelectedWork';
+import Skills from '../components/Skills';
 
 const VIOLET = '#9370DB';
 
@@ -318,6 +319,7 @@ export default function IndexClient() {
 
       <SelectedWork />
       <Method />
+      <Skills />
       <History />
       <OffTheClock />
       <Contact />
