@@ -148,7 +148,7 @@ export default function SelectedWork() {
             blurb="Run a small underground music venue — book bands, keep the crew right, dodge incidents, balance the books. A PNW dive-bar sim in cyberpunk-noir. Twenty years of running venues, turned into a game."
             visual={
               <Image
-                src="/images/COVER.png"
+                src="/images/COVER.jpg"
                 alt="The Underground — cyberpunk-noir illustration of a neon-lit dive bar with crowd queued under rain, branded marquee, and venue facade"
                 fill
                 priority
