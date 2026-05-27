@@ -15,7 +15,7 @@ export default function ChatPanel() {
     {
       role: 'assistant',
       content:
-        "Welcome to CLB Consulting! I'm EVE, your AI assistant. How can I help you with your project needs today?",
+        "Welcome — I'm EVE, Chris's portfolio assistant. Ask me about the work, the road, or how to reach him.",
     },
   ]);
   const [input, setInput] = useState('');

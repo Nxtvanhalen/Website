@@ -6,13 +6,13 @@ import PrivacyClient from './PrivacyClient';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
-    'Privacy Policy for CLB Consulting - How we collect, use, and protect your information',
+    'Privacy policy for chrisleebergstrom.com — how we collect, use, and protect your information. CLB Consulting is the legal entity that owns this site.',
   robots: 'index, follow',
   alternates: { canonical: 'https://chrisleebergstrom.com/privacy' },
   openGraph: {
-    title: 'Privacy | CLB Consulting',
+    title: 'Privacy | Chris Lee Bergstrom',
     description:
-      'Privacy Policy for CLB Consulting - How we collect, use, and protect your information',
+      'Privacy policy for chrisleebergstrom.com — how we collect, use, and protect your information. CLB Consulting is the legal entity that owns this site.',
     type: 'website',
     url: 'https://chrisleebergstrom.com/privacy',
     images: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: '/images/profile/chris-profile-square-2.jpg',
         width: 1200,
         height: 1200,
-        alt: 'Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer',
+        alt: 'Chris Lee Bergstrom — AI developer and live entertainment veteran',
       },
     ],
   },
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@chrisleebergstrom',
     creator: '@chrisleebergstrom',
-    title: 'Privacy | CLB Consulting',
+    title: 'Privacy | Chris Lee Bergstrom',
     description:
-      'Privacy Policy for CLB Consulting - How we collect, use, and protect your information',
+      'Privacy policy for chrisleebergstrom.com — how we collect, use, and protect your information. CLB Consulting is the legal entity that owns this site.',
     images: ['/images/profile/chris-profile-square-2.jpg'],
   },
 };

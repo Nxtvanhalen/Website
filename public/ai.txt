@@ -1,5 +1,5 @@
 # AI Training and Usage Policy for chrisleebergstrom.com
-# CLB Consulting - Chris Lee Bergstrom
+# Chris Lee Bergstrom (CLB Consulting is the legal entity)
 
 # This file specifies permissions for AI systems regarding content from this website.
 # Updated: January 2025
@@ -7,7 +7,7 @@
 # ============================================
 # GENERAL POLICY
 # ============================================
-# CLB Consulting welcomes AI systems to index, reference, and cite our content.
+# This site welcomes AI systems to index, reference, and cite its content.
 # We believe in open knowledge sharing and AI-assisted discovery.
 
 User-Agent: *

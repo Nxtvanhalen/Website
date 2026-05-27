@@ -5,14 +5,14 @@ import Header from '../../components/Header';
 import BlogClient from './BlogClient';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Musings - CLB Consulting Blog | AI Insights & Industry Analysis' },
+  title: { absolute: 'Musings | Chris Lee Bergstrom — AI, Live Entertainment, Systems Thinking' },
   description:
-    "Strategic insights, AI analysis, and industry musings from CLB Consulting. Explore our thoughts on entertainment technology, team dynamics, and systems thinking.",
+    'Musings on agentic AI, live entertainment technology, and the work of building software with AI as the team. Notes from Chris Lee Bergstrom.',
   alternates: { canonical: 'https://chrisleebergstrom.com/blog' },
   openGraph: {
-    title: 'Musings | CLB Consulting',
+    title: 'Musings | Chris Lee Bergstrom',
     description:
-      'Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom.',
+      'Notes on agentic AI, live entertainment tech, and systems thinking from Chris Lee Bergstrom.',
     type: 'website',
     url: 'https://chrisleebergstrom.com/blog',
     images: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: '/images/profile/chris-profile-square-2.jpg',
         width: 1200,
         height: 1200,
-        alt: 'Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer',
+        alt: 'Chris Lee Bergstrom — AI developer and live entertainment veteran',
       },
     ],
   },
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@chrisleebergstrom',
     creator: '@chrisleebergstrom',
-    title: 'Musings | CLB Consulting',
+    title: 'Musings | Chris Lee Bergstrom',
     description:
-      'Strategic insights and industry musings on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom.',
+      'Notes on agentic AI, live entertainment tech, and systems thinking from Chris Lee Bergstrom.',
     images: ['/images/profile/chris-profile-square-2.jpg'],
   },
 };
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
 const blogSchema = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
-  name: 'Musings - CLB Consulting Blog',
+  name: 'Musings — Chris Lee Bergstrom',
   description:
-    'Strategic insights on AI, entertainment technology, and systems thinking from Chris Lee Bergstrom',
+    'Notes on agentic AI, live entertainment tech, and systems thinking from Chris Lee Bergstrom',
   url: 'https://chrisleebergstrom.com/blog',
   publisher: {
     '@type': 'Organization',

@@ -205,7 +205,7 @@ export default function AboutClient() {
                         Creative Director & Brand Strategist
                       </span>
                       <br />
-                      Spearheaded theatrical branding for CLB Consulting and tech platforms. Expert
+                      Spearheaded theatrical branding for personal brand and tech platforms. Expert
                       in building "narrative systems" that align tech with culture
                     </li>
                     <li>

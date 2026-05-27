@@ -32,7 +32,7 @@ export default function IndexClient() {
 
       <main
         className="min-h-screen flex flex-col items-center justify-center relative"
-        aria-label="CLB Consulting Landing Page"
+        aria-label="Chris Lee Bergstrom — Landing"
         style={{ position: 'relative', zIndex: 10 }}
       >
         {/* Chris Lee Bergstrom Name */}
@@ -82,7 +82,7 @@ export default function IndexClient() {
           <Link
             href="/home"
             className="px-12 py-4 bg-white/10 backdrop-blur-md text-white text-xl font-medium rounded-xl hover:bg-white/20 transition-all duration-500 focus:outline-none animate-pulse-slow landing-enter-button"
-            aria-label="Enter CLB Consulting website"
+            aria-label="Enter the site"
           >
             Enter
           </Link>

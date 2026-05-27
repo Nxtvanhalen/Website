@@ -8,11 +8,11 @@ import '../styles/global.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://chrisleebergstrom.com'),
   title: {
-    default: 'CLB Consulting | Chris Lee Bergstrom',
-    template: '%s | CLB Consulting',
+    default: 'Chris Lee Bergstrom — AI Developer + 20 Years Live Entertainment',
+    template: '%s | Chris Lee Bergstrom',
   },
   description:
-    'Operations consulting, AI training, web security, and executive coaching from Chris Lee Bergstrom.',
+    'AI developer with 20 years in live entertainment. Building agentic software for venues, tours, and live events — front-of-house engineer turned full-stack developer, using AI agents as the build team.',
   manifest: '/site.webmanifest',
   icons: {
     icon: [

@@ -5,14 +5,14 @@ import Header from '../../components/Header';
 import ProjectsClient from './ProjectsClient';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Projects - CLB Consulting | AI & Entertainment Tech' },
+  title: { absolute: 'Projects | Chris Lee Bergstrom — AI & Entertainment Tech' },
   description:
-    "Explore CLB Consulting's projects in AI, entertainment technology, and system architecture. Featuring Master Tour, EVA, Ryder, and more.",
+    'Selected work and project archive from Chris Lee Bergstrom: agentic AI tools, entertainment-tech systems, and live-events software. Featuring The Underground, Byte, Master Tour, EVA, Ryder, and more.',
   alternates: { canonical: 'https://chrisleebergstrom.com/projects' },
   openGraph: {
-    title: 'Projects | CLB Consulting',
+    title: 'Projects | Chris Lee Bergstrom',
     description:
-      "Explore CLB Consulting's projects in AI, entertainment technology, and system architecture. Featuring Master Tour, EVA, Ryder, and more.",
+      'Selected work from Chris Lee Bergstrom: agentic AI tools, entertainment-tech systems, and live-events software.',
     type: 'website',
     url: 'https://chrisleebergstrom.com/projects',
     images: [
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@chrisleebergstrom',
     creator: '@chrisleebergstrom',
-    title: 'Projects | CLB Consulting',
+    title: 'Projects | Chris Lee Bergstrom',
     description:
-      "Explore CLB Consulting's projects in AI, entertainment technology, and system architecture. Featuring Master Tour, EVA, Ryder, and more.",
+      'Selected work from Chris Lee Bergstrom: agentic AI tools, entertainment-tech systems, and live-events software.',
     images: ['/images/profile/chris-profile-square-2.jpg'],
   },
 };
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
 const projectsSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Projects - CLB Consulting',
-  description: 'Showcase of AI and entertainment technology projects by CLB Consulting',
+  name: 'Projects — Chris Lee Bergstrom',
+  description: 'Showcase of AI, entertainment-tech, and live-events projects by Chris Lee Bergstrom.',
   url: 'https://chrisleebergstrom.com/projects',
   author: {
     '@type': 'Person',
@@ -108,7 +108,7 @@ const projectsSchema = {
       operatingSystem: 'Web Browser',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       description:
-        'Conversational AI for CLB Consulting - knows every page, service, and project',
+        "Conversational AI concierge for Chris Lee Bergstrom's portfolio — knows every page, project, and the work behind it.",
     },
     {
       '@type': 'SoftwareApplication',

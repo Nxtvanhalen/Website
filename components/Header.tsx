@@ -121,10 +121,10 @@ export default function Header() {
           {/* Logo — both Image and video stay mounted; visibility toggled by CSS.
               Prevents the white-frame flash that occurred when client-side navigation
               re-mounted a fresh video element between pages. */}
-          <Link href="/home" className="logo z-10" aria-label="CLB Consulting - Return to homepage" style={{ background: '#000' }}>
+          <Link href="/home" className="logo z-10" aria-label="Chris Lee Bergstrom — Return to homepage" style={{ background: '#000' }}>
             <Image
               src="/images/Purple Logo.png"
-              alt="CLB Consulting Logo"
+              alt="Chris Lee Bergstrom logo"
               width={120}
               height={32}
               className={`h-8 w-auto ${isHomePage ? '' : 'hidden'}`}

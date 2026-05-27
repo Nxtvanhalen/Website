@@ -15,10 +15,10 @@ export default function FaqClient() {
 
   const faqs: FAQItem[] = [
     {
-      question: 'What makes CLB Consulting different?',
+      question: 'What does Chris actually do?',
       answer:
-        "Chris brings 20 years of live entertainment experience to every engagement—not theoretical frameworks, but battle-tested strategies from arenas, festivals, and civic halls worldwide.\n\nHe operates across four core areas: Operational Consulting, AI Education & Training, Web & App Security, and Leadership Coaching. Where most consultants specialize narrowly, Chris sees the whole system—because in live events, everything connects.\n\nHe's deeply human, deeply technical, and allergic to performative innovation. He's not here to sell you buzzwords—he's here to make your operation run smarter, safer, and more efficiently.",
-      category: 'About CLB',
+        "Chris is an AI developer with 20 years in live entertainment. He builds agentic software for venues, tours, and live events — front-of-house engineer turned full-stack developer, using AI agents as the build team.\n\nHe still consults on venue operations, AI training, and web security when it is the right fit. But the center of gravity is the work: shipped products, working demos, and the software that runs live shows.\n\nDeeply human, deeply technical, allergic to performative innovation. The work speaks first.",
+      category: 'About Chris',
     },
     {
       question: 'What does your operational consulting cover?',
@@ -36,7 +36,7 @@ export default function FaqClient() {
     {
       question: 'What AI education and training do you offer?',
       answer:
-        'Chris is in the top 3.7% of AI users worldwide, offering practical training that cuts through the hype. His focus: ethics-first implementation, hands-on tool mastery, and building AI workflows that actually serve your mission.\n\nTraining covers everything from foundational AI literacy for teams to advanced multi-modal integrations. He builds AI that empowers the visionary, never replaces the artist.',
+        'Practical AI training that cuts through the hype, drawn from years of agentic AI development in production. Focus: ethics-first implementation, hands-on tool mastery, and AI workflows that actually serve your mission.\n\nTraining covers everything from foundational AI literacy for teams to advanced agentic and multi-modal integrations. AI that empowers the visionary, never replaces the artist.',
       category: 'AI Training',
     },
     {
@@ -215,8 +215,8 @@ export default function FaqClient() {
                 className="text-lg mb-6 max-w-2xl mx-auto"
                 style={{ color: '#F5F5DC', opacity: 0.9 }}
               >
-                Ready to discuss how CLB Consulting can transform your operations and empower your
-                team? Let's start the conversation.
+                Ready to talk through your project, your venue, or your AI strategy? Let's start the
+                conversation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a

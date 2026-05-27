@@ -221,7 +221,7 @@ function getOfflinePage() {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Offline - CLB Consulting</title>
+      <title>Offline — Chris Lee Bergstrom</title>
       <style>
         body { 
           font-family: -apple-system, BlinkMacSystemFont, sans-serif; 

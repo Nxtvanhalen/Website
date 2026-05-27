@@ -5,14 +5,14 @@ import Header from '../../components/Header';
 import NewsClient from './NewsClient';
 
 export const metadata: Metadata = {
-  title: { absolute: 'News/Press - CLB Consulting' },
+  title: { absolute: 'News & Press | Chris Lee Bergstrom' },
   description:
-    'Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting',
+    'Press coverage, podcast appearances, and music/video credits featuring Chris Lee Bergstrom — AI developer and 20-year live entertainment veteran.',
   alternates: { canonical: 'https://chrisleebergstrom.com/news' },
   openGraph: {
-    title: 'News | CLB Consulting',
+    title: 'News | Chris Lee Bergstrom',
     description:
-      'Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting',
+      'Press coverage, podcast appearances, and credits featuring Chris Lee Bergstrom.',
     type: 'website',
     url: 'https://chrisleebergstrom.com/news',
     images: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: '/images/profile/chris-profile-square-2.jpg',
         width: 1200,
         height: 1200,
-        alt: 'Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer',
+        alt: 'Chris Lee Bergstrom — AI developer and live entertainment veteran',
       },
     ],
   },
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@chrisleebergstrom',
     creator: '@chrisleebergstrom',
-    title: 'News | CLB Consulting',
+    title: 'News | Chris Lee Bergstrom',
     description:
-      'Latest news and press coverage about Chris Lee Bergstrom and CLB Consulting',
+      'Press coverage, podcast appearances, and credits featuring Chris Lee Bergstrom.',
     images: ['/images/profile/chris-profile-square-2.jpg'],
   },
 };
@@ -44,7 +44,7 @@ export const viewport: Viewport = {
 const newsSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'News & Press - CLB Consulting',
+  name: 'News & Press — Chris Lee Bergstrom',
   description:
     'Latest news, press coverage, and media appearances featuring Chris Lee Bergstrom',
   url: 'https://chrisleebergstrom.com/news',
