@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from 'motion/react';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
+import Contact from '../components/Contact';
 import History from '../components/History';
 import Method from '../components/Method';
 import OffTheClock from '../components/OffTheClock';
@@ -348,6 +349,7 @@ export default function IndexClient() {
       <Method />
       <History />
       <OffTheClock />
+      <Contact />
     </div>
   );
 }
