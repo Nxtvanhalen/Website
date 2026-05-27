@@ -3,197 +3,230 @@
 import { motion } from 'motion/react';
 import Link from 'next/link';
 
+const VIOLET = '#9370DB';
+
+function H2({ children }: { children: React.ReactNode }) {
+  return (
+    <h2
+      className="font-heading text-2xl md:text-3xl uppercase tracking-tight mb-4 mt-12"
+      style={{ color: VIOLET }}
+    >
+      {children}
+    </h2>
+  );
+}
+
+function H3({ children }: { children: React.ReactNode }) {
+  return (
+    <h3 className="font-heading text-lg md:text-xl uppercase tracking-tight text-white mb-2 mt-6">
+      {children}
+    </h3>
+  );
+}
+
 export default function PrivacyClient() {
   return (
-    <main className="min-h-screen bg-black text-white pt-32 pb-20">
-      <div className="max-w-4xl mx-auto px-6 md:px-8">
-        <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-8 text-center glow-subtle"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+    <main
+      id="main-content"
+      className="relative bg-black text-white"
+      aria-label="Privacy Policy"
+    >
+      {/* Header */}
+      <section className="relative px-6 pt-32 pb-12 md:pt-40 md:pb-16">
+        <div className="mx-auto max-w-3xl">
+          <motion.p
+            className="font-mono text-xs tracking-[0.35em] uppercase mb-4"
+            style={{ color: VIOLET }}
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Legal
+          </motion.p>
+          <motion.h1
+            className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-white"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
+            Privacy Policy
+          </motion.h1>
+          <motion.p
+            className="font-mono text-[10px] tracking-[0.3em] uppercase mt-6 text-white/55"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            Last updated ·{' '}
+            {new Date().toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Body */}
+      <section className="relative px-6 pb-16">
+        <div
+          className="mx-auto max-w-3xl font-body text-base md:text-lg leading-relaxed"
+          style={{ color: 'rgba(245, 245, 220, 0.82)' }}
         >
-          Privacy Policy
-        </motion.h1>
+          <p>
+            At CLB Consulting ("we," "our," or "us"), we respect your privacy and are committed to
+            protecting your personal data. This privacy policy explains how we collect, use, and
+            safeguard your information when you visit our website chrisleebergstrom.com.
+          </p>
 
-        <div className="prose prose-invert prose-lg max-w-none space-y-8">
-          <section>
-            <p className="text-xl text-gray-300 mb-8">
-              Last updated:{' '}
-              {new Date().toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
+          <H2>Information We Collect</H2>
+          <H3>Information You Provide</H3>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Contact information when you reach out via email</li>
+            <li>Any information you provide through our AI chat assistant (EVE)</li>
+            <li>Professional information shared during consultations</li>
+          </ul>
+
+          <H3>Information Collected Automatically</H3>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Browser type and version</li>
+            <li>Device information</li>
+            <li>IP address (anonymized)</li>
+            <li>Pages visited and time spent</li>
+            <li>Referring website</li>
+          </ul>
+
+          <H2>Cookies and Tracking</H2>
+          <p>
+            We use cookies and similar tracking technologies to improve your experience on our
+            site. These include:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 mt-4">
+            <li>
+              <strong className="text-white">Essential cookies</strong> — required for the website
+              to function properly.
+            </li>
+            <li>
+              <strong className="text-white">Analytics cookies</strong> — help us understand how
+              visitors use the site (Google Analytics).
+            </li>
+            <li>
+              <strong className="text-white">Preference cookies</strong> — remember your settings
+              and preferences.
+            </li>
+          </ul>
+          <p className="mt-4">
+            You can control cookie preferences through our cookie-consent banner when you first
+            visit the site.
+          </p>
+
+          <H2>How We Use Your Information</H2>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>To provide and improve our services</li>
+            <li>To respond to your inquiries and communications</li>
+            <li>To analyze website usage and improve user experience</li>
+            <li>To send relevant updates about our services (with your consent)</li>
+            <li>To comply with legal obligations</li>
+          </ul>
+
+          <H2>Data Sharing and Third Parties</H2>
+          <p>
+            We do not sell, trade, or rent your personal information to third parties. We may
+            share your information only:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 mt-4">
+            <li>
+              With service providers who assist in operating our website (under strict
+              confidentiality agreements)
+            </li>
+            <li>When required by law or to protect our rights</li>
+            <li>With your explicit consent</li>
+          </ul>
+
+          <H2>Data Security</H2>
+          <p>
+            We implement appropriate technical and organizational measures to protect your
+            personal data against unauthorized access, alteration, disclosure, or destruction.
+            However, no method of transmission over the internet is 100% secure.
+          </p>
+
+          <H2>Your Rights</H2>
+          <p>Under GDPR and other privacy laws, you have the right to:</p>
+          <ul className="list-disc pl-6 space-y-2 mt-4">
+            <li>Access your personal data</li>
+            <li>Correct inaccurate data</li>
+            <li>Request deletion of your data</li>
+            <li>Object to processing of your data</li>
+            <li>Data portability</li>
+            <li>Withdraw consent at any time</li>
+          </ul>
+
+          <H2>AI Assistant (EVE)</H2>
+          <p>
+            Our AI assistant EVE processes conversations in real time to provide helpful
+            responses. Conversations may be logged for quality improvement but are not linked to
+            personal identifiers unless you explicitly provide such information.
+          </p>
+
+          <H2>Children's Privacy</H2>
+          <p>
+            Our services are not directed to individuals under 16. We do not knowingly collect
+            personal information from children under 16.
+          </p>
+
+          <H2>Changes to This Policy</H2>
+          <p>
+            We may update this privacy policy from time to time. We will notify you of any changes
+            by posting the new policy on this page and updating the "Last updated" date.
+          </p>
+
+          <H2>Contact</H2>
+          <p>
+            If you have questions about this privacy policy or your personal data, please contact
+            us:
+          </p>
+          <div
+            className="mt-6 rounded-sm bg-black/40 backdrop-blur-md p-6"
+            style={{ border: '1px solid rgba(147, 112, 219, 0.3)' }}
+          >
+            <p className="font-heading uppercase tracking-tight text-white">CLB Consulting</p>
+            <p className="mt-3">
+              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-white/55">
+                Email ·{' '}
+              </span>
+              <a
+                href="mailto:chrisleebergstrom@gmail.com"
+                className="transition-colors hover:text-white"
+                style={{ color: VIOLET }}
+              >
+                chrisleebergstrom@gmail.com
+              </a>
             </p>
-
-            <p>
-              At CLB Consulting ("we," "our," or "us"), we respect your privacy and are committed
-              to protecting your personal data. This privacy policy explains how we collect, use,
-              and safeguard your information when you visit our website chrisleebergstrom.com.
+            <p className="mt-1">
+              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-white/55">
+                Site ·{' '}
+              </span>
+              <a
+                href="https://chrisleebergstrom.com"
+                className="transition-colors hover:text-white"
+                style={{ color: VIOLET }}
+              >
+                chrisleebergstrom.com
+              </a>
             </p>
-          </section>
+          </div>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Information We Collect</h2>
-
-            <h3 className="text-xl font-semibold mb-2">Information You Provide</h3>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Contact information when you reach out via email</li>
-              <li>Any information you provide through our AI chat assistant (EVE)</li>
-              <li>Professional information shared during consultations</li>
-            </ul>
-
-            <h3 className="text-xl font-semibold mb-2 mt-6">
-              Information Collected Automatically
-            </h3>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Browser type and version</li>
-              <li>Device information</li>
-              <li>IP address (anonymized)</li>
-              <li>Pages visited and time spent</li>
-              <li>Referring website</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Cookies and Tracking</h2>
-            <p>
-              We use cookies and similar tracking technologies to improve your experience on our
-              site. These include:
-            </p>
-            <ul className="list-disc pl-6 space-y-2 mt-4">
-              <li>
-                <strong>Essential Cookies:</strong> Required for the website to function properly
-              </li>
-              <li>
-                <strong>Analytics Cookies:</strong> Help us understand how visitors use our site
-                (Google Analytics)
-              </li>
-              <li>
-                <strong>Preference Cookies:</strong> Remember your settings and preferences
-              </li>
-            </ul>
-            <p className="mt-4">
-              You can control cookie preferences through our cookie consent banner when you first
-              visit our site.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">
-              How We Use Your Information
-            </h2>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>To provide and improve our consulting services</li>
-              <li>To respond to your inquiries and communications</li>
-              <li>To analyze website usage and improve user experience</li>
-              <li>To send relevant updates about our services (with your consent)</li>
-              <li>To comply with legal obligations</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">
-              Data Sharing and Third Parties
-            </h2>
-            <p>
-              We do not sell, trade, or rent your personal information to third parties. We may
-              share your information only:
-            </p>
-            <ul className="list-disc pl-6 space-y-2 mt-4">
-              <li>
-                With service providers who assist in operating our website (under strict
-                confidentiality agreements)
-              </li>
-              <li>When required by law or to protect our rights</li>
-              <li>With your explicit consent</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Data Security</h2>
-            <p>
-              We implement appropriate technical and organizational measures to protect your
-              personal data against unauthorized access, alteration, disclosure, or destruction.
-              However, no method of transmission over the internet is 100% secure.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Your Rights</h2>
-            <p>Under GDPR and other privacy laws, you have the right to:</p>
-            <ul className="list-disc pl-6 space-y-2 mt-4">
-              <li>Access your personal data</li>
-              <li>Correct inaccurate data</li>
-              <li>Request deletion of your data</li>
-              <li>Object to processing of your data</li>
-              <li>Data portability</li>
-              <li>Withdraw consent at any time</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">AI Assistant (EVE)</h2>
-            <p>
-              Our AI assistant EVE processes conversations in real-time to provide helpful
-              responses. Conversations may be logged for quality improvement but are not linked to
-              personal identifiers unless you explicitly provide such information.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Children's Privacy</h2>
-            <p>
-              Our services are not directed to individuals under 16. We do not knowingly collect
-              personal information from children under 16.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Changes to This Policy</h2>
-            <p>
-              We may update this privacy policy from time to time. We will notify you of any
-              changes by posting the new policy on this page and updating the "Last updated" date.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-[#9370DB]">Contact Us</h2>
-            <p>
-              If you have questions about this privacy policy or your personal data, please
-              contact us at:
-            </p>
-            <div className="mt-4 p-6 border-2 border-[#9370DB] rounded-lg">
-              <p className="font-semibold">CLB Consulting</p>
-              <p>
-                Email:{' '}
-                <a
-                  href="mailto:chrisleebergstrom@gmail.com"
-                  className="text-[#9370DB] hover:underline"
-                >
-                  chrisleebergstrom@gmail.com
-                </a>
-              </p>
-              <p>
-                Website:{' '}
-                <a
-                  href="https://chrisleebergstrom.com"
-                  className="text-[#9370DB] hover:underline"
-                >
-                  chrisleebergstrom.com
-                </a>
-              </p>
-            </div>
-          </section>
-
-          <div className="mt-12 text-center">
-            <Link href="/" className="text-[#9370DB] hover:underline">
-              ← Return to Home
+          <div className="mt-16 text-center">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-colors hover:text-white"
+              style={{ color: VIOLET }}
+            >
+              ← Back to the work
             </Link>
           </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }
