@@ -2,7 +2,8 @@
 
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
-import SectionTracker from '../../components/SectionTracker';
+
+const VIOLET = '#9370DB';
 
 interface SubstackPost {
   title: string;
@@ -19,6 +20,76 @@ interface SubstackFeed {
   feedTitle?: string;
   feedDescription?: string;
   error?: string;
+}
+
+function formatDate(dateString: string) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+}
+
+type PostCardProps = {
+  code: string;
+  post: SubstackPost;
+  delay?: number;
+};
+
+function PostCard({ code, post, delay = 0 }: PostCardProps) {
+  return (
+    <motion.a
+      href={post.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block rounded-sm bg-black/40 backdrop-blur-md p-6 lg:p-7 transition-all duration-500"
+      style={{ border: '1px solid rgba(147, 112, 219, 0.22)' }}
+      whileHover={{
+        borderColor: 'rgba(147, 112, 219, 0.7)',
+        boxShadow: '0 0 28px rgba(147, 112, 219, 0.22)',
+      }}
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.6, delay }}
+    >
+      <div className="mb-3 flex items-center justify-between gap-4 text-[10px] font-mono uppercase tracking-[0.3em]">
+        <span className="text-white/55">
+          {code} · Musing
+        </span>
+        <time className="text-white/40" dateTime={post.pubDate}>
+          {formatDate(post.pubDate)}
+        </time>
+      </div>
+
+      <h3 className="font-heading text-xl md:text-2xl uppercase tracking-tight leading-snug text-white">
+        {post.title}
+      </h3>
+
+      {post.contentSnippet && (
+        <p
+          className="font-body text-base mt-4 leading-relaxed"
+          style={{ color: 'rgba(245, 245, 220, 0.78)' }}
+        >
+          {post.contentSnippet}
+        </p>
+      )}
+
+      <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between font-mono text-[10px] tracking-[0.25em] uppercase">
+        <span
+          className="inline-flex items-center gap-2 transition-all duration-300 group-hover:gap-3"
+          style={{ color: VIOLET }}
+        >
+          Read on Substack
+          <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+            →
+          </span>
+        </span>
+        {post.author && <span className="text-white/35">by {post.author}</span>}
+      </div>
+    </motion.a>
+  );
 }
 
 export default function BlogClient() {
@@ -48,302 +119,203 @@ export default function BlogClient() {
     fetchSubstackPosts();
   }, []);
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  };
-
   return (
-    <>
-      {/* Background */}
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/images/musing.PNG')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-            transform: 'translateY(100px)',
-            minHeight: '120vh',
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
-      </div>
-
-      <main className="min-h-screen bg-transparent text-white pt-24 md:pt-52 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          {/* Header Section */}
-          <SectionTracker
-            name="Blog - Header"
-            butlerMessage="Welcome to the Musings. Here, Chris drops the corporate filter and speaks his mind."
+    <main
+      id="main-content"
+      className="relative bg-black text-white"
+      aria-label="Musings — blog and Substack feed"
+    >
+      {/* Header */}
+      <section className="relative px-6 pt-32 pb-12 md:pt-40 md:pb-16 lg:pt-48 lg:pb-20">
+        <div className="mx-auto max-w-4xl">
+          <motion.p
+            className="font-mono text-xs tracking-[0.35em] uppercase mb-4"
+            style={{ color: VIOLET }}
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="text-center mb-16">
-              <motion.h1
-                className="text-4xl md:text-5xl font-heading mb-2 glow-subtle"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                Musings
-              </motion.h1>
-              <motion.p
-                className="text-xl max-w-3xl mx-auto leading-relaxed mb-4"
-                style={{ color: '#F5F5DC', opacity: 0.9 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                A more raw and unfiltered forum
-              </motion.p>
-              <div className="flex items-center justify-center gap-4">
-                <motion.a
-                  href="https://chrisleebergstrom.substack.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-molten hover:text-white transition-colors duration-200"
-                  aria-label="Visit Substack"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  whileTap={{ scale: 0.9 }}
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  <svg
-                    className="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <linearGradient id="rainbow_gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#FF0000" />
-                        <stop offset="20%" stopColor="#FF7F00" />
-                        <stop offset="40%" stopColor="#FFFF00" />
-                        <stop offset="60%" stopColor="#00FF00" />
-                        <stop offset="80%" stopColor="#0000FF" />
-                        <stop offset="100%" stopColor="#8B00FF" />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"
-                      fill="url(#rainbow_gradient)"
-                    />
-                  </svg>
-                </motion.a>
-                <motion.a
-                  href="https://chrisleebergstrom.substack.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-molten font-bold hover:text-white transition-colors duration-200 text-lg"
-                  whileHover={{ scale: 1.05, x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                  animate={{ scale: [1, 1.02, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                >
-                  Check out the Stack! →
-                </motion.a>
-              </div>
-            </div>
-          </SectionTracker>
-
-          {/* Latest Substack Posts */}
-          <SectionTracker
-            name="Blog - Posts"
-            butlerMessage="Chris's musings can be... intense. But always insightful. Want me to summarize the latest?"
+            Musings
+          </motion.p>
+          <motion.h1
+            className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-white"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <div className="mb-16">
-              {loading && (
-                <div className="text-center py-12">
-                  <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-molten"></div>
-                  <p className="mt-4" style={{ color: '#F5F5DC', opacity: 0.6 }}>
-                    Loading latest posts...
-                  </p>
-                </div>
-              )}
-
-              {error && (
-                <div className="bg-red-900/40 border border-red-500/30 rounded-lg p-6 text-center mb-8">
-                  <p className="text-red-300 mb-4">{error}</p>
-                  <a
-                    href="https://chrisleebergstrom.substack.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block py-2 px-6 bg-molten/20 border border-molten font-bold rounded hover:bg-molten/30 transition-all duration-300"
-                    style={{ color: '#F5F5DC' }}
-                  >
-                    Visit Substack Directly
-                  </a>
-                </div>
-              )}
-
-              {!loading && !error && substackPosts.length > 0 && (
-                <>
-                  <div className="space-y-6 mb-12">
-                    {substackPosts.map((post, index) => (
-                      <article
-                        key={index}
-                        className="bg-black/40 border border-molten/30 rounded-lg p-6 backdrop-blur-sm hover:border-molten/50 transition-all duration-300"
-                      >
-                        <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                          <h3
-                            className="text-xl font-semibold mb-2 md:mb-0 md:pr-4 leading-tight"
-                            style={{ color: '#F5F5DC' }}
-                          >
-                            {post.title}
-                          </h3>
-                          <time
-                            className="text-sm whitespace-nowrap"
-                            style={{ color: '#F5F5DC', opacity: 0.6 }}
-                          >
-                            {formatDate(post.pubDate)}
-                          </time>
-                        </div>
-
-                        {post.contentSnippet && (
-                          <p
-                            className="leading-relaxed mb-4"
-                            style={{ color: '#F5F5DC', opacity: 0.9 }}
-                          >
-                            {post.contentSnippet}
-                          </p>
-                        )}
-
-                        <div className="flex items-center justify-between">
-                          <a
-                            href={post.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center hover:text-white transition-colors duration-300 font-semibold"
-                            style={{ color: '#F5F5DC' }}
-                          >
-                            Read Full Post →
-                          </a>
-                          <span className="text-xs" style={{ color: '#F5F5DC', opacity: 0.4 }}>
-                            by {post.author}
-                          </span>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-
-                  <div className="text-center">
-                    <a
-                      href="https://chrisleebergstrom.substack.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block py-3 px-8 bg-molten/20 border border-molten font-bold rounded hover:bg-molten/30 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
-                      style={{ color: '#F5F5DC' }}
-                    >
-                      View All Posts on Substack
-                    </a>
-                  </div>
-                </>
-              )}
-
-              {!loading && !error && substackPosts.length === 0 && (
-                <div className="text-center py-12">
-                  <p className="mb-6" style={{ color: '#F5F5DC', opacity: 0.6 }}>
-                    New posts coming soon!
-                  </p>
-                  <a
-                    href="https://chrisleebergstrom.substack.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block py-3 px-8 bg-molten/20 border border-molten font-bold rounded hover:bg-molten/30 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
-                    style={{ color: '#F5F5DC' }}
-                  >
-                    Subscribe on Substack
-                  </a>
-                </div>
-              )}
-            </div>
-          </SectionTracker>
-
-          {/* Substack Integration Section */}
-          <SectionTracker
-            name="Blog - Subscribe"
-            butlerMessage="Don't miss a beat. Subscribe to get the latest insights delivered straight to your inbox."
+            From the Substack
+          </motion.h1>
+          <motion.p
+            className="font-body text-base md:text-lg lg:text-xl max-w-3xl mt-6 leading-relaxed"
+            style={{ color: 'rgba(245, 245, 220, 0.82)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <div className="bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm mb-16">
-              <div className="text-center">
-                <h2 className="text-3xl font-heading mb-6" style={{ color: '#F5F5DC' }}>
-                  Subscribe to Musings
-                </h2>
-                <p
-                  className="text-lg mb-8 max-w-2xl mx-auto leading-relaxed"
-                  style={{ color: '#F5F5DC', opacity: 0.9 }}
-                >
-                  Get exclusive insights on AI strategy, entertainment technology, and systems
-                  thinking delivered directly to your inbox. No corporate fluff—just raw
-                  intelligence from the trenches.
-                </p>
-
-                {/* Substack Embed/Link */}
-                <div className="bg-black/60 border border-molten/20 rounded-lg p-6 mb-6">
-                  <h3 className="text-xl font-semibold mb-4" style={{ color: '#F5F5DC' }}>
-                    Ready for Strategy Born from the Wreckage?
-                  </h3>
-                  <p className="mb-6" style={{ color: '#F5F5DC', opacity: 0.8 }}>
-                    Join the conversation where theatrical meets tactical, where entertainment
-                    industry wisdom collides with cutting-edge AI strategy.
-                  </p>
-
-                  <a
-                    href="https://chrisleebergstrom.substack.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block py-4 px-8 bg-molten/20 border-2 border-molten font-bold rounded-lg hover:bg-molten/30 hover:border-white transition-all duration-300 hover:scale-105 text-lg focus:outline-none focus:ring-2 focus:ring-molten/50"
-                    style={{ color: '#F5F5DC' }}
-                  >
-                    Subscribe on Substack →
-                  </a>
-                </div>
-
-                <p className="text-sm" style={{ color: '#F5F5DC', opacity: 0.6 }}>
-                  Free insights, premium analysis, zero corporate speak.
-                </p>
-              </div>
-            </div>
-          </SectionTracker>
-
-          {/* Contact Section */}
-          <SectionTracker
-            name="Blog - Contact"
-            butlerMessage="Inspired? Disagreed? Let's talk about it."
-          >
-            <div className="text-center bg-black/40 border border-molten/30 rounded-lg p-8 backdrop-blur-sm mb-24">
-              <h2 className="text-3xl font-heading mb-4" style={{ color: '#F5F5DC' }}>
-                Want to Discuss These Ideas?
-              </h2>
-              <p
-                className="text-lg mb-6 max-w-2xl mx-auto"
-                style={{ color: '#F5F5DC', opacity: 0.9 }}
-              >
-                Have thoughts on a piece? Questions about implementation? Let's start a conversation
-                that goes beyond surface-level consulting.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a
-                  href="mailto:chrisleebergstrom@gmail.com?subject=Musings Discussion"
-                  className="inline-block py-3 px-8 bg-transparent border border-molten text-molten font-bold rounded hover:bg-molten/10 hover:text-white transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
-                >
-                  Start the Conversation
-                </a>
-                <span style={{ color: '#F5F5DC', opacity: 0.6 }}>or</span>
-                <a
-                  href="/#eve-chat"
-                  className="inline-block py-3 px-8 bg-molten/20 border border-molten text-white font-bold rounded hover:bg-molten/30 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-molten/50"
-                >
-                  Chat with EVE AI
-                </a>
-              </div>
-            </div>
-          </SectionTracker>
+            Unfiltered notes on agentic AI, live entertainment, and systems thinking. Plus{' '}
+            <a
+              href="https://chrisleebergstrom.substack.com/p/the-archivist"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-1 underline-offset-4 transition-colors hover:text-white"
+              style={{ color: VIOLET }}
+            >
+              The Archivists
+            </a>{' '}
+            — a serialized novella in progress.
+          </motion.p>
         </div>
-      </main>
-    </>
+      </section>
+
+      {/* Feed */}
+      <section className="relative px-6 py-8 md:py-12">
+        <div className="mx-auto max-w-4xl">
+          {loading && (
+            <div className="py-12 text-center">
+              <div
+                className="inline-block h-8 w-8 animate-spin rounded-full border-2 border-t-transparent"
+                style={{ borderColor: `${VIOLET} transparent ${VIOLET} ${VIOLET}` }}
+              />
+              <p className="mt-4 font-mono text-[10px] tracking-[0.3em] uppercase text-white/50">
+                Loading latest posts
+              </p>
+            </div>
+          )}
+
+          {error && (
+            <div
+              className="rounded-sm bg-black/40 backdrop-blur-md p-7 text-center"
+              style={{ border: '1px solid rgba(248, 113, 113, 0.35)' }}
+            >
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-4 text-white/60">
+                Feed unavailable
+              </p>
+              <p
+                className="font-body text-base mb-5 leading-relaxed"
+                style={{ color: 'rgba(245, 245, 220, 0.78)' }}
+              >
+                {error}
+              </p>
+              <a
+                href="https://chrisleebergstrom.substack.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase transition-colors hover:text-white"
+                style={{ color: VIOLET }}
+              >
+                Visit Substack directly →
+              </a>
+            </div>
+          )}
+
+          {!loading && !error && substackPosts.length > 0 && (
+            <div className="space-y-5 md:space-y-6">
+              {substackPosts.map((post, index) => (
+                <PostCard
+                  key={post.link || index}
+                  code={String(index + 1).padStart(2, '0')}
+                  post={post}
+                  delay={Math.min(index * 0.05, 0.3)}
+                />
+              ))}
+            </div>
+          )}
+
+          {!loading && !error && substackPosts.length === 0 && (
+            <div className="py-12 text-center">
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-4 text-white/50">
+                Quiet here
+              </p>
+              <p
+                className="font-body text-base mb-6"
+                style={{ color: 'rgba(245, 245, 220, 0.78)' }}
+              >
+                New posts coming soon.
+              </p>
+              <a
+                href="https://chrisleebergstrom.substack.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase transition-colors hover:text-white"
+                style={{ color: VIOLET }}
+              >
+                Subscribe on Substack →
+              </a>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Subscribe + CTA combined */}
+      <section className="relative px-6 py-16 md:py-20 lg:py-24">
+        <div className="mx-auto max-w-4xl text-center">
+          <motion.h2
+            className="font-heading text-3xl md:text-4xl uppercase tracking-tight text-white"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+          >
+            Subscribe or send a note
+          </motion.h2>
+          <motion.p
+            className="font-body text-base md:text-lg max-w-2xl mx-auto mt-6 leading-relaxed"
+            style={{ color: 'rgba(245, 245, 220, 0.78)' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Subscribing gets the musings and The Archivists straight to your inbox. Want to push
+            back on something or take an idea further? Send a transmission instead.
+          </motion.p>
+          <motion.div
+            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <a
+              href="https://chrisleebergstrom.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm transition-all duration-300"
+              style={{
+                background: VIOLET,
+                color: '#000',
+                boxShadow: '0 0 30px rgba(147, 112, 219, 0.4)',
+              }}
+            >
+              Subscribe on Substack
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+            <a
+              href="mailto:chrisleebergstrom@gmail.com?subject=Musings%20Discussion"
+              className="inline-flex items-center justify-center px-8 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm border transition-all duration-300 hover:bg-white/5"
+              style={{
+                borderColor: 'rgba(147, 112, 219, 0.5)',
+                color: VIOLET,
+              }}
+            >
+              Send a note
+            </a>
+          </motion.div>
+          <motion.p
+            className="mt-10 font-mono text-[10px] tracking-[0.3em] uppercase text-white/40"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <a href="/" className="transition-colors hover:text-white">
+              ← Back to the work
+            </a>
+          </motion.p>
+        </div>
+      </section>
+    </main>
   );
 }
