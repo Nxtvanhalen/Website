@@ -3,6 +3,9 @@
 import { motion, useReducedMotion } from 'motion/react';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
+import History from '../components/History';
+import Method from '../components/Method';
+import OffTheClock from '../components/OffTheClock';
 import SelectedWork from '../components/SelectedWork';
 
 const VIOLET = '#9370DB';
@@ -342,6 +345,9 @@ export default function IndexClient() {
       </section>
 
       <SelectedWork />
+      <Method />
+      <History />
+      <OffTheClock />
     </div>
   );
 }
