@@ -107,11 +107,13 @@ export default function Header() {
 
   return (
     <>
-      {/* Skip Navigation Links for Screen Readers */}
-      {/* Screen-reader-only skip nav. Stays sr-only on focus too so Next's post-navigation
-          auto-focus heuristic can't trip focus-visible and pop the link visually. Screen
-          readers still announce + activate it normally. */}
-      <a href="#main-content" className="sr-only">
+      {/* Skip-to-content link — keyboard-only reveal via :focus-visible so
+          Next's post-navigation programmatic focus doesn't pop it visually,
+          but Tab from a fresh page load makes it appear and activatable. */}
+      <a
+        href="#main-content"
+        className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:left-3 focus-visible:z-[200] focus-visible:px-4 focus-visible:py-2 focus-visible:bg-black focus-visible:text-white focus-visible:rounded-sm focus-visible:outline-none focus-visible:border focus-visible:border-mauve focus-visible:font-mono focus-visible:text-xs focus-visible:uppercase focus-visible:tracking-[0.2em]"
+      >
         Skip to main content
       </a>
 
@@ -124,8 +126,8 @@ export default function Header() {
             <Image
               src="/images/Purple Logo.png"
               alt="Chris Lee Bergstrom logo"
-              width={120}
-              height={32}
+              width={1281}
+              height={539}
               className={`h-8 w-auto ${isHomePage ? '' : 'hidden'}`}
               priority
             />
@@ -161,6 +163,7 @@ export default function Header() {
                   loop
                   muted
                   playsInline
+                  aria-label="Animated profile portrait of Chris Lee Bergstrom — decorative loop"
                   className="w-full h-full object-cover object-top"
                 >
                   <source src="/videos/cbai-profile-v2.mp4" type="video/mp4" />

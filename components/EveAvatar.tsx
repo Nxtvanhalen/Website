@@ -27,6 +27,7 @@ export default function EveAvatar({ width = 80, height = 45, className = '' }: E
       loop
       muted
       playsInline
+      aria-label="EVE — animated AI concierge avatar; decorative loop"
       className={`object-contain ${className}`}
       style={{
         width,

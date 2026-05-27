@@ -122,6 +122,7 @@ export default function OffTheClock() {
                 muted
                 playsInline
                 preload="auto"
+                aria-label="EVE — animated AI concierge avatar; decorative loop"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 style={{
                   mask: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',

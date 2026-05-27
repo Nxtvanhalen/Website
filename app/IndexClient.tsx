@@ -268,6 +268,7 @@ export default function IndexClient() {
       <div className="relative" style={{ zIndex: 10 }}>
         <section className="relative min-h-screen">
         <main
+          id="main-content"
           className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24"
           aria-label="Chris Lee Bergstrom — Hero"
         >
