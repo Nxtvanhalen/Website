@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from 'motion/react';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
+import SelectedWork from '../components/SelectedWork';
 
 const VIOLET = '#9370DB';
 
@@ -228,30 +229,31 @@ export default function IndexClient() {
   useKineticName(nameRef);
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Mouse-reactive circuit network */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        style={{ zIndex: 1 }}
-      />
+    <div className="bg-black text-white">
+      <section className="relative min-h-screen overflow-hidden">
+        {/* Mouse-reactive circuit network */}
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          style={{ zIndex: 1 }}
+        />
 
-      {/* Subtle radial vignette so the hero text reads cleanly */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          zIndex: 2,
-          background:
-            'radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.85) 100%)',
-        }}
-      />
+        {/* Subtle radial vignette so the hero text reads cleanly */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            zIndex: 2,
+            background:
+              'radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.85) 100%)',
+          }}
+        />
 
-      <main
-        className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24"
-        style={{ zIndex: 10 }}
-        aria-label="Chris Lee Bergstrom — Hero"
-      >
+        <main
+          className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24"
+          style={{ zIndex: 10 }}
+          aria-label="Chris Lee Bergstrom — Hero"
+        >
         <motion.p
           className="font-mono text-xs tracking-[0.35em] uppercase mb-8"
           style={{ color: VIOLET }}
@@ -336,10 +338,10 @@ export default function IndexClient() {
             style={{ transformOrigin: 'top' }}
           />
         </motion.div>
-      </main>
+        </main>
+      </section>
 
-      {/* Placeholder anchor for #work — Selected Work section lands in PR #5 */}
-      <div id="work" />
+      <SelectedWork />
     </div>
   );
 }
