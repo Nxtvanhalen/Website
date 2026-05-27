@@ -8,7 +8,6 @@ import { type JSX, useCallback, useEffect, useState } from 'react';
 
 // Navigation links configuration
 const NAV_LINKS = [
-  { href: '/operations-consulting', label: 'Operations', description: 'Venue consulting' },
   { href: '/about', label: 'About Chris', description: 'Background and expertise' },
   { href: '/projects', label: 'Projects', description: 'Portfolio and gallery' },
   { href: '/news', label: 'News/Press', description: 'Latest coverage' },

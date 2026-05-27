@@ -121,61 +121,6 @@ const landingSchema = {
         'Tour Management',
         'Production Infrastructure',
       ],
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Consulting Services for Venues & Arts Organizations',
-        itemListElement: [
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              '@id': 'https://chrisleebergstrom.com/#operational-consulting',
-              name: 'Operational Consulting',
-              description:
-                'The whole venue, not just the stage. Booking, marketing, F&B, security, and safety—analyzed from load in to load out.',
-              url: 'https://chrisleebergstrom.com/operations-consulting',
-              provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
-              serviceType: 'Venue Operations Consulting',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              '@id': 'https://chrisleebergstrom.com/#ai-training',
-              name: 'AI Education & Training',
-              description:
-                'Practical AI training for teams ready to lead — from ethics to implementation, drawn from years of agentic AI development in production.',
-              provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
-              serviceType: 'AI Training and Education',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              '@id': 'https://chrisleebergstrom.com/#web-security',
-              name: 'Guardian / Web Security',
-              description:
-                'Bot protection, ticket scalping protection, security hardening, and accessibility for venue websites.',
-              provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
-              serviceType: 'Web Security and Accessibility',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              '@id': 'https://chrisleebergstrom.com/#executive-coaching',
-              name: 'Executive Coaching',
-              description:
-                'Strategic guidance for arts leaders navigating growth and change. Governance, leadership development, boards, budgets.',
-              provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
-              serviceType: 'Executive Coaching for Arts Leaders',
-            },
-          },
-        ],
-      },
     },
     {
       '@type': 'Person',

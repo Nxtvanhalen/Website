@@ -10,6 +10,15 @@ const nextConfig = {
     formats: ['image/webp'],
     minimumCacheTTL: 60,
   },
+  async redirects() {
+    return [
+      {
+        source: '/operations-consulting',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {
