@@ -429,7 +429,7 @@ export default function HomeClient() {
               playsInline
               preload="metadata"
               aria-label="Silent video: Black Rebel Motorcycle Club performing live at Vilar de Mouros festival in Portugal. Features dramatic stage lighting, outdoor festival atmosphere, and professional sound engineering. Auto-plays when scrolled into view."
-              title="Black Rebel Motorcycle Club Live in Portugal - CLB Consultancy"
+              title="Black Rebel Motorcycle Club Live in Portugal — Chris Lee Bergstrom FOH"
             >
               <source src="/videos/BRMC.mp4" type="video/mp4" />
               <source src="/videos/BRMC.mov" type="video/quicktime" />
@@ -437,8 +437,8 @@ export default function HomeClient() {
                 Your browser does not support the video tag. This silent video showcases Black Rebel
                 Motorcycle Club performing live at the Vilar de Mouros festival in Portugal. The
                 video captures the outdoor festival setting, dramatic stage lighting, crowd energy,
-                and professional live sound mixing, highlighting CLB Consultancy's work with
-                Grammy-nominated artists and major international music festivals.
+                and professional live sound mixing — part of two decades of front-of-house and
+                tour work behind Chris Lee Bergstrom.
               </p>
             </video>
             <p
@@ -465,7 +465,7 @@ export default function HomeClient() {
             >
               <img
                 src="/images/profile/chris-profile.jpg"
-                alt="Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer"
+                alt="Chris Lee Bergstrom — AI developer and live entertainment veteran"
                 className="w-full h-full object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';

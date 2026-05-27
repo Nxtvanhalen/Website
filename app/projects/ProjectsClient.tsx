@@ -52,7 +52,7 @@ export default function ProjectsClient() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              CLB Consulting
+              Chris Lee Bergstrom
             </motion.p>
           </div>
 

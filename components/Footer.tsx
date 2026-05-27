@@ -45,7 +45,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-logo">
-          <img src="/images/Purple Logo.png" alt="CLB Consulting Logo" className="h-8 w-auto" />
+          <img src="/images/Purple Logo.png" alt="Chris Lee Bergstrom logo" className="h-8 w-auto" />
         </div>
         <div className="flex justify-center gap-4 mt-4">
           {SOCIAL_LINKS.map((social) => (

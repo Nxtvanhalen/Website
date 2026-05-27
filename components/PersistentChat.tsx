@@ -125,8 +125,8 @@ export default function PersistentChat() {
               </div>
               <div>
                 <p className="text-[11px] text-white/90 leading-tight">
-                  I'm EVE. Tactical Intelligence Engine running on GPT-5.1. I don't just answer—I
-                  synthesize. Try me.
+                  I'm EVE — Chris's portfolio assistant. Ask me about the work, the road, or how to
+                  reach him.
                 </p>
               </div>
             </div>

@@ -4,31 +4,31 @@ import IndexClient from './IndexClient';
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      'CLB Consulting | Chris Lee Bergstrom - AI Strategy & Entertainment Technology Consultant',
+    absolute: 'Chris Lee Bergstrom — AI Developer + 20 Years Live Entertainment',
   },
   description:
-    'CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations.',
+    'AI developer with 20 years in live entertainment. Building agentic software for venues, tours, and live events — front-of-house engineer turned full-stack developer, using AI agents as the build team.',
   robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   authors: [{ name: 'Chris Lee Bergstrom' }],
   keywords: [
-    'AI consulting',
-    'venue operations',
-    'entertainment technology',
-    'executive coaching',
-    'web security',
-    'bot protection',
-    'AI training',
-    'live events',
-    'arts organizations',
     'Chris Lee Bergstrom',
-    'CLB Consulting',
+    'AI developer',
+    'agentic AI',
+    'live entertainment software',
+    'venue management software',
+    'front-of-house engineer',
+    'tour management technology',
+    'AI agents development',
+    'entertainment technology',
+    'AI consultant for venues',
+    'live events technology',
+    'AI developer entertainment industry',
   ],
   alternates: { canonical: 'https://chrisleebergstrom.com' },
   openGraph: {
-    title: 'CLB Consulting | Venue Operations & AI Training',
+    title: 'Chris Lee Bergstrom — AI Developer + Live Entertainment',
     description:
-      'CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations.',
+      'AI developer with 20 years in live entertainment. Building agentic software for venues, tours, and live events — front-of-house engineer turned full-stack developer.',
     type: 'website',
     url: 'https://chrisleebergstrom.com',
     images: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         url: '/images/profile/chris-profile-square-2.jpg',
         width: 1200,
         height: 1200,
-        alt: 'Chris Lee Bergstrom - AI Strategy Consultant and Grammy-nominated Audio Engineer',
+        alt: 'Chris Lee Bergstrom — AI developer and live entertainment veteran',
       },
     ],
   },
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@chrisleebergstrom',
     creator: '@chrisleebergstrom',
-    title: 'CLB Consulting | Venue Operations & AI Training',
+    title: 'Chris Lee Bergstrom — AI Developer + Live Entertainment',
     description:
-      'CLB Consulting by Chris Lee Bergstrom: Operations consulting, AI training, web security, and executive coaching for venues and arts organizations.',
+      'AI developer with 20 years in live entertainment. Building agentic software for venues, tours, and live events.',
     images: ['/images/profile/chris-profile-square-2.jpg'],
   },
 };
@@ -64,7 +64,7 @@ const landingSchema = {
       '@type': ['Organization', 'LocalBusiness'],
       '@id': 'https://chrisleebergstrom.com/#organization',
       name: 'CLB Consulting',
-      alternateName: ['CLB Consultancy', 'Chris Lee Bergstrom Consulting'],
+      alternateName: ['Chris Lee Bergstrom', 'CLB'],
       url: 'https://chrisleebergstrom.com',
       logo: {
         '@type': 'ImageObject',
@@ -72,8 +72,7 @@ const landingSchema = {
       },
       image: 'https://chrisleebergstrom.com/images/profile/chris-profile.jpg',
       description:
-        'CLB Consulting is the strategic consulting practice of Chris Lee Bergstrom, specializing in AI-driven solutions for entertainment, hospitality, and live events industry',
-      slogan: 'Strategy Born from the Wreckage, Intelligence Forged in the Fire',
+        'CLB Consulting is the business entity behind Chris Lee Bergstrom — an AI developer with 20 years in live entertainment, building agentic software for venues, tours, and live events. Available for consulting on venue operations, AI training, and web security.',
       founder: {
         '@type': 'Person',
         '@id': 'https://chrisleebergstrom.com/about#person',
@@ -146,7 +145,7 @@ const landingSchema = {
               '@id': 'https://chrisleebergstrom.com/#ai-training',
               name: 'AI Education & Training',
               description:
-                'In the top 3.7% of AI users worldwide. From ethics to implementation—practical training for teams ready to lead.',
+                'Practical AI training for teams ready to lead — from ethics to implementation, drawn from years of agentic AI development in production.',
               provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
               serviceType: 'AI Training and Education',
             },
@@ -183,9 +182,9 @@ const landingSchema = {
       '@id': 'https://chrisleebergstrom.com/about#person',
       name: 'Chris Lee Bergstrom',
       alternateName: ['Chris Bergstrom', 'CLB'],
-      jobTitle: 'AI Strategy Consultant & Founder',
+      jobTitle: 'AI Developer',
       description:
-        'Grammy-nominated audio engineer turned AI consultant specializing in entertainment technology and live events. Founder and principal consultant at CLB Consulting.',
+        'AI developer with 20 years in live entertainment. Two decades of front-of-house, tour management, and technical direction — touring with The Dandy Warhols, Black Rebel Motorcycle Club, and Macklemore. Now building software with AI agents as the build team.',
       url: 'https://chrisleebergstrom.com/about',
       image: 'https://chrisleebergstrom.com/images/profile/chris-profile.jpg',
       worksFor: {
@@ -194,20 +193,16 @@ const landingSchema = {
       owns: {
         '@id': 'https://chrisleebergstrom.com/#organization',
       },
-      hasCredential: 'Grammy-nominated Audio Engineer',
-      alumniOf: {
-        '@type': 'CollegeOrUniversity',
-        name: 'Professional Audio Engineering Background',
-      },
       knowsAbout: [
-        'AI Implementation',
-        'Entertainment Industry',
-        'Audio Engineering',
-        'Live Sound Production',
-        'Tour Management',
+        'Agentic AI Development',
         'Multi-Agent Systems',
-        'Team Cohesion Strategies',
-        'SMAART System Analysis and Training',
+        'Live Entertainment Software',
+        'Venue Operations',
+        'Front-of-House Engineering',
+        'Tour Management',
+        'Audio Engineering',
+        'AI Implementation',
+        'Web Security',
       ],
       sameAs: [
         'https://www.linkedin.com/in/chris-bergstrom',
@@ -221,8 +216,8 @@ const landingSchema = {
       '@type': 'WebSite',
       '@id': 'https://chrisleebergstrom.com/#website',
       url: 'https://chrisleebergstrom.com',
-      name: 'CLB Consulting',
-      description: 'AI consulting for entertainment, hospitality, and live events',
+      name: 'Chris Lee Bergstrom',
+      description: 'Personal portfolio of Chris Lee Bergstrom — AI developer with 20 years in live entertainment.',
       publisher: {
         '@id': 'https://chrisleebergstrom.com/#organization',
       },

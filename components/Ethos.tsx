@@ -4,7 +4,7 @@ export default function Ethos() {
       <div className="space-y-8">
         <p className="text-lg leading-relaxed text-center" style={{ color: '#F5F5DC' }}>
           Chris Lee Bergstrom is not another consultant. He is the sum of systems endured, truths
-          spoken, and stages held when others went quiet. CLB Consulting is the articulation of that
+          spoken, and stages held when others went quiet. This is the articulation of that
           history: an AI-powered studio for transformation, disruption, and cultural recalibration.
         </p>
 

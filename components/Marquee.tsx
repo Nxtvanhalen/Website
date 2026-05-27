@@ -174,7 +174,7 @@ export default function Marquee() {
     {
       title: 'AI EDUCATION & TRAINING',
       description:
-        'In the top 3.7% of AI users worldwide. Ethics, implementation, and practical training for teams.',
+        'Practical AI training for teams ready to lead — ethics, implementation, and agentic AI workflows drawn from years of production development.',
       subject: 'AI Education & Training Inquiry',
     },
     {
@@ -212,7 +212,7 @@ export default function Marquee() {
         <SectionTracker
           name="Homepage - Hero"
           className="w-full mb-6"
-          butlerMessage="Operations, AI training, web security, or leadership coaching—Chris has you covered. Reach out or ask me more."
+          butlerMessage="Want to talk about the work, the road, or just say hi? Reach out — or ask me anything."
         >
           <motion.h1
             className={titleStyle}
@@ -316,7 +316,7 @@ export default function Marquee() {
                     muted
                     playsInline
                     className="w-full h-full object-contain scale-[1.65] opacity-50"
-                    aria-label="AI Education and Training - In the top 3.7% of AI users worldwide, offering ethics and implementation training for teams ready to lead"
+                    aria-label="AI Education and Training — practical ethics and implementation training for teams ready to lead, drawn from years of agentic AI development"
                     style={{
                       mask: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
                       maskComposite: 'intersect',
@@ -342,12 +342,12 @@ export default function Marquee() {
                     className="text-sm leading-tight text-center mt-1 opacity-80 italic"
                     style={{ color: '#F5F5DC' }}
                   >
-                    In the <strong className="not-italic">top 3.7%</strong> of AI users worldwide.
+                    Practical training drawn from years of{' '}
+                    <strong className="not-italic">agentic AI</strong> development.
                     <br />
                     From <strong className="not-italic">ethics</strong> to{' '}
                     <strong className="not-italic">implementation</strong>—<br />
-                    practical training for <strong className="not-italic">teams</strong> ready to
-                    lead.
+                    for <strong className="not-italic">teams</strong> ready to lead.
                   </p>
                 </div>
               </section>

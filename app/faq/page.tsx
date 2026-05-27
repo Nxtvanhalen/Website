@@ -5,14 +5,14 @@ import Header from '../../components/Header';
 import FaqClient from './FaqClient';
 
 export const metadata: Metadata = {
-  title: { absolute: 'FAQ - CLB Consulting | Operations, AI, Security & Leadership' },
+  title: { absolute: 'FAQ | Chris Lee Bergstrom' },
   description:
-    "Frequently asked questions about CLB Consulting's operational consulting, AI training, web security, and leadership coaching services for venues and live entertainment.",
+    'Common questions about working with Chris Lee Bergstrom — agentic AI development, live-entertainment software, and the occasional consultation on venue operations, AI training, and web security.',
   alternates: { canonical: 'https://chrisleebergstrom.com/faq' },
   openGraph: {
-    title: 'FAQ | CLB Consulting',
+    title: 'FAQ | Chris Lee Bergstrom',
     description:
-      'Get answers about operational consulting, AI training, web security, and leadership coaching for venues and live entertainment.',
+      'Common questions about working with Chris Lee Bergstrom — AI development, live-entertainment software, and consulting.',
     type: 'website',
     url: 'https://chrisleebergstrom.com/faq',
     images: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: '/images/profile/chris-profile-square-2.jpg',
         width: 1200,
         height: 1200,
-        alt: 'Chris Lee Bergstrom - AI Strategy Consultant and Audio Engineer',
+        alt: 'Chris Lee Bergstrom — AI developer and live entertainment veteran',
       },
     ],
   },
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@chrisleebergstrom',
     creator: '@chrisleebergstrom',
-    title: 'FAQ | CLB Consulting',
+    title: 'FAQ | Chris Lee Bergstrom',
     description:
-      'Get answers about operational consulting, AI training, web security, and leadership coaching for venues and live entertainment.',
+      'Common questions about working with Chris Lee Bergstrom — AI development, live-entertainment software, and consulting.',
     images: ['/images/profile/chris-profile-square-2.jpg'],
   },
 };
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  name: 'Frequently Asked Questions - CLB Consulting',
+  name: 'Frequently Asked Questions — Chris Lee Bergstrom',
   description:
-    "Common questions about CLB Consulting's operational consulting, AI training, web security, and leadership coaching services",
+    'Common questions about working with Chris Lee Bergstrom — AI development, live-entertainment software, and consulting.',
   url: 'https://chrisleebergstrom.com/faq',
   publisher: {
     '@type': 'Organization',
@@ -50,10 +50,10 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What makes CLB Consulting different?',
+      name: 'What does Chris actually do?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Chris brings 20 years of live entertainment experience across four core areas: Operational Consulting, AI Education & Training, Web & App Security, and Leadership Coaching. Where most consultants specialize narrowly, Chris sees the whole system.',
+        text: 'Chris is an AI developer with 20 years in live entertainment. He builds agentic software for venues, tours, and live events — using AI agents as the build team. He still consults on venue operations, AI training, and web security when it is the right fit.',
       },
     },
     {
@@ -69,7 +69,7 @@ const faqSchema = {
       name: 'What AI education and training do you offer?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Chris is in the top 3.7% of AI users worldwide, offering ethics-first implementation training, hands-on tool mastery, and AI workflows that serve your mission. Training covers foundational AI literacy to advanced multi-modal integrations.',
+        text: 'Practical AI training for teams ready to lead — ethics-first implementation, hands-on tool mastery, and AI workflows that serve your mission. Covers foundational AI literacy through advanced agentic and multi-modal integrations, drawn from years of agentic AI development in production.',
       },
     },
     {
@@ -85,7 +85,7 @@ const faqSchema = {
       name: "What's your approach to leadership and team building?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Chris treats culture as infrastructure. His approach includes 1:1 executive coaching, team development, and organizational culture design. CLB teams are interdisciplinary by design. The goal: leaders who navigate pressure with clarity and teams that thrive.',
+        text: 'Chris treats culture as infrastructure. His approach includes 1:1 executive coaching, team development, and organizational culture design — interdisciplinary by design. The goal: leaders who navigate pressure with clarity and teams that thrive.',
       },
     },
     {
