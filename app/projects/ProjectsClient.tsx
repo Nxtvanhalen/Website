@@ -2,457 +2,500 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import SectionTracker from '../../components/SectionTracker';
+
+const VIOLET = '#9370DB';
+
+type LiveCardProps = {
+  code: string;
+  title: string;
+  kind: string;
+  blurb: string;
+  stat: string;
+  href: string;
+  visual: React.ReactNode;
+};
+
+function LiveCard({ code, title, kind, blurb, stat, href, visual }: LiveCardProps) {
+  return (
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block overflow-hidden rounded-sm bg-black/40 backdrop-blur-md transition-all duration-500"
+      style={{ border: '1px solid rgba(147, 112, 219, 0.25)' }}
+      whileHover={{
+        scale: 1.01,
+        borderColor: 'rgba(147, 112, 219, 0.9)',
+        boxShadow: '0 0 40px rgba(147, 112, 219, 0.35)',
+        transition: { duration: 0.3 },
+      }}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.7 }}
+    >
+      <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
+        {visual}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(147,112,219,0) 60%, rgba(147,112,219,0.15) 100%)',
+          }}
+        />
+      </div>
+
+      <div className="p-6 lg:p-8">
+        <div className="mb-4 flex items-center justify-between gap-4 text-[10px] font-mono uppercase tracking-[0.3em]">
+          <span className="text-white/50">
+            {code} · {kind}
+          </span>
+          <span
+            className="inline-flex items-center gap-1.5 rounded-sm border px-2 py-1 text-[9px] font-bold"
+            style={{ borderColor: VIOLET, color: VIOLET }}
+          >
+            <span
+              aria-hidden="true"
+              className="inline-block h-1.5 w-1.5 rounded-full"
+              style={{ background: VIOLET, boxShadow: `0 0 6px ${VIOLET}` }}
+            />
+            Live
+          </span>
+        </div>
+
+        <h3 className="font-heading text-2xl md:text-3xl uppercase tracking-tight leading-none text-white">
+          {title}
+        </h3>
+
+        <p
+          className="font-body text-base mt-5 leading-relaxed"
+          style={{ color: 'rgba(245, 245, 220, 0.82)' }}
+        >
+          {blurb}
+        </p>
+
+        <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] font-mono uppercase tracking-[0.25em]">
+          <span style={{ color: VIOLET }}>{stat}</span>
+          <span
+            className="inline-flex items-center gap-2 text-white/70 transition-all duration-300 group-hover:gap-3 group-hover:text-white"
+            aria-hidden="true"
+          >
+            Visit
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </span>
+        </div>
+      </div>
+    </motion.a>
+  );
+}
+
+type ArchiveCardProps = {
+  code: string;
+  title: string;
+  kind: string;
+  blurb: string;
+  href?: string;
+  delay?: number;
+};
+
+function ArchiveCard({ code, title, kind, blurb, href, delay = 0 }: ArchiveCardProps) {
+  const inner = (
+    <>
+      <div className="mb-3 flex items-center justify-between gap-4 text-[10px] font-mono uppercase tracking-[0.3em] text-white/50">
+        <span>
+          {code} · {kind}
+        </span>
+        {href && (
+          <span
+            aria-hidden="true"
+            className="text-white/70 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
+          >
+            →
+          </span>
+        )}
+      </div>
+      <h3 className="font-heading text-xl md:text-2xl uppercase tracking-tight leading-snug text-white">
+        {title}
+      </h3>
+      <p
+        className="font-body text-base mt-3 leading-relaxed"
+        style={{ color: 'rgba(245, 245, 220, 0.78)' }}
+      >
+        {blurb}
+      </p>
+    </>
+  );
+
+  const motionProps = {
+    initial: { opacity: 0, y: 18 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-80px' },
+    transition: { duration: 0.6, delay },
+  } as const;
+
+  const sharedClass =
+    'group relative block rounded-sm bg-black/40 backdrop-blur-md p-6 lg:p-7 transition-all duration-500';
+  const sharedStyle = { border: '1px solid rgba(147, 112, 219, 0.22)' } as const;
+  const hoverStyle = {
+    borderColor: 'rgba(147, 112, 219, 0.7)',
+    boxShadow: '0 0 28px rgba(147, 112, 219, 0.2)',
+  };
+
+  if (href) {
+    return (
+      <motion.a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={sharedClass}
+        style={sharedStyle}
+        whileHover={hoverStyle}
+        {...motionProps}
+      >
+        {inner}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.div
+      className={sharedClass}
+      style={sharedStyle}
+      whileHover={hoverStyle}
+      {...motionProps}
+    >
+      {inner}
+    </motion.div>
+  );
+}
+
+function ByteEmailPreview() {
+  return (
+    <div
+      aria-hidden="true"
+      className="relative h-full w-full overflow-hidden p-5 md:p-7 font-mono text-[10px] md:text-xs leading-relaxed"
+      style={{
+        background:
+          'radial-gradient(ellipse at top right, rgba(147,112,219,0.18) 0%, rgba(0,0,0,1) 70%)',
+      }}
+    >
+      <div className="flex h-full w-full flex-col">
+        <div className="mb-3 flex items-center gap-2 text-white/40">
+          <span
+            className="inline-block h-1.5 w-1.5 rounded-full"
+            style={{ background: VIOLET, boxShadow: `0 0 6px ${VIOLET}` }}
+          />
+          <span className="uppercase tracking-[0.25em]">Inbox · 1 unread</span>
+        </div>
+        <div className="space-y-1 border-l-2 pl-3" style={{ borderColor: VIOLET }}>
+          <div className="text-white/55">
+            <span className="text-white/35">From:</span>{' '}
+            <span style={{ color: VIOLET }}>byte@firstlyte.co</span>
+          </div>
+          <div className="text-white/55">
+            <span className="text-white/35">Subject:</span>{' '}
+            <span className="text-white">re: meeting notes</span>
+          </div>
+        </div>
+        <div className="mt-4 space-y-2 text-white/75">
+          <p>{'>'} Pulled action items from your three threads.</p>
+          <p>{'>'} Attached the redlined PDF.</p>
+        </div>
+        <div className="mt-auto pt-4 text-[9px] uppercase tracking-[0.3em] text-white/35">
+          <span style={{ color: VIOLET }}>▮</span> Replied in 18s
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function ProjectsClient() {
   return (
-    <>
-      {/* Video Background */}
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          ref={(el) => {
-            if (el) el.playbackRate = 0.5;
-          }}
-          style={{
-            position: 'absolute',
-            top: '-10%',
-            left: 0,
-            width: '100%',
-            height: '120vh',
-            objectFit: 'cover',
-            filter: 'brightness(0.3) saturate(1.0)',
-            opacity: 0.6,
-            transform: 'scale(1.1)',
-          }}
-        >
-          <source src="/videos/theater-bg.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
-      </div>
-
-      <main className="min-h-screen bg-transparent text-white pt-24 md:pt-52 relative z-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <motion.h1
-              className="text-4xl md:text-5xl font-heading mb-4 glow-subtle"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              Current Projects
-            </motion.h1>
-            <motion.p
-              className="text-xl font-bold"
-              style={{ color: '#F5F5DC' }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Chris Lee Bergstrom
-            </motion.p>
-          </div>
-
-          <div className="grid gap-8 md:gap-12">
-            {/* Project 1 */}
-            <SectionTracker
-              name="Projects - Master Tour"
-              butlerMessage="Master Tour Venue is revolutionizing how touring teams and venues share production data. No more spreadsheet chaos."
-            >
-              <motion.div
-                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-[#FF0000]/50 p-8 hover:border-[#FF0000] transition-all duration-300 shadow-[0_0_15px_rgba(255,0,0,0.1)] hover:shadow-[0_0_25px_rgba(255,0,0,0.2)]"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="flex items-start gap-6 mb-4">
-                  <div className="flex-1">
-                    <h2
-                      className="text-2xl font-heading mb-2"
-                      style={{ color: '#FF0000', textShadow: '0 0 10px rgba(255,0,0,0.5)' }}
-                    >
-                      Master Tour Venue
-                    </h2>
-                    <p
-                      className="text-sm font-semibold mb-3"
-                      style={{ color: '#FF0000', opacity: 0.9 }}
-                    >
-                      Industry-leading event production data standards revolutionizing venue
-                      collaboration.
-                    </p>
-                    <p
-                      className="text-sm leading-relaxed opacity-80 mb-2"
-                      style={{ color: '#F5F5DC' }}
-                    >
-                      <strong>The Problem:</strong> Outdated workflows, endless emails, spreadsheet
-                      chaos causing costly event mistakes.
-                    </p>
-                    <p
-                      className="text-sm leading-relaxed opacity-90 mb-3"
-                      style={{ color: '#F5F5DC' }}
-                    >
-                      <strong>The Solution:</strong> Shared source-of-truth production data
-                      connecting touring teams with venues seamlessly.
-                    </p>
-                    <a
-                      href="https://www.eventric.com/master-tour-venue/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold hover:text-white transition-colors duration-200 text-sm"
-                      style={{ color: '#FF0000' }}
-                    >
-                      Visit Master Tour Venue →
-                    </a>
-                  </div>
-                  <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                      <source src="/videos/mt-thumb.mp4" type="video/mp4" />
-                    </video>
-                  </div>
-                </div>
-              </motion.div>
-            </SectionTracker>
-
-            {/* Project 2 */}
-            <SectionTracker
-              name="Projects - Remote SPL"
-              butlerMessage="SPL exposure affects staff and patrons alike. Effective monitoring, logging, and analysis keeps everyone safe and compliant."
-            >
-              <motion.div
-                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-              >
-                <div className="flex items-start gap-6 mb-4">
-                  <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-1" style={{ color: '#F5F5DC' }}>
-                      AI Powered Remote SPL
-                    </h2>
-                    <div
-                      className="text-sm font-normal mb-3"
-                      style={{ color: '#F5F5DC', opacity: 0.6 }}
-                    >
-                      (Sound Pressure Level)
-                    </div>
-                    <p
-                      className="text-sm leading-relaxed opacity-80 mb-2"
-                      style={{ color: '#F5F5DC' }}
-                    >
-                      Controlling SPL exposure for both patrons and staff isn't optional—it's
-                      essential for safety and compliance.
-                    </p>
-                    <p className="text-sm leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      Cloud-based monitoring with effective logging, real-time analysis, and
-                      predictive insights. Protect your people, meet regulations, keep the neighbors
-                      happy.
-                    </p>
-                  </div>
-                  <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                      <source src="/videos/spl-thumb.mp4" type="video/mp4" />
-                    </video>
-                  </div>
-                </div>
-              </motion.div>
-            </SectionTracker>
-
-            {/* Project 3 */}
-            <SectionTracker
-              name="Projects - EVA"
-              butlerMessage="EVA doesn't replace your crew—she reduces their cognitive load. Humans run the show, AI handles the overhead."
-            >
-              <motion.div
-                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-              >
-                <div className="flex items-start gap-6 mb-4">
-                  <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>
-                      EVA — Events Virtual Assistant
-                    </h2>
-                    <p
-                      className="text-sm leading-relaxed opacity-80 mb-2"
-                      style={{ color: '#F5F5DC' }}
-                    >
-                      EVA doesn't replace crew—she reduces cognitive stress. Let humans focus on the
-                      show while AI handles the logistics overhead.
-                    </p>
-                    <p className="text-sm leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      The orchestration core for routing, scheduling, and crew management.
-                      Customizable, scalable, show-ready.
-                    </p>
-                  </div>
-                  <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                      <source src="/videos/eva-thumb.mp4" type="video/mp4" />
-                    </video>
-                  </div>
-                </div>
-              </motion.div>
-            </SectionTracker>
-
-            {/* Project 4 */}
-            <SectionTracker
-              name="Projects - Ryder"
-              butlerMessage="Ryder is special. A safe space for creatives to check in. Want to try a session?"
-            >
-              <motion.div
-                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-[#00ff00]/50 p-8 hover:border-[#00ff00] transition-all duration-300 shadow-[0_0_15px_rgba(0,255,0,0.1)] hover:shadow-[0_0_25px_rgba(0,255,0,0.2)]"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4, delay: 0.3 }}
-              >
-                <div className="flex items-start gap-6 mb-4">
-                  <div className="flex-1">
-                    <h2
-                      className="text-2xl font-heading mb-3"
-                      style={{ color: '#00ff00', textShadow: '0 0 10px rgba(0,255,0,0.5)' }}
-                    >
-                      R.Y.D.E.R. — Mental Health AI for Creatives
-                    </h2>
-                    <p
-                      className="text-base leading-relaxed opacity-90 mb-3"
-                      style={{ color: '#F5F5DC' }}
-                    >
-                      Trauma-aware AI for the industry. Anonymous, reflective, and emotionally
-                      attuned. Not therapy—a check-in with soul.
-                    </p>
-                    <a
-                      href="https://ryder-k6er.onrender.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold hover:text-white transition-colors duration-200 text-sm"
-                      style={{ color: '#00ff00' }}
-                    >
-                      Chat with Ryder now! →
-                    </a>
-                  </div>
-                  <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <Image
-                      src="/images/projects/Ryder.png"
-                      alt="R.Y.D.E.R. - Mental Health AI for Creatives"
-                      width={96}
-                      height={96}
-                      className="w-full h-full object-cover object-top"
-                      quality={75}
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            </SectionTracker>
-
-            {/* Project 5 */}
-            <SectionTracker
-              name="Projects - EVE"
-              butlerMessage="That's me! I know this entire website inside and out. Ask me anything—I'm here to help."
-            >
-              <motion.div
-                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4, delay: 0.4 }}
-              >
-                <div className="flex items-start gap-6 mb-4">
-                  <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>
-                      EVE — Conversational AI for CLB
-                    </h2>
-                    <p
-                      className="text-sm leading-relaxed opacity-80 mb-2"
-                      style={{ color: '#F5F5DC' }}
-                    >
-                      EVE runs this website. She knows every page, every service, every project—and
-                      she's ready to help you navigate it all.
-                    </p>
-                    <p
-                      className="text-sm leading-relaxed opacity-90 mb-3"
-                      style={{ color: '#F5F5DC' }}
-                    >
-                      Your front-of-house concierge with full backstage access. Ask her anything
-                      about operations consulting, AI training, security, leadership coaching—or
-                      maybe even some tales from the road.
-                    </p>
-                    <a
-                      href="/#eve-chat"
-                      className="text-molten font-bold hover:text-white transition-colors duration-200 text-sm"
-                    >
-                      Chat with EVE now! →
-                    </a>
-                  </div>
-                  <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <video
-                      src="/videos/eve-avatar.mp4"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            </SectionTracker>
-
-            {/* Project 6 */}
-            <SectionTracker
-              name="Projects - Glytch"
-              butlerMessage="Glytch is the wild one. Local, offline, no guardrails. We're testing the limits."
-            >
-              <motion.div
-                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="flex items-start gap-6 mb-4">
-                  <div className="flex-1">
-                    <h2 className="text-2xl font-heading mb-3" style={{ color: '#F5F5DC' }}>
-                      Glytch — Local AI Experiment
-                    </h2>
-                    <p className="text-sm leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                      Glytch is the experiment. Local AI, fully offline, unhinged and sarcastic—an
-                      ongoing test to see what can be achieved when you take the guardrails off.
-                    </p>
-                  </div>
-                  <div className="flex-shrink-0 w-24 h-24 rounded-lg border border-molten/40 overflow-hidden relative">
-                    <video
-                      src="/videos/robot-animation-compressed.mp4"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            </SectionTracker>
-
-            {/* Project 7 */}
-            <SectionTracker
-              name="Projects - Multi-Agent Lab"
-              butlerMessage="This is where we experiment. Agents talking to agents. It gets wild."
-            >
-              <motion.div
-                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="mb-4">
-                  <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>
-                    Multi-Agent Intelligence Lab
-                  </h2>
-                </div>
-                <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                  The CLB skunkworks. Prototyping federated agents and real-time consulting flows.
-                  Future interface, real execution.
-                </p>
-              </motion.div>
-            </SectionTracker>
-
-            {/* Project 9 */}
-            <SectionTracker
-              name="Projects - JAMES"
-              butlerMessage="JAMES is the memory. The backbone. He remembers everything so we don't have to."
-            >
-              <motion.div
-                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="mb-4">
-                  <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>
-                    JAMES — Core Memory & Strategic AI Backbone
-                  </h2>
-                </div>
-                <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                  The cognitive backbone. Long-term memory and multi-agent orchestration. Ensuring
-                  CLB isn't just smart—it's alive.
-                </p>
-              </motion.div>
-            </SectionTracker>
-
-            {/* Project 10 */}
-            <SectionTracker
-              name="Projects - Sandbox"
-              butlerMessage="Testing ground for hospitality AI. Real data, real insights."
-            >
-              <motion.div
-                className="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg border border-molten/30 p-8 hover:border-molten/60 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="mb-4">
-                  <h2 className="text-2xl font-heading" style={{ color: '#F5F5DC' }}>
-                    AI Consulting Sandbox
-                  </h2>
-                </div>
-                <p className="text-base leading-relaxed opacity-90" style={{ color: '#F5F5DC' }}>
-                  Firebase-powered hospitality strategy. Analyzing sales data to predict demand and
-                  turn noise into insight.
-                </p>
-              </motion.div>
-            </SectionTracker>
-          </div>
-
-          <div className="text-center py-12 mt-16">
-            <p className="text-lg opacity-70 italic" style={{ color: '#F5F5DC' }}>
-              Strategy Born from the Wreckage, Intelligence Forged in the Fire
-            </p>
-          </div>
-
-          {/* Contact Section */}
-          <section className="py-12 px-6 text-center">
-            <div className="max-w-lg mx-auto space-y-6">
-              <div className="space-y-4">
-                <a
-                  href="mailto:chrisleebergstrom@gmail.com?subject=AI Project Inquiry - Let's Build Something Amazing"
-                  className="group block relative overflow-hidden py-4 px-8 bg-transparent text-white font-bold rounded-lg border border-molten hover:border-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 active:scale-95"
-                >
-                  <div className="relative flex flex-col items-center justify-center text-center">
-                    <div className="text-lg font-bold" style={{ color: '#F5F5DC' }}>
-                      Ready to go?
-                    </div>
-                    <div className="text-sm opacity-80" style={{ color: '#F5F5DC' }}>
-                      chrisleebergstrom@gmail.com
-                    </div>
-                  </div>
-                </a>
-                <p className="text-sm" style={{ color: '#F5F5DC', opacity: 0.7 }}>
-                  Let's discuss your project needs
-                </p>
-              </div>
-            </div>
-          </section>
+    <main
+      id="main-content"
+      className="relative bg-black text-white"
+      aria-label="Projects by Chris Lee Bergstrom"
+    >
+      {/* Header */}
+      <section className="relative px-6 pt-32 pb-12 md:pt-40 md:pb-16 lg:pt-48 lg:pb-20">
+        <div className="mx-auto max-w-6xl">
+          <motion.p
+            className="font-mono text-xs tracking-[0.35em] uppercase mb-4"
+            style={{ color: VIOLET }}
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Projects
+          </motion.p>
+          <motion.h1
+            className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-white"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
+            The Full Workshop
+          </motion.h1>
+          <motion.p
+            className="font-body text-base md:text-lg lg:text-xl max-w-3xl mt-6 leading-relaxed"
+            style={{ color: 'rgba(245, 245, 220, 0.85)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            The two cards on the homepage are the spine. Everything below is the archive — shipped
+            work, internal infrastructure, and ongoing experiments. Each line a different way of
+            asking: what does it look like when twenty years of running shows meets an AI build
+            team?
+          </motion.p>
         </div>
-      </main>
-    </>
+      </section>
+
+      {/* Live spine */}
+      <section className="relative px-6 py-12 md:py-16">
+        <div className="mx-auto max-w-6xl">
+          <motion.h2
+            className="font-heading text-2xl md:text-3xl uppercase tracking-tight text-white"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+          >
+            Live
+          </motion.h2>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+            <LiveCard
+              code="01"
+              title="The Underground"
+              kind="Venue-management sim"
+              href="https://underground-venue-manager.onrender.com"
+              stat="Live · Browser game"
+              blurb="Run a small underground music venue — book bands, keep the crew right, dodge incidents, balance the books. A PNW dive-bar sim in cyberpunk-noir. Twenty years of running venues, turned into a game."
+              visual={
+                <Image
+                  src="/images/COVER.jpg"
+                  alt="The Underground — cyberpunk-noir illustration of a neon-lit dive bar"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+              }
+            />
+            <LiveCard
+              code="02"
+              title="Byte"
+              kind="AI assistant over email"
+              href="https://firstlyte.co"
+              stat="Live · firstlyte.co"
+              blurb="An AI assistant that lives in your inbox. Email byte@firstlyte.co, get a thoughtful reply in under 30 seconds — no app, no login, no account. Handles attachments, remembers threads, routes to the right model."
+              visual={<ByteEmailPreview />}
+            />
+            <LiveCard
+              code="03"
+              title="R.Y.D.E.R."
+              kind="Mental-health AI for creatives"
+              href="https://ryder-k6er.onrender.com"
+              stat="Live · ryder-k6er.onrender.com"
+              blurb="Trauma-aware AI for the industry. Anonymous, reflective, and emotionally attuned — not therapy, a check-in with soul. Built for the people who keep the show running when nobody else sees them break."
+              visual={
+                <Image
+                  src="/images/projects/Ryder.png"
+                  alt="R.Y.D.E.R. — Mental-health AI for creatives"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+              }
+            />
+            <LiveCard
+              code="04"
+              title="Chester"
+              kind="AI chess study"
+              href="https://ai-chess-cfah.onrender.com"
+              stat="Live · ai-chess-cfah.onrender.com"
+              blurb="An AI chess game built in public to explore decision-making architecture and game theory. Powered by Deepseek so the consumer version stays free."
+              visual={
+                <div
+                  aria-hidden="true"
+                  className="relative h-full w-full"
+                  style={{
+                    background:
+                      'radial-gradient(ellipse at center, rgba(147,112,219,0.18) 0%, rgba(0,0,0,1) 70%)',
+                  }}
+                >
+                  <div className="absolute inset-0 flex items-center justify-center font-mono text-[10px] md:text-xs tracking-[0.4em] uppercase text-white/40">
+                    <span>♞ · CHESTER · ♛</span>
+                  </div>
+                </div>
+              }
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Archive */}
+      <section className="relative px-6 py-12 md:py-16 lg:py-20">
+        <div className="mx-auto max-w-6xl">
+          <motion.h2
+            className="font-heading text-2xl md:text-3xl uppercase tracking-tight text-white"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+          >
+            Archive
+          </motion.h2>
+          <motion.p
+            className="font-body text-base max-w-3xl mt-4 leading-relaxed"
+            style={{ color: 'rgba(245, 245, 220, 0.7)' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Shipped tools, internal infrastructure, and experiments that informed the live work.
+          </motion.p>
+
+          <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            <ArchiveCard
+              code="05"
+              title="Master Tour Venue"
+              kind="Industry tools"
+              blurb="Production-data standards for the touring-venue handoff. Shared source-of-truth replacing the spreadsheet-and-email chaos between teams and rooms."
+              href="https://www.eventric.com/master-tour-venue/"
+              delay={0}
+            />
+            <ArchiveCard
+              code="06"
+              title="AI-Powered Remote SPL"
+              kind="Venue safety"
+              blurb="Cloud-based SPL monitoring with logging, real-time analysis, and predictive insight. Protects patrons and staff; keeps the neighbors and regulators happy."
+              delay={0.05}
+            />
+            <ArchiveCard
+              code="07"
+              title="EVA"
+              kind="Events virtual assistant"
+              blurb="Logistics overhead reducer for crews — routing, scheduling, crew management. Doesn't replace humans, lowers their cognitive load."
+              delay={0.1}
+            />
+            <ArchiveCard
+              code="08"
+              title="EVE"
+              kind="Portfolio concierge"
+              blurb="The site's own AI concierge. Knows every page, the work, the road. A working demo of the same agentic stack used to build the rest of the portfolio."
+              href="/"
+              delay={0.15}
+            />
+            <ArchiveCard
+              code="09"
+              title="Glytch"
+              kind="Local AI experiment"
+              blurb="Local, offline, no guardrails. An ongoing test of what's possible when an LLM runs on your own machine with full freedom."
+              delay={0.2}
+            />
+            <ArchiveCard
+              code="10"
+              title="JAMES"
+              kind="Memory backbone"
+              blurb="Core memory and multi-agent orchestration. Long-term context and cross-agent state so the system learns instead of forgetting."
+              delay={0.25}
+            />
+            <ArchiveCard
+              code="11"
+              title="Multi-Agent Lab"
+              kind="Skunkworks"
+              blurb="Prototyping federated agents and real-time work flows. Agents talking to agents, with humans in the loop where it matters."
+              delay={0.3}
+            />
+            <ArchiveCard
+              code="12"
+              title="Sandbox"
+              kind="Hospitality AI"
+              blurb="Firebase-powered demand prediction for hospitality and venue strategy. Turns sales noise into operational insight."
+              delay={0.35}
+            />
+            <ArchiveCard
+              code="13"
+              title="TARS"
+              kind="Local privacy-first AI"
+              blurb="On-device intelligence — your data, your hardware, your control. Pushes the privacy ceiling for sensitive workflows."
+              delay={0.4}
+            />
+            <ArchiveCard
+              code="14"
+              title="LogiRoute"
+              kind="Touring logistics"
+              blurb="Complex route optimization for touring schedules. Built in the open as a working logistics agent."
+              href="https://logi-route-a9c09ae8.base44.app"
+              delay={0.45}
+            />
+            <ArchiveCard
+              code="15"
+              title="Guardian"
+              kind="Web security"
+              blurb="Server-side bot protection and monitoring. The defense layer that keeps the surface clean."
+              delay={0.5}
+            />
+            <ArchiveCard
+              code="16"
+              title="Beacons"
+              kind="IoT / acoustic"
+              blurb="iPhone-based environmental and acoustic monitoring for live events. Cloud-to-edge-to-physical-world."
+              delay={0.55}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative px-6 py-16 md:py-20 lg:py-24">
+        <div className="mx-auto max-w-4xl text-center">
+          <motion.h2
+            className="font-heading text-3xl md:text-4xl uppercase tracking-tight text-white"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+          >
+            Something here look interesting?
+          </motion.h2>
+          <motion.div
+            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <a
+              href="mailto:chrisleebergstrom@gmail.com?subject=Project%20Inquiry"
+              className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm transition-all duration-300"
+              style={{
+                background: VIOLET,
+                color: '#000',
+                boxShadow: '0 0 30px rgba(147, 112, 219, 0.4)',
+              }}
+            >
+              Send a transmission
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+            <a
+              href="/"
+              className="inline-flex items-center justify-center px-8 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm border transition-all duration-300 hover:bg-white/5"
+              style={{
+                borderColor: 'rgba(147, 112, 219, 0.5)',
+                color: VIOLET,
+              }}
+            >
+              ← Back to the work
+            </a>
+          </motion.div>
+        </div>
+      </section>
+    </main>
   );
 }
