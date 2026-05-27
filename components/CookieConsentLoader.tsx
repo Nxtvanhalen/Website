@@ -38,7 +38,7 @@ export default function CookieConsentLoader() {
 
       await CookieConsent.run({
         guiOptions: {
-          consentModal: { layout: 'box', position: 'bottom center' },
+          consentModal: { layout: 'bar', position: 'bottom center', equalWeightButtons: false, flipButtons: false },
         },
         categories: {
           necessary: { enabled: true, readOnly: true },

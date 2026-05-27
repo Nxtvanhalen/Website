@@ -173,13 +173,11 @@ export default function NewsClient() {
             date="2020"
             title='The Dandy Warhols — "Warhol Wednesday Endless Live Album"'
             body={
-              <>
-                <p>
-                  A never-ending live album. Every Wednesday subscribers get a new live song from
-                  a past performance in a different city — a living archive that keeps growing
-                  week after week.
-                </p>
-              </>
+              <p>
+                A never-ending live album. Every Wednesday subscribers get a new live song from a
+                past performance in a different city — a living archive that keeps growing week
+                after week.
+              </p>
             }
             meta="Recorded live, mixed, and mastered by Chris Bergstrom · Band: Courtney Taylor Taylor, Peter Holmström, Zia McCabe, Brent DeBoer"
             cta={{
@@ -195,12 +193,10 @@ export default function NewsClient() {
             source="YouTube"
             title='The Dandy Warhols — "Next Thing I Know" (official music video)'
             body={
-              <>
-                <p>
-                  Off the band's 2019 album <em>Why You So Crazy</em>. Their current LP{' '}
-                  <em>ROCKMAKER</em> is out on Sunset Blvd Records.
-                </p>
-              </>
+              <p>
+                Off the band's 2019 album <em>Why You So Crazy</em>. Their current LP{' '}
+                <em>ROCKMAKER</em> is out on Sunset Blvd Records.
+              </p>
             }
             meta="Edited by Chris Bergstrom with Ticky Hambly"
             cta={{
@@ -245,13 +241,11 @@ export default function NewsClient() {
             date="June 24, 2021"
             title="Sound advice and mixing know-how from pro engineer Chris Bergstrom"
             body={
-              <>
-                <p>
-                  Mixing techniques from years of live and studio work — the importance of
-                  accurate monitoring, the collaborative process between engineer and artist,
-                  and the skills that translate from the road into the studio.
-                </p>
-              </>
+              <p>
+                Mixing techniques from years of live and studio work — the importance of accurate
+                monitoring, the collaborative process between engineer and artist, and the skills
+                that translate from the road into the studio.
+              </p>
             }
             cta={{
               label: 'Read on MusicRadar',

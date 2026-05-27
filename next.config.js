@@ -26,15 +26,9 @@ const nextConfig = {
   },
   async headers() {
     return [
-      {
-        source: "/_next/static/css/(.*)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable"
-          }
-        ]
-      },
+      // /_next/static/css/* Cache-Control: redundant — Next 16 already serves these
+      // immutable with year-long caching because the build IDs make filenames content-addressed.
+      // The previous override here triggered the "Custom Cache-Control headers detected" warning.
       {
         source: "/(.*)",
         headers: [

@@ -141,7 +141,6 @@ export default async function FaqPage() {
       <script
         type="application/ld+json"
         nonce={nonce}
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD schema injection
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <FaqClient />
