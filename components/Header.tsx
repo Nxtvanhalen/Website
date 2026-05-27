@@ -65,7 +65,7 @@ const SocialIcon = ({ type }: { type: string }) => {
 
 export default function Header() {
   const pathname = usePathname();
-  const isHomePage = pathname === '/home';
+  const isHomePage = pathname === '/';
   const isAboutPage = pathname === '/about';
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -120,7 +120,7 @@ export default function Header() {
           {/* Logo — both Image and video stay mounted; visibility toggled by CSS.
               Prevents the white-frame flash that occurred when client-side navigation
               re-mounted a fresh video element between pages. */}
-          <Link href="/home" className="logo z-10" aria-label="Chris Lee Bergstrom — Return to homepage" style={{ background: '#000' }}>
+          <Link href="/" className="logo z-10" aria-label="Chris Lee Bergstrom — Return to homepage" style={{ background: '#000' }}>
             <Image
               src="/images/Purple Logo.png"
               alt="Chris Lee Bergstrom logo"

@@ -15,7 +15,7 @@ export default function NotFound() {
           That page doesn't exist (or never did).
         </p>
         <Link
-          href="/home"
+          href="/"
           className="inline-block px-6 py-3 border-2 border-[#9370DB] rounded-lg text-white hover:bg-[#9370DB] transition-colors"
         >
           ← Return home
