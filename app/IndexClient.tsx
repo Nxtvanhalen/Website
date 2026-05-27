@@ -270,6 +270,7 @@ export default function IndexClient() {
 
         <motion.h1
           ref={nameRef}
+          data-speakable="true"
           className="font-heading text-5xl md:text-7xl lg:text-8xl text-center leading-[0.95] tracking-tight uppercase will-change-transform"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -282,6 +283,7 @@ export default function IndexClient() {
         </motion.h1>
 
         <motion.p
+          data-speakable="true"
           className="font-body text-base md:text-lg lg:text-xl text-center max-w-2xl mt-10 leading-relaxed"
           style={{ color: 'rgba(245, 245, 220, 0.92)' }}
           initial={{ opacity: 0, y: 8 }}
