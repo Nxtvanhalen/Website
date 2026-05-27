@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { headers } from 'next/headers';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 import IndexClient from './IndexClient';
 
 export const metadata: Metadata = {
@@ -248,7 +250,9 @@ export default async function LandingPage() {
         // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD schema injection
         dangerouslySetInnerHTML={{ __html: JSON.stringify(landingSchema) }}
       />
+      <Header />
       <IndexClient />
+      <Footer />
     </>
   );
 }

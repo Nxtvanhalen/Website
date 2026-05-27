@@ -4,43 +4,44 @@ import { motion } from 'motion/react';
 
 const VIOLET = '#9370DB';
 
-type MethodCardProps = {
+type PhaseProps = {
   code: string;
-  title: string;
-  body: string;
+  label: string;
+  center: string;
+  detail: string;
   delay?: number;
 };
 
-function MethodCard({ code, title, body, delay = 0 }: MethodCardProps) {
+function Phase({ code, label, center, detail, delay = 0 }: PhaseProps) {
   return (
-    <motion.article
-      className="relative rounded-sm bg-black/40 backdrop-blur-md p-7 lg:p-9 transition-all duration-500 hover:bg-black/60"
-      style={{ border: '1px solid rgba(147, 112, 219, 0.22)' }}
-      whileHover={{
-        borderColor: 'rgba(147, 112, 219, 0.7)',
-        boxShadow: '0 0 32px rgba(147, 112, 219, 0.25)',
-      }}
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.6, delay }}
+    <motion.div
+      className="grid grid-cols-12 gap-4 py-6 border-b border-white/10"
+      initial={{ opacity: 0, x: -10 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.55, delay }}
     >
       <p
-        className="font-mono text-xs tracking-[0.35em] uppercase mb-6"
+        className="col-span-2 md:col-span-1 font-mono text-xs tracking-[0.3em] uppercase pt-1"
         style={{ color: VIOLET }}
       >
         {code}
       </p>
-      <h3 className="font-heading text-xl md:text-2xl uppercase tracking-tight leading-snug text-white">
-        {title}
-      </h3>
+      <div className="col-span-10 md:col-span-3">
+        <p className="font-heading text-base md:text-lg uppercase tracking-tight text-white">
+          {label}
+        </p>
+        <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/40 mt-1">
+          {center}
+        </p>
+      </div>
       <p
-        className="font-body text-base mt-5 leading-relaxed"
-        style={{ color: 'rgba(245, 245, 220, 0.8)' }}
+        className="col-span-12 md:col-span-8 font-body text-base leading-relaxed"
+        style={{ color: 'rgba(245, 245, 220, 0.78)' }}
       >
-        {body}
+        {detail}
       </p>
-    </motion.article>
+    </motion.div>
   );
 }
 
@@ -49,20 +50,9 @@ export default function Method() {
     <section
       id="method"
       aria-labelledby="method-heading"
-      className="relative bg-black px-6 py-24 md:py-32 lg:py-40"
+      className="relative px-6 py-16 md:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-6xl">
-        <motion.p
-          className="font-mono text-xs tracking-[0.35em] uppercase mb-6"
-          style={{ color: VIOLET }}
-          initial={{ opacity: 0, y: -6 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-        >
-          ADVANCE / 03 — METHOD
-        </motion.p>
-
         <motion.h2
           id="method-heading"
           className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-white"
@@ -75,36 +65,79 @@ export default function Method() {
         </motion.h2>
 
         <motion.p
-          className="font-body text-base md:text-lg max-w-2xl mt-6 leading-relaxed"
-          style={{ color: 'rgba(245, 245, 220, 0.72)' }}
+          className="font-body text-base md:text-lg max-w-3xl mt-6 leading-relaxed"
+          style={{ color: 'rgba(245, 245, 220, 0.78)' }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          Agents are the team. Context is the bottleneck. Quality ceiling first.
+          Five phases, one orchestrator. Agents type, Chris decides. The last phase loops back into
+          the first — the system learns continuously.
         </motion.p>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
-          <MethodCard
+        <div className="mt-12 border-t border-white/10">
+          <Phase
             code="01"
-            title="Agents are the team"
-            body="Chris is the product owner and architect; agents type. Three to four parallel branches at a time. Git is the single source of truth — no shared state outside the repo, no work that can't survive a rebase."
+            label="Ideate"
+            center="Chris orchestrates"
+            detail="Brain dump, Socratic dialogue, multi-model research (Gemini for breadth, Grok for speed, Claude for depth), decision gate. Open questions get explored by multiple models; Chris evaluates and chooses the approach."
             delay={0}
           />
-          <MethodCard
+          <Phase
             code="02"
-            title="Context is the bottleneck"
-            body="There's no ceiling on model quality given enough context. The work isn't prompting — it's context engineering: what the agent sees, what it doesn't, and when."
+            label="Build"
+            center="Claude Code as primary agent"
+            detail="Full context loaded — CLAUDE.md, design docs, memories. Three to four parallel branches at once. The agent writes code, runs the dev loop, commits, catches Biome/CI errors and auto-fixes without human intervention."
+            delay={0.05}
+          />
+          <Phase
+            code="03"
+            label="Verify"
+            center="Adversarial gauntlet"
+            detail="Biome and the test suite as the quality floor. Codex reviews the same repo with instructions to be brutal — signs every report. Critique gets fed back to Claude: 'what do you think of this?' A third model breaks the echo chamber when needed."
             delay={0.1}
           />
-          <MethodCard
-            code="03"
-            title="Quality ceiling first"
-            body="Strongest model first, then autonomy, then context depth, then speed. Speed is the output, not the goal. Cheap fast bad work is still bad work."
+          <Phase
+            code="04"
+            label="Deploy"
+            center="Chris approves the diff"
+            detail="Human eyes on the delta before merge. The agent triggers Render deploys via MCP — services, cron jobs, workers. Sentry monitors live; runtime errors loop back to the build agent for patches."
+            delay={0.15}
+          />
+          <Phase
+            code="05"
+            label="Maintain"
+            center="Living docs, self-maintaining"
+            detail="Agents update their own CLAUDE.md. Periodic drift checks against architecture specs. Every failure becomes a better instruction. Memory plus git plus persistent context equals seamless continuity across machines and sessions."
             delay={0.2}
           />
         </div>
+
+        <motion.div
+          className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] tracking-[0.25em] uppercase"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <span style={{ color: VIOLET }}>Model roles ·</span>
+          <span className="text-white/70">
+            <span style={{ color: VIOLET }}>Claude</span> builds
+          </span>
+          <span className="text-white/70">
+            <span style={{ color: VIOLET }}>Codex</span> adversary
+          </span>
+          <span className="text-white/70">
+            <span style={{ color: VIOLET }}>Gemini · Grok</span> research
+          </span>
+          <span className="text-white/70">
+            <span style={{ color: VIOLET }}>Deepseek</span> cost
+          </span>
+          <span className="text-white/70">
+            <span style={{ color: VIOLET }}>Local</span> privacy
+          </span>
+        </motion.div>
       </div>
     </section>
   );

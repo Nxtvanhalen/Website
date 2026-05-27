@@ -40,7 +40,7 @@ The credits are the reason the software is any good.
 
 ## Off the Clock
 
-- **The Archivists**: A serialized novella in progress on Substack. https://chrisleebergstrom.substack.com
+- **The Archivists**: A serialized novella in progress on Substack. https://chrisleebergstrom.substack.com/p/the-archivist
 - **EVE**: The site's own AI concierge — a working demo, not a widget. Knows the work, the road, and how to reach Chris.
 
 ## Other Projects (archive, not the lead)
@@ -56,13 +56,13 @@ The credits are the reason the software is any good.
 
 ## Website Navigation
 
-The homepage (/) is the primary destination — six numbered "advances":
-- ADVANCE 01 — PERSONNEL (hero, fusion thesis)
-- ADVANCE 02 — WORK (Selected Work: The Underground, Byte)
-- ADVANCE 03 — METHOD (agents-as-team, context engineering, quality ceiling)
-- ADVANCE 04 — HISTORY (FOH, TM, TD with real credits)
-- ADVANCE 05 — OFF THE CLOCK (Archivists + EVE)
-- ADVANCE 06 — CONTACT (single CTA + quiet consulting line)
+The homepage (/) is the primary destination, in scroll order:
+- Hero — fusion thesis + the name
+- Selected Work — The Underground, Byte
+- Method — agents-as-team, context engineering, quality ceiling
+- History — FOH, TM, TD with real credits
+- Off the Clock — Archivists + EVE
+- Contact — single CTA + quiet consulting line
 
 Secondary destinations:
 - [/about](/about) — origin story and expertise

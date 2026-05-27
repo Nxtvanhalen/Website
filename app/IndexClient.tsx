@@ -1,7 +1,6 @@
 'use client';
 
 import { motion, useReducedMotion } from 'motion/react';
-import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import Contact from '../components/Contact';
 import History from '../components/History';
@@ -35,8 +34,8 @@ function useCircuitNetwork(canvasRef: React.RefObject<HTMLCanvasElement | null>)
     let width = 0;
     let height = 0;
     let nodes: Node[] = [];
-    let mouseX = -1000;
-    let mouseY = -1000;
+    let pointerX = -1000;
+    let pointerY = -1000;
     let rafId = 0;
     let running = true;
 
@@ -68,25 +67,24 @@ function useCircuitNetwork(canvasRef: React.RefObject<HTMLCanvasElement | null>)
       ctx.clearRect(0, 0, width, height);
 
       const connectDist = 130;
-      const mouseInfluence = isTouch ? 0 : 90;
+      const pointerInfluence = 90;
 
       for (const n of nodes) {
-        // Mouse pull: nearby nodes drift toward the cursor slightly.
-        if (!isTouch) {
-          const dx = mouseX - n.x;
-          const dy = mouseY - n.y;
-          const distSq = dx * dx + dy * dy;
-          if (distSq < mouseInfluence * mouseInfluence) {
-            const pull = 0.0008;
-            n.vx += dx * pull;
-            n.vy += dy * pull;
-          }
+        // Pointer pull: nearby nodes drift toward the cursor (or finger).
+        // Same logic for mouse + touch — the only difference is the input source.
+        const dx = pointerX - n.x;
+        const dy = pointerY - n.y;
+        const distSq = dx * dx + dy * dy;
+        if (distSq < pointerInfluence * pointerInfluence) {
+          const pull = 0.0008;
+          n.vx += dx * pull;
+          n.vy += dy * pull;
         }
 
         n.x += n.vx;
         n.y += n.vy;
 
-        // Friction so mouse-influenced nodes settle back into ambient drift.
+        // Friction so pulled nodes settle back into ambient drift.
         n.vx *= 0.98;
         n.vy *= 0.98;
 
@@ -132,38 +130,49 @@ function useCircuitNetwork(canvasRef: React.RefObject<HTMLCanvasElement | null>)
       rafId = requestAnimationFrame(loop);
     };
 
+    // Canvas is position:fixed inset:0 — viewport coords map 1:1 to canvas coords.
     const handleMouse = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      mouseX = e.clientX - rect.left;
-      mouseY = e.clientY - rect.top;
+      pointerX = e.clientX;
+      pointerY = e.clientY;
     };
 
     const handleLeave = () => {
-      mouseX = -1000;
-      mouseY = -1000;
+      pointerX = -1000;
+      pointerY = -1000;
     };
 
-    // Pause the loop when the canvas is off-screen.
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !reducedMotion) {
-          if (!running) {
-            running = true;
-            loop();
-          }
-        } else {
-          running = false;
-          cancelAnimationFrame(rafId);
-        }
-      },
-      { threshold: 0 },
-    );
-    observer.observe(canvas);
+    // Passive touch listeners so we never block native scroll.
+    const handleTouch = (e: TouchEvent) => {
+      const t = e.touches[0];
+      if (!t) return;
+      pointerX = t.clientX;
+      pointerY = t.clientY;
+    };
+
+    const handleTouchEnd = () => {
+      pointerX = -1000;
+      pointerY = -1000;
+    };
+
+    // Pause when the tab is hidden — battery win on long-running tabs.
+    const handleVisibility = () => {
+      if (document.hidden) {
+        running = false;
+        cancelAnimationFrame(rafId);
+      } else if (!reducedMotion) {
+        running = true;
+        loop();
+      }
+    };
 
     resize();
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', handleMouse);
     window.addEventListener('mouseleave', handleLeave);
+    window.addEventListener('touchmove', handleTouch, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
+    window.addEventListener('touchcancel', handleTouchEnd, { passive: true });
+    document.addEventListener('visibilitychange', handleVisibility);
 
     if (!reducedMotion) loop();
     else draw(); // Single static frame for users who opted out of motion.
@@ -171,10 +180,13 @@ function useCircuitNetwork(canvasRef: React.RefObject<HTMLCanvasElement | null>)
     return () => {
       running = false;
       cancelAnimationFrame(rafId);
-      observer.disconnect();
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', handleMouse);
       window.removeEventListener('mouseleave', handleLeave);
+      window.removeEventListener('touchmove', handleTouch);
+      window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener('touchcancel', handleTouchEnd);
+      document.removeEventListener('visibilitychange', handleVisibility);
     };
   }, [canvasRef, reducedMotion]);
 }
@@ -233,41 +245,31 @@ export default function IndexClient() {
   useKineticName(nameRef);
 
   return (
-    <div className="bg-black text-white">
-      <section className="relative min-h-screen overflow-hidden">
-        {/* Mouse-reactive circuit network */}
-        <canvas
-          ref={canvasRef}
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          style={{ zIndex: 1 }}
-        />
+    <div className="text-white">
+      {/* Mouse + touch reactive circuit network — fixed behind every section */}
+      <canvas
+        ref={canvasRef}
+        className="fixed inset-0 w-full h-full pointer-events-none"
+        style={{ zIndex: 0 }}
+      />
 
-        {/* Subtle radial vignette so the hero text reads cleanly */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            zIndex: 2,
-            background:
-              'radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.85) 100%)',
-          }}
-        />
+      {/* Soft radial vignette so text reads cleanly over the network — also fixed */}
+      <div
+        aria-hidden="true"
+        className="fixed inset-0 pointer-events-none"
+        style={{
+          zIndex: 1,
+          background:
+            'radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 65%, rgba(0,0,0,0.75) 100%)',
+        }}
+      />
 
+      <div className="relative" style={{ zIndex: 10 }}>
+        <section className="relative min-h-screen">
         <main
           className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24"
-          style={{ zIndex: 10 }}
           aria-label="Chris Lee Bergstrom — Hero"
         >
-        <motion.p
-          className="font-mono text-xs tracking-[0.35em] uppercase mb-8"
-          style={{ color: VIOLET }}
-          initial={{ opacity: 0, y: -6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-        >
-          ADVANCE / 01 — PERSONNEL
-        </motion.p>
-
         <motion.h1
           ref={nameRef}
           data-speakable="true"
@@ -295,39 +297,6 @@ export default function IndexClient() {
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 mt-12"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.95 }}
-        >
-          <Link
-            href="#work"
-            className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 font-heading text-sm tracking-[0.15em] uppercase rounded-sm transition-all duration-300"
-            style={{
-              background: VIOLET,
-              color: '#000',
-              boxShadow: `0 0 30px rgba(147, 112, 219, 0.35)`,
-            }}
-          >
-            Start the Advance
-            <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
-              →
-            </span>
-          </Link>
-
-          <Link
-            href="#work"
-            className="inline-flex items-center justify-center px-8 py-3.5 font-heading text-sm tracking-[0.15em] uppercase rounded-sm border transition-all duration-300 hover:bg-white/5"
-            style={{
-              borderColor: 'rgba(147, 112, 219, 0.5)',
-              color: VIOLET,
-            }}
-          >
-            Selected Work
-          </Link>
-        </motion.div>
-
-        <motion.div
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.55 }}
@@ -352,6 +321,7 @@ export default function IndexClient() {
       <History />
       <OffTheClock />
       <Contact />
+      </div>
     </div>
   );
 }
