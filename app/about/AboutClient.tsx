@@ -2,374 +2,614 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import { useEffect } from 'react';
-import SectionTracker from '../../components/SectionTracker';
 
-export default function AboutClient() {
-  useEffect(() => {
-    // Parallax scroll effect for About page
-    const handleScroll = () => {
-      const scrolled = window.pageYOffset;
-      const parallaxBg = document.querySelector('.about-parallax-bg') as HTMLElement;
+const VIOLET = '#9370DB';
 
-      if (parallaxBg) {
-        const speed = 0.5;
-        parallaxBg.style.transform = `translateY(${scrolled * speed}px)`;
-      }
-    };
+type RankedRowProps = {
+  code: string;
+  label: string;
+  detail: string;
+  delay?: number;
+};
 
-    // Run once on mount to set initial position
-    handleScroll();
+function RankedRow({ code, label, detail, delay = 0 }: RankedRowProps) {
+  return (
+    <motion.div
+      className="grid grid-cols-12 gap-4 py-6 border-b border-white/10"
+      initial={{ opacity: 0, x: -10 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.55, delay }}
+    >
+      <p
+        className="col-span-2 md:col-span-1 font-mono text-xs tracking-[0.3em] uppercase pt-1"
+        style={{ color: VIOLET }}
+      >
+        {code}
+      </p>
+      <p className="col-span-10 md:col-span-3 font-heading text-base md:text-lg uppercase tracking-tight text-white">
+        {label}
+      </p>
+      <p
+        className="col-span-12 md:col-span-8 font-body text-base leading-relaxed"
+        style={{ color: 'rgba(245, 245, 220, 0.8)' }}
+      >
+        {detail}
+      </p>
+    </motion.div>
+  );
+}
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+type SectionHeadingProps = {
+  id: string;
+  title: string;
+  intro?: string;
+};
 
+function SectionHeading({ id, title, intro }: SectionHeadingProps) {
   return (
     <>
-      {/* Parallax Background */}
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div
-          className="about-parallax-bg absolute inset-0 bg-top bg-cover md:bg-fixed animate-fade-in"
-          style={{
-            backgroundImage: "url('/images/Hopper.jpg')",
-            minHeight: '150vh',
-            top: '-60vh',
-            animation: 'fade-in 1s ease-out forwards',
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40" />
-      </div>
+      <motion.h2
+        id={id}
+        className="font-heading text-3xl md:text-4xl lg:text-5xl uppercase tracking-tight text-white"
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.7, delay: 0.05 }}
+      >
+        {title}
+      </motion.h2>
+      {intro && (
+        <motion.p
+          className="font-body text-base md:text-lg max-w-3xl mt-6 leading-relaxed"
+          style={{ color: 'rgba(245, 245, 220, 0.78)' }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+        >
+          {intro}
+        </motion.p>
+      )}
+    </>
+  );
+}
 
-      <main className="min-h-screen bg-transparent text-white pt-20 md:pt-36 px-6 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <SectionTracker
-            name="About - Profile"
-            butlerMessage="Chris has worn many hats. Audio engineer, tour manager, AI developer. It all connects."
+export default function AboutClient() {
+  return (
+    <main
+      id="main-content"
+      className="relative text-white"
+      aria-label="About Chris Lee Bergstrom"
+    >
+      {/* Hero / Intro */}
+      <section className="relative px-6 pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24">
+        <div className="mx-auto max-w-4xl">
+          <motion.div
+            className="flex items-center gap-5 mb-10"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
           >
-            <div className="relative mb-16">
-              <div className="text-center">
-                <motion.h1
-                  className="text-4xl md:text-5xl font-heading mb-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  Chris Lee Bergstrom
-                </motion.h1>
-              </div>
-
-              {/* Profile Picture */}
-              <div className="flex justify-center md:absolute md:right-0 md:top-0">
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover object-top"
-                  >
-                    <source src="/videos/cbai-profile-v2.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </div>
-            </div>
-          </SectionTracker>
-
-          {/* Bio Section */}
-          <SectionTracker
-            name="About - Bio"
-            butlerMessage="This is the origin story. Sound engineer to systems architect. Signal in the noise."
-          >
-            <motion.div
-              className="mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+            <div
+              className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0"
+              style={{ border: '1px solid rgba(147, 112, 219, 0.4)' }}
             >
-              <div
-                className="text-base font-body opacity-90 leading-relaxed space-y-6"
-                style={{ color: '#F5F5DC' }}
+              <Image
+                src="/images/profile/CBAI.webp"
+                alt="Chris Lee Bergstrom"
+                fill
+                className="object-cover object-top"
+                sizes="96px"
+                priority
+              />
+            </div>
+            <div>
+              <p
+                className="font-mono text-xs tracking-[0.35em] uppercase"
+                style={{ color: VIOLET }}
               >
-                <p className="font-semibold text-xl italic text-center">
-                  &ldquo;I build systems where art and technology work together&rdquo;
-                </p>
-                <p className="text-center max-w-3xl mx-auto">
-                  I started in the deep end of live sound, chasing perfect harmony, phase, and the
-                  science of acoustics. Decades later, I've led crews, built production
-                  infrastructures, and rescued venues from chaos. Whether it's an international
-                  tour, a citywide cultural system, or a failing arts organization, I find the
-                  signal in the noise and make it sing.
-                </p>
+                Personnel
+              </p>
+              <h1 className="font-heading text-3xl md:text-4xl uppercase tracking-tight leading-none mt-2 text-white">
+                About
+              </h1>
+            </div>
+          </motion.div>
 
-                {/* Photo Grid Section */}
-                <div className="w-full max-w-xl mx-auto my-6">
-                  <div className="grid grid-cols-4 gap-2">
-                    {[
-                      {
-                        src: '/images/XL4.webp',
-                        alt: 'Midas XL4 console at the Colorado State Fair',
-                      },
-                      { src: '/images/oz.webp', alt: 'The Dandy Warhols live in Australia' },
-                      {
-                        src: '/images/southern.webp',
-                        alt: 'Recording console at a Nashville studio',
-                      },
-                      {
-                        src: '/images/summer.webp',
-                        alt: 'Black Rebel Motorcycle Club at Summerfest',
-                      },
-                      {
-                        src: '/images/midas.webp',
-                        alt: 'The Dandy Warhols with the Oregon Symphony',
-                      },
-                      { src: '/images/pete.webp', alt: 'The Dandy Warhols in Liverpool' },
-                      { src: '/images/tdw.webp', alt: 'The Dandy Warhols 25th Anniversary Tour' },
-                      {
-                        src: '/images/crystal.webp',
-                        alt: 'The Dandy Warhols at the Crystal Ballroom',
-                      },
-                    ].map((img, index) => (
-                      <motion.div
-                        key={index}
-                        className="border-none rounded-lg overflow-hidden bg-transparent cursor-pointer"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: index * 0.1, ease: 'easeOut' }}
-                        whileHover={{ scale: 1.08 }}
-                      >
-                        <Image
-                          src={img.src}
-                          alt={img.alt}
-                          width={128}
-                          height={128}
-                          className="w-full h-auto object-cover aspect-video"
-                          quality={85}
-                          loading="lazy"
-                        />
-                      </motion.div>
-                    ))}
-                  </div>
-                  <p
-                    className="text-center text-sm italic mt-3"
-                    style={{ color: '#F5F5DC', opacity: 0.85 }}
-                  >
-                    Two decades on stages around the world
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </SectionTracker>
-
-          {/* Skills Section */}
-          <SectionTracker
-            name="About - Skills"
-            butlerMessage="From touring the world to architecting AI systems. The skillset is... eclectic."
+          <motion.p
+            className="font-body text-lg md:text-xl leading-relaxed text-white"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="mt-16">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-heading mb-4 glow-subtle">
-                  Core Expertise
-                </h2>
-                <p className="text-lg max-w-2xl mx-auto" style={{ color: '#F5F5DC' }}>
-                  Two decades of experience spanning live entertainment, AI systems, and cultural
-                  transformation
-                </p>
-              </div>
+            A pattern-recognizing systems thinker spanning twenty-five domains with expert depth
+            in seven. Operates an AI engineering team with multi-model role specialization,
+            adversarial review pipelines, and platform delegation. Fluent across the full
+            generative AI spectrum. Treats architecture and context engineering as source code.
+          </motion.p>
 
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Creative Leadership & Strategy */}
-                <motion.div
-                  className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4, delay: 0 }}
-                >
-                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>
-                    Creative Leadership & Strategy
-                  </h3>
-                  <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    <li>
-                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
-                        Global Tour & Production Management
-                      </span>
-                      <br />
-                      Managed complex logistics and large teams across international venues and
-                      festivals
-                    </li>
-                    <li>
-                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
-                        Creative Director & Brand Strategist
-                      </span>
-                      <br />
-                      Spearheaded theatrical branding for personal brand and tech platforms. Expert
-                      in building "narrative systems" that align tech with culture
-                    </li>
-                    <li>
-                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
-                        Public Speaker & Writer
-                      </span>
-                      <br />
-                      Known for clarity, poetic argument, and challenging cultural assumptions
-                      head-on
-                    </li>
-                  </ul>
-                </motion.div>
+          <motion.p
+            className="font-body text-base md:text-lg mt-6 leading-relaxed"
+            style={{ color: 'rgba(245, 245, 220, 0.78)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.35 }}
+          >
+            Twenty-plus years in live entertainment — the domain expertise that makes every
+            product decision credible. Building with AI since the GPT-2/3 era. Leads with{' '}
+            <span style={{ color: VIOLET }}>"what do you think?"</span> and learns by building.
+          </motion.p>
+        </div>
+      </section>
 
-                {/* AI & Technical Systems */}
-                <motion.div
-                  className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
-                >
-                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>
-                    AI & Technical Systems
-                  </h3>
-                  <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    <li>
-                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
-                        AI Strategy & Ethical Tech Integration
-                      </span>
-                      <br />
-                      Founder of tools like EVA, Byte, and JAMES. Advocates for culturally sensitive
-                      AI that empowers rather than extracts
-                    </li>
-                    <li>
-                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
-                        AI Systems Developer (Multi-Agent Architect)
-                      </span>
-                      <br />
-                      Architect behind JAMES (multi-agent LLM symphony), Byte (voice-to-voice bot),
-                      and EVA (Events Virtual Assistant) ecosystems
-                    </li>
-                    <li>
-                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
-                        Technical Systems Designer
-                      </span>
-                      <br />
-                      Specialist in backstage operations, automation, safety protocols, and venue
-                      sustainability
-                    </li>
-                  </ul>
-                </motion.div>
+      {/* Mind */}
+      <section
+        id="mind"
+        aria-labelledby="mind-heading"
+        className="relative px-6 py-16 md:py-20 lg:py-24"
+      >
+        <div className="mx-auto max-w-4xl">
+          <SectionHeading
+            id="mind-heading"
+            title="Mind"
+            intro="How the brain processes problems — ranked by dominance."
+          />
 
-                {/* Audio Engineering & Infrastructure */}
-                <motion.div
-                  className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                >
-                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>
-                    Audio Engineering & Infrastructure
-                  </h3>
-                  <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    <li>
-                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
-                        Professional Audio Systems
-                      </span>
-                      <br />
-                      Dante Networking & Routing, Shure Wireless Systems (Axient, ULX-D), SMAART
-                      System Analysis and Training
-                    </li>
-                    <li>
-                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
-                        Sound Design & Programming
-                      </span>
-                      <br />
-                      QLab Programming, Waves Plugins & Live Mixing Integration
-                    </li>
-                    <li>
-                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
-                        Advanced Audio Technologies
-                      </span>
-                      <br />
-                      Spatial Audio Systems, Dolby Atmos, RF Coordination & Frequency Management
-                    </li>
-                  </ul>
-                </motion.div>
-
-                {/* Social Impact & Operations */}
-                <motion.div
-                  className="bg-gradient-to-br from-gray-900/60 to-black/60 rounded-lg border border-molten/30 p-6 hover:border-molten/60 transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4, delay: 0.3 }}
-                >
-                  <h3 className="text-xl font-bold mb-4" style={{ color: '#F5F5DC' }}>
-                    Social Impact & Operations
-                  </h3>
-                  <ul className="space-y-2 text-sm leading-relaxed" style={{ color: '#F5F5DC' }}>
-                    <li>
-                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
-                        Equity & Labor Advocacy
-                      </span>
-                      <br />
-                      Pushed for inclusive practices, backstage dignity, and systemic change in the
-                      arts sector
-                    </li>
-                    <li>
-                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
-                        Climate & Sustainability Champion
-                      </span>
-                      <br />
-                      Embedded green principles into production workflows and citywide venue
-                      strategies
-                    </li>
-                    <li>
-                      <span className="font-bold" style={{ color: '#F5F5DC' }}>
-                        Complex Logistics Management
-                      </span>
-                      <br />
-                      Touring logistics (Carnet, Visas, Advances), Emergency Planning & Safety
-                      Protocols
-                    </li>
-                  </ul>
-                </motion.div>
-              </div>
-            </div>
-          </SectionTracker>
-
-          <div className="text-center py-16 mt-16">
-            <p className="text-xl italic font-heading" style={{ color: '#F5F5DC', opacity: 0.8 }}>
-              Strategy Born from the Wreckage, Intelligence Forged in the Fire
-            </p>
-            <div className="mt-8">
-              <span className="block h-0.5 bg-molten w-32 mx-auto animate-pulse-width"></span>
-            </div>
+          <div className="mt-10 border-t border-white/10">
+            <RankedRow
+              code="01"
+              label="Pattern Recognition"
+              detail="Sees connections across unrelated domains. The bridge from touring to software."
+              delay={0}
+            />
+            <RankedRow
+              code="02"
+              label="Analogical Reasoning"
+              detail="Applies touring lessons to software problems. Settlement logic becomes reconciliation features."
+              delay={0.05}
+            />
+            <RankedRow
+              code="03"
+              label="Systems Thinking"
+              detail="Sees feedback loops and second-order effects. Designs for emergence."
+              delay={0.1}
+            />
+            <RankedRow
+              code="04"
+              label="First Principles"
+              detail="Used when needed, not the default mode. Connects before deconstructing."
+              delay={0.15}
+            />
           </div>
 
-          {/* Contact Section */}
-          <SectionTracker name="About - Contact">
-            <section className="py-12 px-6 text-center">
-              <div className="max-w-lg mx-auto space-y-6">
-                <div className="space-y-4">
-                  <a
-                    href="mailto:chrisleebergstrom@gmail.com?subject=AI Project Inquiry - Let's Build Something Amazing"
-                    className="group block relative overflow-hidden py-4 px-8 bg-transparent text-white font-bold rounded-lg border border-molten hover:border-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 active:scale-95"
-                  >
-                    <div className="relative flex flex-col items-center justify-center text-center">
-                      <div className="text-lg font-bold">Ready to go?</div>
-                      <div className="text-sm opacity-80">chrisleebergstrom@gmail.com</div>
-                    </div>
-                  </a>
-                  <p className="text-sm text-molten/70">Let's discuss your project needs</p>
-                </div>
-              </div>
-            </section>
-          </SectionTracker>
+          <motion.p
+            className="mt-10 font-mono text-[10px] tracking-[0.25em] uppercase"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          >
+            <span style={{ color: VIOLET }}>Learns by · </span>
+            <span className="text-white/70">Build first → discuss → study → observe</span>
+          </motion.p>
         </div>
-      </main>
-    </>
+      </section>
+
+      {/* Operating System */}
+      <section
+        id="operating-system"
+        aria-labelledby="os-heading"
+        className="relative px-6 py-16 md:py-20 lg:py-24"
+      >
+        <div className="mx-auto max-w-4xl">
+          <SectionHeading
+            id="os-heading"
+            title="Operating System"
+            intro="What makes the temperament effective under pressure."
+          />
+
+          <div className="mt-10 border-t border-white/10">
+            <RankedRow
+              code="01"
+              label="Ambiguity Tolerance"
+              detail="Comfortable not knowing yet. Advances shows with missing info. Builds products in shifting landscapes."
+              delay={0}
+            />
+            <RankedRow
+              code="02"
+              label="Context Switching"
+              detail="Four parallel tracks. Spinning plates energizes rather than drains."
+              delay={0.05}
+            />
+            <RankedRow
+              code="03"
+              label="Deep Focus"
+              detail="Flow state on hard problems when needed — but not the default operating mode."
+              delay={0.1}
+            />
+            <RankedRow
+              code="04"
+              label="Public Failure Comfort"
+              detail="Ship, learn, iterate. Willing to be wrong in public."
+              delay={0.15}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Drives + Vulnerabilities */}
+      <section
+        id="drives"
+        aria-labelledby="drives-heading"
+        className="relative px-6 py-16 md:py-20 lg:py-24"
+      >
+        <div className="mx-auto max-w-4xl">
+          <SectionHeading
+            id="drives-heading"
+            title="What Drives It"
+            intro="The motivations underneath the work — and the honest tensions that come with them."
+          />
+
+          <div className="mt-10 border-t border-white/10">
+            <RankedRow
+              code="01"
+              label="Impact"
+              detail="Products that change how people work."
+              delay={0}
+            />
+            <RankedRow
+              code="02"
+              label="Methodology"
+              detail="AI-native development as a discipline worth advancing."
+              delay={0.05}
+            />
+            <RankedRow
+              code="03"
+              label="Legacy"
+              detail="IP, products, and frameworks that outlast the builder."
+              delay={0.1}
+            />
+            <RankedRow
+              code="04"
+              label="Proof"
+              detail="Non-traditional paths can compete with CS degrees."
+              delay={0.15}
+            />
+          </div>
+
+          <motion.div
+            className="mt-10 rounded-sm bg-black/40 backdrop-blur-md p-6 md:p-8"
+            style={{ border: '1px solid rgba(147, 112, 219, 0.25)' }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+          >
+            <p
+              className="font-mono text-xs tracking-[0.35em] uppercase mb-5"
+              style={{ color: VIOLET }}
+            >
+              Honest tensions
+            </p>
+            <dl className="space-y-4">
+              <div>
+                <dt className="font-heading text-base md:text-lg uppercase tracking-tight text-white">
+                  Frontier Burnout
+                </dt>
+                <dd
+                  className="font-body text-sm md:text-base mt-1 leading-relaxed"
+                  style={{ color: 'rgba(245, 245, 220, 0.78)' }}
+                >
+                  The AI landscape demands constant attention. Day 57 this week of what's changed.
+                </dd>
+              </div>
+              <div>
+                <dt className="font-heading text-base md:text-lg uppercase tracking-tight text-white">
+                  Isolation Gap
+                </dt>
+                <dd
+                  className="font-body text-sm md:text-base mt-1 leading-relaxed"
+                  style={{ color: 'rgba(245, 245, 220, 0.78)' }}
+                >
+                  Being ahead of colleagues who can't validate or challenge the work. Few true
+                  peers at this intersection.
+                </dd>
+              </div>
+              <div>
+                <dt className="font-heading text-base md:text-lg uppercase tracking-tight text-white">
+                  Build-to-Sell Gap
+                </dt>
+                <dd
+                  className="font-body text-sm md:text-base mt-1 leading-relaxed"
+                  style={{ color: 'rgba(245, 245, 220, 0.78)' }}
+                >
+                  Can architect anything but translating it into revenue and recognition is a
+                  different skill. Hates having to think about money.
+                </dd>
+              </div>
+            </dl>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Philosophy */}
+      <section
+        id="philosophy"
+        aria-labelledby="philosophy-heading"
+        className="relative px-6 py-16 md:py-20 lg:py-24"
+      >
+        <div className="mx-auto max-w-4xl">
+          <SectionHeading id="philosophy-heading" title="Philosophy" />
+
+          <motion.blockquote
+            className="mt-10 font-body text-lg md:text-xl leading-relaxed text-white border-l-2 pl-6"
+            style={{ borderColor: VIOLET }}
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+          >
+            Optimizes for Csikszentmihalyi's Flow state. The entire AI methodology is engineered to
+            keep challenge matched to skill — agents handle tedium, the human stays at the
+            architectural and creative layer.
+          </motion.blockquote>
+
+          <motion.p
+            className="font-body text-base md:text-lg mt-8 leading-relaxed"
+            style={{ color: 'rgba(245, 245, 220, 0.78)' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
+            Strategic output throttling. Velocity is so far ahead of standard timelines that
+            delivery is intentionally held back to avoid unsustainable expectations.
+          </motion.p>
+
+          <motion.div
+            className="mt-10"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <p
+              className="font-mono text-xs tracking-[0.35em] uppercase mb-4"
+              style={{ color: VIOLET }}
+            >
+              Creative fuel
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                'Reading widely outside field',
+                'Physical activity / outdoor reset',
+                'Music (listening, mixing, creating)',
+                'Partner conversations on non-work topics',
+              ].map((fuel) => (
+                <span
+                  key={fuel}
+                  className="font-mono text-[10px] tracking-[0.2em] uppercase px-3 py-1.5 rounded-sm text-white/75"
+                  style={{ border: '1px solid rgba(147, 112, 219, 0.3)' }}
+                >
+                  {fuel}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Direction */}
+      <section
+        id="direction"
+        aria-labelledby="direction-heading"
+        className="relative px-6 py-16 md:py-20 lg:py-24"
+      >
+        <div className="mx-auto max-w-4xl">
+          <SectionHeading
+            id="direction-heading"
+            title="Direction"
+            intro="Five-year direction, ranked. Then the legacy underneath."
+          />
+
+          <div className="mt-10 border-t border-white/10">
+            <RankedRow
+              code="01"
+              label="Conference Speaking"
+              detail="The intersection of live events plus tech. Nobody else can give this talk."
+              delay={0}
+            />
+            <RankedRow
+              code="02"
+              label="Solo & Deep"
+              detail="Stay in Flow. Go deeper on fewer things. Depth over empire."
+              delay={0.05}
+            />
+            <RankedRow
+              code="03"
+              label="Agency Model"
+              detail="CLB Consulting as a potentially scalable entity. A maybe."
+              delay={0.1}
+            />
+            <RankedRow
+              code="04"
+              label="The Guide"
+              detail="Write the definitive AI-native development methodology. Someday."
+              delay={0.15}
+            />
+          </div>
+
+          <motion.p
+            className="mt-10 font-mono text-xs tracking-[0.35em] uppercase"
+            style={{ color: VIOLET }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Legacy priority
+          </motion.p>
+
+          <motion.p
+            className="font-body text-base md:text-lg mt-3 leading-relaxed"
+            style={{ color: 'rgba(245, 245, 220, 0.85)' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          >
+            <span className="text-white">Build tools</span>
+            <span className="text-white/40"> → </span>
+            <span className="text-white">build community</span>
+            <span className="text-white/40"> → </span>
+            <span className="text-white">mentor</span>
+            <span className="text-white/40"> → </span>
+            <span className="text-white">document</span>
+            <span className="text-white/60">
+              . Democratize AI-native development through tools first; writing it down comes last.
+            </span>
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Edges */}
+      <section
+        id="edges"
+        aria-labelledby="edges-heading"
+        className="relative px-6 py-16 md:py-20 lg:py-24"
+      >
+        <div className="mx-auto max-w-4xl">
+          <SectionHeading
+            id="edges-heading"
+            title="Edges"
+            intro="Honest limits. What gets delegated to agents and what isn't yet practiced hands-on."
+          />
+
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {[
+              {
+                area: 'Database Query Internals',
+                detail:
+                  'Delegates index strategy, EXPLAIN plans, and ad-hoc SQL analytics to agents.',
+              },
+              {
+                area: 'Self-Managed Infrastructure',
+                detail:
+                  'Operates on managed platforms. No Terraform, K8s, or self-hosted load balancers. Deliberate choice.',
+              },
+              {
+                area: 'Load Testing',
+                detail:
+                  'Understands conceptually, planned for execution. Not yet practiced hands-on.',
+              },
+            ].map((edge, i) => (
+              <motion.div
+                key={edge.area}
+                className="rounded-sm bg-black/40 backdrop-blur-md p-6"
+                style={{ border: '1px solid rgba(147, 112, 219, 0.22)' }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.6, delay: i * 0.08 }}
+              >
+                <p className="font-heading text-base md:text-lg uppercase tracking-tight text-white">
+                  {edge.area}
+                </p>
+                <p
+                  className="font-body text-sm md:text-base mt-3 leading-relaxed"
+                  style={{ color: 'rgba(245, 245, 220, 0.78)' }}
+                >
+                  {edge.detail}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AKA */}
+      <section
+        id="aka"
+        aria-labelledby="aka-heading"
+        className="relative px-6 py-16 md:py-20 lg:py-24"
+      >
+        <div className="mx-auto max-w-4xl">
+          <SectionHeading id="aka-heading" title="Also Known As" />
+
+          <motion.div
+            className="mt-10 flex flex-wrap gap-2"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+          >
+            {[
+              'AI-Native Technical Architect',
+              'Agentic Development Orchestrator',
+              'AI-Augmented Product Architect',
+              'Context Engineer & Systems Designer',
+              'Solo Technical Founder (AI-Native)',
+              'Full-Stack AI Systems Builder',
+            ].map((alias) => (
+              <span
+                key={alias}
+                className="font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase px-3 py-2 rounded-sm text-white/80"
+                style={{ border: '1px solid rgba(147, 112, 219, 0.35)' }}
+              >
+                {alias}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact CTA */}
+      <section className="relative px-6 py-16 md:py-20 lg:py-24">
+        <div className="mx-auto max-w-4xl text-center">
+          <motion.h2
+            className="font-heading text-3xl md:text-4xl uppercase tracking-tight text-white"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+          >
+            Want to work together?
+          </motion.h2>
+          <motion.div
+            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <a
+              href="mailto:chrisleebergstrom@gmail.com?subject=Project%20Inquiry"
+              className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm transition-all duration-300"
+              style={{
+                background: VIOLET,
+                color: '#000',
+                boxShadow: '0 0 30px rgba(147, 112, 219, 0.4)',
+              }}
+            >
+              Send a transmission
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+            <a
+              href="/"
+              className="inline-flex items-center justify-center px-8 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm border transition-all duration-300 hover:bg-white/5"
+              style={{
+                borderColor: 'rgba(147, 112, 219, 0.5)',
+                color: VIOLET,
+              }}
+            >
+              ← Back to the work
+            </a>
+          </motion.div>
+        </div>
+      </section>
+    </main>
   );
 }
