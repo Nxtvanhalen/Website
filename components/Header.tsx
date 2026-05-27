@@ -178,10 +178,14 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Hamburger Button */}
+          {/* Hamburger Button — TEMPORARILY HIDDEN while site is single-page-only on /.
+              Restore by removing the `hidden` class once the deep routes (/about, /projects,
+              /news, /blog, /faq) have a decided fate (kept, anchored to homepage sections,
+              or deleted). The drawer + menu code below stays mounted so re-enabling is one line. */}
           <button
             onClick={toggleMenu}
             className="hamburger-btn z-10"
+            style={{ display: 'none' }}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"

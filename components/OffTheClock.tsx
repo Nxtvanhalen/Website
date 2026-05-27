@@ -98,7 +98,7 @@ export default function OffTheClock() {
           <motion.button
             type="button"
             onClick={toggleChat}
-            className="group relative block text-left rounded-sm bg-black/40 backdrop-blur-md p-7 lg:p-10 cursor-pointer transition-all duration-500"
+            className="group relative block text-left w-full overflow-hidden rounded-sm bg-black/40 backdrop-blur-md cursor-pointer transition-all duration-500"
             style={{ border: '1px solid rgba(147, 112, 219, 0.22)' }}
             whileHover={{
               borderColor: 'rgba(147, 112, 219, 0.7)',
@@ -109,25 +109,61 @@ export default function OffTheClock() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <p
-              className="font-mono text-xs tracking-[0.35em] uppercase mb-6"
-              style={{ color: VIOLET }}
+            <div
+              className="relative aspect-[16/9] w-full overflow-hidden"
+              style={{
+                background:
+                  'radial-gradient(ellipse at center, rgba(147,112,219,0.15) 0%, rgba(0,0,0,1) 70%)',
+              }}
             >
-              Working demo · AI concierge
-            </p>
-            <h3 className="font-heading text-2xl md:text-3xl uppercase tracking-tight text-white">
-              EVE
-            </h3>
-            <p
-              className="font-body text-base mt-5 leading-relaxed"
-              style={{ color: 'rgba(245, 245, 220, 0.82)' }}
-            >
-              The site's own AI concierge. Knows the work, the road, and how to reach Chris. Not a
-              widget — a working demo of how the build process actually runs.
-            </p>
-            <p className="mt-6 font-mono text-[10px] tracking-[0.25em] uppercase text-white/70 transition-colors group-hover:text-white">
-              Open the chat →
-            </p>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                style={{
+                  mask: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+                  maskComposite: 'intersect',
+                  WebkitMask:
+                    'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+                  WebkitMaskComposite: 'source-in',
+                }}
+              >
+                <source src="/videos/eve-avatar.mp4" type="video/mp4" />
+              </video>
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                style={{
+                  background:
+                    'linear-gradient(180deg, rgba(147,112,219,0) 60%, rgba(147,112,219,0.18) 100%)',
+                }}
+              />
+            </div>
+
+            <div className="p-7 lg:p-10">
+              <p
+                className="font-mono text-xs tracking-[0.35em] uppercase mb-6"
+                style={{ color: VIOLET }}
+              >
+                Working demo · AI concierge
+              </p>
+              <h3 className="font-heading text-2xl md:text-3xl uppercase tracking-tight text-white">
+                EVE
+              </h3>
+              <p
+                className="font-body text-base mt-5 leading-relaxed"
+                style={{ color: 'rgba(245, 245, 220, 0.82)' }}
+              >
+                The site's own AI concierge. Knows the work, the road, and how to reach Chris. Not a
+                widget — a working demo of how the build process actually runs.
+              </p>
+              <p className="mt-6 font-mono text-[10px] tracking-[0.25em] uppercase text-white/70 transition-colors group-hover:text-white">
+                Open the chat →
+              </p>
+            </div>
           </motion.button>
         </div>
       </div>
