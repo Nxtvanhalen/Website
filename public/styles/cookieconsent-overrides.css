@@ -2,7 +2,7 @@
 
 /* Main popup container */
 .cc-window {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-family: var(--font-chakra-petch), -apple-system, BlinkMacSystemFont, sans-serif !important;
   border-radius: 8px !important;
   box-shadow: 0 4px 20px rgba(147, 112, 219, 0.3) !important;
   margin: 20px !important;

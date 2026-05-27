@@ -14,8 +14,9 @@ module.exports = {
         moonlight: '#C0C0C0'
       },
       fontFamily: {
-        heading: ['Space Grotesk', 'sans-serif'],
-        body: ['Space Grotesk', 'sans-serif']
+        heading: ['var(--font-chakra-petch)', 'system-ui', 'sans-serif'],
+        body: ['var(--font-newsreader)', 'Georgia', 'serif'],
+        mono: ['var(--font-jetbrains-mono)', 'ui-monospace', 'monospace']
       },
       keyframes: {
         gradientAnimation: {
