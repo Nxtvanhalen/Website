@@ -145,7 +145,7 @@ export default function FaqClient() {
           {/* FAQ Items */}
           <SectionTracker
             name="FAQ - List"
-            butlerMessage="Operations, AI, security, leadership—Chris covers it all. Ask me anything or browse the answers below."
+            butlerMessage="Common questions about the work, the road, and Chris's method. Ask me anything or browse below."
           >
             <div className="space-y-4">
               {faqs.map((faq, index) => (

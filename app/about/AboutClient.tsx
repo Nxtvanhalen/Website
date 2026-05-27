@@ -45,7 +45,7 @@ export default function AboutClient() {
         <div className="max-w-5xl mx-auto">
           <SectionTracker
             name="About - Profile"
-            butlerMessage="Chris has worn many hats. Audio engineer, tour manager, strategist. It all connects."
+            butlerMessage="Chris has worn many hats. Audio engineer, tour manager, AI developer. It all connects."
           >
             <div className="relative mb-16">
               <div className="text-center">
