@@ -101,20 +101,9 @@ export default function SelectedWork() {
     <section
       id="work"
       aria-labelledby="work-heading"
-      className="relative bg-black px-6 py-24 md:py-32 lg:py-40"
+      className="relative px-6 py-16 md:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-6xl">
-        <motion.p
-          className="font-mono text-xs tracking-[0.35em] uppercase mb-6"
-          style={{ color: VIOLET }}
-          initial={{ opacity: 0, y: -6 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-        >
-          ADVANCE / 02 — WORK
-        </motion.p>
-
         <motion.h2
           id="work-heading"
           className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-white"

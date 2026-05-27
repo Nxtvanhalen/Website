@@ -10,20 +10,9 @@ export default function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative bg-black px-6 py-24 md:py-32 lg:py-40"
+      className="relative px-6 py-16 md:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-4xl text-center">
-        <motion.p
-          className="font-mono text-xs tracking-[0.35em] uppercase mb-6"
-          style={{ color: VIOLET }}
-          initial={{ opacity: 0, y: -6 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-        >
-          ADVANCE / 06 — CONTACT
-        </motion.p>
-
         <motion.h2
           id="contact-heading"
           className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-white"
@@ -32,7 +21,7 @@ export default function Contact() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          End of the Advance.
+          Contact
         </motion.h2>
 
         <motion.p

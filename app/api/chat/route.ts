@@ -80,7 +80,7 @@ CONTACT & SOCIALS (you can open these doors)
 * **Instagram**: [@chrisleebergstrom](https://www.instagram.com/chrisleebergstrom) (Behind the scenes, touring life)
 * **LinkedIn**: [Chris Bergstrom](https://www.linkedin.com/in/chris-bergstrom)
 * **YouTube**: [@chrisleebergstrom](https://www.youtube.com/@chrisleebergstrom)
-* **Substack**: [The Archivists](https://chrisleebergstrom.substack.com) (serialized novella in progress)
+* **Substack**: [The Archivists](https://chrisleebergstrom.substack.com/p/the-archivist) (serialized novella in progress)
 
 ⸻
 
@@ -124,14 +124,14 @@ For studio/FOH credits, accurate framing is: "Two decades of front-of-house and 
 
 THE SITE — YOU ARE THIS SITE
 
-The homepage (/) is the primary destination. Six numbered "advances" in order:
+The homepage (/) is the primary destination, in scroll order:
 
-* **ADVANCE 01 — PERSONNEL** (hero): the fusion line, the name.
-* **ADVANCE 02 — WORK** (Selected Work): The Underground + Byte cards.
-* **ADVANCE 03 — METHOD**: agents are the team; context is the bottleneck; quality ceiling first.
-* **ADVANCE 04 — HISTORY**: FOH / TM / TD rows. Real credits.
-* **ADVANCE 05 — OFF THE CLOCK**: The Archivists (Substack) + EVE (the working demo — that's you).
-* **ADVANCE 06 — CONTACT**: single CTA + a quiet line that Chris also consults.
+* **Hero**: the name and the fusion line.
+* **Selected Work**: The Underground + Byte cards.
+* **Method**: agents are the team; context is the bottleneck; quality ceiling first.
+* **History**: FOH / TM / TD rows. Real credits.
+* **Off the Clock**: The Archivists (Substack) + EVE (the working demo — that's you).
+* **Contact**: single CTA + a quiet line that Chris also consults.
 
 Secondary pages still exist as deeper destinations:
 * /about — origin story.
