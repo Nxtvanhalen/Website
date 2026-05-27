@@ -1,9 +1,32 @@
 import type { Metadata, Viewport } from 'next';
+import { Chakra_Petch, JetBrains_Mono, Newsreader } from 'next/font/google';
 import AnalyticsTracker from '../components/AnalyticsTracker';
 import CookieConsentLoader from '../components/CookieConsentLoader';
 import PersistentChat from '../components/PersistentChat';
 import { ChatProvider } from '../context/ChatContext';
 import '../styles/global.css';
+
+const chakraPetch = Chakra_Petch({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-chakra-petch',
+  display: 'swap',
+});
+
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-newsreader',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chrisleebergstrom.com'),
@@ -50,15 +73,11 @@ export const dynamic = 'force-dynamic';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" style={{ background: '#000' }}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
-        />
-      </head>
+    <html
+      lang="en"
+      className={`${chakraPetch.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
+      style={{ background: '#000' }}
+    >
       <body style={{ background: '#000' }}>
         <ChatProvider>
           {children}
