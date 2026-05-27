@@ -40,7 +40,6 @@ Chris treats AI as a tool—not a substitute—for human insight. The work lives
 
 ## Website Navigation
 - [Home](/home) - Services overview and gallery
-- [Operations Consulting](/operations-consulting) - Venue and entertainment operations consulting
 - [About](/about) - Chris's origin story and expertise
 - [Projects](/projects) - AI projects and tools
 - [News](/news) - Press and media appearances

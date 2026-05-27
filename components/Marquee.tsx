@@ -239,8 +239,8 @@ export default function Marquee() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            {/* Operational Consulting Box - Links to dedicated page */}
-            <Link href="/operations-consulting" className="block">
+            {/* Operational Consulting Box - mailto inquiry (dedicated page retired) */}
+            <Link href="mailto:chrisleebergstrom@gmail.com?subject=Operations%20Consulting%20Inquiry" className="block">
               <motion.div className={boxStyle} whileHover={{ scale: 1.02 }}>
                 <section
                   aria-label="Operational Consulting - Click to learn more"
