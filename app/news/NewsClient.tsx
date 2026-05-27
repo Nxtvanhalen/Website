@@ -1,396 +1,323 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { useEffect } from 'react';
-import SectionTracker from '../../components/SectionTracker';
 
-export default function NewsClient() {
-  useEffect(() => {
-    // Parallax scroll effect for News/Press page
-    const handleScroll = () => {
-      const scrolled = window.pageYOffset;
-      const parallaxBg = document.querySelector('.news-parallax-bg') as HTMLElement;
+const VIOLET = '#9370DB';
 
-      if (parallaxBg) {
-        const speed = 0.5;
-        parallaxBg.style.transform = `translateY(${scrolled * speed}px)`;
-      }
-    };
+type PressCardProps = {
+  code: string;
+  kind: string;
+  source: string;
+  date?: string;
+  title: string;
+  body: React.ReactNode;
+  pullquote?: string;
+  meta?: string;
+  cta: { label: string; href: string };
+  delay?: number;
+};
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+function PressCard({
+  code,
+  kind,
+  source,
+  date,
+  title,
+  body,
+  pullquote,
+  meta,
+  cta,
+  delay = 0,
+}: PressCardProps) {
   return (
-    <>
-      {/* Parallax Background */}
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div
-          className="news-parallax-bg absolute inset-0 bg-center bg-cover md:bg-fixed"
-          style={{
-            backgroundImage: "url('/images/AI4.webp')",
-            minHeight: '120vh',
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/65 to-black/75" />
+    <motion.article
+      className="relative rounded-sm bg-black/40 backdrop-blur-md p-7 md:p-9 transition-all duration-500"
+      style={{ border: '1px solid rgba(147, 112, 219, 0.22)' }}
+      whileHover={{
+        borderColor: 'rgba(147, 112, 219, 0.7)',
+        boxShadow: '0 0 32px rgba(147, 112, 219, 0.22)',
+      }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.6, delay }}
+    >
+      <div className="mb-5 flex items-center justify-between gap-4 text-[10px] font-mono uppercase tracking-[0.3em]">
+        <span className="text-white/55">
+          {code} · {kind} · {source}
+        </span>
+        {date && <span className="text-white/40">{date}</span>}
       </div>
 
-      <main className="min-h-screen bg-transparent text-white pt-24 md:pt-52 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <SectionTracker name="News - Header">
-            <motion.h1
-              className="text-4xl md:text-5xl font-heading mb-12 text-center glow-subtle"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              News/Press
-            </motion.h1>
-          </SectionTracker>
+      <h2 className="font-heading text-xl md:text-2xl lg:text-3xl uppercase tracking-tight leading-snug text-white">
+        {title}
+      </h2>
 
-          <SectionTracker
-            name="News - Articles"
-            butlerMessage="Chris has some stories from the road. And some thoughts on where the road is going."
+      <div
+        className="font-body text-base mt-5 leading-relaxed space-y-4"
+        style={{ color: 'rgba(245, 245, 220, 0.82)' }}
+      >
+        {body}
+      </div>
+
+      {pullquote && (
+        <blockquote
+          className="font-body text-base md:text-lg italic mt-6 leading-relaxed pl-5 border-l-2 text-white"
+          style={{ borderColor: VIOLET }}
+        >
+          {pullquote}
+        </blockquote>
+      )}
+
+      {meta && (
+        <p className="font-mono text-[10px] tracking-[0.25em] uppercase mt-6 text-white/60">
+          {meta}
+        </p>
+      )}
+
+      <div className="mt-7 pt-5 border-t border-white/10">
+        <a
+          href={cta.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-2 font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/80 transition-colors duration-300 hover:text-white"
+          style={{ color: VIOLET }}
+        >
+          <span>{cta.label}</span>
+          <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+            →
+          </span>
+        </a>
+      </div>
+    </motion.article>
+  );
+}
+
+export default function NewsClient() {
+  return (
+    <main
+      id="main-content"
+      className="relative bg-black text-white"
+      aria-label="News and Press"
+    >
+      {/* Header */}
+      <section className="relative px-6 pt-32 pb-12 md:pt-40 md:pb-16 lg:pt-48 lg:pb-20">
+        <div className="mx-auto max-w-4xl">
+          <motion.p
+            className="font-mono text-xs tracking-[0.35em] uppercase mb-4"
+            style={{ color: VIOLET }}
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            {/* Spotify Podcast Feature */}
-            <motion.article
-              className="bg-gradient-to-r from-green-900/30 to-gray-900/50 rounded-lg border border-green-500/40 p-8 mb-8 relative overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.4 }}
-            >
-              <div className="absolute top-4 right-4">
-                <svg className="w-8 h-8 text-green-400" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.32 11.28-1.08 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z" />
-                </svg>
-              </div>
-
-              <div className="mb-4">
-                <span className="text-green-400 text-sm font-bold uppercase tracking-wide">
-                  Podcast Feature
-                </span>
-                <span className="text-gray-400 text-sm ml-4">Spotify</span>
-              </div>
-
-              <h2 className="text-2xl font-heading mb-6 leading-tight text-white">
-                Performance Anxiety Podcast - Behind the Scenes of Touring
-              </h2>
-
-              <div className="prose prose-invert max-w-none mb-6">
-                <p className="text-base leading-relaxed mb-4 opacity-90">
-                  "If you listen to this podcast, you're most likely a fan of music. And chances
-                  are, you've seen a live concert. Have you ever wondered what goes into getting a
-                  band from one show to the next? What kind of preplanning is needed? And how much
-                  more goes into an overseas tour?"
-                </p>
-
-                <p className="text-base leading-relaxed mb-4 opacity-90">
-                  "Well my guest and friend Chris Bergstrom joins me to give us all a taste of what
-                  it takes to make a tour successful and how it has changed over the years. He's
-                  worked with some incredible acts, like Black Rebel Motorcycle Club and The Dandy
-                  Warhols. But he's also worked with acts I wasn't expecting, like The Oregon
-                  Symphony Orchestra and country music star Tracy Lawrence."
-                </p>
-
-                <p className="text-base leading-relaxed mb-4 opacity-90">
-                  "He's done everything from load-ins & load-outs to Front of house, to tour
-                  management. He's got great behind the scenes stories as well as a collection of
-                  live recordings that I would kill for! But it's not all sex, drugs, & rock & roll.
-                  In fact, that stereotype has changed so much over the years. But for many, the
-                  hardest part is still acclimating to post-tour (or normal) life."
-                </p>
-
-                <p className="text-base leading-relaxed opacity-90">
-                  "Chris is candid about all of it. So if you want to follow his touring exploits,
-                  check him out @blackeyedprod on Instagram."
-                </p>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <a
-                  href="https://open.spotify.com/episode/4IKQSQspGrdKMzGoublusH"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center bg-green-500 hover:bg-green-400 text-black font-bold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 transform"
-                >
-                  <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.32 11.28-1.08 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z" />
-                  </svg>
-                  Listen on Spotify
-                </a>
-
-                <div className="text-sm text-gray-400">Audio Interview</div>
-              </div>
-            </motion.article>
-
-            {/* Bandcamp Release Feature */}
-            <motion.article
-              className="bg-gradient-to-r from-blue-900/40 to-gray-900/50 rounded-lg border border-blue-400/40 p-8 mb-8 relative overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-            >
-              <div className="absolute top-4 right-4">
-                <svg className="w-8 h-8 text-blue-400" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z" />
-                </svg>
-              </div>
-
-              <div className="mb-4">
-                <span className="text-blue-400 text-sm font-bold uppercase tracking-wide">
-                  Live Recording
-                </span>
-                <span className="text-gray-400 text-sm ml-4">Bandcamp Release</span>
-              </div>
-
-              <h2 className="text-2xl font-heading mb-6 leading-tight text-white">
-                The Dandy Warhols - "Warhol Wednesday Endless Live Album"
-              </h2>
-
-              <div className="prose prose-invert max-w-none mb-6">
-                <p className="text-lg leading-relaxed mb-4 opacity-90">
-                  Welcome to Warhol Wednesday! We're stoked to be releasing a never-ending LIVE
-                  album for a one-time fee of $10. Come be a part of the club where every Wednesday
-                  you'll receive an exclusive download to a new live song from a past performance in
-                  a different city.
-                </p>
-
-                <p className="leading-relaxed mb-4 opacity-90">
-                  This will be a living project that keeps on expanding week after week.
-                </p>
-
-                <div className="border-l-4 border-blue-400 pl-6 my-6">
-                  <p className="text-sm leading-relaxed mb-2 opacity-80">
-                    <strong>Released:</strong> September 9, 2020
-                  </p>
-                  <p className="text-sm leading-relaxed mb-2 opacity-80">
-                    <strong>Band:</strong> Courtney Taylor Taylor, Peter Holmström, Zia McCabe,
-                    Brent DeBoer
-                  </p>
-                  <p className="text-sm leading-relaxed opacity-90">
-                    <strong>
-                      Recorded Live by Chris Bergstrom
-                      <br />
-                      Mixed and Mastered by Chris Bergstrom
-                    </strong>
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <a
-                  href="https://thedandywarholsofficial.bandcamp.com/album/warhol-wednesday-endless-live-album"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 transform"
-                >
-                  <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-                  </svg>
-                  Listen on Bandcamp
-                </a>
-
-                <div className="text-sm text-gray-400">Live Performance</div>
-              </div>
-            </motion.article>
-
-            {/* YouTube Video Feature */}
-            <motion.article
-              className="bg-gradient-to-r from-red-900/40 to-gray-900/50 rounded-lg border border-red-500/40 p-8 mb-8 relative overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-            >
-              <div className="absolute top-4 right-4">
-                <svg className="w-8 h-8 text-red-400" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                </svg>
-              </div>
-
-              <div className="mb-4">
-                <span className="text-red-400 text-sm font-bold uppercase tracking-wide">
-                  Music Video
-                </span>
-                <span className="text-gray-400 text-sm ml-4">Official Release</span>
-              </div>
-
-              <h2 className="text-2xl font-heading mb-6 leading-tight text-white">
-                The Dandy Warhols - Next Thing I Know (Official Music Video)
-              </h2>
-
-              <div className="prose prose-invert max-w-none mb-6">
-                <p className="text-lg leading-relaxed mb-4 opacity-90">
-                  'Next Thing I Know' is from the band's 2019 album, <em>Why You So Crazy</em>.
-                </p>
-
-                <p className="leading-relaxed mb-4 opacity-90">
-                  Listen to current album <strong>ROCKMAKER</strong> now at Sunset Blvd Records.
-                </p>
-
-                <p className="leading-relaxed opacity-90">
-                  <strong>Video edited by Chris Bergstrom with Ticky Hambly</strong>
-                </p>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <a
-                  href="https://youtu.be/4WOSPFjKH3Y?si=L8scdGw4JsCyGqol"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 transform"
-                >
-                  <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                  Watch on YouTube
-                </a>
-
-                <div className="text-sm text-gray-400">🎥 Video Content</div>
-              </div>
-            </motion.article>
-
-            {/* Mix Online Article - Newest */}
-            <motion.article
-              className="bg-gray-900/50 rounded-lg border border-molten/30 p-8 mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.4 }}
-            >
-              <div className="mb-4">
-                <span className="text-molten text-sm font-bold uppercase tracking-wide">
-                  Mix Online
-                </span>
-                <span className="text-gray-400 text-sm ml-4">January 21, 2022</span>
-              </div>
-
-              <h2 className="text-2xl font-heading mb-6 leading-tight">
-                Chris Bergstrom Assembles Campfire Audio Toolkit for Mixing On and Off-Stage
-              </h2>
-
-              <div className="prose prose-invert max-w-none">
-                <p className="text-lg leading-relaxed mb-4 opacity-90">
-                  Sound engineer with nearly 20 years of experience, Chris Bergstrom mixes live
-                  sound for The Dandy Warhols and Oregon Symphony, utilizing Campfire Audio in-ear
-                  monitors for consistent monitoring across diverse performance environments.
-                </p>
-
-                <blockquote className="border-l-4 border-molten pl-6 my-6 italic text-lg opacity-80">
-                  "I don't believe audio engineers should insert much of themselves in the project.
-                  Accurate audio is what I need."
-                </blockquote>
-
-                <p className="leading-relaxed mb-4 opacity-90">
-                  Bergstrom's approach emphasizes close collaboration with artists to achieve their
-                  sound vision, using virtual playback methods during soundchecks and preferring
-                  Campfire Audio Solstice and Equinox IEMs for different mixing scenarios.
-                </p>
-
-                <p className="leading-relaxed opacity-90">
-                  The engineer values precision and accuracy in audio reproduction, having shifted
-                  to using IEMs over speakers in studio work during quarantine. He appreciates
-                  Campfire Audio for their "Hi-Fi origins and durability" and considers them
-                  essential to his professional toolkit.
-                </p>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-gray-700">
-                <a
-                  href="https://www.mixonline.com/the-wire/chris-bergstrom-assembles-campfire-audio-toolkit-for-mixing-on-and-off-stage"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-molten hover:text-white transition-colors duration-300 font-bold"
-                >
-                  Read Full Article →
-                </a>
-              </div>
-            </motion.article>
-
-            {/* Music Radar Article */}
-            <motion.article
-              className="bg-gray-900/50 rounded-lg border border-molten/30 p-8 mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.4 }}
-            >
-              <div className="mb-4">
-                <span className="text-molten text-sm font-bold uppercase tracking-wide">
-                  Music Radar
-                </span>
-                <span className="text-gray-400 text-sm ml-4">June 24, 2021</span>
-              </div>
-
-              <h2 className="text-2xl font-heading mb-6 leading-tight">
-                Sound advice and mixing know-how from pro engineer Chris Bergstrom
-              </h2>
-
-              <div className="prose prose-invert max-w-none">
-                <p className="text-lg leading-relaxed mb-4 opacity-90">
-                  Professional audio engineer Chris Bergstrom shares insights from his extensive
-                  career mixing live sound for major acts including The Dandy Warhols and Oregon
-                  Symphony, offering practical advice for aspiring sound engineers.
-                </p>
-
-                <p className="leading-relaxed mb-4 opacity-90">
-                  Drawing from decades of experience in both live and studio environments, Bergstrom
-                  discusses the evolution of mixing techniques, the importance of accurate
-                  monitoring, and the collaborative process between engineers and artists.
-                </p>
-
-                <p className="leading-relaxed opacity-90">
-                  The article explores his professional philosophy on sound engineering, technical
-                  expertise with cutting-edge audio equipment, and the critical skills needed to
-                  succeed in today's competitive audio industry.
-                </p>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-gray-700">
-                <a
-                  href="https://www.musicradar.com/news/sound-advice-and-mixing-know-how-from-pro-engineer-chris-bergstrom"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-molten hover:text-white transition-colors duration-300 font-bold"
-                >
-                  Read Full Article →
-                </a>
-              </div>
-            </motion.article>
-
-            <div className="text-center py-12">
-              <p className="text-lg opacity-70">More press coverage coming soon...</p>
-            </div>
-          </SectionTracker>
-
-          {/* Contact Section */}
-          <SectionTracker name="News - Contact">
-            <section className="py-12 px-6 text-center">
-              <div className="max-w-lg mx-auto space-y-6">
-                <div className="space-y-4">
-                  <a
-                    href="mailto:chrisleebergstrom@gmail.com?subject=AI Project Inquiry - Let's Build Something Amazing"
-                    className="group block relative overflow-hidden py-4 px-8 bg-transparent text-white font-bold rounded-lg border border-molten hover:border-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 active:scale-95"
-                  >
-                    <div className="relative flex flex-col items-center justify-center text-center">
-                      <div className="text-lg font-bold">Ready to go?</div>
-                      <div className="text-sm opacity-80">chrisleebergstrom@gmail.com</div>
-                    </div>
-                  </a>
-                  <p className="text-sm text-molten/70">Let's discuss your project needs</p>
-                </div>
-              </div>
-            </section>
-          </SectionTracker>
+            Press
+          </motion.p>
+          <motion.h1
+            className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-white"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
+            News & Press
+          </motion.h1>
+          <motion.p
+            className="font-body text-base md:text-lg lg:text-xl max-w-3xl mt-6 leading-relaxed"
+            style={{ color: 'rgba(245, 245, 220, 0.82)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            Podcast appearances, mixing-philosophy interviews, live recordings, and the credits
+            that came out of the road work.
+          </motion.p>
         </div>
-      </main>
-    </>
+      </section>
+
+      {/* Cards */}
+      <section className="relative px-6 py-8 md:py-12">
+        <div className="mx-auto max-w-4xl space-y-6 md:space-y-8">
+          <PressCard
+            code="01"
+            kind="Podcast"
+            source="Spotify"
+            title="Performance Anxiety Podcast — behind the scenes of touring"
+            body={
+              <>
+                <p>
+                  Chris joins host Adam Grimm for a long-form conversation on what it actually
+                  takes to keep a tour moving: load-ins, front-of-house, tour management, the
+                  difference between a domestic run and an overseas one.
+                </p>
+                <p>
+                  Bands and rooms mentioned: The Dandy Warhols, Black Rebel Motorcycle Club,
+                  Tracy Lawrence, the Oregon Symphony.
+                </p>
+                <p>
+                  Honest on the harder parts too — touring's old stereotype, what's actually
+                  changed, and the part nobody warns you about: acclimating back to normal life
+                  after the bus stops.
+                </p>
+              </>
+            }
+            cta={{
+              label: 'Listen on Spotify',
+              href: 'https://open.spotify.com/episode/4IKQSQspGrdKMzGoublusH',
+            }}
+            delay={0}
+          />
+
+          <PressCard
+            code="02"
+            kind="Live recording"
+            source="Bandcamp"
+            date="2020"
+            title='The Dandy Warhols — "Warhol Wednesday Endless Live Album"'
+            body={
+              <>
+                <p>
+                  A never-ending live album. Every Wednesday subscribers get a new live song from
+                  a past performance in a different city — a living archive that keeps growing
+                  week after week.
+                </p>
+              </>
+            }
+            meta="Recorded live, mixed, and mastered by Chris Bergstrom · Band: Courtney Taylor Taylor, Peter Holmström, Zia McCabe, Brent DeBoer"
+            cta={{
+              label: 'Listen on Bandcamp',
+              href: 'https://thedandywarholsofficial.bandcamp.com/album/warhol-wednesday-endless-live-album',
+            }}
+            delay={0.05}
+          />
+
+          <PressCard
+            code="03"
+            kind="Music video"
+            source="YouTube"
+            title='The Dandy Warhols — "Next Thing I Know" (official music video)'
+            body={
+              <>
+                <p>
+                  Off the band's 2019 album <em>Why You So Crazy</em>. Their current LP{' '}
+                  <em>ROCKMAKER</em> is out on Sunset Blvd Records.
+                </p>
+              </>
+            }
+            meta="Edited by Chris Bergstrom with Ticky Hambly"
+            cta={{
+              label: 'Watch on YouTube',
+              href: 'https://youtu.be/4WOSPFjKH3Y?si=L8scdGw4JsCyGqol',
+            }}
+            delay={0.1}
+          />
+
+          <PressCard
+            code="04"
+            kind="Feature"
+            source="Mix Online"
+            date="January 21, 2022"
+            title="Chris Bergstrom assembles a Campfire Audio toolkit for mixing on and off-stage"
+            body={
+              <>
+                <p>
+                  Nearly two decades of mixing live sound — The Dandy Warhols, the Oregon
+                  Symphony — and a working setup built around Campfire Audio in-ear monitors for
+                  consistent monitoring across very different rooms.
+                </p>
+                <p>
+                  The piece runs through virtual playback during soundchecks, the Solstice and
+                  Equinox IEMs for different scenarios, and the shift from speakers to in-ears
+                  for studio work during quarantine.
+                </p>
+              </>
+            }
+            pullquote="I don't believe audio engineers should insert much of themselves in the project. Accurate audio is what I need."
+            cta={{
+              label: 'Read on Mix Online',
+              href: 'https://www.mixonline.com/the-wire/chris-bergstrom-assembles-campfire-audio-toolkit-for-mixing-on-and-off-stage',
+            }}
+            delay={0.15}
+          />
+
+          <PressCard
+            code="05"
+            kind="Interview"
+            source="MusicRadar"
+            date="June 24, 2021"
+            title="Sound advice and mixing know-how from pro engineer Chris Bergstrom"
+            body={
+              <>
+                <p>
+                  Mixing techniques from years of live and studio work — the importance of
+                  accurate monitoring, the collaborative process between engineer and artist,
+                  and the skills that translate from the road into the studio.
+                </p>
+              </>
+            }
+            cta={{
+              label: 'Read on MusicRadar',
+              href: 'https://www.musicradar.com/news/sound-advice-and-mixing-know-how-from-pro-engineer-chris-bergstrom',
+            }}
+            delay={0.2}
+          />
+
+          <motion.p
+            className="text-center font-mono text-[10px] tracking-[0.3em] uppercase pt-8 text-white/40"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6 }}
+          >
+            More press coverage on the way
+          </motion.p>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative px-6 py-16 md:py-20 lg:py-24">
+        <div className="mx-auto max-w-4xl text-center">
+          <motion.h2
+            className="font-heading text-3xl md:text-4xl uppercase tracking-tight text-white"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+          >
+            Need a quote or want to talk shop?
+          </motion.h2>
+          <motion.div
+            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <a
+              href="mailto:chrisleebergstrom@gmail.com?subject=Press%20Inquiry"
+              className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm transition-all duration-300"
+              style={{
+                background: VIOLET,
+                color: '#000',
+                boxShadow: '0 0 30px rgba(147, 112, 219, 0.4)',
+              }}
+            >
+              Send a transmission
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+            <a
+              href="/"
+              className="inline-flex items-center justify-center px-8 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm border transition-all duration-300 hover:bg-white/5"
+              style={{
+                borderColor: 'rgba(147, 112, 219, 0.5)',
+                color: VIOLET,
+              }}
+            >
+              ← Back to the work
+            </a>
+          </motion.div>
+        </div>
+      </section>
+    </main>
   );
 }
