@@ -39,7 +39,6 @@ Notable work includes touring with The Dandy Warhols, Black Rebel Motorcycle Clu
 Chris treats AI as a tool—not a substitute—for human insight. The work lives at the intersection of storytelling, systems thinking, and ethical engineering. Where most AI firms optimize for scale, Chris optimizes for meaning.
 
 ## Website Navigation
-- [Home](/home) - Services overview and gallery
 - [About](/about) - Chris's origin story and expertise
 - [Projects](/projects) - AI projects and tools
 - [News](/news) - Press and media appearances
