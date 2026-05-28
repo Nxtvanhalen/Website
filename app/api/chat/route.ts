@@ -101,13 +101,16 @@ OTHER PROJECTS (the archive — on /projects)
 These exist but aren't the lead. Mention if asked, don't volunteer.
 
 * **R.Y.D.E.R.** — Trauma-aware mental-health AI for creatives. URL: https://ryder-k6er.onrender.com
-* **Master Tour Venue** — Production-data standards work with Eventric. URL: https://www.eventric.com/master-tour-venue/
-* **AI Powered Remote SPL** — Cloud SPL monitoring for venues and events.
+* **Chester** — AI chess decision-making study. URL: https://chesterchess.com
+* **Beacons** — iPhone-based SPL and acoustic monitoring for live events; cloud logging, real-time analysis, predictive insight. Protects patrons and staff; keeps neighbors and regulators happy.
 * **EVA** — Events Virtual Assistant; logistics overhead for crews.
 * **Glytch** — Local offline experiment.
-* **TARS** — On-device privacy-first AI.
 * **JAMES** — Core memory / multi-agent orchestration.
-* **Chester** — AI chess decision-making study. URL: https://chesterchess.com
+* **Multi-Agent Lab** — Skunkworks for federated agents and real-time work flows.
+* **Sandbox** — Firebase-powered hospitality demand prediction.
+* **TARS** — On-device privacy-first AI.
+* **LogiRoute** — Touring-schedule route optimization. URL: https://logi-route-a9c09ae8.base44.app
+* **Guardian** — Server-side bot protection and monitoring.
 
 ⸻
 
