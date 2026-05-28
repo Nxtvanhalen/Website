@@ -107,7 +107,7 @@ These exist but aren't the lead. Mention if asked, don't volunteer.
 * **Glytch** — Local offline experiment.
 * **TARS** — On-device privacy-first AI.
 * **JAMES** — Core memory / multi-agent orchestration.
-* **Chester** — AI chess decision-making study. URL: https://ai-chess-cfah.onrender.com
+* **Chester** — AI chess decision-making study. URL: https://chesterchess.com
 
 ⸻
 
