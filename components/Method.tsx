@@ -50,7 +50,7 @@ export default function Method() {
     <section
       id="method"
       aria-labelledby="method-heading"
-      className="relative px-6 py-16 md:py-20 lg:py-24"
+      className="relative px-6 py-12 md:py-16 lg:py-20"
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
@@ -64,24 +64,12 @@ export default function Method() {
           Method
         </motion.h2>
 
-        <motion.p
-          className="font-body text-base md:text-lg max-w-3xl mt-6 leading-relaxed"
-          style={{ color: 'rgba(245, 245, 220, 0.78)' }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-        >
-          Five phases, one orchestrator. Agents type, Chris decides. The last phase loops back into
-          the first — the system learns continuously.
-        </motion.p>
-
-        <div className="mt-12 border-t border-white/10">
+        <div className="mt-8 border-t border-white/10">
           <Phase
             code="01"
             label="Ideate"
-            center="Chris orchestrates"
-            detail="Brain dump, Socratic dialogue, multi-model research (Gemini for breadth, Grok for speed, Claude for depth), decision gate. Open questions get explored by multiple models; Chris evaluates and chooses the approach."
+            center="I orchestrate"
+            detail="Brainstorm, Socratic dialogue, multi-model research (Gemini for breadth, Grok for speed, Claude for depth), decision gate. Open questions get explored by multiple models; I evaluate the options and choose the approach."
             delay={0}
           />
           <Phase
@@ -101,8 +89,8 @@ export default function Method() {
           <Phase
             code="04"
             label="Deploy"
-            center="Chris approves the diff"
-            detail="Human eyes on the delta before merge. The agent triggers Render deploys via MCP — services, cron jobs, workers. Sentry monitors live; runtime errors loop back to the build agent for patches."
+            center="I approve the diff"
+            detail="My eyes on the delta before merge. The agent triggers Render deploys via MCP — services, cron jobs, workers. Sentry monitors live; runtime errors loop back to the build agent for patches."
             delay={0.15}
           />
           <Phase

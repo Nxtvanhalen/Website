@@ -44,7 +44,7 @@ export default function Skills() {
     <section
       id="skills"
       aria-labelledby="skills-heading"
-      className="relative px-6 py-16 md:py-20 lg:py-24"
+      className="relative px-6 py-12 md:py-16 lg:py-20"
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
@@ -81,7 +81,7 @@ export default function Skills() {
           <SkillRow
             code="ENG"
             label="Engineering"
-            detail="Frontend (React, Next.js, TypeScript, Tailwind, Canvas/WebGL). Backend (Supabase + Postgres with RLS, Node/Bun, tRPC/REST/GraphQL, Python, Rust/Go). Edge performance (Cloudflare Workers, multi-region, offline-first). Security (OAuth, OWASP, bot defense). Infrastructure on Render and Cloudflare. CI/CD with a 491+ test suite."
+            detail="Frontend (React, Next.js, TypeScript, Tailwind, Canvas/WebGL). Backend (Supabase + Postgres with RLS, Node/Bun, tRPC/REST/GraphQL, Python, Rust/Go). Edge performance (Cloudflare Workers, multi-region, offline-first). Security (OAuth, OWASP, bot defense). Infrastructure on Render and Cloudflare. CI/CD with a robust test suite."
             delay={0.05}
           />
           <SkillRow
@@ -93,7 +93,7 @@ export default function Skills() {
           <SkillRow
             code="HUM"
             label="Business & Human"
-            detail="Product strategy and architecture trade-offs. Design and UX informed by Jakob's Law and iOS HIG. Contract negotiation, IP protection, revenue modeling. Technical and creative writing (including The Archivists). People leadership and live crisis management — conflict resolution road-tested at 3am in green rooms."
+            detail="Product strategy and architecture trade-offs. Design and UX informed by Jakob's Law and iOS HIG. Contract negotiation, IP protection, revenue modeling. Technical and creative writing (including The Archivists). People leadership and live crisis management."
             delay={0.15}
           />
         </div>

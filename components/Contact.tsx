@@ -10,7 +10,7 @@ export default function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative px-6 py-16 md:py-20 lg:py-24"
+      className="relative px-6 py-12 md:py-16 lg:py-20"
     >
       <div className="mx-auto max-w-4xl text-center">
         <motion.h2
@@ -52,7 +52,7 @@ export default function Contact() {
               boxShadow: '0 0 30px rgba(147, 112, 219, 0.4)',
             }}
           >
-            Send a transmission
+            Send a message
             <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
               →
             </span>

@@ -44,7 +44,7 @@ export default function History() {
     <section
       id="history"
       aria-labelledby="history-heading"
-      className="relative px-6 py-16 md:py-20 lg:py-24"
+      className="relative px-6 py-12 md:py-16 lg:py-20"
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
@@ -73,7 +73,7 @@ export default function History() {
           <HistoryRow
             code="FOH"
             label="Front of House"
-            detail="The Dandy Warhols. Black Rebel Motorcycle Club. Macklemore. Arenas, festivals, and civic halls — mixing for the artists who taught the room how to listen."
+            detail="The Dandy Warhols. Black Rebel Motorcycle Club. Macklemore. Arenas, festivals, and civic halls."
             delay={0}
           />
           <HistoryRow

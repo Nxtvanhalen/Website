@@ -252,8 +252,8 @@ export default function ProjectsClient() {
               blurb="An AI assistant that lives in your inbox. Email byte@firstlyte.co, get a thoughtful reply in under 30 seconds — no app, no login, no account. Handles attachments, remembers threads, routes to the right model."
               visual={
                 <Image
-                  src="/images/Byte.png"
-                  alt="Byte — AI assistant over email; brand sheet showing the wordmark, the B logo, and the read / understand / remember / act process flow"
+                  src="/images/ByteEdit.jpeg"
+                  alt="Byte — AI assistant over email; brand sheet showing the BYTE wordmark, the B logo, and the prioritize / understand / remember / act process flow"
                   fill
                   className="object-contain"
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -329,90 +329,75 @@ export default function ProjectsClient() {
           <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             <ArchiveCard
               code="05"
-              title="Master Tour Venue"
-              kind="Industry tools"
-              blurb="Production-data standards for the touring-venue handoff. Shared source-of-truth replacing the spreadsheet-and-email chaos between teams and rooms."
-              href="https://www.eventric.com/master-tour-venue/"
+              title="Beacons"
+              kind="Venue safety / IoT"
+              blurb="iPhone-based SPL and acoustic monitoring for live events. Cloud-based logging, real-time analysis, and predictive insight. Protects patrons and staff; keeps neighbors and regulators happy. Cloud-to-edge-to-physical-world."
               delay={0}
             />
             <ArchiveCard
               code="06"
-              title="AI-Powered Remote SPL"
-              kind="Venue safety"
-              blurb="Cloud-based SPL monitoring with logging, real-time analysis, and predictive insight. Protects patrons and staff; keeps the neighbors and regulators happy."
+              title="EVA"
+              kind="Events virtual assistant"
+              blurb="Logistics overhead reducer for crews — routing, scheduling, crew management. Doesn't replace humans, lowers their cognitive load."
               delay={0.05}
             />
             <ArchiveCard
               code="07"
-              title="EVA"
-              kind="Events virtual assistant"
-              blurb="Logistics overhead reducer for crews — routing, scheduling, crew management. Doesn't replace humans, lowers their cognitive load."
-              delay={0.1}
-            />
-            <ArchiveCard
-              code="08"
               title="EVE"
               kind="Portfolio concierge"
               blurb="The site's own AI concierge. Knows every page, the work, the road. A working demo of the same agentic stack used to build the rest of the portfolio."
               href="/"
+              delay={0.1}
+            />
+            <ArchiveCard
+              code="08"
+              title="Glytch"
+              kind="Local AI experiment"
+              blurb="Local, offline, no guardrails. An ongoing test of what's possible when an LLM runs on your own machine with full freedom."
               delay={0.15}
             />
             <ArchiveCard
               code="09"
-              title="Glytch"
-              kind="Local AI experiment"
-              blurb="Local, offline, no guardrails. An ongoing test of what's possible when an LLM runs on your own machine with full freedom."
+              title="JAMES"
+              kind="Memory backbone"
+              blurb="Core memory and multi-agent orchestration. Long-term context and cross-agent state so the system learns instead of forgetting."
               delay={0.2}
             />
             <ArchiveCard
               code="10"
-              title="JAMES"
-              kind="Memory backbone"
-              blurb="Core memory and multi-agent orchestration. Long-term context and cross-agent state so the system learns instead of forgetting."
+              title="Multi-Agent Lab"
+              kind="Skunkworks"
+              blurb="Prototyping federated agents and real-time work flows. Agents talking to agents, with humans in the loop where it matters."
               delay={0.25}
             />
             <ArchiveCard
               code="11"
-              title="Multi-Agent Lab"
-              kind="Skunkworks"
-              blurb="Prototyping federated agents and real-time work flows. Agents talking to agents, with humans in the loop where it matters."
+              title="Sandbox"
+              kind="Hospitality AI"
+              blurb="Firebase-powered demand prediction for hospitality and venue strategy. Turns sales noise into operational insight."
               delay={0.3}
             />
             <ArchiveCard
               code="12"
-              title="Sandbox"
-              kind="Hospitality AI"
-              blurb="Firebase-powered demand prediction for hospitality and venue strategy. Turns sales noise into operational insight."
+              title="TARS"
+              kind="Local privacy-first AI"
+              blurb="On-device intelligence — your data, your hardware, your control. Pushes the privacy ceiling for sensitive workflows."
               delay={0.35}
             />
             <ArchiveCard
               code="13"
-              title="TARS"
-              kind="Local privacy-first AI"
-              blurb="On-device intelligence — your data, your hardware, your control. Pushes the privacy ceiling for sensitive workflows."
-              delay={0.4}
-            />
-            <ArchiveCard
-              code="14"
               title="LogiRoute"
               kind="Touring logistics"
               blurb="Complex route optimization for touring schedules. Built in the open as a working logistics agent."
               href="https://logi-route-a9c09ae8.base44.app"
-              delay={0.45}
+              delay={0.4}
             />
             <ArchiveCard
-              code="15"
+              code="14"
               title="Guardian"
               kind="Web security"
               blurb="Server-side bot protection and monitoring. The defense layer that keeps the surface clean."
-              delay={0.5}
-            />
-            <ArchiveCard
-              code="16"
-              title="Beacons"
-              kind="IoT / acoustic"
-              blurb="iPhone-based environmental and acoustic monitoring for live events. Cloud-to-edge-to-physical-world."
-              delay={0.55}
+              delay={0.45}
             />
           </div>
         </div>
@@ -446,7 +431,7 @@ export default function ProjectsClient() {
                 boxShadow: '0 0 30px rgba(147, 112, 219, 0.4)',
               }}
             >
-              Send a transmission
+              Send a message
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                 →
               </span>

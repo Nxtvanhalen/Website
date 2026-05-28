@@ -101,7 +101,7 @@ export default function SelectedWork() {
     <section
       id="work"
       aria-labelledby="work-heading"
-      className="relative px-6 py-16 md:py-20 lg:py-24"
+      className="relative px-6 py-12 md:py-16 lg:py-20"
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
@@ -115,19 +115,7 @@ export default function SelectedWork() {
           Selected Work
         </motion.h2>
 
-        <motion.p
-          className="font-body text-base md:text-lg max-w-2xl mt-6 leading-relaxed"
-          style={{ color: 'rgba(245, 245, 220, 0.7)' }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-        >
-          Real artifacts, both public. The Underground proves the fusion thesis: twenty years of
-          running venues turned into a piece of working software.
-        </motion.p>
-
-        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
           <WorkCard
             code="01"
             title="The Underground"
@@ -156,8 +144,8 @@ export default function SelectedWork() {
             blurb="An AI assistant that lives in your inbox. Email byte@firstlyte.co, get a thoughtful reply in under 30 seconds — no app, no login, no account. Handles attachments, remembers threads, routes to the right model."
             visual={
               <Image
-                src="/images/Byte.png"
-                alt="Byte — AI assistant over email; brand sheet showing the wordmark, the B logo, and the read / understand / remember / act process flow"
+                src="/images/ByteEdit.jpeg"
+                alt="Byte — AI assistant over email; brand sheet showing the BYTE wordmark, the B logo, and the prioritize / understand / remember / act process flow"
                 fill
                 className="object-contain"
                 sizes="(min-width: 1024px) 50vw, 100vw"

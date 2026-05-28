@@ -13,7 +13,7 @@ export default function OffTheClock() {
     <section
       id="offclock"
       aria-labelledby="offclock-heading"
-      className="relative px-6 py-16 md:py-20 lg:py-24"
+      className="relative px-6 py-12 md:py-16 lg:py-20"
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
@@ -116,24 +116,36 @@ export default function OffTheClock() {
                   'radial-gradient(ellipse at center, rgba(147,112,219,0.15) 0%, rgba(0,0,0,1) 70%)',
               }}
             >
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-                aria-label="EVE — animated AI concierge avatar; decorative loop"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              {/* Blurred backdrop copy — fills the frame behind the sharp version.
+                  scale(1.08) prevents the blur from showing its own edge as a soft ring. */}
+              <Image
+                src="/images/EVEP.png"
+                alt=""
+                aria-hidden="true"
+                fill
+                className="object-contain pointer-events-none"
+                sizes="(min-width: 768px) 50vw, 100vw"
                 style={{
-                  mask: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
-                  maskComposite: 'intersect',
-                  WebkitMask:
-                    'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
-                  WebkitMaskComposite: 'source-in',
+                  filter: 'blur(18px) saturate(1.1)',
+                  transform: 'scale(1.08)',
+                  opacity: 0.85,
                 }}
-              >
-                <source src="/videos/eve-avatar.mp4" type="video/mp4" />
-              </video>
+              />
+
+              {/* Sharp foreground — the radial mask fades to transparent at the borders,
+                  revealing the blurred copy beneath and giving the soft-edge halo effect. */}
+              <Image
+                src="/images/EVEP.png"
+                alt="EVE — the site's AI concierge"
+                fill
+                className="object-contain transition-transform duration-700 group-hover:scale-[1.03]"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                style={{
+                  mask: 'radial-gradient(ellipse 70% 80% at center, black 30%, transparent 95%)',
+                  WebkitMask:
+                    'radial-gradient(ellipse 70% 80% at center, black 30%, transparent 95%)',
+                }}
+              />
               <div
                 aria-hidden="true"
                 className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -158,7 +170,7 @@ export default function OffTheClock() {
                 className="font-body text-base mt-5 leading-relaxed"
                 style={{ color: 'rgba(245, 245, 220, 0.82)' }}
               >
-                The site's own AI concierge. Knows the work, the road, and how to reach Chris. Not a
+                The site's own AI concierge. Knows the work, the road, and how to reach me. Not a
                 widget — a working demo of how the build process actually runs.
               </p>
               <p className="mt-6 font-mono text-[10px] tracking-[0.25em] uppercase text-white/70 transition-colors group-hover:text-white">

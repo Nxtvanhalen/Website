@@ -50,10 +50,10 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What does Chris actually do?',
+      name: 'What do you actually do?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Chris is an AI developer with 20 years in live entertainment. He builds agentic software for venues, tours, and live events — using AI agents as the build team. He still consults on venue operations, AI training, and web security when it is the right fit.',
+        text: "I'm an AI developer with 20 years in live entertainment. I build agentic software for venues, tours, and live events — using AI agents as the build team. I still consult on venue operations, AI training, and web security when it is the right fit.",
       },
     },
     {
@@ -61,7 +61,7 @@ const faqSchema = {
       name: 'What does your operational consulting cover?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Chris analyzes your entire operation from load-in to load-out: staffing, safety audits, F&B flow, logistics, marketing, booking, and emergency preparedness. He's never cost a client more than he's saved them.",
+        text: "I analyze your entire operation from load-in to load-out: staffing, safety audits, F&B flow, logistics, marketing, booking, and emergency preparedness. I've never cost a client more than I've saved them.",
       },
     },
     {
@@ -77,7 +77,7 @@ const faqSchema = {
       name: 'What security services do you offer?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Chris provides comprehensive web and app security including vulnerability assessments, penetration testing, security audits, and compliance guidance. He identifies weaknesses before they become breaches.',
+        text: 'I provide comprehensive web and app security including vulnerability assessments, penetration testing, security audits, and compliance guidance. I identify weaknesses before they become breaches.',
       },
     },
     {
@@ -85,7 +85,7 @@ const faqSchema = {
       name: "What's your approach to leadership and team building?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Chris treats culture as infrastructure. His approach includes 1:1 executive coaching, team development, and organizational culture design — interdisciplinary by design. The goal: leaders who navigate pressure with clarity and teams that thrive.',
+        text: 'I treat culture as infrastructure. My approach includes 1:1 executive coaching, team development, and organizational culture design — interdisciplinary by design. The goal: leaders who navigate pressure with clarity and teams that thrive.',
       },
     },
     {
@@ -93,7 +93,7 @@ const faqSchema = {
       name: 'What industries do you work with?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Chris's core expertise spans entertainment, logistics, audio and acoustical analysis, and live events, but his systems-thinking approach translates across industries.",
+        text: 'My core expertise spans entertainment, logistics, audio and acoustical analysis, and live events, but the systems-thinking approach translates across industries.',
       },
     },
     {
@@ -101,7 +101,7 @@ const faqSchema = {
       name: 'Do you work with small venues or only large productions?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Chris works across the full spectrum—from intimate 200-seat theaters to major festival productions. Smaller venues often benefit most from systematic thinking; larger productions need it because complexity compounds fast.',
+        text: 'I work across the full spectrum—from intimate 200-seat theaters to major festival productions. Smaller venues often benefit most from systematic thinking; larger productions need it because complexity compounds fast.',
       },
     },
     {
@@ -109,7 +109,7 @@ const faqSchema = {
       name: 'Do you offer ongoing support after implementation?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Absolutely. Chris doesn't just build systems and walk away—he ensures they thrive. His approach includes training, optimization, and continuous improvement.",
+        text: "Absolutely. I don't just build systems and walk away — I make sure they thrive. My approach includes training, optimization, and continuous improvement.",
       },
     },
   ],
@@ -141,6 +141,7 @@ export default async function FaqPage() {
       <script
         type="application/ld+json"
         nonce={nonce}
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <FaqClient />

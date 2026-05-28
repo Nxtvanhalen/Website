@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 interface EveAvatarProps {
   width?: number;
@@ -9,26 +9,13 @@ interface EveAvatarProps {
 }
 
 export default function EveAvatar({ width = 80, height = 45, className = '' }: EveAvatarProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    // Ensure video plays on mount
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // Autoplay may be blocked, that's okay - video will show first frame
-      });
-    }
-  }, []);
-
   return (
-    <video
-      ref={videoRef}
-      autoPlay
-      loop
-      muted
-      playsInline
-      aria-label="EVE — animated AI concierge avatar; decorative loop"
-      className={`object-contain ${className}`}
+    <Image
+      src="/images/EVEP.png"
+      alt="EVE — the site's AI concierge"
+      width={width}
+      height={height}
+      className={`object-cover object-top ${className}`}
       style={{
         width,
         height,
@@ -39,8 +26,6 @@ export default function EveAvatar({ width = 80, height = 45, className = '' }: E
           'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
         WebkitMaskComposite: 'source-in',
       }}
-    >
-      <source src="/videos/eve-avatar.mp4" type="video/mp4" />
-    </video>
+    />
   );
 }

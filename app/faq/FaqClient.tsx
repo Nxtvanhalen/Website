@@ -13,21 +13,21 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: 'What does Chris actually do?',
+    question: 'What do you actually do?',
     answer:
-      "Chris is an AI developer with 20 years in live entertainment. He builds agentic software for venues, tours, and live events — front-of-house engineer turned full-stack developer, using AI agents as the build team.\n\nHe still consults on venue operations, AI training, and web security when it is the right fit. But the center of gravity is the work: shipped products, working demos, and the software that runs live shows.\n\nDeeply human, deeply technical, allergic to performative innovation. The work speaks first.",
-    category: 'About Chris',
+      "I'm an AI developer with 20 years in live entertainment. I build agentic software for venues, tours, and live events — front-of-house engineer turned full-stack developer, using AI agents as the build team.\n\nI still consult on venue operations, AI training, and web security when it is the right fit. But the center of gravity is the work: shipped products, working demos, and the software that runs live shows.\n\nDeeply human, deeply technical, allergic to performative innovation. The work speaks first.",
+    category: 'About',
   },
   {
     question: 'How does the AI-native build process actually work?',
     answer:
-      "Five phases, one orchestrator. Chris ideates and decides; agents type. Three to four parallel branches at a time. Claude Code is the primary build agent — runs the dev loop, commits, auto-fixes lint and CI failures. Codex reviews the work brutally with a signed report; that critique gets fed back to Claude. A third model breaks the echo chamber when needed.\n\nDeploys go through Chris's approval gate. Sentry monitors live and loops runtime errors back to the build agent. Documentation is self-maintaining — CLAUDE.md and memories update themselves so the next session inherits accumulated knowledge.",
+      "Five phases, one orchestrator. I ideate and decide; agents type. Three to four parallel branches at a time. Claude Code is the primary build agent — runs the dev loop, commits, auto-fixes lint and CI failures. Codex reviews the work brutally with a signed report; that critique gets fed back to Claude. A third model breaks the echo chamber when needed.\n\nDeploys go through my approval gate. Sentry monitors live and loops runtime errors back to the build agent. Documentation is self-maintaining — CLAUDE.md and memories update themselves so the next session inherits accumulated knowledge.",
     category: 'Method',
   },
   {
     question: 'What does your operational consulting cover?',
     answer:
-      "Chris analyzes your entire operation from load-in to load-out — not just the stage, but everything that makes the show possible.\n\nThis includes staffing and labor optimization, safety and compliance audits, F&B and concessions flow, logistics and vendor coordination, marketing and booking strategies, and emergency preparedness. He's never cost a client more than he's saved them.\n\nIndustry standards recommend 10-20% contingency buffers. Chris helps you keep that buffer as profit, not watch it disappear into preventable inefficiencies.",
+      "I analyze your entire operation from load-in to load-out — not just the stage, but everything that makes the show possible.\n\nThis includes staffing and labor optimization, safety and compliance audits, F&B and concessions flow, logistics and vendor coordination, marketing and booking strategies, and emergency preparedness. I've never cost a client more than I've saved them.\n\nIndustry standards recommend 10-20% contingency buffers. I help you keep that buffer as profit, not watch it disappear into preventable inefficiencies.",
     category: 'Operations',
   },
   {
@@ -45,7 +45,7 @@ const faqs: FAQItem[] = [
   {
     question: "What's your approach to leadership and team building?",
     answer:
-      "Chris treats culture as infrastructure. Leadership coaching isn't motivational speeches, and team building isn't pizza parties — it's designing systems where people feel seen, safe, and intellectually alive.\n\nHis approach includes 1:1 executive coaching, team development, and organizational culture design. Interdisciplinary by design — artists working with engineers, philosophers with coders. The goal: leaders who navigate pressure with clarity and teams that thrive on cross-pollination.",
+      "I treat culture as infrastructure. Leadership coaching isn't motivational speeches, and team building isn't pizza parties — it's designing systems where people feel seen, safe, and intellectually alive.\n\nMy approach includes 1:1 executive coaching, team development, and organizational culture design. Interdisciplinary by design — artists working with engineers, philosophers with coders. The goal: leaders who navigate pressure with clarity and teams that thrive on cross-pollination.",
     category: 'Leadership',
   },
   {
@@ -57,7 +57,7 @@ const faqs: FAQItem[] = [
   {
     question: 'Do you work with small venues or only large productions?',
     answer:
-      "Chris works across the full spectrum — from intimate 200-seat theaters to major festival productions. The principles of operational excellence scale in both directions.\n\nSmaller venues often benefit most from systematic thinking because they're running lean and can't afford waste. Larger productions need it because complexity compounds fast. Either way, the approach gets tailored to your scale, budget, and goals.",
+      "I work across the full spectrum — from intimate 200-seat theaters to major festival productions. The principles of operational excellence scale in both directions.\n\nSmaller venues often benefit most from systematic thinking because they're running lean and can't afford waste. Larger productions need it because complexity compounds fast. Either way, the approach gets tailored to your scale, budget, and goals.",
     category: 'Scope',
   },
   {
@@ -81,7 +81,7 @@ const faqs: FAQItem[] = [
   {
     question: 'Do you offer ongoing support after implementation?',
     answer:
-      "Absolutely. Chris doesn't build systems and walk away — he ensures they thrive. Training, optimization, continuous improvement. Teams get empowered to maintain and evolve systems themselves.",
+      "Absolutely. I don't build systems and walk away — I make sure they thrive. Training, optimization, continuous improvement. Teams get empowered to maintain and evolve systems themselves.",
     category: 'Support',
   },
 ];
@@ -185,7 +185,7 @@ export default function FaqClient() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             Common questions about the work, the method, and the road. If yours isn't here, send a
-            transmission and it might earn a row.
+            message and it might earn a row.
           </motion.p>
         </div>
       </section>
@@ -245,7 +245,7 @@ export default function FaqClient() {
                 boxShadow: '0 0 30px rgba(147, 112, 219, 0.4)',
               }}
             >
-              Send a transmission
+              Send a message
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                 →
               </span>
