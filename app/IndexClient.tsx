@@ -294,8 +294,8 @@ export default function IndexClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.65 }}
         >
-          I spent 20 years building live shows. Now I build the software that runs them — with AI
-          agents as my team.
+          I spent 20 years building live shows. Now I build the software that runs them — and a
+          few other things along the way.
         </motion.p>
 
         <motion.div

@@ -86,6 +86,7 @@ export default async function NewsPage() {
       <script
         type="application/ld+json"
         nonce={nonce}
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(newsSchema) }}
       />
       <NewsClient />

@@ -113,11 +113,12 @@ function buildCspHeader(nonce: string, isHttps: boolean): string {
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDev ? " 'unsafe-eval'" : ''} https://www.googletagmanager.com https://www.google-analytics.com`,
     // style-src split into -elem and -attr. Modern browsers honor the split; the parent
     // style-src is only a fallback for browsers that don't recognize the granular directives.
-    // -elem strict prevents <style> tag injection (the real XSS vector). -attr keeps
-    // 'unsafe-inline' so React's inline `style={{}}` props (~149 in this codebase, for
-    // parallax/animation/dynamic colors) continue to work without per-element nonces.
+    // -elem strict prevents <style> tag injection in production (the real XSS vector); in dev
+    // we relax to 'unsafe-inline' because Turbopack injects HMR styles inline without nonces.
+    // -attr keeps 'unsafe-inline' so React's inline `style={{}}` props continue to work
+    // without per-element nonces.
     `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com`,
-    `style-src-elem 'self' https://fonts.googleapis.com`,
+    `style-src-elem 'self'${isDev ? " 'unsafe-inline'" : ''} https://fonts.googleapis.com`,
     `style-src-attr 'unsafe-inline'`,
     `img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com`,
     `font-src 'self' https://fonts.gstatic.com`,

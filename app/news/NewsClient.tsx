@@ -294,7 +294,7 @@ export default function NewsClient() {
                 boxShadow: '0 0 30px rgba(147, 112, 219, 0.4)',
               }}
             >
-              Send a transmission
+              Send a message
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                 →
               </span>

@@ -267,7 +267,7 @@ export default function BlogClient() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             Subscribing gets the musings and The Archivists straight to your inbox. Want to push
-            back on something or take an idea further? Send a transmission instead.
+            back on something or take an idea further? Send a message instead.
           </motion.p>
           <motion.div
             className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center"
