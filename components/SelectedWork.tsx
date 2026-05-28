@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const VIOLET = '#9370DB';
 
@@ -153,6 +154,24 @@ export default function SelectedWork() {
             }
           />
         </div>
+
+        <motion.div
+          className="mt-10 flex justify-center md:justify-end"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <Link
+            href="/projects"
+            className="group inline-flex items-center gap-2 font-mono text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/70 transition-colors hover:text-white"
+          >
+            <span>See the full workshop</span>
+            <span aria-hidden="true" className="transition-transform group-hover:translate-x-1" style={{ color: VIOLET }}>
+              →
+            </span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
