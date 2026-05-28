@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
+import { useChat } from '../../context/ChatContext';
 
 const VIOLET = '#9370DB';
 
@@ -96,17 +97,19 @@ type ArchiveCardProps = {
   kind: string;
   blurb: string;
   href?: string;
+  onClick?: () => void;
   delay?: number;
 };
 
-function ArchiveCard({ code, title, kind, blurb, href, delay = 0 }: ArchiveCardProps) {
+function ArchiveCard({ code, title, kind, blurb, href, onClick, delay = 0 }: ArchiveCardProps) {
+  const isInteractive = Boolean(href || onClick);
   const inner = (
     <>
       <div className="mb-3 flex items-center justify-between gap-4 text-[10px] font-mono uppercase tracking-[0.3em] text-white/50">
         <span>
           {code} · {kind}
         </span>
-        {href && (
+        {isInteractive && (
           <span
             aria-hidden="true"
             className="text-white/70 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
@@ -158,6 +161,21 @@ function ArchiveCard({ code, title, kind, blurb, href, delay = 0 }: ArchiveCardP
     );
   }
 
+  if (onClick) {
+    return (
+      <motion.button
+        type="button"
+        onClick={onClick}
+        className={`${sharedClass} w-full cursor-pointer text-left`}
+        style={sharedStyle}
+        whileHover={hoverStyle}
+        {...motionProps}
+      >
+        {inner}
+      </motion.button>
+    );
+  }
+
   return (
     <motion.div
       className={sharedClass}
@@ -171,6 +189,13 @@ function ArchiveCard({ code, title, kind, blurb, href, delay = 0 }: ArchiveCardP
 }
 
 export default function ProjectsClient() {
+  const { openChat, setContext } = useChat();
+
+  const openEve = () => {
+    setContext('Projects');
+    openChat();
+  };
+
   return (
     <main
       id="main-content"
@@ -302,6 +327,31 @@ export default function ProjectsClient() {
                 </div>
               }
             />
+            <LiveCard
+              code="05"
+              title="Fuel Estimator"
+              kind="Tour-bus fuel calculator"
+              href="https://mt-fuel.onrender.com"
+              stat="Live · mt-fuel.onrender.com"
+              blurb="A tour-bus fuel cost calculator for the road. Estimate fuel spend across routes, miles, and price-per-gallon so budgets hold up before the wheels roll. The arithmetic every tour manager does on a napkin — turned into a clean, shareable tool."
+              visual={
+                <div
+                  className="relative h-full w-full"
+                  style={{
+                    background:
+                      'radial-gradient(ellipse at center, rgba(147,112,219,0.18) 0%, rgba(0,0,0,1) 70%)',
+                  }}
+                >
+                  <Image
+                    src="/images/projects/fuel-estimator.png"
+                    alt="Fuel Estimator — tour-bus fuel cost calculator logo with a fuel pump, gauge, and mountain road"
+                    fill
+                    className="object-contain"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                  />
+                </div>
+              }
+            />
           </div>
         </div>
       </section>
@@ -331,64 +381,64 @@ export default function ProjectsClient() {
 
           <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             <ArchiveCard
-              code="05"
+              code="06"
               title="Beacons"
               kind="Venue safety / IoT"
               blurb="iPhone-based SPL and acoustic monitoring for live events. Cloud-based logging, real-time analysis, and predictive insight. Protects patrons and staff; keeps neighbors and regulators happy. Cloud-to-edge-to-physical-world."
               delay={0}
             />
             <ArchiveCard
-              code="06"
+              code="07"
               title="EVA"
               kind="Events virtual assistant"
               blurb="Logistics overhead reducer for crews — routing, scheduling, crew management. Doesn't replace humans, lowers their cognitive load."
               delay={0.05}
             />
             <ArchiveCard
-              code="07"
+              code="08"
               title="EVE"
               kind="Portfolio concierge"
-              blurb="The site's own AI concierge. Knows every page, the work, the road. A working demo of the same agentic stack used to build the rest of the portfolio."
-              href="/"
+              blurb="The site's own AI concierge. Knows every page, the work, the road. A working demo of the same agentic stack used to build the rest of the portfolio. Tap to start a conversation."
+              onClick={openEve}
               delay={0.1}
             />
             <ArchiveCard
-              code="08"
+              code="09"
               title="Glytch"
               kind="Local AI experiment"
               blurb="Local, offline, no guardrails. An ongoing test of what's possible when an LLM runs on your own machine with full freedom."
               delay={0.15}
             />
             <ArchiveCard
-              code="09"
+              code="10"
               title="JAMES"
               kind="Memory backbone"
               blurb="Core memory and multi-agent orchestration. Long-term context and cross-agent state so the system learns instead of forgetting."
               delay={0.2}
             />
             <ArchiveCard
-              code="10"
+              code="11"
               title="Multi-Agent Lab"
               kind="Skunkworks"
               blurb="Prototyping federated agents and real-time work flows. Agents talking to agents, with humans in the loop where it matters."
               delay={0.25}
             />
             <ArchiveCard
-              code="11"
+              code="12"
               title="Sandbox"
               kind="Hospitality AI"
               blurb="Firebase-powered demand prediction for hospitality and venue strategy. Turns sales noise into operational insight."
               delay={0.3}
             />
             <ArchiveCard
-              code="12"
+              code="13"
               title="TARS"
               kind="Local privacy-first AI"
               blurb="On-device intelligence — your data, your hardware, your control. Pushes the privacy ceiling for sensitive workflows."
               delay={0.35}
             />
             <ArchiveCard
-              code="13"
+              code="14"
               title="LogiRoute"
               kind="Touring logistics"
               blurb="Complex route optimization for touring schedules. Built in the open as a working logistics agent."
@@ -396,7 +446,7 @@ export default function ProjectsClient() {
               delay={0.4}
             />
             <ArchiveCard
-              code="14"
+              code="15"
               title="Guardian"
               kind="Web security"
               blurb="Server-side bot protection and monitoring. The defense layer that keeps the surface clean."
