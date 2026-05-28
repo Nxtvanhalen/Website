@@ -286,16 +286,19 @@ export default function ProjectsClient() {
               blurb="An AI chess game built in public to explore decision-making architecture and game theory. Powered by Deepseek so the consumer version stays free."
               visual={
                 <div
-                  aria-hidden="true"
                   className="relative h-full w-full"
                   style={{
                     background:
                       'radial-gradient(ellipse at center, rgba(147,112,219,0.18) 0%, rgba(0,0,0,1) 70%)',
                   }}
                 >
-                  <div className="absolute inset-0 flex items-center justify-center font-mono text-[10px] md:text-xs tracking-[0.4em] uppercase text-white/40">
-                    <span>♞ · CHESTER · ♛</span>
-                  </div>
+                  <Image
+                    src="/images/CHESTER.png"
+                    alt="Chester — chibi robot king with chess pieces, AI Chess Coach wordmark"
+                    fill
+                    className="object-contain"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                  />
                 </div>
               }
             />
