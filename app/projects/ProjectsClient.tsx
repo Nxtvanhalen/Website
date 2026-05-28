@@ -170,46 +170,6 @@ function ArchiveCard({ code, title, kind, blurb, href, delay = 0 }: ArchiveCardP
   );
 }
 
-function ByteEmailPreview() {
-  return (
-    <div
-      aria-hidden="true"
-      className="relative h-full w-full overflow-hidden p-5 md:p-7 font-mono text-[10px] md:text-xs leading-relaxed"
-      style={{
-        background:
-          'radial-gradient(ellipse at top right, rgba(147,112,219,0.18) 0%, rgba(0,0,0,1) 70%)',
-      }}
-    >
-      <div className="flex h-full w-full flex-col">
-        <div className="mb-3 flex items-center gap-2 text-white/40">
-          <span
-            className="inline-block h-1.5 w-1.5 rounded-full"
-            style={{ background: VIOLET, boxShadow: `0 0 6px ${VIOLET}` }}
-          />
-          <span className="uppercase tracking-[0.25em]">Inbox · 1 unread</span>
-        </div>
-        <div className="space-y-1 border-l-2 pl-3" style={{ borderColor: VIOLET }}>
-          <div className="text-white/55">
-            <span className="text-white/35">From:</span>{' '}
-            <span style={{ color: VIOLET }}>byte@firstlyte.co</span>
-          </div>
-          <div className="text-white/55">
-            <span className="text-white/35">Subject:</span>{' '}
-            <span className="text-white">re: meeting notes</span>
-          </div>
-        </div>
-        <div className="mt-4 space-y-2 text-white/75">
-          <p>{'>'} Pulled action items from your three threads.</p>
-          <p>{'>'} Attached the redlined PDF.</p>
-        </div>
-        <div className="mt-auto pt-4 text-[9px] uppercase tracking-[0.3em] text-white/35">
-          <span style={{ color: VIOLET }}>▮</span> Replied in 18s
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function ProjectsClient() {
   return (
     <main
@@ -290,7 +250,15 @@ export default function ProjectsClient() {
               href="https://firstlyte.co"
               stat="Live · firstlyte.co"
               blurb="An AI assistant that lives in your inbox. Email byte@firstlyte.co, get a thoughtful reply in under 30 seconds — no app, no login, no account. Handles attachments, remembers threads, routes to the right model."
-              visual={<ByteEmailPreview />}
+              visual={
+                <Image
+                  src="/images/Byte.png"
+                  alt="Byte — AI assistant over email; brand sheet showing the wordmark, the B logo, and the read / understand / remember / act process flow"
+                  fill
+                  className="object-contain"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+              }
             />
             <LiveCard
               code="03"
