@@ -7,7 +7,7 @@ import ProjectsClient from './ProjectsClient';
 export const metadata: Metadata = {
   title: { absolute: 'Projects | Chris Lee Bergstrom — AI & Entertainment Tech' },
   description:
-    'Selected work and project archive from Chris Lee Bergstrom: agentic AI tools, entertainment-tech systems, and live-events software. Featuring The Underground, Byte, R.Y.D.E.R., Chester, Beacons, EVA, and more.',
+    'Selected work and project archive from Chris Lee Bergstrom: agentic AI tools, entertainment-tech systems, and live-events software. Featuring The Underground, Byte, R.Y.D.E.R., Chester, Fuel Estimator, Beacons, EVA, and more.',
   alternates: { canonical: 'https://chrisleebergstrom.com/projects' },
   openGraph: {
     title: 'Projects | Chris Lee Bergstrom',
