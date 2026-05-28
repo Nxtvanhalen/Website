@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { type JSX, useCallback, useEffect, useState } from 'react';
+import { type JSX, useCallback, useEffect, useRef, useState } from 'react';
 
 // Navigation links configuration
 const NAV_LINKS = [
@@ -69,12 +69,27 @@ export default function Header() {
   const isAboutPage = pathname === '/about';
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const skipLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Skip-link defocus on route change.
+  // Next App Router's post-navigation focus heuristic occasionally parks focus
+  // on the skip link (it's the first focusable element in the tree). Some browsers
+  // then treat that as keyboard-modality, :focus-visible matches, and the link
+  // stays visible until the user clicks. Explicitly blurring it on pathname
+  // change defeats the regression without removing keyboard tabbability — a Tab
+  // press from a fresh page still reveals + activates it normally.
+  useEffect(() => {
+    void pathname; // Effect intentionally re-runs on every pathname change.
+    if (skipLinkRef.current && document.activeElement === skipLinkRef.current) {
+      skipLinkRef.current.blur();
+    }
+  }, [pathname]);
 
   // Close menu on escape key
   useEffect(() => {
@@ -107,10 +122,11 @@ export default function Header() {
 
   return (
     <>
-      {/* Skip-to-content link — keyboard-only reveal via :focus-visible so
-          Next's post-navigation programmatic focus doesn't pop it visually,
-          but Tab from a fresh page load makes it appear and activatable. */}
+      {/* Skip-to-content link — :focus-visible reveal for keyboard users.
+          A useEffect above explicitly blurs this on pathname change so Next's
+          post-navigation focus heuristic can't pin :focus-visible on it. */}
       <a
+        ref={skipLinkRef}
         href="#main-content"
         className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:left-3 focus-visible:z-[200] focus-visible:px-4 focus-visible:py-2 focus-visible:bg-black focus-visible:text-white focus-visible:rounded-sm focus-visible:outline-none focus-visible:border focus-visible:border-mauve focus-visible:font-mono focus-visible:text-xs focus-visible:uppercase focus-visible:tracking-[0.2em]"
       >
@@ -139,7 +155,7 @@ export default function Header() {
               preload="auto"
               width={180}
               height={48}
-              poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYGD4DwABBAEAfbLI3wAAAABJRU5ErkJggg=="
+              poster="/images/logo-poster.jpg"
               className={`h-12 w-auto opacity-70 ${isHomePage ? 'hidden' : ''}`}
               style={{
                 background: '#000',
