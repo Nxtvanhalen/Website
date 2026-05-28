@@ -52,7 +52,7 @@ The credits are the reason the software is any good.
 - **Glytch** — Local offline AI experiment.
 - **TARS** — On-device privacy-first AI.
 - **JAMES** — Core memory / multi-agent orchestration.
-- **Chester** — AI chess decision-making study. https://ai-chess-cfah.onrender.com
+- **Chester** — AI chess decision-making study. https://chesterchess.com
 
 ## Website Navigation
 

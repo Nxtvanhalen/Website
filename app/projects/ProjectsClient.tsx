@@ -281,8 +281,8 @@ export default function ProjectsClient() {
               code="04"
               title="Chester"
               kind="AI chess study"
-              href="https://ai-chess-cfah.onrender.com"
-              stat="Live · ai-chess-cfah.onrender.com"
+              href="https://chesterchess.com"
+              stat="Live · chesterchess.com"
               blurb="An AI chess game built in public to explore decision-making architecture and game theory. Powered by Deepseek so the consumer version stays free."
               visual={
                 <div
