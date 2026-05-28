@@ -46,13 +46,16 @@ The credits are the reason the software is any good.
 ## Other Projects (archive, not the lead)
 
 - **R.Y.D.E.R.** — Trauma-aware mental-health AI for creatives. https://ryder-k6er.onrender.com
-- **Master Tour Venue** — Production-data standards work with Eventric.
-- **AI Powered Remote SPL** — Cloud SPL monitoring for venues and events.
+- **Chester** — AI chess decision-making study. https://chesterchess.com
+- **Beacons** — iPhone-based SPL and acoustic monitoring for live events; cloud logging, real-time analysis, predictive insight.
 - **EVA** — Events Virtual Assistant; logistics overhead reduction for crews.
 - **Glytch** — Local offline AI experiment.
+- **JAMES** — Core memory and multi-agent orchestration.
+- **Multi-Agent Lab** — Skunkworks for federated agents and real-time work flows.
+- **Sandbox** — Firebase-powered hospitality demand prediction.
 - **TARS** — On-device privacy-first AI.
-- **JAMES** — Core memory / multi-agent orchestration.
-- **Chester** — AI chess decision-making study. https://chesterchess.com
+- **LogiRoute** — Touring-schedule route optimization. https://logi-route-a9c09ae8.base44.app
+- **Guardian** — Server-side bot protection and monitoring.
 
 ## Website Navigation
 
