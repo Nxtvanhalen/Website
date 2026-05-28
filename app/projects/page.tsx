@@ -109,6 +109,16 @@ const projectsSchema = {
     },
     {
       '@type': 'SoftwareApplication',
+      name: 'Fuel Estimator',
+      url: 'https://mt-fuel.onrender.com',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web Browser',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      description:
+        'Tour-bus fuel cost calculator — estimate fuel spend across routes, miles, and price-per-gallon so tour budgets hold up before the wheels roll.',
+    },
+    {
+      '@type': 'SoftwareApplication',
       name: 'Beacons',
       applicationCategory: 'UtilityApplication',
       operatingSystem: 'iOS / Web',
