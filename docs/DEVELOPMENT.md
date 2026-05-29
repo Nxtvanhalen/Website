@@ -38,13 +38,13 @@ EVE (Entertainment Vision Engine) is an AI chatbot embedded in the website, serv
 
 | Layer | Technology | Notes |
 |---|---|---|
-| **Framework** | Next.js 14 | TypeScript, Pages Router |
+| **Framework** | Next.js 16, React 19 | TypeScript, App Router, per-request nonce CSP |
 | **Styling** | Tailwind CSS + custom CSS | `styles/global.css` for all custom styles |
 | **Font** | Space Grotesk | Google Fonts, used via `font-heading` class |
-| **Animations** | Framer Motion v10 + pure CSS | Framer Motion for complex interactions, CSS for simple effects |
+| **Animations** | motion (Framer Motion) v12 + pure CSS | motion for complex interactions, CSS for simple effects |
 | **AI Chat** | OpenAI GPT-5 | Responses API with reasoning, EVE personality |
 | **Analytics** | Google Analytics 4 | ID: `G-XZ6CF9XQD7`, GDPR-compliant with consent gating |
-| **Cookie Consent** | Osano CookieConsent | Purple-themed (#9370DB), opt-in mode |
+| **Cookie Consent** | vanilla-cookieconsent v3 | Purple-themed (#9370DB), opt-in mode |
 | **Hosting** | Render.com | Auto-deploy on git push, CDN |
 | **Domain** | chrisleebergstrom.com | Live production site |
 
@@ -52,42 +52,34 @@ EVE (Entertainment Vision Engine) is an AI chatbot embedded in the website, serv
 
 ```
 .
-├── components/
-│   ├── ChatPanel.tsx          # EVE AI chat interface (purple/mauve theme)
-│   ├── Contact.tsx            # Simplified contact messaging
-│   ├── Ethos.tsx              # Revolutionary content section
-│   ├── EveAvatar.tsx          # EVE's animated avatar
-│   ├── Footer.tsx             # Responsive site footer
-│   ├── Header.tsx             # Two-row header: social icons (top), nav links (bottom)
-│   ├── Marquee.tsx            # Hero section: name + gallery + EVE chat
-│   ├── PersistentChat.tsx     # Persistent chat state management
-│   └── SectionTracker.tsx     # Butler notification system for section tracking
-├── context/
-│   └── ChatContext.tsx        # React context for chat state sharing
-├── pages/
-│   ├── _app.tsx               # Next.js app wrapper
-│   ├── _document.tsx          # Custom document with inline critical CSS and cookie-consent bootstrap
-│   ├── index.tsx              # Landing page with dual parallax backgrounds
-│   ├── about.tsx              # Bio page with profile picture, content cards
-│   ├── projects.tsx           # 8 AI projects with glowing titles
-│   ├── news.tsx               # Multimedia press coverage (Spotify, Bandcamp, YouTube, articles)
-│   ├── blog.tsx               # Substack RSS integration ("Musings")
-│   ├── faq.tsx                # FAQ with structured data
-│   ├── operations-consulting.tsx  # Service CTA page (reference template)
-│   ├── privacy.tsx            # GDPR privacy policy
-│   ├── api/
-│   │   ├── chat.ts            # EVE AI endpoint (GPT-5 Responses API)
-│   │   └── substack.ts        # Substack RSS feed proxy
-│   └── sitemap.xml.tsx        # Dynamic XML sitemap generation
+├── app/                       # Next.js App Router
+│   ├── layout.tsx             # Root layout, metadata, per-request nonce CSP, consent loader
+│   ├── page.tsx               # Landing page (server component) — renders IndexClient
+│   ├── IndexClient.tsx        # Homepage client shell (hero canvas, sections)
+│   ├── not-found.tsx          # 404
+│   ├── sitemap.ts             # Dynamic sitemap
+│   ├── about/                 # page.tsx (server) + AboutClient.tsx
+│   ├── projects/              # page.tsx + ProjectsClient.tsx — project archive
+│   ├── news/                  # page.tsx + NewsClient.tsx — press coverage
+│   ├── blog/                  # page.tsx + BlogClient.tsx — Substack ("Musings")
+│   ├── faq/                   # page.tsx + FaqClient.tsx — FAQ + structured data
+│   ├── privacy/               # page.tsx + PrivacyClient.tsx — GDPR privacy policy
+│   └── api/
+│       ├── chat/route.ts      # EVE AI endpoint (GPT-5 Responses API)
+│       └── substack/route.ts  # Substack RSS feed proxy
+├── components/                # ChatPanel, Header, Footer, EveAvatar, Method,
+│                              #   History, OffTheClock, SelectedWork, Skills,
+│                              #   SectionTracker, CookieConsentLoader, AnalyticsTracker
+├── context/                   # React context for shared chat state
 ├── styles/
 │   └── global.css             # All custom CSS: parallax, glow effects, animations
 ├── public/
-│   ├── images/                # All site imagery (WebP optimized)
+│   ├── images/                # Site imagery (WebP optimized)
 │   │   ├── gallery/           # Project gallery images
 │   │   ├── profile/           # Chris's profile photos
 │   │   ├── projects/          # Project thumbnail images
 │   │   └── Favicon/           # Full favicon set (note: capitalized folder name)
-│   ├── videos/                # Video assets for sections
+│   ├── videos/                # Video assets (animated logo + profile loop)
 │   ├── robots.txt             # AI-crawler friendly configuration
 │   ├── manifest.json          # PWA manifest
 │   └── sw.js                  # Service worker (advanced caching strategies)
@@ -95,7 +87,7 @@ EVE (Entertainment Vision Engine) is an AI chatbot embedded in the website, serv
 │   ├── DEVELOPMENT.md         # This file — main development guide
 │   ├── GPT5_MIGRATION.md      # GPT-5 Responses API migration reference
 │   └── CTA-PAGE-TEMPLATE.md   # Blueprint for building service CTA pages
-├── middleware.ts              # Next.js middleware
+├── proxy.ts                   # Next.js middleware (bot/IP blocking)
 ├── next.config.js             # Next.js configuration
 ├── tailwind.config.js         # Tailwind CSS configuration
 ├── postcss.config.js          # PostCSS configuration
@@ -140,7 +132,15 @@ EVE (Entertainment Vision Engine) is an AI chatbot embedded in the website, serv
 
 ## Page Structure
 
-### Landing Page (`pages/index.tsx`)
+> **Note (May 2026):** The narrative below predates the May 2026 content reframe
+> and describes the earlier "CLB Consulting / revolutionary edge" version of the
+> site. The homepage is now `app/page.tsx` → `app/IndexClient.tsx`, with sections
+> composed from `SelectedWork`, `Method`, `History`, and `OffTheClock` components.
+> The authoritative description of the current homepage section order lives in the
+> EVE system prompt (`app/api/chat/route.ts`). This section is kept for historical
+> context and is due a dedicated rewrite.
+
+### Landing Page (`app/page.tsx` → `app/IndexClient.tsx`)
 
 The homepage uses a vertical scroll layout with dual parallax backgrounds:
 
@@ -203,7 +203,7 @@ CSP is set as a response header in `next.config.js` (function `headers()`):
 - **`script-src 'self' 'unsafe-eval' 'unsafe-inline'`**: `'unsafe-inline'` is retained for Next.js's `<script id="__NEXT_DATA__">` hydration blob (inline by necessity on statically pre-rendered pages — per-page, per-build content can't be hashed or nonced) and per-page JSON-LD blocks. `'unsafe-eval'` is needed for Framer Motion and framework code paths
 - **What IS already extracted from inline**: cookie-consent bootstrap is in `public/static/cookieconsent-init.js` (no longer an inline script we author); critical CSS is in `styles/global.css` (no longer an inline `<style>` we author). These were inlined before — moving them reduces our authored inline surface to zero
 - **Path to actually removing `'unsafe-inline'`**: edge HTML rewriting, per-request SSR, or — the realistic option — App Router migration. App Router's nonce CSP threads through the framework's injected scripts; for styles, we'd still need to evaluate whether the cookie consent library's runtime `<style>` injection is compatible (may need replacing the library)
-- **Per-request bot and IP blocking**: handled in `middleware.ts` (allowlist for known good crawlers, blocklist for known bad IPs/UAs/paths, fake-mobile-from-datacenter detector)
+- **Per-request bot and IP blocking**: handled in `proxy.ts` (allowlist for known good crawlers, blocklist for known bad IPs/UAs/paths, fake-mobile-from-datacenter detector)
 
 ### API Security
 
@@ -307,8 +307,7 @@ The site targets WCAG 2.1 AA compliance:
 
 ### Prerequisites
 
-- Node.js (v18 or v20 recommended — see Node.js v22 compatibility note below)
-- npm
+- Bun (version pinned in `.bun-version`)
 
 ### Quick Start
 
@@ -318,11 +317,14 @@ git clone git@github.com:nxtvanhalen/Website.git
 cd Website
 
 # Install dependencies
-npm install
+bun install
 
-# Build and run in production mode (recommended)
-npm run build
-npm start
+# Develop with hot reload
+bun run dev
+
+# …or build and run in production mode
+bun run build
+bun start
 # Visit http://localhost:3000
 ```
 
@@ -334,34 +336,22 @@ Create `.env.local` in the project root:
 OPENAI_API_KEY=sk-your-openai-api-key    # Required for EVE AI chat
 ```
 
-### Node.js v22 Compatibility Issue
+### Toolchain
 
-**Problem**: Node.js v22 causes CSS compilation failures in Next.js 14 development mode. The site renders a white screen in `npm run dev` because CSS files fail to load, though the same code works perfectly in production mode and on the live deployment.
-
-**This is an environmental issue, not a code issue.** Do not attempt to fix it by clearing `.next` cache, modifying CSS imports, or tweaking Next.js configuration.
-
-**Recommended Workaround — Use Production Mode Locally**:
+The project is Bun-first. CI pins the Bun version via `.bun-version`; use the
+same locally. (The historical Node.js v22 + Next.js 14 dev-mode CSS issue no
+longer applies — that predates the Next 16 / App Router / Bun migration.)
 
 ```bash
-pkill -f next              # Kill any existing Next.js processes
-npm run build              # Rebuild (~30 seconds)
-npm start                  # Start production server
-# Visit http://localhost:3000
-# Note: Must rebuild after each change (no hot reload)
-```
-
-**Alternative — Downgrade Node.js**:
-
-```bash
-nvm install 18
-nvm use 18
-npm run dev    # Hot reload works normally on Node 18/20
+bun run dev      # Development with hot reload
+bun run build    # Production build — must exit cleanly before committing
+bun start        # Serve the production build locally
 ```
 
 ### Build Verification
 
 ```bash
-npm run build    # Must exit cleanly before committing
+bun run build    # Must exit cleanly before committing
 ```
 
 ### Troubleshooting: Dev Server Not Binding to Port
@@ -395,8 +385,8 @@ pkill -f next          # Kill existing Next.js processes
 
 ### Build Configuration (Render)
 
-- **Build Command**: `npm ci && npm run build`
-- **Start Command**: `npm start`
+- **Build Command**: `bun install && bun run build`
+- **Start Command**: `bun start`
 - **Environment Variables**: `OPENAI_API_KEY` must be set in Render dashboard
 
 ### Deployment Troubleshooting

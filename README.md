@@ -50,10 +50,10 @@ EVE is not a chatbot bolted onto a website. She's a demonstration of what happen
 
 | Layer | Technology |
 |---|---|
-| **Framework** | Next.js 14, TypeScript, Pages Router |
+| **Framework** | Next.js 16, React 19, TypeScript, App Router |
 | **Styling** | Tailwind CSS + custom CSS (Space Grotesk, dual parallax system) |
 | **AI Chat** | OpenAI GPT-5 Responses API with configurable reasoning effort |
-| **Analytics** | Google Analytics 4 with GDPR-compliant consent gating (Osano) |
+| **Analytics** | Google Analytics 4 with GDPR-compliant consent gating (vanilla-cookieconsent v3) |
 | **Security** | Strict CSP with allowlisted external origins, edge middleware bot/IP blocking, input validation |
 | **SEO** | JSON-LD structured data on every page, dynamic sitemap, Open Graph |
 | **Accessibility** | WCAG 2.1 AA — skip nav, ARIA landmarks, keyboard navigation, screen reader support |
@@ -98,7 +98,7 @@ This codebase is built on a specific belief: **the next maintainer of your code 
 - **Verbose, context-rich docs** — every document explains not just _what_ but _why_, with explicit decision rationale that gives future agents the context they need to make good choices
 - **Structured reference files** — tables, code blocks, and clear section hierarchy over prose paragraphs
 - **Self-documenting architecture** — the directory structure, file naming, and component organization are designed to be navigable by agents doing codebase exploration
-- **No tribal knowledge** — environment quirks (like the Node.js v22 + Next.js 14 CSS issue) are documented with symptoms, root cause, and solutions rather than left as oral tradition
+- **No tribal knowledge** — environment quirks and CSP/nonce decisions are documented with symptoms, root cause, and solutions rather than left as oral tradition
 
 The `docs/` folder contains the full development knowledge base:
 
@@ -114,21 +114,24 @@ The `docs/` folder contains the full development knowledge base:
 
 ```
 .
-├── components/          # React components (ChatPanel, Header, Marquee, etc.)
-├── context/             # React context (ChatContext for shared chat state)
-├── pages/               # Next.js pages + API routes
-│   ├── api/chat.ts      # GPT-5 endpoint with rate limiting
-│   ├── api/substack.ts  # RSS feed proxy
-│   ├── index.tsx        # Landing page with parallax + EVE
-│   ├── about.tsx        # Bio + profile
-│   ├── projects.tsx     # 8 AI projects
-│   ├── news.tsx         # Press coverage
-│   ├── blog.tsx         # Substack integration
-│   └── faq.tsx          # FAQ with structured data
-├── styles/              # Custom CSS (parallax, glow effects, animations)
-├── public/              # Static assets (images, videos, favicons, service worker)
-├── docs/                # AI-first documentation (see table above)
-└── middleware.ts        # Next.js middleware
+├── app/                      # Next.js App Router (routes, layouts, API routes)
+│   ├── layout.tsx            # Root layout + per-request nonce CSP
+│   ├── page.tsx              # Landing page (server) + IndexClient
+│   ├── about/                # page.tsx (server) + AboutClient.tsx
+│   ├── projects/             # Project archive
+│   ├── news/                 # Press coverage
+│   ├── blog/                 # Substack integration
+│   ├── faq/                  # FAQ with structured data
+│   ├── privacy/              # Privacy policy
+│   └── api/
+│       ├── chat/route.ts     # GPT-5 endpoint with rate limiting
+│       └── substack/route.ts # RSS feed proxy
+├── components/               # React components (ChatPanel, Header, etc.)
+├── context/                  # React context (shared chat state)
+├── styles/                   # Custom CSS (parallax, glow effects, animations)
+├── public/                   # Static assets (images, videos, favicons, service worker)
+├── docs/                     # AI-first documentation (see table above)
+└── proxy.ts                  # Next.js middleware (bot/IP blocking)
 ```
 
 ---
@@ -147,11 +150,11 @@ OPENAI_API_KEY=sk-your-openai-api-key
 ```
 
 ```bash
-bun run build && bun start
+bun run dev
 # Visit http://localhost:3000
 ```
 
-> **Note**: Use Node.js 18 or 20. Node.js 22 has a known CSS compilation issue with Next.js 14 in dev mode. Production builds work fine on any version. See `docs/DEVELOPMENT.md` for details.
+> **Note**: The toolchain is Bun-first (CI pins the version via `.bun-version`). Use `bun run dev` for development and `bun run build && bun start` for a production build.
 
 ---
 
