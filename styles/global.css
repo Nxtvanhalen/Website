@@ -710,6 +710,66 @@ h3 {
   animation: fade-in 1s ease-out;
 }
 
+/* EVE chat: fast, subtle bubble entrance (replaces the 1s fade for messages) */
+@keyframes message-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-message-in {
+  animation: message-in 0.2s ease-out;
+}
+
+/* EVE chat: "thinking" dots that bounce before the first token streams in */
+@keyframes eve-dot-bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+
+  40% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+.eve-typing-dot {
+  display: inline-block;
+  animation: eve-dot-bounce 1.2s ease-in-out infinite;
+}
+
+/* EVE chat: blinking caret shown at the end of a streaming reply */
+.eve-stream-cursor {
+  display: inline-block;
+  width: 0.45rem;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background-color: #9370db;
+  animation: cursor-blink 1s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-message-in {
+    animation: none;
+  }
+
+  .eve-typing-dot,
+  .eve-stream-cursor {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+}
+
 .animate-pulse-width {
   animation: pulse-width 7s ease-in-out infinite;
 }

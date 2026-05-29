@@ -53,29 +53,15 @@ export default function PersistentChat() {
             {/* Header */}
             <div className="p-4 border-b border-white/10 flex justify-between items-center bg-gradient-to-r from-mauve/20 to-transparent">
               <div className="flex items-center gap-3">
-                <EveAvatar width={80} height={45} className="border border-mauve/50" />
+                <EveAvatar width={72} height={40} className="border border-mauve/50" />
                 <div>
-                  <h3 className="font-heading text-white text-sm tracking-wide">EVE AI</h3>
+                  <h3 className="font-heading text-white text-sm tracking-wide">EVE</h3>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
                     <span className="text-[10px] text-white/60 uppercase tracking-wider">
-                      Online • GPT-5.1
+                      Online · Air-gapped
                     </span>
                   </div>
-                </div>
-                <div className="h-6 w-[1px] bg-white/10 mx-2"></div>
-                <div className="flex flex-col justify-center">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] text-mauve font-bold tracking-wider uppercase">
-                      System v2.0
-                    </span>
-                    <span className="text-[9px] text-white/30 uppercase tracking-wider border border-white/10 px-1 rounded">
-                      Air-Gapped
-                    </span>
-                  </div>
-                  <span className="text-[9px] text-white/50 uppercase tracking-wider mt-0.5">
-                    Capable: Email • Strategy • Logistics
-                  </span>
                 </div>
               </div>
               <button
