@@ -11,6 +11,35 @@ const CACHE_DURATION = 5 * 60 * 1000;
 
 const cacheHeaders = { 'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600' };
 
+// Substack puts post bodies in CDATA, so the XML parser leaves HTML entities
+// (numeric, hex, and named) undecoded. Decode them in a single pass.
+// fromCodePoint (not fromCharCode) is required so astral code points like
+// emoji — anything above U+FFFF — decode correctly instead of garbling.
+const NAMED_ENTITIES: Record<string, string> = {
+  amp: '&',
+  lt: '<',
+  gt: '>',
+  quot: '"',
+  apos: "'",
+  nbsp: ' ',
+};
+
+function decodeEntities(input: string): string {
+  return input.replace(/&(#x[0-9a-fA-F]+|#\d+|[a-zA-Z][a-zA-Z0-9]*);/g, (match, code) => {
+    if (code[0] === '#') {
+      const isHex = code[1] === 'x' || code[1] === 'X';
+      const cp = isHex ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10);
+      if (!Number.isFinite(cp) || cp < 0 || cp > 0x10ffff) return match;
+      try {
+        return String.fromCodePoint(cp);
+      } catch {
+        return match;
+      }
+    }
+    return NAMED_ENTITIES[code.toLowerCase()] ?? match;
+  });
+}
+
 export async function GET() {
   try {
     if (cachedData && Date.now() - cachedData.timestamp < CACHE_DURATION) {
@@ -65,30 +94,7 @@ export async function GET() {
         else if (typeof field === 'object' && field['#text']) content = field['#text'];
         else return '';
 
-        return content
-          .replace(/&#8217;/g, "'")
-          .replace(/&#8220;/g, '"')
-          .replace(/&#8221;/g, '"')
-          .replace(/&#8211;/g, '–')
-          .replace(/&#8212;/g, '—')
-          .replace(/&#8230;/g, '…')
-          .replace(/&#8216;/g, "'")
-          .replace(/&#8218;/g, '‚')
-          .replace(/&#8222;/g, '„')
-          .replace(/&#8226;/g, '•')
-          .replace(/&#8482;/g, '™')
-          .replace(/&#8594;/g, '→')
-          .replace(/&#8592;/g, '←')
-          .replace(/&#8593;/g, '↑')
-          .replace(/&#8595;/g, '↓')
-          .replace(/&#39;/g, "'")
-          .replace(/&quot;/g, '"')
-          .replace(/&amp;/g, '&')
-          .replace(/&lt;/g, '<')
-          .replace(/&gt;/g, '>')
-          .replace(/&nbsp;/g, ' ')
-          .replace(/&#(\d+);/g, (_match, num) => String.fromCharCode(parseInt(num, 10)))
-          .replace(/&#x([0-9a-fA-F]+);/g, (_match, hex) => String.fromCharCode(parseInt(hex, 16)));
+        return decodeEntities(content);
       };
 
       const title = getTextContent(item.title);
@@ -105,12 +111,13 @@ export async function GET() {
       const contentSnippet =
         textContent.length > 200 ? textContent.substring(0, 200) + '...' : textContent;
 
+      // Only the snippet is consumed by the UI; the full raw post HTML is
+      // intentionally not returned (payload size + avoids shipping raw HTML).
       return {
         title,
         link,
         pubDate,
         contentSnippet,
-        content: fullContent,
         author,
       };
     });
