@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import OpenAI from 'openai';
 
 // EVE System Prompt — portfolio assistant for Chris Lee Bergstrom
 const EVE_SYSTEM_PROMPT = `You are EVE — Entertainment Vision Engine.
@@ -254,8 +253,6 @@ export async function POST(request: Request) {
       throw new ClientError('OpenAI API key is not configured', 500);
     }
 
-    const _openai = new OpenAI({ apiKey });
-
     const messageError = validateUserMessage(userMessage);
     if (messageError) {
       throw new ClientError(messageError);
@@ -275,67 +272,124 @@ export async function POST(request: Request) {
       input: userMessage.trim(),
       instructions: systemPrompt,
       reasoning: { effort: 'minimal' },
+      stream: true,
     };
 
     if (previousResponseId) {
       requestBody.previous_response_id = previousResponseId;
     }
 
-    const apiResponse = await fetch('https://api.openai.com/v1/responses', {
+    const upstream = await fetch('https://api.openai.com/v1/responses', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
+        Accept: 'text/event-stream',
       },
       body: JSON.stringify(requestBody),
     });
 
-    if (!apiResponse.ok) {
-      throw new Error(`OpenAI API error: ${apiResponse.status} ${apiResponse.statusText}`);
+    if (!upstream.ok || !upstream.body) {
+      const detail = await upstream.text().catch(() => '');
+      console.error(`OpenAI API error: ${upstream.status} ${upstream.statusText} ${detail}`);
+      const upstreamError: any = new Error('OpenAI API error');
+      upstreamError.status = upstream.status;
+      throw upstreamError;
     }
 
-    const response = await apiResponse.json();
-    console.log('GPT-5 Response:', JSON.stringify(response, null, 2));
-
-    let reply =
-      "I'm experiencing some technical difficulties. Please try again in a moment, or feel free to email me directly!";
-    let responseId = null;
-
-    if (response?.output && Array.isArray(response.output)) {
-      const messageOutput = response.output.find((item: any) => item.type === 'message');
-      if (messageOutput?.content && Array.isArray(messageOutput.content)) {
-        const textContent = messageOutput.content.find(
-          (content: any) => content.type === 'output_text',
-        );
-        if (textContent?.text) {
-          reply = textContent.text;
-        }
-      }
-    }
-
-    if (response?.id) {
-      responseId = response.id;
-    }
-
-    // EVE has no outbound tools. If the model ever emits a legacy send_email
-    // JSON block (e.g. via prompt injection), strip it so it never reaches the
-    // user and is never acted on. There is no email-sending path here anymore.
+    // EVE has no outbound tools. If the model ever emits a legacy send_email JSON
+    // block (e.g. via prompt injection), strip it from the authoritative final
+    // text the client renders on completion. There is no email-sending path here.
     const legacyEmailBlockRegex =
       /(?:```json\s*)?({[\s\S]*?"tool":\s*"send_email"[\s\S]*?})(?:\s*```)?/;
-    if (legacyEmailBlockRegex.test(reply)) {
-      console.warn('Stripped legacy send_email block from EVE reply; email is disabled.');
-      reply = reply.replace(legacyEmailBlockRegex, '').trim();
-      if (!reply) {
-        reply =
-          "You can reach Chris directly at chrisleebergstrom@gmail.com — drop him a line anytime.";
-      }
-    }
 
-    console.log('Sending response:', { reply, responseId, success: true });
-    return NextResponse.json(
-      { reply, responseId, success: true },
-      { status: 200, headers: noStoreHeaders },
-    );
+    // Re-emit OpenAI's SSE as a simple newline-delimited JSON stream the client
+    // reads incrementally: one { type: 'delta', text } per token, then a final
+    // { type: 'done', responseId, finalText }. We accumulate server-side so the
+    // injection guard above can run on the complete reply.
+    const encoder = new TextEncoder();
+    const decoder = new TextDecoder();
+
+    const stream = new ReadableStream<Uint8Array>({
+      async start(controller) {
+        const reader = upstream.body!.getReader();
+        const send = (obj: unknown) =>
+          controller.enqueue(encoder.encode(`${JSON.stringify(obj)}\n`));
+
+        let sseBuffer = '';
+        let fullText = '';
+        let responseId: string | null = null;
+
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            sseBuffer += decoder.decode(value, { stream: true });
+            const events = sseBuffer.split('\n\n');
+            sseBuffer = events.pop() ?? '';
+
+            for (const event of events) {
+              for (const line of event.split('\n')) {
+                if (!line.startsWith('data:')) continue;
+                const data = line.slice(5).trim();
+                if (!data || data === '[DONE]') continue;
+
+                let payload: any;
+                try {
+                  payload = JSON.parse(data);
+                } catch {
+                  continue;
+                }
+
+                if (
+                  payload.type === 'response.output_text.delta' &&
+                  typeof payload.delta === 'string'
+                ) {
+                  fullText += payload.delta;
+                  send({ type: 'delta', text: payload.delta });
+                } else if (
+                  (payload.type === 'response.created' ||
+                    payload.type === 'response.completed') &&
+                  payload.response?.id
+                ) {
+                  responseId = payload.response.id;
+                } else if (payload.type === 'error') {
+                  console.error('OpenAI stream error event:', payload);
+                  send({ type: 'error', message: 'EVE hit a snag generating that reply.' });
+                }
+              }
+            }
+          }
+
+          let finalText = fullText;
+          if (legacyEmailBlockRegex.test(finalText)) {
+            console.warn('Stripped legacy send_email block from EVE reply; email is disabled.');
+            finalText = finalText.replace(legacyEmailBlockRegex, '').trim();
+            if (!finalText) {
+              finalText =
+                'You can reach Chris directly at chrisleebergstrom@gmail.com — drop him a line anytime.';
+            }
+          }
+
+          send({ type: 'done', responseId, finalText });
+        } catch (streamError) {
+          console.error('EVE stream interrupted:', streamError);
+          send({ type: 'error', message: 'The connection dropped mid-reply. Please try again.' });
+        } finally {
+          controller.close();
+        }
+      },
+    });
+
+    return new Response(stream, {
+      status: 200,
+      headers: {
+        ...noStoreHeaders,
+        'Content-Type': 'application/x-ndjson; charset=utf-8',
+        'X-Accel-Buffering': 'no',
+      },
+    });
   } catch (error: any) {
     console.error('Chat API error:', error);
 
