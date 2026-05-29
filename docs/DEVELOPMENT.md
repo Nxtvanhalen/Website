@@ -26,7 +26,7 @@ EVE (Entertainment Vision Engine) is an AI chatbot embedded in the website, serv
 - **Mantra**: "I filter the noise. Chris amplifies the signal."
 - **Tone**: Sharp-witted secretary meets backstage producer
 - **Role**: Greets visitors, answers questions about Chris and his projects, routes serious inquiries to Chris directly
-- **Capabilities**: Markdown rendering (bold, italics, links), email sending via Resend, knowledge of all site content (projects, news, socials)
+- **Capabilities**: Markdown rendering (bold, italics, links), knowledge of all site content (projects, news, socials). EVE has no outbound tools — she routes inquiries to Chris's email but cannot send on a visitor's behalf.
 - **Chat System**: GPT-5 Responses API with reasoning capabilities (see `docs/GPT5_MIGRATION.md` for full technical details)
 - **Notification System**: Smart queue with global cooldown to prevent stacked notifications on desktop while remaining responsive on mobile
 
@@ -43,7 +43,6 @@ EVE (Entertainment Vision Engine) is an AI chatbot embedded in the website, serv
 | **Font** | Space Grotesk | Google Fonts, used via `font-heading` class |
 | **Animations** | Framer Motion v10 + pure CSS | Framer Motion for complex interactions, CSS for simple effects |
 | **AI Chat** | OpenAI GPT-5 | Responses API with reasoning, EVE personality |
-| **Email** | Resend | EVE can send emails to Chris on behalf of visitors |
 | **Analytics** | Google Analytics 4 | ID: `G-XZ6CF9XQD7`, GDPR-compliant with consent gating |
 | **Cookie Consent** | Osano CookieConsent | Purple-themed (#9370DB), opt-in mode |
 | **Hosting** | Render.com | Auto-deploy on git push, CDN |

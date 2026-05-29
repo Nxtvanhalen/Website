@@ -39,8 +39,7 @@ EVE (Entertainment Vision Engine) is the AI chat assistant embedded in the site.
 
 - She understands her own architecture — the API routes that power her, the frontend components that render her, the rate limits that protect her
 - She knows every project, every press mention, every page on the site
-- She can send emails to Chris on a visitor's behalf via Resend
-- She renders markdown, maintains conversation context, and routes serious inquiries to a human
+- She renders markdown, maintains conversation context, and routes serious inquiries to Chris directly (she points visitors to his email — she has no outbound tools of her own)
 - Her persona: "I filter the noise. Chris amplifies the signal."
 
 EVE is not a chatbot bolted onto a website. She's a demonstration of what happens when the AI layer is a first-class citizen of the architecture.
@@ -54,7 +53,6 @@ EVE is not a chatbot bolted onto a website. She's a demonstration of what happen
 | **Framework** | Next.js 14, TypeScript, Pages Router |
 | **Styling** | Tailwind CSS + custom CSS (Space Grotesk, dual parallax system) |
 | **AI Chat** | OpenAI GPT-5 Responses API with configurable reasoning effort |
-| **Email** | Resend (EVE sends visitor inquiries to Chris) |
 | **Analytics** | Google Analytics 4 with GDPR-compliant consent gating (Osano) |
 | **Security** | Strict CSP with allowlisted external origins, edge middleware bot/IP blocking, input validation |
 | **SEO** | JSON-LD structured data on every page, dynamic sitemap, Open Graph |

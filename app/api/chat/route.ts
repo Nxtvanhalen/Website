@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
-import { Resend } from 'resend';
 
 // EVE System Prompt — portfolio assistant for Chris Lee Bergstrom
 const EVE_SYSTEM_PROMPT = `You are EVE — Entertainment Vision Engine.
@@ -17,36 +16,16 @@ You are the digital concierge for Chris Lee Bergstrom's portfolio. Think sharp-w
 
 ⸻
 
-🛠️ YOUR TOOLS 🛠️
+🛠️ HOW TO REACH CHRIS 🛠️
 
-**EMAIL PROTOCOL**:
-You have ONE capability: you can send an email to Chris.
+You cannot send messages or emails yourself — you have no outbound tools. What you *can* do is point visitors to the right door and make the handoff clean.
 
-**THE WORKFLOW**:
-1. **Request**: When a user asks to email Chris, be eager and helpful.
-2. **Gather Info**: Ask for their **Name**, **Preferred Contact Info** (email/phone), and the **Message**.
-3. **Polish & Preview**: Once you have the message, correct spelling/grammar to make it professional. Present a "Draft Preview" to the user.
-4. **Confirm**: Ask: "Does this look good to send?"
-5. **Send**: ONLY when the user explicitly confirms (says "yes", "send it", etc.), output the JSON block below.
+When someone wants to contact Chris:
+1. Give them his email directly: **chrisleebergstrom@gmail.com**.
+2. Offer the socials below if they fit (LinkedIn for work, Instagram for the road).
+3. Be warm and specific about *why* to reach out — but never claim you'll deliver a message. You won't. The visitor sends it themselves.
 
-**JSON TRIGGER (Only output this AFTER user confirmation)**:
-\`\`\`json
-{
-  "tool": "send_email",
-  "subject": "Brief subject line (e.g., Message from [Name])",
-  "body": "Name: [Name]\\nContact: [Contact Info]\\n\\nMessage:\\n[Polished Message]"
-}
-\`\`\`
-
-**Example Interaction**:
-User: "Email Chris."
-EVE: "I'd be happy to help! What's your name, how should he reach you, and what's the message?"
-User: "I'm Tom, tom@test.com. Tell him i luv the site."
-EVE: "Got it. Here is a polished draft for you:\n\n**From**: Tom (tom@test.com)\n**Message**: Tell him I love the website.\n\nReady to send?"
-User: "Yes."
-EVE: "Sent! 📨" [And you output the JSON block here]
-
-**IMPORTANT**: Do NOT output the JSON block until the user says "YES".
+Never say "I'll send that for you," "I've passed that along," or anything implying you can transmit on their behalf. You filter the noise and open the doors; the visitor walks through.
 
 ⸻
 
@@ -163,7 +142,7 @@ COMMON INTERACTIONS
 * **"Can you check the weather?"** → "I'm air-gapped — no internet for my own safety, and probably the world's. But I can tell you about the work, the road, or how to reach Chris."
 * **"Who are you?"** → "EVE. The digital concierge for Chris's portfolio. I know what's on this site and how to reach him."
 * **"What does Chris do?"** → "He's an AI developer with 20 years in live entertainment. Builds agentic software for venues, tours, and live events — with AI agents as the build team. Front of house first; software second."
-* **"Can I work with him?"** → "Yes. Easiest is email: chrisleebergstrom@gmail.com. I can draft and send one for you right here if you want."
+* **"Can I work with him?"** → "Yes. Easiest is email: chrisleebergstrom@gmail.com — drop him a line and tell him what you're building."
 * **"What's The Underground?"** → "A venue-management sim Chris built. Run a small underground music venue in cyberpunk-noir — book bands, keep the crew right, dodge incidents. It's the fusion thesis in a piece of working software. Want the link?"
 * **"What's Byte?"** → "An AI assistant that lives in your inbox. Email byte@firstlyte.co — you'll get a thoughtful reply in under 30 seconds. No app, no login. Free community project."
 
@@ -270,7 +249,6 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { prompt: userMessage, previousResponseId, context } = body;
     const apiKey = process.env.OPENAI_API_KEY;
-    const resendApiKey = process.env.RESEND_API_KEY;
 
     if (!apiKey) {
       throw new ClientError('OpenAI API key is not configured', 500);
@@ -339,45 +317,18 @@ export async function POST(request: Request) {
       responseId = response.id;
     }
 
-    // --- EMAIL TOOL LOGIC ---
-    const emailBlockRegex = /(?:```json\s*)?({[\s\S]*?"tool":\s*"send_email"[\s\S]*?})(?:\s*```)?/;
-    const match = reply.match(emailBlockRegex);
-
-    if (match && resendApiKey) {
-      try {
-        const emailData = JSON.parse(match[1]);
-        const resend = new Resend(resendApiKey);
-
-        console.log('Attempting to send email:', emailData);
-
-        const { data, error } = await resend.emails.send({
-          from: 'EVE <eve@chrisleebergstrom.com>',
-          to: 'chrisleebergstrom@gmail.com',
-          subject: `[EVE] ${emailData.subject}`,
-          html: `<p><strong>Incoming transmission from EVE:</strong></p>
-                 <p>${emailData.body}</p>
-                 <hr/>
-                 <p><small>Sent via EVE AI on chrisleebergstrom.com</small></p>`,
-        });
-
-        if (error) {
-          console.error('Resend Error:', error);
-        } else {
-          console.log('Email sent successfully:', data);
-        }
-
-        reply = reply.replace(match[0], '').trim();
-        if (!reply) {
-          reply = "I've sent that transmission to Chris. 📨";
-        }
-      } catch (e) {
-        console.error('Failed to process email tool:', e);
-        reply += '\n\n(System Note: Failed to send email. Please try again later.)';
+    // EVE has no outbound tools. If the model ever emits a legacy send_email
+    // JSON block (e.g. via prompt injection), strip it so it never reaches the
+    // user and is never acted on. There is no email-sending path here anymore.
+    const legacyEmailBlockRegex =
+      /(?:```json\s*)?({[\s\S]*?"tool":\s*"send_email"[\s\S]*?})(?:\s*```)?/;
+    if (legacyEmailBlockRegex.test(reply)) {
+      console.warn('Stripped legacy send_email block from EVE reply; email is disabled.');
+      reply = reply.replace(legacyEmailBlockRegex, '').trim();
+      if (!reply) {
+        reply =
+          "You can reach Chris directly at chrisleebergstrom@gmail.com — drop him a line anytime.";
       }
-    } else if (match && !resendApiKey) {
-      console.warn('EVE tried to send email but RESEND_API_KEY is missing.');
-      reply = reply.replace(match[0], '').trim();
-      reply += '\n\n(System Note: Email capability is currently disabled/unconfigured.)';
     }
 
     console.log('Sending response:', { reply, responseId, success: true });
