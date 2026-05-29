@@ -10,7 +10,6 @@ interface SubstackPost {
   link: string;
   pubDate: string;
   contentSnippet: string;
-  content: string;
   author: string;
 }
 
