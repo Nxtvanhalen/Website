@@ -32,6 +32,10 @@ package-lock.json
 .DS_Store
 *.log
 
+# Image/video originals don't belong in the served public/ directory
+public/**/*.heif
+public/**/*.heic
+
 # Temporary files
 *.tgz
 *.tar.gz
