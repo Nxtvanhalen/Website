@@ -9,8 +9,10 @@ import '../styles/global.css';
 
 // Plausible Analytics — privacy-first, cookieless, and consent-free, so unlike
 // GA (which is gated behind CookieConsentLoader) it runs for every visitor.
-// Loaded in production only. data-domain MUST match the Plausible site slug.
-const PLAUSIBLE_DOMAIN = 'chrisleebergstrom.com';
+// Loaded in production only. New per-site Plausible script — this URL is unique
+// to the chrisleebergstrom.com site (Plausible → Site Settings → General →
+// Site Installation).
+const PLAUSIBLE_SRC = 'https://plausible.io/js/pa-MldANz3p0vcZConl9x759.js';
 const isProd = process.env.NODE_ENV === 'production';
 
 const chakraPetch = Chakra_Petch({
@@ -93,21 +95,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body style={{ background: '#000' }}>
         {isProd && (
           <>
-            <script
-              defer
-              data-domain={PLAUSIBLE_DOMAIN}
-              src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
-              nonce={nonce}
-            />
-            {/* Bootstrap shim — buffers window.plausible() events (email/CTA
-                clicks from AnalyticsTracker) fired before the async script
-                loads; the queue flushes automatically on load. */}
+            <script defer src={PLAUSIBLE_SRC} nonce={nonce} />
+            {/* New Plausible bootstrap + init — defines window.plausible (so the
+                email/CTA events in AnalyticsTracker keep working) and starts
+                auto pageview capture. Nonced to satisfy the strict-dynamic CSP. */}
             <script
               nonce={nonce}
               suppressHydrationWarning
               dangerouslySetInnerHTML={{
                 __html:
-                  'window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }',
+                  'window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()',
               }}
             />
           </>
