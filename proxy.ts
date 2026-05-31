@@ -110,7 +110,7 @@ function buildCspHeader(nonce: string, isHttps: boolean): string {
     // 'strict-dynamic' lets framework scripts loaded via the nonced bootstrap also execute.
     // The host allowlist (googletagmanager, google-analytics) is kept as a fallback for browsers
     // that don't support 'strict-dynamic'. 'unsafe-eval' stays in dev only (React Refresh).
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDev ? " 'unsafe-eval'" : ''} https://www.googletagmanager.com https://www.google-analytics.com`,
+    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDev ? " 'unsafe-eval'" : ''} https://www.googletagmanager.com https://www.google-analytics.com https://plausible.io`,
     // style-src split into -elem and -attr. Modern browsers honor the split; the parent
     // style-src is only a fallback for browsers that don't recognize the granular directives.
     // -elem strict prevents <style> tag injection in production (the real XSS vector); in dev
@@ -122,7 +122,7 @@ function buildCspHeader(nonce: string, isHttps: boolean): string {
     `style-src-attr 'unsafe-inline'`,
     `img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com`,
     `font-src 'self' https://fonts.gstatic.com`,
-    `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com`,
+    `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com https://plausible.io`,
     `media-src 'self'`,
     `object-src 'none'`,
     `base-uri 'self'`,

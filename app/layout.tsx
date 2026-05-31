@@ -1,10 +1,17 @@
 import type { Metadata, Viewport } from 'next';
 import { Chakra_Petch, JetBrains_Mono, Newsreader } from 'next/font/google';
+import { headers } from 'next/headers';
 import AnalyticsTracker from '../components/AnalyticsTracker';
 import CookieConsentLoader from '../components/CookieConsentLoader';
 import PersistentChat from '../components/PersistentChat';
 import { ChatProvider } from '../context/ChatContext';
 import '../styles/global.css';
+
+// Plausible Analytics — privacy-first, cookieless, and consent-free, so unlike
+// GA (which is gated behind CookieConsentLoader) it runs for every visitor.
+// Loaded in production only. data-domain MUST match the Plausible site slug.
+const PLAUSIBLE_DOMAIN = 'chrisleebergstrom.com';
+const isProd = process.env.NODE_ENV === 'production';
 
 const chakraPetch = Chakra_Petch({
   subsets: ['latin'],
@@ -71,7 +78,12 @@ export const viewport: Viewport = {
 // ship unnonced <script> tags and all framework JS would be blocked by 'strict-dynamic'.
 export const dynamic = 'force-dynamic';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // Per-request nonce threaded through by proxy.ts — required so the Plausible
+  // <script> tags satisfy the 'strict-dynamic' CSP (an unnonced tag would be
+  // blocked). Same pattern as the per-page JSON-LD scripts.
+  const nonce = (await headers()).get('x-nonce') ?? undefined;
+
   return (
     <html
       lang="en"
@@ -79,6 +91,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       style={{ background: '#000' }}
     >
       <body style={{ background: '#000' }}>
+        {isProd && (
+          <>
+            <script
+              defer
+              data-domain={PLAUSIBLE_DOMAIN}
+              src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+              nonce={nonce}
+            />
+            {/* Bootstrap shim — buffers window.plausible() events (email/CTA
+                clicks from AnalyticsTracker) fired before the async script
+                loads; the queue flushes automatically on load. */}
+            <script
+              nonce={nonce}
+              suppressHydrationWarning
+              dangerouslySetInnerHTML={{
+                __html:
+                  'window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }',
+              }}
+            />
+          </>
+        )}
         <ChatProvider>
           {children}
           <PersistentChat />
