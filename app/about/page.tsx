@@ -97,6 +97,8 @@ const aboutSchema = {
       'https://www.instagram.com/chrisleebergstrom',
       'https://www.youtube.com/@chrisleebergstrom',
       'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr',
+      'https://github.com/Nxtvanhalen',
+      'https://chrisleebergstrom.substack.com',
     ],
   },
   breadcrumb: {

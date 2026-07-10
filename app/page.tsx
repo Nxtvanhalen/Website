@@ -107,6 +107,8 @@ const landingSchema = {
         'https://www.instagram.com/chrisleebergstrom',
         'https://www.youtube.com/@chrisleebergstrom',
         'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr',
+        'https://github.com/Nxtvanhalen',
+        'https://chrisleebergstrom.substack.com',
       ],
       knowsAbout: [
         'Agentic AI Development',
@@ -173,6 +175,8 @@ const landingSchema = {
         'https://www.instagram.com/chrisleebergstrom',
         'https://www.youtube.com/@chrisleebergstrom',
         'https://www.facebook.com/share/15a8S2BF9S/?mibextid=wwXIfr',
+        'https://github.com/Nxtvanhalen',
+        'https://chrisleebergstrom.substack.com',
       ],
       email: 'chrisleebergstrom@gmail.com',
     },
