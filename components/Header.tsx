@@ -170,9 +170,9 @@ export default function Header() {
             </video>
           </Link>
 
-          {/* Profile Picture - Center (Desktop Only) */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
-            <div className="w-16 h-16 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
+          {/* Profile Picture - Center (all breakpoints; smaller on mobile) */}
+          <div className="block absolute left-1/2 transform -translate-x-1/2">
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
               {!isAboutPage ? (
                 <video
                   autoPlay
