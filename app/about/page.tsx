@@ -71,6 +71,16 @@ const aboutSchema = {
       'AI developer with 20 years in live entertainment. Two decades of front-of-house, tour management, and technical direction — touring with The Dandy Warhols, Black Rebel Motorcycle Club, and Macklemore. Now building software with AI agents as the build team.',
     image: 'https://chrisleebergstrom.com/images/profile/chris-profile.jpg',
     email: 'chrisleebergstrom@gmail.com',
+    homeLocation: {
+      '@type': 'Place',
+      name: 'Portland, Oregon',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Portland',
+        addressRegion: 'OR',
+        addressCountry: 'US',
+      },
+    },
     worksFor: {
       '@type': 'Organization',
       '@id': 'https://chrisleebergstrom.com/#organization',
@@ -89,6 +99,8 @@ const aboutSchema = {
       'Front-of-House Engineering',
       'Tour Management',
       'Audio Engineering',
+      'SPL Monitoring',
+      'Acoustic Monitoring',
       'AI Implementation',
       'Web Security',
     ],

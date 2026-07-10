@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     'AI consultant for venues',
     'live events technology',
     'AI developer entertainment industry',
+    'SPL monitoring',
+    'SPL monitoring Portland',
+    'sound level monitoring for events',
+    'acoustic monitoring live events',
+    'venue noise monitoring',
   ],
   alternates: { canonical: 'https://chrisleebergstrom.com' },
   openGraph: {
@@ -93,8 +98,17 @@ const landingSchema = {
       },
       address: {
         '@type': 'PostalAddress',
+        addressLocality: 'Portland',
+        addressRegion: 'OR',
         addressCountry: 'US',
       },
+      areaServed: [
+        { '@type': 'City', name: 'Portland' },
+        { '@type': 'State', name: 'Oregon' },
+        { '@type': 'State', name: 'Washington' },
+        'Pacific Northwest',
+        'United States',
+      ],
       priceRange: '$$$',
       openingHoursSpecification: {
         '@type': 'OpeningHoursSpecification',
@@ -122,6 +136,10 @@ const landingSchema = {
         'Entertainment Technology',
         'Live Events Management',
         'Audio Engineering',
+        'SPL Monitoring',
+        'Acoustic Monitoring',
+        'Sound Level Monitoring for Venues and Events',
+        'Noise Compliance for Live Events',
         'Tour Management',
         'Production Infrastructure',
       ],
@@ -150,6 +168,8 @@ const landingSchema = {
         'Front-of-House Engineering',
         'Tour Management',
         'Audio Engineering',
+        'SPL Monitoring',
+        'Acoustic Monitoring',
         'AI Implementation',
         'Web Security',
       ],
@@ -213,6 +233,23 @@ const landingSchema = {
       keywords: 'AI email assistant, inbox AI, agentic AI, free community project',
     },
     {
+      '@type': 'SoftwareApplication',
+      '@id': 'https://chrisleebergstrom.com/#beacons',
+      name: 'Beacons',
+      alternateName: 'Beacons — SPL & Acoustic Monitoring',
+      description:
+        'iPhone-based SPL and acoustic monitoring for live events. Cloud-based logging, real-time analysis, and predictive insight. Protects patrons and staff; keeps neighbors and regulators happy. Operated by Christopher Lee Bergstrom (CLB Consulting) in Portland, Oregon, serving the Pacific Northwest.',
+      url: 'https://beacons-dashboard.onrender.com',
+      applicationCategory: 'UtilityApplication',
+      operatingSystem: 'iOS / Web',
+      creator: { '@id': 'https://chrisleebergstrom.com/about#person' },
+      author: { '@id': 'https://chrisleebergstrom.com/about#person' },
+      provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      keywords:
+        'SPL monitoring, acoustic monitoring, sound level monitoring, noise monitoring, live events, venues, concerts, noise compliance, Portland Oregon',
+    },
+    {
       '@type': 'WebPage',
       '@id': 'https://chrisleebergstrom.com/#webpage',
       url: 'https://chrisleebergstrom.com',
@@ -227,6 +264,7 @@ const landingSchema = {
       mainContentOfPage: [
         { '@id': 'https://chrisleebergstrom.com/#underground' },
         { '@id': 'https://chrisleebergstrom.com/#byte' },
+        { '@id': 'https://chrisleebergstrom.com/#beacons' },
       ],
     },
     {

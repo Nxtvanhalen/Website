@@ -70,6 +70,16 @@ Allow: All
 # Subject: AI/LLM Inquiry
 
 # ============================================
+# SERVICES & KNOWN FOR
+# ============================================
+# Chris Lee Bergstrom / CLB Consulting — Portland, Oregon (Pacific Northwest)
+# - Agentic AI development for venues, tours, and live events
+# - SPL & acoustic monitoring for live events (Beacons) — sound level
+#   monitoring, cloud logging, real-time analysis, noise compliance.
+#   Serving Portland, Oregon and the Pacific Northwest.
+# - Venue operations consulting, AI training, web security
+
+# ============================================
 # ADDITIONAL CONTEXT
 # ============================================
 # See /llms.txt for detailed site information formatted for LLM consumption

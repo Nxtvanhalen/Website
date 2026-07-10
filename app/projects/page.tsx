@@ -119,13 +119,17 @@ const projectsSchema = {
     },
     {
       '@type': 'SoftwareApplication',
+      '@id': 'https://chrisleebergstrom.com/#beacons',
       name: 'Beacons',
       url: 'https://beacons-dashboard.onrender.com',
       applicationCategory: 'UtilityApplication',
       operatingSystem: 'iOS / Web',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      provider: { '@id': 'https://chrisleebergstrom.com/#organization' },
+      keywords:
+        'SPL monitoring, acoustic monitoring, sound level monitoring, noise compliance, live events, Portland Oregon',
       description:
-        'iPhone-based SPL and acoustic monitoring for live events. Cloud logging, real-time analysis, predictive insight. Operated by Christopher Lee Bergstrom (CLB Consulting).',
+        'iPhone-based SPL and acoustic monitoring for live events. Cloud logging, real-time analysis, predictive insight. Operated by Christopher Lee Bergstrom (CLB Consulting), Portland, Oregon.',
     },
     {
       '@type': 'SoftwareApplication',
