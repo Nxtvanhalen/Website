@@ -120,11 +120,12 @@ const projectsSchema = {
     {
       '@type': 'SoftwareApplication',
       name: 'Beacons',
+      url: 'https://beacons-dashboard.onrender.com',
       applicationCategory: 'UtilityApplication',
       operatingSystem: 'iOS / Web',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       description:
-        'iPhone-based SPL and acoustic monitoring for live events. Cloud logging, real-time analysis, predictive insight.',
+        'iPhone-based SPL and acoustic monitoring for live events. Cloud logging, real-time analysis, predictive insight. Operated by Christopher Lee Bergstrom (CLB Consulting).',
     },
     {
       '@type': 'SoftwareApplication',

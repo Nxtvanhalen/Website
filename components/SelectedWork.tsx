@@ -153,6 +153,24 @@ export default function SelectedWork() {
               />
             }
           />
+
+          <WorkCard
+            code="03"
+            title="Beacons"
+            kind="SPL & acoustic monitoring"
+            href="https://beacons-dashboard.onrender.com"
+            stat="Live · beacons-dashboard.onrender.com"
+            blurb="iPhone-based SPL and acoustic monitoring for live events. Cloud-based logging, real-time analysis, and predictive insight. Protects patrons and staff; keeps neighbors and regulators happy. Operated by Christopher Lee Bergstrom (CLB Consulting)."
+            visual={
+              <Image
+                src="/images/projects/beacons.png"
+                alt="Beacons — iPhone-based SPL and acoustic monitoring dashboard for live events"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+            }
+          />
         </div>
 
         <motion.div

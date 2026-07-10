@@ -352,6 +352,23 @@ export default function ProjectsClient() {
                 </div>
               }
             />
+            <LiveCard
+              code="06"
+              title="Beacons"
+              kind="SPL & acoustic monitoring"
+              href="https://beacons-dashboard.onrender.com"
+              stat="Live · beacons-dashboard.onrender.com"
+              blurb="iPhone-based SPL and acoustic monitoring for live events. Cloud-based logging, real-time analysis, and predictive insight. Protects patrons and staff; keeps neighbors and regulators happy. Operated by Christopher Lee Bergstrom (CLB Consulting)."
+              visual={
+                <Image
+                  src="/images/projects/beacons.png"
+                  alt="Beacons — iPhone-based SPL and acoustic monitoring dashboard for live events"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+              }
+            />
           </div>
         </div>
       </section>
@@ -382,75 +399,68 @@ export default function ProjectsClient() {
           <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             <ArchiveCard
               code="06"
-              title="Beacons"
-              kind="Venue safety / IoT"
-              blurb="iPhone-based SPL and acoustic monitoring for live events. Cloud-based logging, real-time analysis, and predictive insight. Protects patrons and staff; keeps neighbors and regulators happy. Cloud-to-edge-to-physical-world."
+              title="EVA"
+              kind="Events virtual assistant"
+              blurb="Logistics overhead reducer for crews — routing, scheduling, crew management. Doesn't replace humans, lowers their cognitive load."
               delay={0}
             />
             <ArchiveCard
               code="07"
-              title="EVA"
-              kind="Events virtual assistant"
-              blurb="Logistics overhead reducer for crews — routing, scheduling, crew management. Doesn't replace humans, lowers their cognitive load."
-              delay={0.05}
-            />
-            <ArchiveCard
-              code="08"
               title="EVE"
               kind="Portfolio concierge"
               blurb="The site's own AI concierge. Knows every page, the work, the road. A working demo of the same agentic stack used to build the rest of the portfolio. Tap to start a conversation."
               onClick={openEve}
+              delay={0.05}
+            />
+            <ArchiveCard
+              code="08"
+              title="Glytch"
+              kind="Local AI experiment"
+              blurb="Local, offline, no guardrails. An ongoing test of what's possible when an LLM runs on your own machine with full freedom."
               delay={0.1}
             />
             <ArchiveCard
               code="09"
-              title="Glytch"
-              kind="Local AI experiment"
-              blurb="Local, offline, no guardrails. An ongoing test of what's possible when an LLM runs on your own machine with full freedom."
+              title="JAMES"
+              kind="Memory backbone"
+              blurb="Core memory and multi-agent orchestration. Long-term context and cross-agent state so the system learns instead of forgetting."
               delay={0.15}
             />
             <ArchiveCard
               code="10"
-              title="JAMES"
-              kind="Memory backbone"
-              blurb="Core memory and multi-agent orchestration. Long-term context and cross-agent state so the system learns instead of forgetting."
+              title="Multi-Agent Lab"
+              kind="Skunkworks"
+              blurb="Prototyping federated agents and real-time work flows. Agents talking to agents, with humans in the loop where it matters."
               delay={0.2}
             />
             <ArchiveCard
               code="11"
-              title="Multi-Agent Lab"
-              kind="Skunkworks"
-              blurb="Prototyping federated agents and real-time work flows. Agents talking to agents, with humans in the loop where it matters."
+              title="Sandbox"
+              kind="Hospitality AI"
+              blurb="Firebase-powered demand prediction for hospitality and venue strategy. Turns sales noise into operational insight."
               delay={0.25}
             />
             <ArchiveCard
               code="12"
-              title="Sandbox"
-              kind="Hospitality AI"
-              blurb="Firebase-powered demand prediction for hospitality and venue strategy. Turns sales noise into operational insight."
+              title="TARS"
+              kind="Local privacy-first AI"
+              blurb="On-device intelligence — your data, your hardware, your control. Pushes the privacy ceiling for sensitive workflows."
               delay={0.3}
             />
             <ArchiveCard
               code="13"
-              title="TARS"
-              kind="Local privacy-first AI"
-              blurb="On-device intelligence — your data, your hardware, your control. Pushes the privacy ceiling for sensitive workflows."
-              delay={0.35}
-            />
-            <ArchiveCard
-              code="14"
               title="LogiRoute"
               kind="Touring logistics"
               blurb="Complex route optimization for touring schedules. Built in the open as a working logistics agent."
               href="https://logi-route-a9c09ae8.base44.app"
-              delay={0.4}
+              delay={0.35}
             />
             <ArchiveCard
-              code="15"
+              code="14"
               title="Guardian"
               kind="Web security"
               blurb="Server-side bot protection and monitoring. The defense layer that keeps the surface clean."
-              delay={0.45}
+              delay={0.4}
             />
           </div>
         </div>

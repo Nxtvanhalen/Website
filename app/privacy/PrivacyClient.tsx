@@ -78,6 +78,11 @@ export default function PrivacyClient() {
             protecting your personal data. This privacy policy explains how we collect, use, and
             safeguard your information when you visit our website chrisleebergstrom.com.
           </p>
+          <p className="mt-4">
+            This policy covers chrisleebergstrom.com and the Beacons monitoring platform, operated
+            by Christopher Lee Bergstrom (CLB Consulting). We will not share your mobile information
+            with third parties for marketing purposes.
+          </p>
 
           <H2>Information We Collect</H2>
           <H3>Information You Provide</H3>
@@ -166,6 +171,30 @@ export default function PrivacyClient() {
             Our AI assistant EVE processes conversations in real time to provide helpful
             responses. Conversations may be logged for quality improvement but are not linked to
             personal identifiers unless you explicitly provide such information.
+          </p>
+
+          <H2>Mobile / SMS Messaging</H2>
+          <p>
+            The Beacons monitoring platform, operated by Christopher Lee Bergstrom (CLB Consulting),
+            sends automated account and system-health notification text messages (SMS) to the
+            platform's named administrators during active monitoring sessions. Recipients opt in
+            individually, in person; there is no public sign-up. Message frequency varies based on
+            system events, and message and data rates may apply. You can reply STOP to unsubscribe
+            at any time or HELP for help.
+          </p>
+          <p className="mt-4">
+            <strong className="text-white">
+              We will not share your mobile information with third parties for marketing purposes.
+            </strong>{' '}
+            Full SMS notification terms are available on our{' '}
+            <Link
+              href="/sms"
+              className="transition-colors hover:text-white"
+              style={{ color: VIOLET }}
+            >
+              SMS Notifications
+            </Link>{' '}
+            page.
           </p>
 
           <H2>Children's Privacy</H2>

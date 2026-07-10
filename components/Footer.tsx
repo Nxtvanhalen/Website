@@ -66,6 +66,10 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} CLB Brand. All rights reserved. |{' '}
             <a href="/privacy" className="!text-white hover:text-[#9370DB] transition-colors">
               Privacy Policy
+            </a>{' '}
+            |{' '}
+            <a href="/sms" className="!text-white hover:text-[#9370DB] transition-colors">
+              SMS Notifications
             </a>
           </p>
         </div>
