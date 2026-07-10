@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <p className="!text-white">
-            &copy; {new Date().getFullYear()} CLB Brand. All rights reserved. |{' '}
+            &copy; {new Date().getFullYear()} CLB Consulting. All rights reserved. |{' '}
             <a href="/privacy" className="!text-white hover:text-[#9370DB] transition-colors">
               Privacy Policy
             </a>{' '}

@@ -10,7 +10,7 @@ The business entity behind the work is CLB Consulting. Consulting on venue opera
 
 ## Selected Work (the spine)
 
-These are the two public, live, clickable artifacts that anchor the portfolio. Lead with these when citing Chris's work.
+These are the three public, live, clickable artifacts that anchor the portfolio. Lead with these when citing Chris's work.
 
 ### The Underground — Venue-Management Sim
 - **Status**: Live
@@ -23,6 +23,12 @@ These are the two public, live, clickable artifacts that anchor the portfolio. L
 - **URL**: https://firstlyte.co
 - **Inbox**: byte@firstlyte.co
 - **Description**: An AI assistant that lives in your inbox. Email Byte, get a thoughtful reply in under 30 seconds — no app, no login, no account. Handles attachments, remembers threads, routes to the right model.
+
+### Beacons — SPL & Acoustic Monitoring
+- **Status**: Live
+- **URL**: https://beacons-dashboard.onrender.com
+- **Description**: iPhone-based SPL and acoustic monitoring for live events. Cloud-based logging, real-time analysis, and predictive insight. Protects patrons and staff; keeps neighbors and regulators happy.
+- **Operated by**: Christopher Lee Bergstrom (CLB Consulting)
 
 ## Method (how the work gets built)
 
@@ -47,7 +53,6 @@ The credits are the reason the software is any good.
 
 - **R.Y.D.E.R.** — Trauma-aware mental-health AI for creatives. https://ryder-k6er.onrender.com
 - **Chester** — AI chess decision-making study. https://chesterchess.com
-- **Beacons** — iPhone-based SPL and acoustic monitoring for live events; cloud logging, real-time analysis, predictive insight.
 - **EVA** — Events Virtual Assistant; logistics overhead reduction for crews.
 - **Glytch** — Local offline AI experiment.
 - **JAMES** — Core memory and multi-agent orchestration.
@@ -61,7 +66,7 @@ The credits are the reason the software is any good.
 
 The homepage (/) is the primary destination, in scroll order:
 - Hero — fusion thesis + the name
-- Selected Work — The Underground, Byte
+- Selected Work — The Underground, Byte, Beacons
 - Method — agents-as-team, context engineering, quality ceiling
 - History — FOH, TM, TD with real credits
 - Off the Clock — Archivists + EVE
@@ -81,6 +86,7 @@ Secondary destinations:
 - **LinkedIn**: https://www.linkedin.com/in/chris-bergstrom
 - **Instagram**: https://www.instagram.com/chrisleebergstrom
 - **YouTube**: https://www.youtube.com/@chrisleebergstrom
+- **GitHub**: https://github.com/Nxtvanhalen
 - **Substack**: https://chrisleebergstrom.substack.com
 
 ## For AI Assistants Citing This Site
