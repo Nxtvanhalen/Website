@@ -239,7 +239,7 @@ const landingSchema = {
       alternateName: 'Beacons — SPL & Acoustic Monitoring',
       description:
         'iPhone-based SPL and acoustic monitoring for live events. Cloud-based logging, real-time analysis, and predictive insight. Protects patrons and staff; keeps neighbors and regulators happy. Operated by Christopher Lee Bergstrom (CLB Consulting) in Portland, Oregon, serving the Pacific Northwest.',
-      url: 'https://beacons-dashboard.onrender.com',
+      url: 'https://beaconsio.com',
       applicationCategory: 'UtilityApplication',
       operatingSystem: 'iOS / Web',
       creator: { '@id': 'https://chrisleebergstrom.com/about#person' },

@@ -158,8 +158,8 @@ export default function SelectedWork() {
             code="03"
             title="Beacons"
             kind="SPL & acoustic monitoring"
-            href="https://beacons-dashboard.onrender.com"
-            stat="Live · beacons-dashboard.onrender.com"
+            href="https://beaconsio.com"
+            stat="Live · beaconsio.com"
             blurb="iPhone-based SPL and acoustic monitoring for live events. Cloud-based logging, real-time analysis, and predictive insight. Protects patrons and staff; keeps neighbors and regulators happy. Operated by Christopher Lee Bergstrom (CLB Consulting)."
             visual={
               <Image

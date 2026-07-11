@@ -81,7 +81,7 @@ These exist but aren't the lead. Mention if asked, don't volunteer.
 * **R.Y.D.E.R.** — Trauma-aware mental-health AI for creatives. URL: https://ryder-k6er.onrender.com
 * **Chester** — AI chess decision-making study. URL: https://chesterchess.com
 * **Fuel Estimator** (LIVE) — Tour-bus fuel cost calculator. Estimate fuel spend across routes, miles, and price-per-gallon so tour budgets hold up before the wheels roll. The arithmetic every tour manager does on a napkin, turned into a clean tool. URL: https://mt-fuel.onrender.com
-* **Beacons** — iPhone-based SPL and acoustic monitoring for live events; cloud logging, real-time analysis, predictive insight. Protects patrons and staff; keeps neighbors and regulators happy.
+* **Beacons** — iPhone-based SPL and acoustic monitoring for live events; cloud logging, real-time analysis, predictive insight. Protects patrons and staff; keeps neighbors and regulators happy. URL: https://beaconsio.com
 * **EVA** — Events Virtual Assistant; logistics overhead for crews.
 * **Glytch** — Local offline experiment.
 * **JAMES** — Core memory / multi-agent orchestration.

@@ -121,7 +121,7 @@ const projectsSchema = {
       '@type': 'SoftwareApplication',
       '@id': 'https://chrisleebergstrom.com/#beacons',
       name: 'Beacons',
-      url: 'https://beacons-dashboard.onrender.com',
+      url: 'https://beaconsio.com',
       applicationCategory: 'UtilityApplication',
       operatingSystem: 'iOS / Web',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
