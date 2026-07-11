@@ -17,6 +17,14 @@ export const metadata: Metadata = {
       'SMS notification terms for the Beacons monitoring platform — opt-in, message frequency, rates, STOP and HELP.',
     type: 'website',
     url: 'https://chrisleebergstrom.com/sms',
+    images: [
+      {
+        url: '/images/profile/chris-profile-square-2.jpg',
+        width: 1200,
+        height: 1200,
+        alt: 'Chris Lee Bergstrom — AI developer and live entertainment veteran',
+      },
+    ],
   },
 };
 

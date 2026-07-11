@@ -45,6 +45,19 @@ export const metadata: Metadata = {
   },
   description:
     'AI developer with 20 years in live entertainment. Building agentic software for venues, tours, and live events — front-of-house engineer turned full-stack developer, using AI agents as the build team.',
+  // Site-wide fallback share image. Without one, any page missing its own
+  // openGraph.images makes link previews (iMessage etc.) scrape the page and
+  // pick the transparent header logo, which renders on a checkerboard.
+  openGraph: {
+    images: [
+      {
+        url: '/images/profile/chris-profile-square-2.jpg',
+        width: 1200,
+        height: 1200,
+        alt: 'Chris Lee Bergstrom — AI developer and live entertainment veteran',
+      },
+    ],
+  },
   manifest: '/site.webmanifest',
   icons: {
     icon: [
