@@ -16,7 +16,7 @@
     "@types/react-dom": "^19.2.0",
     "autoprefixer": "^10.5.2",
     "fast-xml-parser": "^5.8.0",
-    "motion": "^12.40.0",
+    "motion": "^12.42.2",
     "next": "^16.2.9",
     "openai": "^5.23.2",
     "postcss": "^8.5.16",
