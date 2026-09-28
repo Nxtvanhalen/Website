@@ -4,9 +4,9 @@
 
 ---
 
-## Current state (as of 2026-05-26, after `app-router-next16` branch merge)
+## Current state (as of 2026-09-28, after the `chore/deps-and-sentry` refresh)
 
-**Framework**: Next.js 16.2.6 (App Router), React 19.2.6, Tailwind 3.4.19, OpenAI SDK 5.23.2, vanilla-cookieconsent 3.1.0, TypeScript 5.9.3. Bun 1.3.8 pinned in CI.
+**Framework**: Next.js 16.3.6 (App Router), React 19.3, Tailwind 4.3 (CSS-first `@theme` in `styles/global.css`), vanilla-cookieconsent 3.1.0, TypeScript 7. Bun 1.4.2 pinned via `.bun-version` (CI + Render). No OpenAI SDK — EVE calls the Responses API via `fetch`. Sentry (`@sentry/nextjs` 11) for error monitoring.
 
 **Rendering**: every route renders dynamically per request via `export const dynamic = 'force-dynamic'` in `app/layout.tsx`. This is the cost of nonce-based CSP — there is no static prerendering on this site except `/sitemap.xml`. TTFB is +20–100ms vs the prior fully-static build; Render's instance billing model means cost impact is negligible at our traffic.
 
@@ -17,6 +17,7 @@
 - `style-src-attr 'unsafe-inline'` — modern browsers: allow React `style={{}}` props (~149 in the codebase)
 - `upgrade-insecure-requests` only when the request itself was HTTPS (Render terminates TLS upstream and sets `x-forwarded-proto: https`); skipped locally so dev over HTTP doesn't break
 - Strict non-script directives: `object-src 'none'`, `frame-ancestors 'none'`, `base-uri 'self'`, `form-action 'self'`
+- `report-uri` → Sentry security endpoint (`clb-website` project); violations show up as Sentry issues
 - Set `CSP_REPORT_ONLY=true` in env to ship the policy in report-only mode (safety-net for first deploys of CSP changes)
 
 **Auto-noncing**: Next 16 auto-attaches the request's nonce to every framework script tag in the served HTML (including inline RSC payload scripts). Our own JSON-LD `<script>` tags in `app/<route>/page.tsx` files explicitly thread the nonce via `headers()` from `next/headers`.
