@@ -110,7 +110,7 @@ const projectsSchema = {
     {
       '@type': 'SoftwareApplication',
       name: 'Fuel Estimator',
-      url: 'https://mt-fuel.onrender.com',
+      url: 'https://fuel-estimator.onrender.com',
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web Browser',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },

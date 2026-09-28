@@ -331,8 +331,8 @@ export default function ProjectsClient() {
               code="05"
               title="Fuel Estimator"
               kind="Tour-bus fuel calculator"
-              href="https://mt-fuel.onrender.com"
-              stat="Live · mt-fuel.onrender.com"
+              href="https://fuel-estimator.onrender.com"
+              stat="Live · fuel-estimator.onrender.com"
               blurb="A tour-bus fuel cost calculator for the road. Estimate fuel spend across routes, miles, and price-per-gallon so budgets hold up before the wheels roll. The arithmetic every tour manager does on a napkin — turned into a clean, shareable tool."
               visual={
                 <div
