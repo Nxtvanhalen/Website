@@ -103,6 +103,9 @@ const DATA_CENTER_RANGES = [
   '43.159.',
 ];
 
+const CSP_REPORT_URI =
+  'https://o4510973470769152.ingest.us.sentry.io/api/4512165408276480/security/?sentry_key=5328d639c44be756c5ab5977f88a0b2f';
+
 function buildCspHeader(nonce: string, isHttps: boolean): string {
   const isDev = process.env.NODE_ENV === 'development';
   const directives = [
@@ -128,6 +131,8 @@ function buildCspHeader(nonce: string, isHttps: boolean): string {
     `base-uri 'self'`,
     `form-action 'self'`,
     `frame-ancestors 'none'`,
+    // CSP violations land in Sentry (clb-website → Issues, "CSP" category).
+    `report-uri ${CSP_REPORT_URI}`,
   ];
   // upgrade-insecure-requests forces the browser to rewrite every http:// subresource
   // URL to https://. Critical in production but breaks local HTTP development — Safari
@@ -207,7 +212,7 @@ export const config = {
   matcher: [
     {
       source:
-        '/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|site.webmanifest|sw.js|manifest.json|static).*)',
+        '/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|site.webmanifest|sw.js|manifest.json|static|monitoring).*)',
       missing: [
         { type: 'header', key: 'next-router-prefetch' },
         { type: 'header', key: 'purpose', value: 'prefetch' },

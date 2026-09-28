@@ -215,7 +215,7 @@ export default function PrivacyClient() {
             us:
           </p>
           <div
-            className="mt-6 rounded-sm bg-black/40 backdrop-blur-md p-6"
+            className="mt-6 rounded-xs bg-black/40 backdrop-blur-md p-6"
             style={{ border: '1px solid rgba(147, 112, 219, 0.3)' }}
           >
             <p className="font-heading uppercase tracking-tight text-white">CLB Consulting</p>

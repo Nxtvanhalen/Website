@@ -89,7 +89,7 @@ EVE (Entertainment Vision Engine) is an AI chatbot embedded in the website, serv
 │   └── CTA-PAGE-TEMPLATE.md   # Blueprint for building service CTA pages
 ├── proxy.ts                   # Next.js middleware (bot/IP blocking)
 ├── next.config.js             # Next.js configuration
-├── tailwind.config.js         # Tailwind CSS configuration
+├── postcss.config.js          # PostCSS (@tailwindcss/postcss); Tailwind v4 theme lives in styles/global.css @theme
 ├── postcss.config.js          # PostCSS configuration
 └── tsconfig.json              # TypeScript configuration
 ```
@@ -387,7 +387,17 @@ pkill -f next          # Kill existing Next.js processes
 
 - **Build Command**: `bun install && bun run build`
 - **Start Command**: `bun start`
-- **Environment Variables**: `OPENAI_API_KEY` must be set in Render dashboard
+- **Environment Variables**: `OPENAI_API_KEY` must be set in Render dashboard. Optional: `SENTRY_AUTH_TOKEN` (enables source-map upload so Sentry stack traces point at real source)
+
+### Error Monitoring (Sentry)
+
+- **Project**: `clb-consulting/clb-website` — https://clb-consulting.sentry.io/issues/?project=clb-website
+- **Setup**: `instrumentation-client.ts` (browser), `instrumentation.ts` + `sentry.server.config.ts` (server), `app/global-error.tsx` (React render errors). Shared options live in `sentry.shared.ts`.
+- **Production only**: `enabled` is gated on `NODE_ENV === 'production'`, so `bun run dev` never reports.
+- **Privacy**: SDK v11 collects request bodies/cookies/user info unless told otherwise; `sentry.shared.ts` pins the restrictive baseline (no bodies — EVE chat messages never leave the server, no IPs, no cookies). Keep it that way.
+- **Tunnel**: browser events go to `/monitoring` on our own origin (survives ad blockers, keeps CSP `connect-src 'self'`). `proxy.ts` excludes `/monitoring` from its matcher.
+- **CSP reports**: `report-uri` in `proxy.ts` sends CSP violations to the same Sentry project.
+- **EVE chat**: `/api/chat` captures upstream/OpenAI failures explicitly (visitor input errors are not reported).
 
 ### Deployment Troubleshooting
 

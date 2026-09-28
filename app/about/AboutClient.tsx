@@ -57,7 +57,7 @@ export default function AboutClient() {
             transition={{ duration: 0.7 }}
           >
             <div
-              className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0"
+              className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shrink-0"
               style={{ border: '1px solid rgba(147, 112, 219, 0.4)' }}
             >
               <Image
@@ -168,7 +168,7 @@ export default function AboutClient() {
             ].map((alias) => (
               <span
                 key={alias}
-                className="font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase px-3 py-2 rounded-sm text-white/80"
+                className="font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase px-3 py-2 rounded-xs text-white/80"
                 style={{ border: '1px solid rgba(147, 112, 219, 0.35)' }}
               >
                 {alias}
@@ -199,7 +199,7 @@ export default function AboutClient() {
           >
             <a
               href="mailto:chrisleebergstrom@gmail.com?subject=Project%20Inquiry"
-              className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-xs transition-all duration-300"
               style={{
                 background: VIOLET,
                 color: '#000',
@@ -213,7 +213,7 @@ export default function AboutClient() {
             </a>
             <a
               href="/"
-              className="inline-flex items-center justify-center px-8 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm border transition-all duration-300 hover:bg-white/5"
+              className="inline-flex items-center justify-center px-8 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-xs border transition-all duration-300 hover:bg-white/5"
               style={{
                 borderColor: 'rgba(147, 112, 219, 0.5)',
                 color: VIOLET,

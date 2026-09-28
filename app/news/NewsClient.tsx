@@ -31,7 +31,7 @@ function PressCard({
 }: PressCardProps) {
   return (
     <motion.article
-      className="relative rounded-sm bg-black/40 backdrop-blur-md p-7 md:p-9 transition-all duration-500"
+      className="relative rounded-xs bg-black/40 backdrop-blur-md p-7 md:p-9 transition-all duration-500"
       style={{ border: '1px solid rgba(147, 112, 219, 0.22)' }}
       whileHover={{
         borderColor: 'rgba(147, 112, 219, 0.7)',
@@ -287,7 +287,7 @@ export default function NewsClient() {
           >
             <a
               href="mailto:chrisleebergstrom@gmail.com?subject=Press%20Inquiry"
-              className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-xs transition-all duration-300"
               style={{
                 background: VIOLET,
                 color: '#000',
@@ -301,7 +301,7 @@ export default function NewsClient() {
             </a>
             <a
               href="/"
-              className="inline-flex items-center justify-center px-8 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm border transition-all duration-300 hover:bg-white/5"
+              className="inline-flex items-center justify-center px-8 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-xs border transition-all duration-300 hover:bg-white/5"
               style={{
                 borderColor: 'rgba(147, 112, 219, 0.5)',
                 color: VIOLET,

@@ -40,7 +40,7 @@ export default function PersistentChat() {
   }, [isOpen, setNotificationActive, setLastNotificationTime]);
 
   return (
-    <div className="fixed bottom-6 right-[15px] z-[100] flex flex-col items-end">
+    <div className="fixed bottom-6 right-[15px] z-100 flex flex-col items-end">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -51,7 +51,7 @@ export default function PersistentChat() {
             className="mb-4 mr-4 w-[90vw] md:w-[400px] h-[450px] max-h-[calc(100vh-180px)] bg-black/90 backdrop-blur-xl border border-mauve/50 rounded-2xl shadow-[0_0_30px_rgba(147,112,219,0.3)] overflow-hidden flex flex-col"
           >
             {/* Header */}
-            <div className="p-4 border-b border-white/10 flex justify-between items-center bg-gradient-to-r from-mauve/20 to-transparent">
+            <div className="p-4 border-b border-white/10 flex justify-between items-center bg-linear-to-r from-mauve/20 to-transparent">
               <div className="flex items-center gap-3">
                 <EveAvatar width={72} height={40} className="border border-mauve/50" />
                 <div>
@@ -100,12 +100,12 @@ export default function PersistentChat() {
             initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.9 }}
-            className="absolute bottom-20 right-0 mb-4 mr-[-12px] bg-black/80 backdrop-blur-md border border-[#9370DB]/50 p-2 rounded-2xl rounded-br-none shadow-[0_0_20px_rgba(147,112,219,0.3)] max-w-[90px]"
+            className="absolute bottom-20 right-0 mb-4 mr-[-12px] bg-black/80 backdrop-blur-md border border-mauve/50 p-2 rounded-2xl rounded-br-none shadow-[0_0_20px_rgba(147,112,219,0.3)] max-w-[90px]"
           >
             <div className="flex flex-col gap-2">
               <div className="flex flex-col items-start gap-1 border-b border-white/10 pb-2">
-                <EveAvatar width={64} height={36} className="border border-[#9370DB]/50" />
-                <span className="text-[10px] font-bold text-[#9370DB] uppercase tracking-wider leading-tight block">
+                <EveAvatar width={64} height={36} className="border border-mauve/50" />
+                <span className="text-[10px] font-bold text-mauve uppercase tracking-wider leading-tight block">
                   Incoming Transmission
                 </span>
               </div>
@@ -143,7 +143,7 @@ export default function PersistentChat() {
           onClick={toggleChat}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-transparent border-none p-0 cursor-pointer outline-none"
+          className="bg-transparent border-none p-0 cursor-pointer outline-hidden"
           style={{ background: 'none', border: 'none' }}
           aria-label={isOpen ? 'Close EVE AI chat' : 'Open EVE AI chat assistant'}
         >

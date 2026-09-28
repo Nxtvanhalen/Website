@@ -6,33 +6,33 @@
     "dev": "bun --bun next dev",
     "build": "bun --bun next build",
     "start": "bun --bun next start",
-    "lint": "biome lint app components context proxy.ts",
-    "lint:fix": "biome check --write app components context proxy.ts",
-    "format": "biome format --write app components context proxy.ts"
+    "lint": "biome lint app components context proxy.ts instrumentation.ts instrumentation-client.ts sentry.server.config.ts sentry.shared.ts",
+    "lint:fix": "biome check --write app components context proxy.ts instrumentation.ts instrumentation-client.ts sentry.server.config.ts sentry.shared.ts",
+    "format": "biome format --write app components context proxy.ts instrumentation.ts instrumentation-client.ts sentry.server.config.ts sentry.shared.ts"
   },
   "dependencies": {
-    "@types/node": "^20.19.43",
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.0",
-    "autoprefixer": "^10.5.2",
-    "fast-xml-parser": "^5.8.0",
-    "motion": "^12.40.0",
-    "next": "^16.2.9",
-    "openai": "^5.23.2",
-    "postcss": "^8.5.16",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
+    "@sentry/nextjs": "^11.1.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "fast-xml-parser": "^5.11.1",
+    "motion": "^13.4.4",
+    "next": "^16.3.6",
+    "postcss": "^8.5.28",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
-    "sharp": "^0.34.5",
-    "tailwindcss": "^3.4.19",
-    "typescript": "^5.9.3",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
     "vanilla-cookieconsent": "^3.1.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.15"
+    "@biomejs/biome": "^2.5.14"
   },
   "overrides": {
-    "postcss": "^8.5.15"
+    "postcss": "^8.5.28"
   }
 }

@@ -107,7 +107,7 @@ function FaqRow({ index, faq, open, onToggle }: FaqRowProps) {
         type="button"
         onClick={onToggle}
         aria-expanded={open}
-        className="group w-full grid grid-cols-12 gap-4 py-6 text-left transition-colors hover:bg-white/[0.02]"
+        className="group w-full grid grid-cols-12 gap-4 py-6 text-left transition-colors hover:bg-white/2"
       >
         <p
           className="col-span-2 md:col-span-1 font-mono text-xs tracking-[0.3em] uppercase pt-1"
@@ -238,7 +238,7 @@ export default function FaqClient() {
           >
             <a
               href="mailto:chrisleebergstrom@gmail.com?subject=FAQ%20Follow-up"
-              className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-xs transition-all duration-300"
               style={{
                 background: VIOLET,
                 color: '#000',
@@ -252,7 +252,7 @@ export default function FaqClient() {
             </a>
             <a
               href="/"
-              className="inline-flex items-center justify-center px-8 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm border transition-all duration-300 hover:bg-white/5"
+              className="inline-flex items-center justify-center px-8 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-xs border transition-all duration-300 hover:bg-white/5"
               style={{
                 borderColor: 'rgba(147, 112, 219, 0.5)',
                 color: VIOLET,
