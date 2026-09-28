@@ -7,7 +7,9 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "America/Los_Angeles"
-    open-pull-requests-limit: 5
+    # 5 open PRs (all unmerged since July) silently blocked the Next.js 16.3
+    # security release from ever getting a PR. Keep headroom above the groups.
+    open-pull-requests-limit: 10
     labels:
       - "dependencies"
     groups:
@@ -16,6 +18,10 @@ updates:
           - "patch"
       minor-dev-updates:
         dependency-type: "development"
+        update-types:
+          - "minor"
+      minor-prod-updates:
+        dependency-type: "production"
         update-types:
           - "minor"
     ignore:
