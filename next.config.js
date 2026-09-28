@@ -1,3 +1,5 @@
+const { withSentryConfig } = require('@sentry/nextjs/config');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -59,4 +61,16 @@ const nextConfig = {
   }
 }
 
-module.exports = nextConfig
+module.exports = withSentryConfig(nextConfig, {
+  org: 'clb-consulting',
+  project: 'clb-website',
+  // Source maps upload only when SENTRY_AUTH_TOKEN is set (Render env); CI and
+  // local builds skip the upload and still succeed.
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+  // Route browser events through /monitoring on our own origin: survives ad
+  // blockers and keeps the CSP connect-src at 'self'.
+  tunnelRoute: '/monitoring',
+  telemetry: false,
+})

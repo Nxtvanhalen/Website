@@ -6,11 +6,12 @@
     "dev": "bun --bun next dev",
     "build": "bun --bun next build",
     "start": "bun --bun next start",
-    "lint": "biome lint app components context proxy.ts",
-    "lint:fix": "biome check --write app components context proxy.ts",
-    "format": "biome format --write app components context proxy.ts"
+    "lint": "biome lint app components context proxy.ts instrumentation.ts instrumentation-client.ts sentry.server.config.ts sentry.shared.ts",
+    "lint:fix": "biome check --write app components context proxy.ts instrumentation.ts instrumentation-client.ts sentry.server.config.ts sentry.shared.ts",
+    "format": "biome format --write app components context proxy.ts instrumentation.ts instrumentation-client.ts sentry.server.config.ts sentry.shared.ts"
   },
   "dependencies": {
+    "@sentry/nextjs": "^11.1.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.6.3",
     "@types/react": "^19.3.0",

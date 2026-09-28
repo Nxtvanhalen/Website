@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs';
 import { NextResponse } from 'next/server';
 
 // EVE System Prompt — portfolio assistant for Chris Lee Bergstrom
@@ -375,6 +376,7 @@ export async function POST(request: Request) {
           send({ type: 'done', responseId, finalText });
         } catch (streamError) {
           console.error('EVE stream interrupted:', streamError);
+          Sentry.captureException(streamError);
           send({ type: 'error', message: 'The connection dropped mid-reply. Please try again.' });
         } finally {
           controller.close();
@@ -399,6 +401,10 @@ export async function POST(request: Request) {
         { status: error.statusCode, headers: noStoreHeaders },
       );
     }
+
+    // Visitor mistakes (ClientError) are returned above; everything else —
+    // OpenAI outages, bad keys, parse failures — is worth a Sentry issue.
+    Sentry.captureException(error);
 
     if (error.status) {
       const statusCode = error.status;
