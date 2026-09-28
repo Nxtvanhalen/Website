@@ -128,7 +128,7 @@ export default function Header() {
       <a
         ref={skipLinkRef}
         href="#main-content"
-        className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:left-3 focus-visible:z-[200] focus-visible:px-4 focus-visible:py-2 focus-visible:bg-black focus-visible:text-white focus-visible:rounded-sm focus-visible:outline-none focus-visible:border focus-visible:border-mauve focus-visible:font-mono focus-visible:text-xs focus-visible:uppercase focus-visible:tracking-[0.2em]"
+        className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:left-3 focus-visible:z-200 focus-visible:px-4 focus-visible:py-2 focus-visible:bg-black focus-visible:text-white focus-visible:rounded-xs focus-visible:outline-hidden focus-visible:border focus-visible:border-mauve focus-visible:font-mono focus-visible:text-xs focus-visible:uppercase focus-visible:tracking-[0.2em]"
       >
         Skip to main content
       </a>
@@ -172,7 +172,7 @@ export default function Header() {
 
           {/* Profile Picture - Center (all breakpoints; smaller on mobile) */}
           <div className="block absolute left-1/2 transform -translate-x-1/2">
-            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-molten/50 overflow-hidden bg-gradient-to-br from-molten/30 to-gray-700/50 relative">
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-molten/50 overflow-hidden bg-linear-to-br from-molten/30 to-gray-700/50 relative">
               {!isAboutPage ? (
                 <video
                   autoPlay

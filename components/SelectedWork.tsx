@@ -22,7 +22,7 @@ function WorkCard({ code, title, kind, blurb, stat, href, visual }: WorkCardProp
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block overflow-hidden rounded-sm bg-black/40 backdrop-blur-md transition-all duration-500"
+      className="group relative block overflow-hidden rounded-xs bg-black/40 backdrop-blur-md transition-all duration-500"
       style={{
         border: '1px solid rgba(147, 112, 219, 0.25)',
       }}
@@ -37,7 +37,7 @@ function WorkCard({ code, title, kind, blurb, stat, href, visual }: WorkCardProp
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.7 }}
     >
-      <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
+      <div className="relative aspect-video w-full overflow-hidden bg-black">
         {visual}
         {/* Hover wash — barely-there violet across the visual */}
         <div
@@ -56,7 +56,7 @@ function WorkCard({ code, title, kind, blurb, stat, href, visual }: WorkCardProp
             {code} · {kind}
           </span>
           <span
-            className="inline-flex items-center gap-1.5 rounded-sm border px-2 py-1 text-[9px] font-bold"
+            className="inline-flex items-center gap-1.5 rounded-xs border px-2 py-1 text-[9px] font-bold"
             style={{
               borderColor: VIOLET,
               color: VIOLET,

@@ -10,13 +10,13 @@ export default function NotFound() {
   return (
     <main className="min-h-screen bg-black text-white flex items-center justify-center px-6">
       <div className="text-center max-w-md">
-        <h1 className="text-6xl font-bold mb-4 text-[#9370DB]">404</h1>
+        <h1 className="text-6xl font-bold mb-4 text-mauve">404</h1>
         <p className="text-xl text-gray-300 mb-8">
           That page doesn't exist (or never did).
         </p>
         <Link
           href="/"
-          className="inline-block px-6 py-3 border-2 border-[#9370DB] rounded-lg text-white hover:bg-[#9370DB] transition-colors"
+          className="inline-block px-6 py-3 border-2 border-mauve rounded-lg text-white hover:bg-mauve transition-colors"
         >
           ← Return home
         </Link>

@@ -89,7 +89,7 @@ EVE (Entertainment Vision Engine) is an AI chatbot embedded in the website, serv
 │   └── CTA-PAGE-TEMPLATE.md   # Blueprint for building service CTA pages
 ├── proxy.ts                   # Next.js middleware (bot/IP blocking)
 ├── next.config.js             # Next.js configuration
-├── tailwind.config.js         # Tailwind CSS configuration
+├── postcss.config.js          # PostCSS (@tailwindcss/postcss); Tailwind v4 theme lives in styles/global.css @theme
 ├── postcss.config.js          # PostCSS configuration
 └── tsconfig.json              # TypeScript configuration
 ```

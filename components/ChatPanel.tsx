@@ -364,7 +364,7 @@ export default function ChatPanel() {
 
   // Shown after the user sends, before the first token streams back.
   const TypingIndicator = () => (
-    <div className="animate-message-in self-start mr-auto max-w-[85%] px-4 py-3 bg-white/[0.04] border border-white/10 rounded-2xl rounded-bl-md">
+    <div className="animate-message-in self-start mr-auto max-w-[85%] px-4 py-3 bg-white/4 border border-white/10 rounded-2xl rounded-bl-md">
       <div className="flex items-center gap-2 mb-2">
         <EveAvatar width={28} height={28} className="border border-mauve/40" />
         <span className="text-[11px] font-bold tracking-wider text-mauve/90">EVE</span>
@@ -394,7 +394,7 @@ export default function ChatPanel() {
                 className={`animate-message-in max-w-[85%] px-4 py-3 ${
                   isUser
                     ? 'self-end ml-auto bg-mauve/15 border border-mauve/30 rounded-2xl rounded-br-md text-white'
-                    : 'self-start mr-auto bg-white/[0.04] border border-white/10 rounded-2xl rounded-bl-md text-white'
+                    : 'self-start mr-auto bg-white/4 border border-white/10 rounded-2xl rounded-bl-md text-white'
                 }`}
               >
                 {!isUser && (
@@ -426,7 +426,7 @@ export default function ChatPanel() {
       <form onSubmit={sendMessage} className="flex border-t border-mauve/30 bg-black/30">
         <input
           ref={inputRef}
-          className="chat-input flex-1 p-4 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-mauve/50 rounded-none"
+          className="chat-input flex-1 p-4 bg-transparent text-white placeholder-gray-400 focus:outline-hidden focus:ring-2 focus:ring-mauve/50 rounded-none"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder={

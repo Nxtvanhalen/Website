@@ -54,7 +54,7 @@ export default function Footer() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-[#9370DB] transition-colors"
+              className="text-white hover:text-mauve transition-colors"
               aria-label={`Follow on ${social.label}`}
             >
               <SocialIcon type={social.icon} />
@@ -62,13 +62,13 @@ export default function Footer() {
           ))}
         </div>
         <div className="footer-bottom">
-          <p className="!text-white">
+          <p className="text-white!">
             &copy; {new Date().getFullYear()} CLB Consulting. All rights reserved. |{' '}
-            <a href="/privacy" className="!text-white hover:text-[#9370DB] transition-colors">
+            <a href="/privacy" className="text-white! hover:text-mauve transition-colors">
               Privacy Policy
             </a>{' '}
             |{' '}
-            <a href="/sms" className="!text-white hover:text-[#9370DB] transition-colors">
+            <a href="/sms" className="text-white! hover:text-mauve transition-colors">
               SMS Notifications
             </a>
           </p>

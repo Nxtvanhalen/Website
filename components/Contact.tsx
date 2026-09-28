@@ -45,7 +45,7 @@ export default function Contact() {
         >
           <a
             href={`mailto:${EMAIL}?subject=Project%20Inquiry`}
-            className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm transition-all duration-300"
+            className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-xs transition-all duration-300"
             style={{
               background: VIOLET,
               color: '#000',

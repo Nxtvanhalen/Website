@@ -22,7 +22,7 @@ function LiveCard({ code, title, kind, blurb, stat, href, visual }: LiveCardProp
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block overflow-hidden rounded-sm bg-black/40 backdrop-blur-md transition-all duration-500"
+      className="group relative block overflow-hidden rounded-xs bg-black/40 backdrop-blur-md transition-all duration-500"
       style={{ border: '1px solid rgba(147, 112, 219, 0.25)' }}
       whileHover={{
         scale: 1.01,
@@ -35,7 +35,7 @@ function LiveCard({ code, title, kind, blurb, stat, href, visual }: LiveCardProp
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.7 }}
     >
-      <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
+      <div className="relative aspect-video w-full overflow-hidden bg-black">
         {visual}
         <div
           aria-hidden="true"
@@ -53,7 +53,7 @@ function LiveCard({ code, title, kind, blurb, stat, href, visual }: LiveCardProp
             {code} · {kind}
           </span>
           <span
-            className="inline-flex items-center gap-1.5 rounded-sm border px-2 py-1 text-[9px] font-bold"
+            className="inline-flex items-center gap-1.5 rounded-xs border px-2 py-1 text-[9px] font-bold"
             style={{ borderColor: VIOLET, color: VIOLET }}
           >
             <span
@@ -138,7 +138,7 @@ function ArchiveCard({ code, title, kind, blurb, href, onClick, delay = 0 }: Arc
   } as const;
 
   const sharedClass =
-    'group relative block rounded-sm bg-black/40 backdrop-blur-md p-6 lg:p-7 transition-all duration-500';
+    'group relative block rounded-xs bg-black/40 backdrop-blur-md p-6 lg:p-7 transition-all duration-500';
   const sharedStyle = { border: '1px solid rgba(147, 112, 219, 0.22)' } as const;
   const hoverStyle = {
     borderColor: 'rgba(147, 112, 219, 0.7)',
@@ -487,7 +487,7 @@ export default function ProjectsClient() {
           >
             <a
               href="mailto:chrisleebergstrom@gmail.com?subject=Project%20Inquiry"
-              className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-3 px-10 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-xs transition-all duration-300"
               style={{
                 background: VIOLET,
                 color: '#000',
@@ -501,7 +501,7 @@ export default function ProjectsClient() {
             </a>
             <a
               href="/"
-              className="inline-flex items-center justify-center px-8 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-sm border transition-all duration-300 hover:bg-white/5"
+              className="inline-flex items-center justify-center px-8 py-4 font-heading text-sm tracking-[0.15em] uppercase rounded-xs border transition-all duration-300 hover:bg-white/5"
               style={{
                 borderColor: 'rgba(147, 112, 219, 0.5)',
                 color: VIOLET,

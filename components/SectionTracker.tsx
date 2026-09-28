@@ -139,23 +139,23 @@ export default function SectionTracker({
             initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.9 }}
-            className="fixed bottom-[104px] right-[3px] z-[101] bg-black/80 backdrop-blur-md border border-[#9370DB]/50 p-2 rounded-2xl rounded-br-none shadow-[0_0_20px_rgba(147,112,219,0.3)] max-w-[90px]"
+            className="fixed bottom-[104px] right-[3px] z-101 bg-black/80 backdrop-blur-md border border-mauve/50 p-2 rounded-2xl rounded-br-none shadow-[0_0_20px_rgba(147,112,219,0.3)] max-w-[90px]"
           >
             {isThinking ? (
               <div className="flex items-center justify-center h-full min-h-[40px] w-full">
                 <div className="flex space-x-1">
                   <motion.div
-                    className="w-1.5 h-1.5 bg-[#9370DB] rounded-full"
+                    className="w-1.5 h-1.5 bg-mauve rounded-full"
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 0.6, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
                   />
                   <motion.div
-                    className="w-1.5 h-1.5 bg-[#9370DB] rounded-full"
+                    className="w-1.5 h-1.5 bg-mauve rounded-full"
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 0.6, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
                   />
                   <motion.div
-                    className="w-1.5 h-1.5 bg-[#9370DB] rounded-full"
+                    className="w-1.5 h-1.5 bg-mauve rounded-full"
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 0.6, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
                   />
@@ -164,8 +164,8 @@ export default function SectionTracker({
             ) : (
               <div className="flex flex-col gap-2">
                 <div className="flex flex-col items-start gap-1 border-b border-white/10 pb-2">
-                  <EveAvatar width={64} height={36} className="border border-[#9370DB]/50" />
-                  <span className="text-[10px] font-bold text-[#9370DB] uppercase tracking-wider leading-tight block">
+                  <EveAvatar width={64} height={36} className="border border-mauve/50" />
+                  <span className="text-[10px] font-bold text-mauve uppercase tracking-wider leading-tight block">
                     Observation
                   </span>
                 </div>

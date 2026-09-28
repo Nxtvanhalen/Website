@@ -43,7 +43,7 @@ export default function OffTheClock() {
             href="https://chrisleebergstrom.substack.com/p/the-archivist"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative block overflow-hidden rounded-sm bg-black/40 backdrop-blur-md transition-all duration-500"
+            className="group relative block overflow-hidden rounded-xs bg-black/40 backdrop-blur-md transition-all duration-500"
             style={{ border: '1px solid rgba(147, 112, 219, 0.22)' }}
             whileHover={{
               borderColor: 'rgba(147, 112, 219, 0.7)',
@@ -54,7 +54,7 @@ export default function OffTheClock() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
+            <div className="relative aspect-video w-full overflow-hidden bg-black">
               <Image
                 src="/images/SciFi-Chroma-Moonscape-04.png"
                 alt="The Archivists — surreal moonscape with twin moons rising over a chroma-streaked desert horizon"
@@ -98,7 +98,7 @@ export default function OffTheClock() {
           <motion.button
             type="button"
             onClick={toggleChat}
-            className="group relative block text-left w-full overflow-hidden rounded-sm bg-black/40 backdrop-blur-md cursor-pointer transition-all duration-500"
+            className="group relative block text-left w-full overflow-hidden rounded-xs bg-black/40 backdrop-blur-md cursor-pointer transition-all duration-500"
             style={{ border: '1px solid rgba(147, 112, 219, 0.22)' }}
             whileHover={{
               borderColor: 'rgba(147, 112, 219, 0.7)',
@@ -110,7 +110,7 @@ export default function OffTheClock() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div
-              className="relative aspect-[16/9] w-full overflow-hidden"
+              className="relative aspect-video w-full overflow-hidden"
               style={{
                 background:
                   'radial-gradient(ellipse at center, rgba(147,112,219,0.15) 0%, rgba(0,0,0,1) 70%)',
