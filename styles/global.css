@@ -454,33 +454,6 @@
   letter-spacing: 0.3px;
 }
 
-/* Special Link (Ryder) */
-.menu-link-special {
-  position: relative;
-}
-
-.menu-link-special .menu-link-label {
-  color: #00ff00;
-  text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
-}
-
-.menu-link-special:hover .menu-link-label {
-  text-shadow: 0 0 12px rgba(0, 255, 0, 0.8);
-}
-
-.external-icon {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 16px;
-  height: 16px;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.menu-link-special:hover .external-icon {
-  color: #00ff00;
-}
-
 /* Menu Divider */
 .menu-divider {
   height: 1px;

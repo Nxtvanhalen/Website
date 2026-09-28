@@ -52,7 +52,6 @@ The credits are the reason the software is any good.
 
 ## Other Projects (archive, not the lead)
 
-- **R.Y.D.E.R.** — Trauma-aware mental-health AI for creatives. https://ryder-k6er.onrender.com
 - **Chester** — AI chess decision-making study. https://chesterchess.com
 - **EVA** — Events Virtual Assistant; logistics overhead reduction for crews.
 - **Glytch** — Local offline AI experiment.

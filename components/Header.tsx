@@ -15,14 +15,6 @@ const NAV_LINKS = [
   { href: '/faq', label: 'FAQ', description: 'Common questions' },
 ];
 
-// External link (Ryder)
-const EXTERNAL_LINK = {
-  href: 'https://ryder-k6er.onrender.com',
-  label: 'Ryder',
-  description: 'AI Assistant',
-  isSpecial: true,
-};
-
 // Social links configuration
 const SOCIAL_LINKS = [
   { href: 'https://www.instagram.com/chrisleebergstrom', label: 'Instagram', icon: 'instagram' },
@@ -285,30 +277,6 @@ export default function Header() {
                       <span className="menu-link-desc">{link.description}</span>
                     </motion.a>
                   ))}
-
-                  {/* Ryder - Special External Link */}
-                  <motion.a
-                    href={EXTERNAL_LINK.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="menu-link menu-link-special"
-                    onClick={closeMenu}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: NAV_LINKS.length * 0.05 }}
-                  >
-                    <span className="menu-link-label">{EXTERNAL_LINK.label}</span>
-                    <span className="menu-link-desc">{EXTERNAL_LINK.description}</span>
-                    <svg
-                      className="external-icon"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
-                    </svg>
-                  </motion.a>
                 </div>
 
                 {/* Divider */}

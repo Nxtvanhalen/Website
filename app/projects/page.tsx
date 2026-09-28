@@ -7,7 +7,7 @@ import ProjectsClient from './ProjectsClient';
 export const metadata: Metadata = {
   title: { absolute: 'Projects | Chris Lee Bergstrom — AI & Entertainment Tech' },
   description:
-    'Selected work and project archive from Chris Lee Bergstrom: agentic AI tools, entertainment-tech systems, and live-events software. Featuring The Underground, Byte, R.Y.D.E.R., Chester, Fuel Estimator, Beacons, EVA, and more.',
+    'Selected work and project archive from Chris Lee Bergstrom: agentic AI tools, entertainment-tech systems, and live-events software. Featuring The Underground, Byte, Chester, Fuel Estimator, Beacons, EVA, and more.',
   alternates: { canonical: 'https://chrisleebergstrom.com/projects' },
   openGraph: {
     title: 'Projects | Chris Lee Bergstrom',
@@ -88,15 +88,6 @@ const projectsSchema = {
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       description:
         'AI assistant that lives in your inbox. Email byte@firstlyte.co for thoughtful replies in under 30 seconds — no app, no login.',
-    },
-    {
-      '@type': 'SoftwareApplication',
-      name: 'R.Y.D.E.R.',
-      url: 'https://ryder-k6er.onrender.com',
-      applicationCategory: 'HealthApplication',
-      operatingSystem: 'Web Browser',
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      description: 'Trauma-aware mental-health AI for creatives. Anonymous, reflective.',
     },
     {
       '@type': 'SoftwareApplication',

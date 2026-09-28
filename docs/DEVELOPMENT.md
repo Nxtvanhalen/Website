@@ -162,7 +162,7 @@ The homepage uses a vertical scroll layout with dual parallax backgrounds:
 ### Projects Page (`pages/projects.tsx`)
 
 - **8 Current Projects**: Each with glowing titles using the same glow CSS class as EVE AI
-- **Projects Listed**: AI Consulting Sandbox, EVA, R.Y.D.E.R., EVE, Byte, Glytch, Multi-Agent Lab, JAMES
+- **Projects Listed**: AI Consulting Sandbox, EVA, EVE, Byte, Glytch, Multi-Agent Lab, JAMES
 - **Layout**: Numbered card-based layout with hover effects and responsive design
 - **Schema**: CollectionPage JSON-LD with all 8 projects individually listed
 

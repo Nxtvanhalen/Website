@@ -287,23 +287,6 @@ export default function ProjectsClient() {
             />
             <LiveCard
               code="03"
-              title="R.Y.D.E.R."
-              kind="Mental-health AI for creatives"
-              href="https://ryder-k6er.onrender.com"
-              stat="Live · ryder-k6er.onrender.com"
-              blurb="Trauma-aware AI for the industry. Anonymous, reflective, and emotionally attuned — not therapy, a check-in with soul. Built for the people who keep the show running when nobody else sees them break."
-              visual={
-                <Image
-                  src="/images/projects/Ryder.png"
-                  alt="R.Y.D.E.R. — Mental-health AI for creatives"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                />
-              }
-            />
-            <LiveCard
-              code="04"
               title="Chester"
               kind="AI chess study"
               href="https://chesterchess.com"
@@ -328,7 +311,7 @@ export default function ProjectsClient() {
               }
             />
             <LiveCard
-              code="05"
+              code="04"
               title="Fuel Estimator"
               kind="Tour-bus fuel calculator"
               href="https://fuel-estimator.onrender.com"
@@ -353,7 +336,7 @@ export default function ProjectsClient() {
               }
             />
             <LiveCard
-              code="06"
+              code="05"
               title="Beacons"
               kind="SPL & acoustic monitoring"
               href="https://beaconsio.com"
