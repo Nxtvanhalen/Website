@@ -66,7 +66,7 @@ The credits are the reason the software is any good.
 
 The homepage (/) is the primary destination, in scroll order:
 - Hero — fusion thesis + the name
-- Selected Work — The Underground, Byte, Beacons
+- Selected Work — The Underground, Byte, Beacons, Fuel Estimator
 - Method — agents-as-team, context engineering, quality ceiling
 - History — FOH, TM, TD with real credits
 - Off the Clock — Archivists + EVE

@@ -171,6 +171,32 @@ export default function SelectedWork() {
               />
             }
           />
+
+          <WorkCard
+            code="04"
+            title="Fuel Estimator"
+            kind="Tour-bus fuel calculator"
+            href="https://fuel-estimator.onrender.com"
+            stat="Live · fuel-estimator.onrender.com"
+            blurb="A tour-bus fuel cost calculator for the road. Estimate fuel spend across routes, miles, and price-per-gallon so budgets hold up before the wheels roll. The arithmetic every tour manager does on a napkin — turned into a clean, shareable tool."
+            visual={
+              <div
+                className="relative h-full w-full"
+                style={{
+                  background:
+                    'radial-gradient(ellipse at center, rgba(147,112,219,0.18) 0%, rgba(0,0,0,1) 70%)',
+                }}
+              >
+                <Image
+                  src="/images/projects/fuel-estimator.png"
+                  alt="Fuel Estimator — tour-bus fuel cost calculator logo with a fuel pump, gauge, and mountain road"
+                  fill
+                  className="object-contain"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+              </div>
+            }
+          />
         </div>
 
         <motion.div

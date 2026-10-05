@@ -250,6 +250,21 @@ const landingSchema = {
         'SPL monitoring, acoustic monitoring, sound level monitoring, noise monitoring, live events, venues, concerts, noise compliance, Portland Oregon',
     },
     {
+      '@type': 'SoftwareApplication',
+      '@id': 'https://chrisleebergstrom.com/#fuel-estimator',
+      name: 'Fuel Estimator',
+      alternateName: 'Fuel Estimator — Tour-Bus Fuel Calculator',
+      description:
+        'Tour-bus fuel cost calculator — estimate fuel spend across routes, miles, and price-per-gallon so tour budgets hold up before the wheels roll.',
+      url: 'https://fuel-estimator.onrender.com',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web Browser',
+      creator: { '@id': 'https://chrisleebergstrom.com/about#person' },
+      author: { '@id': 'https://chrisleebergstrom.com/about#person' },
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      keywords: 'tour bus fuel calculator, tour budgeting, fuel cost estimator, touring, tour management',
+    },
+    {
       '@type': 'WebPage',
       '@id': 'https://chrisleebergstrom.com/#webpage',
       url: 'https://chrisleebergstrom.com',
@@ -265,6 +280,7 @@ const landingSchema = {
         { '@id': 'https://chrisleebergstrom.com/#underground' },
         { '@id': 'https://chrisleebergstrom.com/#byte' },
         { '@id': 'https://chrisleebergstrom.com/#beacons' },
+        { '@id': 'https://chrisleebergstrom.com/#fuel-estimator' },
       ],
     },
     {
